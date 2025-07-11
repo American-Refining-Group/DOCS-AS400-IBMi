@@ -1,4 +1,4 @@
-American Refining Group Documentation: AS400 IBM i
+American Refining Group Documentation: AS400 IBM i (ERP)
 
 Welcome to the documentation repository for the ARG-AS400 legacy application, built using MkDocs and hosted on GitHub Pages.
 Overview
