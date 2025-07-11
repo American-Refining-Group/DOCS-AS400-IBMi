@@ -13,9 +13,9 @@ repo_url: https://github.com/American-Refining-Group/DOCS-AS400-IBMi
 theme:
   name: material  # Material for MkDocs for a modern, responsive design
   palette:
-    scheme: dark  # Auto-switch between light and dark mode
-  
-  features:
+    scheme: default  # Auto-switch between light and dark mode
+    primary: indigo  # Customize primary color
+    accent: amber    # Customize accent color  features:
     - content.code.copy  # Enable copy button for code blocks
     - content.tabs       # Enable tabbed content
     - navigation.sections  # Group pages into sections
