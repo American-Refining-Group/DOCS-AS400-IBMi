@@ -13,7 +13,7 @@ repo_url: https://github.com/American-Refining-Group/DOCS-AS400-IBMi
 theme:
   name: material  # Material for MkDocs for a modern, responsive design
   palette:
-    scheme: default  # Auto-switch between light and dark mode
+    scheme: slate  # Auto-switch between light and dark mode
     primary: indigo  # Customize primary color
     accent: amber    # Customize accent color
   features:
@@ -22,12 +22,7 @@ theme:
     - navigation.sections  # Group pages into sections
     - search.suggest      # Search suggestions
     - search.highlight   # Highlight search terms
-  features:
-    - content.code.copy  # Enable copy button for code blocks
-    - content.tabs       # Enable tabbed content
-    - navigation.sections  # Group pages into sections
-    - search.suggest      # Search suggestions
-    - search.highlight   # Highlight search terms
+    - palette.toggle     # Enable theme switcher icon
 
 # Plugins
 plugins:
@@ -44,8 +39,8 @@ markdown_extensions:
   - toc:                # In-page table of contents
       permalink: true   # Add anchor links to headings
   - pymdownx.emoji:     # Emoji support
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.tabbed     # Support for tabbed content
   - attr_list           # Allow custom attributes in Markdown
   - md_in_html          # Allow HTML in Markdown
