@@ -3,7 +3,7 @@ American Refining Group Documentation: AS400 IBM i (ERP)
 Welcome to the documentation repository for the ARG-AS400 legacy application, built using MkDocs and hosted on GitHub Pages.
 Overview
 This repository contains the source files for the documentation of the ARG-AS400 application, generated using MkDocs with the Material theme. The site is automatically deployed to GitHub Pages whenever changes are pushed to the main branch.
-You can view the live documentation at: {TBD}
+You can view the live documentation at: https://american-refining-group.github.io/DOCS-AS400-IBMi/
 Prerequisites
 To contribute to this repository, ensure you have the following installed:
 
