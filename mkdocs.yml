@@ -15,7 +15,14 @@ theme:
   palette:
     scheme: default  # Auto-switch between light and dark mode
     primary: indigo  # Customize primary color
-    accent: amber    # Customize accent color  features:
+    accent: amber    # Customize accent color
+  features:
+    - content.code.copy  # Enable copy button for code blocks
+    - content.tabs       # Enable tabbed content
+    - navigation.sections  # Group pages into sections
+    - search.suggest      # Search suggestions
+    - search.highlight   # Highlight search terms
+  features:
     - content.code.copy  # Enable copy button for code blocks
     - content.tabs       # Enable tabbed content
     - navigation.sections  # Group pages into sections
