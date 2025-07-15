@@ -1,0 +1,3555 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the legacy application">
+      
+      
+        <meta name="author" content="American Refining Group">
+      
+      
+        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-payable/07%20Vendor%201099/AP910P99%20OCL%201099%20Vendor%20Maintenance/AP910%20RPGLE/">
+      
+      
+        <link rel="prev" href="../../AP765P%20OCL%20Vendor%201099%20Forms/Summary%20AP765P%20OCL/">
+      
+      
+        <link rel="next" href="../AP9104%20RPGLE/">
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>AP910 RPGLE - ARG AS400 IBMi Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#process-steps-of-the-rpgle-program" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="ARG AS400 IBMi Documentation" class="md-header__button md-logo" aria-label="ARG AS400 IBMi Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ARG AS400 IBMi Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AP910 RPGLE
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    American-Refining-Group/DOCS-AS400-IBMi
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="ARG AS400 IBMi Documentation" class="md-nav__button md-logo" aria-label="ARG AS400 IBMi Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ARG AS400 IBMi Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    American-Refining-Group/DOCS-AS400-IBMi
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ARG AS400 IBMi Documentation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Accounts payable
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Accounts payable
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    01 Voucher Entry
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            01 Voucher Entry
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AP100 OCL Voucher Entry
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            AP100 OCL Voucher Entry
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP100%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP100 OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP100%20RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP100 RPG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP100%20Summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP100 Summary
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP110%20RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP110 RPG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP115%20RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP115 RPG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/Summary%20AP100/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Summary AP100
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_1_7" id="__nav_2_1_1_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AP106 Flexi Capture
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_1_1_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_1_7">
+            <span class="md-nav__icon md-icon"></span>
+            AP106 Flexi Capture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP106%20Flexi%20Capture/AP106%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP106 OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP106%20Flexi%20Capture/AP106%20Summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP106 Summary
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP106%20Flexi%20Capture/AP106/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP106
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP106%20Flexi%20Capture/AP107/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP107
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_1_8" id="__nav_2_1_1_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AP125 ARGLMS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_1_1_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_1_8">
+            <span class="md-nav__icon md-icon"></span>
+            AP125 ARGLMS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP125%20ARGLMS/AP1012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP1012
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_2" id="__nav_2_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AP105PCL CLP SOGAS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            AP105PCL CLP SOGAS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01%20Voucher%20Entry/AP105PCL%20CLP%20SOGAS/AP105%20Call%20Stack%20Summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP105 Call Stack Summary
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01%20Voucher%20Entry/AP105PCL%20CLP%20SOGAS/AP105%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP105 OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01%20Voucher%20Entry/AP105PCL%20CLP%20SOGAS/AP105%20RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP105 RPG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01%20Voucher%20Entry/AP105PCL%20CLP%20SOGAS/AP105P%20RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP105P RPG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01%20Voucher%20Entry/AP105PCL%20CLP%20SOGAS/AP105PCL%20CLP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP105PCL CLP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_3" id="__nav_2_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AP200 OCL Convert Voucher to Payable
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            AP200 OCL Convert Voucher to Payable
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01%20Voucher%20Entry/AP200%20OCL%20Convert%20Voucher%20to%20Payable/AP200%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP200 OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01%20Voucher%20Entry/AP200%20OCL%20Convert%20Voucher%20to%20Payable/AP200%20RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP200 RPG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01%20Voucher%20Entry/AP200%20OCL%20Convert%20Voucher%20to%20Payable/AP200P%20RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP200P RPG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01%20Voucher%20Entry/AP200%20OCL%20Convert%20Voucher%20to%20Payable/AP205%20RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP205 RPG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01%20Voucher%20Entry/AP200%20OCL%20Convert%20Voucher%20to%20Payable/AP210%20RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP210 RPG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01%20Voucher%20Entry/AP200%20OCL%20Convert%20Voucher%20to%20Payable/Summary%20AP200%20Purchase%20Journal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Function Requirement Document: Process Accounts Payable Transactions and Post to General Ledger and Inventory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    02 Payables
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            02 Payables
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AP196 OCL Status Code Update
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            AP196 OCL Status Code Update
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02%20Payables/AP196%20OCL%20Status%20Code%20Update/196OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    196OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02%20Payables/AP196%20OCL%20Status%20Code%20Update/197RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    197RPG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    03 Payment Cycle
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            03 Payment Cycle
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AP150 OCL Payment Selection & Rpt
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            AP150 OCL Payment Selection & Rpt
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03%20Payment%20Cycle/AP150%20OCL%20Payment%20Selection%20%26%20Rpt/AP150%20Summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP150 Summary
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03%20Payment%20Cycle/AP150%20OCL%20Payment%20Selection%20%26%20Rpt/AP150OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP150OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03%20Payment%20Cycle/AP150%20OCL%20Payment%20Selection%20%26%20Rpt/AP150RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP150RPG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03%20Payment%20Cycle/AP150%20OCL%20Payment%20Selection%20%26%20Rpt/AP151%20RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP151 RPG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03%20Payment%20Cycle/AP150%20OCL%20Payment%20Selection%20%26%20Rpt/AP155%20RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP155 RPG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03%20Payment%20Cycle/AP150%20OCL%20Payment%20Selection%20%26%20Rpt/AP156%20RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP156 RPG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AP160 OCL Print Checks
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            AP160 OCL Print Checks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03%20Payment%20Cycle/AP160%20OCL%20Print%20Checks/AP160%20Print%20Checks%20Summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP160 Print Checks Summary
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03%20Payment%20Cycle/AP160%20OCL%20Print%20Checks/AP160OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP160OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03%20Payment%20Cycle/AP160%20OCL%20Print%20Checks/AP160RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP160RPG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_3" id="__nav_2_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AP250 OCL Check Register
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            AP250 OCL Check Register
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP250%20Summary%20Check%20Register/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP250 Summary Check Register
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP250OCL%20GROK/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP250OCL GROK
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP250RPG%20GROK/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP250RPG GROK
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP251%20RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP251 RPG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP255%20RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP255 RPG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP256%20RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP256 RPG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP256A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP256A
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    05 Clear Checks & Reconciliation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            05 Clear Checks & Reconciliation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../05%20Clear%20Checks%20%26%20Reconciliation/AP190%20OCL%20Summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP190 OCL Summary
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../05%20Clear%20Checks%20%26%20Reconciliation/AP190%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP190 OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../05%20Clear%20Checks%20%26%20Reconciliation/AP190%20RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP190 RPG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../05%20Clear%20Checks%20%26%20Reconciliation/AP195%20RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP195 RPG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_5" id="__nav_2_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AP192 Upload Checks to Clear
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            AP192 Upload Checks to Clear
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../05%20Clear%20Checks%20%26%20Reconciliation/AP192%20Upload%20Checks%20to%20Clear/AP192%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP192 OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../05%20Clear%20Checks%20%26%20Reconciliation/AP192%20Upload%20Checks%20to%20Clear/AP192%20RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP192 RPG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../05%20Clear%20Checks%20%26%20Reconciliation/AP192%20Upload%20Checks%20to%20Clear/AP192%20Summary%20Upload%20Checks%20to%20Clear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP192 Summary Upload Checks to Clear
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../05%20Clear%20Checks%20%26%20Reconciliation/AP192%20Upload%20Checks%20to%20Clear/AP193%20RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP193 RPG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    06 ADP Expenses
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            06 ADP Expenses
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../06%20ADP%20Expenses/AP140%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP140 OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../06%20ADP%20Expenses/AP140%20RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP140 RPG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../06%20ADP%20Expenses/AP140%20Summary%20Emp%20Expense/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP140 Summary Emp Expense
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../06%20ADP%20Expenses/AP141%20RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP141 RPG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../06%20ADP%20Expenses/AP145%20RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP145 RPG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    07 Vendor 1099
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            07 Vendor 1099
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6_1" id="__nav_2_6_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AP760P OCL 1099 Vendor Register
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            AP760P OCL 1099 Vendor Register
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AP760P%20OCL%201099%20Vendor%20Register/AP760%20RPG36/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP760 RPG36
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AP760P%20OCL%201099%20Vendor%20Register/AP760P%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP760P OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AP760P%20OCL%201099%20Vendor%20Register/AP760P%20RPG36/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP760P RPG36
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AP760P%20OCL%201099%20Vendor%20Register/Summary%20AP760P%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Summary AP760P OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6_2" id="__nav_2_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AP765P OCL Vendor 1099 Forms
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            AP765P OCL Vendor 1099 Forms
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AP765P%20OCL%20Vendor%201099%20Forms/AP765%20RPG36/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP765 RPG36
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AP765P%20OCL%20Vendor%201099%20Forms/AP765N%20RPG36/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP765N RPG36
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AP765P%20OCL%20Vendor%201099%20Forms/AP765P%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP765P OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AP765P%20OCL%20Vendor%201099%20Forms/AP765P%20RPG36/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP765P RPG36
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AP765P%20OCL%20Vendor%201099%20Forms/Summary%20AP765P%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Summary AP765P OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_6_3" id="__nav_2_6_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AP910P99 OCL 1099 Vendor Maintenance
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            AP910P99 OCL 1099 Vendor Maintenance
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    AP910 RPGLE
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP910 RPGLE
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#process-steps-of-the-rpgle-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Steps of the RPGLE Program
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#business-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Business Rules
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tables-files-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tables (Files) Used
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-programs-called" class="md-nav__link">
+    <span class="md-ellipsis">
+      External Programs Called
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AP9104%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP9104 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AP910P%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP910P RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AP910P99%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP910P99 OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Summary%20AP910P99%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Summary AP910P99 OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Accounts receivable
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Accounts receivable
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    01 Customer
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            01 Customer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1" id="__nav_3_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    01 Customer Master AP900
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            01 Customer Master AP900
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../accounts-receivable/01%20Customer/01%20Customer%20Master%20AP900/AP900%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP900 OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../accounts-receivable/01%20Customer/01%20Customer%20Master%20AP900/AP900%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP900 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../accounts-receivable/01%20Customer/01%20Customer%20Master%20AP900/Summary%20AP900%20Customer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Summary AP900 Customer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#process-steps-of-the-rpgle-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Steps of the RPGLE Program
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#business-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Business Rules
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tables-files-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tables (Files) Used
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-programs-called" class="md-nav__link">
+    <span class="md-ellipsis">
+      External Programs Called
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>AP910 RPGLE</h1>
+
+<p>The RPGLE program <code>AP910.rpgle.txt</code> is part of an IBM AS/400 or IBM i accounts payable system, designed for vendor master maintenance and inquiry. It is called from the OCL program <code>AP910P99.ocl36.txt</code> via <code>AP910P</code> and is used to create, update, or display vendor records, with specific support for 1099 form processing. Below, I’ll explain the process steps, business rules, tables used, and external programs called.</p>
+<hr />
+<h3 id="process-steps-of-the-rpgle-program">Process Steps of the RPGLE Program<a class="headerlink" href="#process-steps-of-the-rpgle-program" title="Permanent link">&para;</a></h3>
+<p>The <code>AP910</code> program is a display file-driven application that manages vendor master records through a single-panel interface (<code>fmt01</code>). It supports maintenance (<code>MNT</code>) and inquiry (<code>INQ</code>) modes, allowing users to add, update, or view vendor details. The program includes validations for 1099-related fields and integrates with an SQL vendor table for synchronization. Here’s a step-by-step breakdown of the process:</p>
+<ol>
+<li><strong>Initialization (<code>*inzsr</code> Subroutine)</strong>:</li>
+<li><strong>Receives Parameters</strong>: The program accepts five parameters via the <code>*entry</code> PLIST:<ul>
+<li><code>p$co</code> (company code).</li>
+<li><code>p$vend</code> (vendor number).</li>
+<li><code>p$mode</code> (3A): Run mode, either <code>MNT</code> (maintenance) or <code>INQ</code> (inquiry).</li>
+<li><code>p$file</code> (10A): Vendor file name for 1099 processing (e.g., <code>APVN2025</code>).</li>
+<li><code>p$fgrp</code> (1A): File group, either <code>G</code> or <code>Z</code>, for file overrides.</li>
+<li><code>p$flag</code> (1A): Return flag to indicate success (<code>1</code>) or failure.</li>
+</ul>
+</li>
+<li><strong>Sets Up Fields</strong>: Initializes display file fields (<code>f$co</code>, <code>f$vend</code>), key lists (<code>klvend</code>, <code>klglms</code>, <code>klcaid</code>, etc.), and message handling fields. Defines data structures for date conversion (<code>d#cymd</code>), time conversion (<code>time12</code>), and vendor record storage (<code>wkds01</code>, <code>svds</code>).</li>
+<li>
+<p><strong>Purpose</strong>: Prepares the program environment for processing vendor data.</p>
+</li>
+<li>
+<p><strong>Open Database Tables (<code>opntbl</code> Subroutine)</strong>:</p>
+</li>
+<li><strong>File Overrides</strong>: Based on <code>p$fgrp</code> (<code>G</code> or <code>Z</code>), applies overrides to <code>APCONT</code>, <code>GLMAST</code>, <code>GSTABL</code>, <code>BBCAID</code>, and <code>APVEND</code> using <code>QCMDEXC</code> to execute <code>OVRDBF</code> commands:<ul>
+<li>For <code>p$fgrp = 'G'</code>: Overrides to <code>GAPCONT</code>, <code>GGLMAST</code>, <code>GGSTABL</code>, <code>GBBCAID</code>, <code>GAPVEND</code>.</li>
+<li>For <code>p$fgrp = 'Z'</code>: Overrides to <code>ZAPCONT</code>, <code>ZGLMAST</code>, <code>ZGSTABL</code>, <code>ZBBCAID</code>, <code>ZAPVEND</code>.</li>
+<li>If <code>p$file</code> is provided (e.g., <code>APVN2025</code>), uses it for <code>APVEND</code>.</li>
+</ul>
+</li>
+<li><strong>Opens Files</strong>: Opens <code>APCONT</code>, <code>GLMAST</code>, <code>GSTABL</code>, <code>BBCAID</code>, and <code>APVEND</code> with <code>USROPN</code> for dynamic access.</li>
+<li>
+<p><strong>Purpose</strong>: Ensures access to the correct files, especially year-specific vendor files for 1099 processing.</p>
+</li>
+<li>
+<p><strong>Retrieve Data (<code>rtvdta</code> Subroutine)</strong>:</p>
+</li>
+<li><strong>Fetch Company Data</strong>: Chains to <code>APCONT</code> using <code>f$co</code> to retrieve the company name (<code>acname</code>) into <code>f$conm</code>. If not found, clears <code>f$conm</code>.</li>
+<li><strong>Fetch Vendor Data</strong>: Chains to <code>APVEND</code> using <code>klvend</code> (<code>f$co</code>, <code>f$vend</code>). If the vendor exists (<code>*in99 = *off</code>), loads the record; otherwise, clears <code>apvendpf</code>.</li>
+<li><strong>Set Mode and Header</strong>: Sets protection indicator <code>*in70</code> (<code>*off</code> for <code>MNT</code>, <code>*on</code> for <code>INQ</code>) and header (<code>c$hdr1</code>) to “Vendor Master Maintenance” or “Vendor Master Inquiry” based on <code>p$mode</code>.</li>
+<li>
+<p><strong>Purpose</strong>: Loads existing vendor data or prepares for a new record.</p>
+</li>
+<li>
+<p><strong>Process Panel Formats (<code>srfmt</code> Subroutine)</strong>:</p>
+</li>
+<li><strong>Clear Screen</strong>: Writes <code>clrscr</code> to reset the display.</li>
+<li><strong>Initialize Panel</strong>: Calls <code>f01mov</code> to set up fields for <code>fmt01</code> and sets <code>w$fmt = 'FMT01'</code>.</li>
+<li><strong>Main Loop</strong> (<code>fmtagn</code>):<ul>
+<li>Displays the message subfile if needed (<code>wrtmsg</code>).</li>
+<li>Displays <code>fmt01</code> using <code>EXFMT</code>.</li>
+<li>Clears error indicators (<code>*in50</code>–<code>*in69</code>, <code>*in76</code>–<code>*in79</code>) and message subfile (<code>clrmsg</code>).</li>
+<li>Processes user input based on the current format (<code>f01sr</code> for <code>fmt01</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Purpose</strong>: Manages the interactive display of the vendor maintenance/inquiry panel.</p>
+</li>
+<li>
+<p><strong>Process Format (<code>f01sr</code> Subroutine)</strong>:</p>
+</li>
+<li><strong>Handle Function Keys</strong>:<ul>
+<li><strong>F04</strong>: Calls <code>prompt</code> to handle field-level prompting (e.g., lookup for GL account, terms, or 1099 code).</li>
+<li><strong>F05</strong>: Calls <code>AP915P</code> for vendor contact maintenance/inquiry (commented out in this version).</li>
+<li><strong>F10</strong>: Repositions the cursor to the top of the screen.</li>
+<li><strong>F12</strong>: Exits the program (<code>fmtagn = *off</code>).</li>
+</ul>
+</li>
+<li><strong>Inquiry Mode</strong>: If <code>p$mode = 'INQ'</code>, calls <code>f01nxt</code> to determine the next format (though only <code>fmt01</code> is active).</li>
+<li><strong>Enter Key</strong>: Validates input (<code>f01edt</code>), updates the database if in <code>MNT</code> mode (<code>upddbf</code>), and processes the next format (<code>f01nxt</code>).</li>
+<li>
+<p><strong>Purpose</strong>: Handles user interactions with the <code>fmt01</code> panel.</p>
+</li>
+<li>
+<p><strong>Determine Next Format (<code>f01nxt</code> Subroutine)</strong>:</p>
+</li>
+<li>If no input changes are detected (<code>*in19 = *off</code>), exits the main loop (<code>fmtagn = *off</code>).</li>
+<li>
+<p><strong>Purpose</strong>: Controls whether to continue or exit the panel loop (only <code>fmt01</code> is used in this version).</p>
+</li>
+<li>
+<p><strong>Edit Format Input (<code>f01edt</code> Subroutine)</strong>:</p>
+</li>
+<li>Validates fields in <code>fmt01</code>:<ul>
+<li><strong>Name (<code>vnname</code>)</strong>: Must not be blank (<code>ERR0012</code>, <code>*in51</code>).</li>
+<li><strong>Name Overflow (<code>vnnovf</code>)</strong>: Must be <code>Y</code> or <code>N</code> (<code>ERR0014</code>, <code>*in52</code>).</li>
+<li><strong>ACH Fields (commented out)</strong>: If bank account (<code>vnabk#</code>) is non-blank, validates:</li>
+<li><code>vnacos</code>: Must be <code>C</code> or <code>S</code> (<code>com(05)</code>, <code>*in77</code>).</li>
+<li><code>vnacls</code>: Must be <code>CCD</code> (<code>com(06)</code>, <code>*in78</code>).</li>
+<li><code>vnarte</code>: Must be non-zero (<code>com(07)</code>, <code>*in79</code>).</li>
+<li><strong>ACH Hold Validation</strong>: If <code>vnhold = 'A'</code> and <code>vnabk#</code> is blank, errors (<code>com(08)</code>, <code>*in76</code>–<code>*in79</code>).</li>
+<li><strong>Sort Field (<code>vnsort</code>)</strong>: Must not be blank (<code>ERR0012</code>, <code>*in53</code>).</li>
+<li><strong>Hold (<code>vnhold</code>)</strong>: Must be <code>H</code>, <code>A</code>, <code>W</code>, <code>E</code>, <code>U</code>, or blank (<code>com(01)</code>, <code>*in54</code>).</li>
+<li><strong>Single Payee (<code>vnsngl</code>)</strong>: Must be <code>S</code> or blank (<code>com(02)</code>, <code>*in55</code>).</li>
+<li><strong>Expense GL (<code>vnexgl</code>)</strong>: Must exist in <code>GLMAST</code>, not deleted or inactive (<code>ERR0010</code>, <code>*in56</code>), and not a special account (<code>ERR0015</code>).</li>
+<li><strong>Carrier (<code>vncaid</code>)</strong>: Must exist in <code>BBCAID</code> and not be deleted (<code>ERR0010</code>, <code>*in57</code>).</li>
+<li><strong>Inactive Code (<code>vndel</code>)</strong>: Sets <code>f$inac</code> to “INACTIVE” if <code>vndel = 'I'</code>.</li>
+<li><strong>Terms (<code>vnterm</code>)</strong>: Must exist in <code>GSTABL</code> and not be deleted (<code>ERR0010</code>, <code>*in58</code>).</li>
+<li><strong>Gal/Rcpts Required (<code>vngrrq</code>)</strong>: Commented out validation for <code>GSTABL</code> lookup (<code>ERR0010</code>, <code>*in71</code>).</li>
+<li><strong>Category (<code>vncatg</code>)</strong>: Must exist in <code>GSTABL</code> (no deleted check, <code>*in62</code> commented out).</li>
+<li><strong>1099 Code (<code>vn1099</code>)</strong>:</li>
+<li>Must not be blank (<code>ERR0010</code>, <code>*in59</code>).</li>
+<li>Must exist in <code>GSTABL</code> and not be deleted (<code>ERR0010</code>, <code>*in59</code>).</li>
+<li>If <code>M</code> or <code>N</code>, requires:<ul>
+<li>IRS Name Control (<code>vnnmct</code>) non-blank (<code>com(04)</code>, <code>*in61</code>).</li>
+<li>IRS EIN (<code>vnidno</code>) non-blank (<code>com(10)</code>, <code>*in64</code>).</li>
+<li>IRS Box 1 (<code>vnbox1</code>) non-zero (<code>com(11)</code>, <code>*in65</code>).</li>
+</ul>
+</li>
+<li><strong>Zip Code (<code>vnzip5</code>)</strong>: Required if <code>vnctry = 'US'</code> and <code>vn1099 ≠ 'X'</code> and <code>vnhold ≠ 'E'</code> (<code>com(09)</code>, <code>*in63</code>).</li>
+<li><strong>Payees (<code>vnpyn2</code>)</strong>: If non-blank, <code>vnpyn1</code> must also be non-blank (<code>com(03)</code>, <code>*in60</code>).</li>
+</ul>
+</li>
+<li><strong>Inquiry Mode</strong>: Clears errors and messages if <code>p$mode = 'INQ'</code>.</li>
+<li>
+<p><strong>Purpose</strong>: Ensures valid input before updating the database.</p>
+</li>
+<li>
+<p><strong>Initialize Format Fields (<code>f01mov</code> Subroutine)</strong>:</p>
+</li>
+<li>Calls <code>f01edt</code> to validate and populate display fields.</li>
+<li>Clears errors if validation fails.</li>
+<li>Calls <code>f01pro</code> (empty in this version) for format protection.</li>
+<li>
+<p><strong>Purpose</strong>: Prepares the <code>fmt01</code> panel with validated data.</p>
+</li>
+<li>
+<p><strong>Update Database (<code>upddbf</code> Subroutine)</strong>:</p>
+</li>
+<li>Saves current vendor record (<code>wkds01</code>) to <code>svds</code>.</li>
+<li>Checks if the vendor exists in <code>APVEND</code> (<code>klvend</code> chain):<ul>
+<li>If exists (<code>*in80 = *off</code>) and fields changed, restores <code>svds</code> to <code>wkds01</code>, updates <code>apvendpf</code>, sets <code>p$flag = '1'</code>, and calls <code>updSQLvn</code> (commented out).</li>
+<li>If not exists, clears <code>apvendpf</code>, populates with <code>svds</code>, sets <code>vnco</code> and <code>vnvend</code>, writes a new record, sets <code>p$flag = '1'</code>, and calls <code>updSQLvn</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Purpose</strong>: Updates or creates vendor records in <code>APVEND</code>.</p>
+</li>
+<li>
+<p><strong>Update SQL Vendor Master (<code>updSQLvn</code> Subroutine)</strong>:</p>
+<ul>
+<li>Commented out code to call a PC program (<code>UpdateVendor.EXE</code>) via <code>STRPCOCLP</code> and <code>QCMDEXC</code> to synchronize the AS/400 vendor table with an SQL version.</li>
+<li><strong>Purpose</strong>: Intended to keep an external SQL vendor table in sync (disabled per <code>MG01</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Field Prompting (<code>prompt</code> Subroutine)</strong>:</p>
+<ul>
+<li>Determines cursor position for window return.</li>
+<li>For <code>fmt01</code>, handles field lookups:</li>
+<li><strong>VNEXGL</strong>: Calls <code>LGLMAST</code> to select a GL account, updates <code>vnexgl</code> if valid.</li>
+<li><strong>VNCAID</strong>: Calls <code>LBBCAID</code> to select a carrier, updates <code>vncaid</code>.</li>
+<li><strong>VNTERM</strong>: Calls <code>LGSTABL</code> to select terms, updates <code>vnterm</code>.</li>
+<li><strong>VNGRRQ</strong>: Calls <code>LGSTABL</code> for gal/rcpts required (commented out).</li>
+<li><strong>VNCATG</strong>: Calls <code>LGSTABL</code> to select a category, updates <code>vncatg</code>.</li>
+<li><strong>VN1099</strong>: Calls <code>LGSTABL</code> to select a 1099 code, updates <code>vn1099</code>.</li>
+<li>Sets <code>*in19</code> to indicate a format change.</li>
+<li><strong>Purpose</strong>: Provides interactive lookup for key fields.</li>
+</ul>
+</li>
+<li>
+<p><strong>Message Handling (<code>addmsg</code>, <code>wrtmsg</code>, <code>clrmsg</code> Subroutines)</strong>:</p>
+<ul>
+<li><strong>Add Message (<code>addmsg</code>)</strong>: Sends error or confirmation messages to the program message queue (<code>QMHSNDPM</code>).</li>
+<li><strong>Write Message (<code>wrtmsg</code>)</strong>: Displays the message subfile (<code>msgctl</code>).</li>
+<li><strong>Clear Message (<code>clrmsg</code>)</strong>: Clears the message subfile (<code>QMHRMVPM</code>).</li>
+<li><strong>Purpose</strong>: Manages user feedback for errors and confirmations.</li>
+</ul>
+</li>
+<li>
+<p><strong>Program Termination</strong>:</p>
+<ul>
+<li>Closes all files (<code>close *all</code>), sets <code>*inlr = *on</code>, and returns.</li>
+<li><strong>Purpose</strong>: Ensures clean program exit.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Mode-Based Access</strong>:</li>
+<li>In <code>MNT</code> mode, users can create or update vendor records, with input fields enabled (<code>*in70 = *off</code>).</li>
+<li>
+<p>In <code>INQ</code> mode, users can only view vendor details, with input fields protected (<code>*in70 = *on</code>).</p>
+</li>
+<li>
+<p><strong>File Overrides for 1099 Processing</strong>:</p>
+</li>
+<li>Overrides <code>APVEND</code> to year-specific files (e.g., <code>APVN2025</code>) based on <code>p$file</code> and <code>p$fgrp</code> (<code>G</code> or <code>Z</code>) to support 1099 processing, as noted in revision <code>JB01</code>.</li>
+<li>
+<p>Similarly overrides <code>APCONT</code>, <code>GLMAST</code>, <code>GSTABL</code>, and <code>BBCAID</code>.</p>
+</li>
+<li>
+<p><strong>Validation Rules</strong>:</p>
+</li>
+<li><strong>Mandatory Fields</strong>:<ul>
+<li>Vendor name (<code>vnname</code>) and sort field (<code>vnsort</code>) must not be blank (<code>ERR0012</code>).</li>
+<li>If second payee (<code>vnpyn2</code>) is non-blank, first payee (<code>vnpyn1</code>) must be non-blank (<code>com(03)</code>).</li>
+</ul>
+</li>
+<li><strong>Valid Values</strong>:<ul>
+<li>Name overflow (<code>vnnovf</code>): <code>Y</code> or <code>N</code> (<code>ERR0014</code>).</li>
+<li>Hold (<code>vnhold</code>): <code>H</code> (check), <code>A</code> (ACH), <code>W</code> (wire), <code>E</code>, <code>U</code> (utility auto-pay, per <code>MG03</code>), or blank (<code>com(01)</code>).</li>
+<li>Single payee (<code>vnsngl</code>): <code>S</code> or blank (<code>com(02)</code>).</li>
+<li>ACH fields (commented out): If <code>vnabk#</code> non-blank, <code>vnacos</code> (<code>C</code>/<code>S</code>), <code>vnacls</code> (<code>CCD</code>), and <code>vnarte</code> (non-zero) are required. If <code>vnhold = 'A'</code> and <code>vnabk#</code> blank, errors (<code>com(08)</code>).</li>
+</ul>
+</li>
+<li><strong>Reference File Checks</strong>:<ul>
+<li>Expense GL (<code>vnexgl</code>): Must exist in <code>GLMAST</code>, not deleted or inactive (<code>ERR0010</code>), and not special (<code>ERR0015</code>).</li>
+<li>Carrier (<code>vncaid</code>): Must exist in <code>BBCAID</code> and not deleted (<code>ERR0010</code>).</li>
+<li>Terms (<code>vnterm</code>): Must exist in <code>GSTABL</code> and not deleted (<code>ERR0010</code>).</li>
+<li>Category (<code>vncatg</code>): Must exist in <code>GSTABL</code> (no deleted check).</li>
+<li>1099 Code (<code>vn1099</code>): Must exist in <code>GSTABL</code>, not deleted, and not blank (<code>ERR0010</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>1099-Specific Validations</strong> (per <code>MG02</code>, <code>JK01</code>):</p>
+<ul>
+<li>If <code>vn1099 = 'M'</code> (MISC) or <code>'N'</code> (NEC):</li>
+<li>IRS Name Control (<code>vnnmct</code>) must be non-blank (<code>com(04)</code>).</li>
+<li>IRS EIN (<code>vnidno</code>) must be non-blank (<code>com(10)</code>).</li>
+<li>IRS Box 1 (<code>vnbox1</code>) must be non-zero (<code>com(11)</code>).</li>
+<li>If <code>vnctry = 'US'</code> and <code>vn1099 ≠ 'X'</code> and <code>vnhold ≠ 'E'</code>, zip code (<code>vnzip5</code>) must be non-zero (<code>com(09)</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Database Updates</strong>:</p>
+</li>
+<li>In <code>MNT</code> mode, updates or creates records in <code>APVEND</code> and sets <code>p$flag = '1'</code> on success.</li>
+<li>
+<p>Synchronization with an SQL vendor table is commented out (<code>MG01</code>).</p>
+</li>
+<li>
+<p><strong>User Interface</strong>:</p>
+</li>
+<li>Supports function keys: F04 (field prompting), F05 (vendor contacts, commented out), F10 (cursor home), F12 (exit), and Enter (process input).</li>
+<li>Displays a single panel (<code>fmt01</code>) with vendor details and validation messages.</li>
+</ol>
+<hr />
+<h3 id="tables-files-used">Tables (Files) Used<a class="headerlink" href="#tables-files-used" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>AP910D</strong>:</li>
+<li>Display file (CF, <code>workstn</code>) for the vendor maintenance/inquiry interface (<code>fmt01</code>, <code>clrscr</code>, <code>msgctl</code>).</li>
+<li>
+<p>Used for user input/output.</p>
+</li>
+<li>
+<p><strong>APCONT</strong>:</p>
+</li>
+<li>Input-only file (IF, <code>usropn</code>) for company data.</li>
+<li>Overridden to <code>GAPCONT</code> or <code>ZAPCONT</code> based on <code>p$fgrp</code>.</li>
+<li>
+<p>Used to validate company code (<code>f$co</code>) and retrieve company name (<code>acname</code>).</p>
+</li>
+<li>
+<p><strong>GLMAST</strong>:</p>
+</li>
+<li>Input-only file (IF, <code>usropn</code>) for general ledger accounts.</li>
+<li>Overridden to <code>GGLMAST</code> or <code>ZGLMAST</code>.</li>
+<li>
+<p>Used to validate expense GL account (<code>vnexgl</code>).</p>
+</li>
+<li>
+<p><strong>GSTABL</strong>:</p>
+</li>
+<li>Input-only file (IF, <code>usropn</code>) for reference data (terms, category, 1099 codes).</li>
+<li>Overridden to <code>GGSTABL</code> or <code>ZGSTABL</code>.</li>
+<li>
+<p>Used to validate <code>vnterm</code>, <code>vncatg</code>, <code>vn1099</code>, and commented-out <code>vngrrq</code>.</p>
+</li>
+<li>
+<p><strong>BBCAID</strong>:</p>
+</li>
+<li>Input-only file (IF, <code>usropn</code>) for carrier data (replaces <code>GSTABL</code> for carrier lookup per <code>JK03</code>).</li>
+<li>Overridden to <code>GBBCAID</code> or <code>ZBBCAID</code>.</li>
+<li>
+<p>Used to validate carrier (<code>vncaid</code>).</p>
+</li>
+<li>
+<p><strong>APVEND</strong>:</p>
+</li>
+<li>Update file (UF, <code>usropn</code>) for vendor master data.</li>
+<li>Overridden to <code>GAPVEND</code>, <code>ZAPVEND</code>, or a year-specific file (e.g., <code>APVN2025</code>) based on <code>p$file</code> and <code>p$fgrp</code>.</li>
+<li>Used for reading, updating, or creating vendor records.</li>
+</ol>
+<hr />
+<h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>LGLMAST</strong>:</li>
+<li>Called in <code>prompt</code> for GL account lookup (<code>VNEXGL</code>).</li>
+<li>
+<p>Parameters: <code>o$co</code> (company), <code>o$acct</code> (account), <code>o$sub</code> (sub-account), <code>o$spec</code> (special accounts flag), <code>o$fgrp</code> (file group).</p>
+</li>
+<li>
+<p><strong>LBBCAID</strong>:</p>
+</li>
+<li>Called in <code>prompt</code> for carrier lookup (<code>VNCAID</code>, per <code>JK03</code>).</li>
+<li>
+<p>Parameters: <code>o$co</code> (company), <code>o$caid</code> (carrier ID), <code>o$fgrp</code> (file group).</p>
+</li>
+<li>
+<p><strong>LGSTABL</strong>:</p>
+</li>
+<li>Called in <code>prompt</code> for lookup of terms (<code>VNTERM</code>), category (<code>VNCATG</code>), and 1099 code (<code>VN1099</code>).</li>
+<li>
+<p>Parameters: <code>k$apterm</code>/<code>k$apcatg</code>/<code>k$ap1099</code> (table type), <code>k$term</code>/<code>k$catg</code>/<code>k$1099</code> (code), <code>o$fgrp</code> (file group).</p>
+</li>
+<li>
+<p><strong>QCMDEXC</strong>:</p>
+</li>
+<li>
+<p>System program to execute file override commands (<code>OVRDBF</code>) for <code>APCONT</code>, <code>GLMAST</code>, <code>GSTABL</code>, <code>BBCAID</code>, and <code>APVEND</code>.</p>
+</li>
+<li>
+<p><strong>QMHSNDPM</strong>:</p>
+</li>
+<li>
+<p>System program to send messages to the program message queue.</p>
+</li>
+<li>
+<p><strong>QMHRMVPM</strong>:</p>
+</li>
+<li>
+<p>System program to clear messages from the message subfile.</p>
+</li>
+<li>
+<p><strong>AP915P</strong> (commented out)**:</p>
+</li>
+<li>Intended for vendor contact maintenance/inquiry (per <code>JK02</code>).</li>
+<li>
+<p>Parameters: <code>o$co#</code> (company), <code>o$vend</code> (vendor), <code>o$mode</code> (MNT/INQ), <code>o$fgrp</code> (file group).</p>
+</li>
+<li>
+<p><strong>STRPCOCLP</strong> and <strong>UpdateVendor.EXE</strong> (commented out)**:</p>
+</li>
+<li>Intended to synchronize the AS/400 vendor table with an SQL table (per <code>JB05</code>, disabled per <code>MG01</code>).</li>
+</ol>
+<hr />
+<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
+<p>The <code>AP910</code> RPGLE program is a critical component of the accounts payable system, providing an interactive interface for maintaining or viewing vendor master records. It supports creating and updating vendor data in <code>MNT</code> mode and viewing in <code>INQ</code> mode, with robust validations for 1099-related fields (e.g., IRS Name Control, EIN, Box 1, zip code). The program integrates with the OCL program <code>AP910P99</code> and <code>AP910P</code> to manage vendor data for 1099 processing, using year-specific files like <code>APVNYYYY</code>. It includes field lookups and error handling to ensure data integrity.</p>
+<p><strong>Tables/Files</strong>: <code>AP910D</code> (display), <code>APCONT</code>, <code>GLMAST</code>, <code>GSTABL</code>, <code>BBCAID</code>, <code>APVEND</code> (overridden to <code>GAPCONT</code>, <code>GGLMAST</code>, <code>GGSTABL</code>, <code>GBBCAID</code>, <code>GAPVEND</code>, or <code>APVNYYYY</code>).<br />
+<strong>External Programs</strong>: <code>LGLMAST</code>, <code>LBBCAID</code>, <code>LGSTABL</code>, <code>QCMDEXC</code>, <code>QMHSNDPM</code>, <code>QMHRMVPM</code>, <code>AP915P</code> (commented out), <code>STRPCOCLP</code>/<code>UpdateVendor.EXE</code> (commented out).</p>
+<p>If you need further details on related programs (<code>AP9104</code>, <code>LGLMAST</code>, etc.) or file structures, let me know, and I can provide additional analysis or search for relevant information!</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/your-username/your-repo" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy", "content.tabs", "navigation.sections", "search.suggest", "search.highlight", "palette.toggle"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+    
+  </body>
+</html>
