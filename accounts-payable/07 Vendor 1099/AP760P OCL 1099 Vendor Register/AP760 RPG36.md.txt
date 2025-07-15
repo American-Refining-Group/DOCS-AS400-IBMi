@@ -1,0 +1,148 @@
+The `AP760.rpg36.txt` is an RPG/36 program (likely running on an IBM System/36 or AS/400 environment) called from the `AP760P.ocl36.txt` OCL program to generate a Vendor 1099 Register. This program processes vendor data from the `AP761` file and produces a printed report (`APPRINT`) summarizing 1099-related information, such as vendor payments categorized by 1099 box types (e.g., rent, medical, miscellaneous). Below, I’ll explain the process steps, business rules, tables/files used, and any external programs called, based on the provided RPG code.
+
+---
+
+### Process Steps of the RPG/36 Program (AP760)
+
+The `AP760` program reads vendor data from the `AP761` file, retrieves 1099 type descriptions from `GSTABL`, accumulates totals for specific 1099 boxes, and outputs a formatted report to the printer file `APPRINT`. Here’s a step-by-step breakdown of the process:
+
+1. **Program Initialization** (lines 0026–0032):
+   - **ONCE Subroutine**:
+     - Checks if the `ONCE` flag is zero (first execution) (line 0026).
+     - Retrieves the system time and date using the `TIME` operation and stores them in `TIMDAT` (12 bytes), then moves them to `TIME` (6 bytes, time) and `DATE` (6 bytes, date) fields (lines 0027–0029).
+     - Initializes the `SEP` array (66 elements, 2 bytes each) with `'* '` for use as a separator in the report (line 0030).
+     - Sets `ONCE` to 1 to prevent re-execution (line 0031).
+
+2. **Processing Vendor Records (Level 2 Break - L2)**:
+   - The program processes records from the `AP761` file at level 2 (L2), indicated by the `L2` indicator, which suggests a control break for grouping records by 1099 type (`VN1099`).
+   - **Steps for Each L2 Group** (lines 0034–0074):
+     - Initializes the table key (`TBKEY`, 12 bytes) to blanks and sets the prefix to `'AP1099'` (lines 0034–0035).
+     - Appends the vendor’s 1099 code (`VN1099`) to `TBKEY` and chains to the `GSTABL` file to retrieve the corresponding description (`TBDESC`) (lines 0036–0037).
+     - If the record is not found (indicator 99 on) and `KYTY1` (from UDS, set by `AP760P`) is neither `'M'` (miscellaneous) nor `'N'` (non-employee compensation), sets indicators 33 or 34 to adjust report formatting (line 0037).
+     - Initializes counters and accumulators for the L2 group:
+       - `L2CNT` (count of vendors in the group) to zero (line JB01).
+       - `L21AMT` (total for box 1, rent), `L23AMT` (total for box 3, non-employee compensation), `L26AMT` (total for box 6, medical), and `L27AMT` (total for box 7, miscellaneous) to zero (lines 0038–0040).
+     - Initializes report accumulators for each box (`BX1AMT`, `BX3AMT`, `BX6AMT`, `BX7AMT`) to zero (lines 0044–0046).
+
+3. **Processing Individual Vendor Records (Level 1 Break - 01)**:
+   - For each vendor record (`AP761`, indicator 01), the program processes payment amounts and payee names:
+     - **Accumulate Box Amounts** (lines 0048–0070):
+       - Checks the first box number (`VNBOX1`) and assigns the first amount (`VNAMT1`) to the corresponding accumulator:
+         - If `VNBOX1 = 1`, adds `VNAMT1` to `BX1AMT` (rent) (lines 0048–0050).
+         - If `VNBOX1 = 3`, adds `VNAMT1` to `BX3AMT` (non-employee compensation) (lines 0052–0054).
+         - If `VNBOX1 = 6`, adds `VNAMT1` to `BX6AMT` (medical) (lines 0052–0054).
+         - If `VNBOX1 = 7`, adds `VNAMT1` to `BX3AMT` (miscellaneous, treated as non-employee compensation) (lines 0056–0058).
+       - Checks the second box number (`VNBOX2`) and assigns the second amount (`VNAMT2`) similarly:
+         - If `VNBOX2 = 1`, adds `VNAMT2` to `BX1AMT` (rent) (lines 0060–0062).
+         - If `VNBOX2 = 6`, adds `VNAMT2` to `BX6AMT` (medical) (lines 0064–0066).
+         - If `VNBOX2 = 7`, adds `VNAMT2` to `BX3AMT` (miscellaneous) (lines 0068–0070).
+     - **Update Group Totals** (lines 0071–0074, JB01):
+       - Increments the vendor count (`L2CNT`) for the L2 group.
+       - Adds `BX1AMT`, `BX3AMT`, `BX6AMT`, and `BX7AMT` to their respective L2 totals (`L21AMT`, `L23AMT`, `L26AMT`, `L27AMT`).
+     - **Handle Payee Names** (lines JB01):
+       - Initializes `PYN1` and `PYN2` (payee name fields, 40 bytes each) to blanks and turns off indicators 71 and 72 (formatting flags).
+       - If `VNPYN1` (payee name 1) is blank, uses `VNNAME` (vendor name) for `PYN1` (lines JB01).
+       - If `VNNOVF = 'Y'` (name overflow flag), moves `VNADD1` (address line 1) to `PYN2` and sets indicator 72 for printing (lines JB02).
+       - If `VNPYN1` is not blank, uses `VNPYN1` for `PYN1` and sets indicator 71.
+       - If `VNPYN2` (payee name 2) is not blank, uses `VNPYN2` for `PYN2` and sets indicator 72 (lines JB01).
+
+4. **Report Output (APPRINT)** (lines 0076–0120):
+   - The program writes to the printer file `APPRINT` (132 characters per line) with the following structure:
+     - **L2 Detail and Overflow Lines** (lines 0076–0108):
+       - Prints page number (`PAGE`), date (`DATE`, formatted as `Y`), and time (`TIME`, formatted as `HH.MM.SS`) (lines 0078–0086).
+       - Prints the report title “VENDOR 1099 REGISTER” (line 0084).
+       - Prints the 1099 type (`VN1099`) and description (`TBDESC`) from `GSTABL` (lines 0088–0089).
+       - Prints column headers: “NUMBER” (vendor number), “1099 ID #”, “PAYEE NAME”, “RENT (BOX=1)”, “MEDICAL (BOX=6)”, “MISC (BOX=3)” (lines 0095–0105).
+       - Prints separator lines (`SEP`) as needed (lines 0092, 0108).
+     - **Vendor Detail Lines (01)** (lines 0109–0115, JB01):
+       - Prints vendor number (`VNVENDZ`), 1099 ID (`VNID#`), payee name 1 (`PYN1`), and amounts for boxes 1, 6, and 3 (`BX1AMTK`, `BX6AMTK`, `BX3AMTK`) (lines 0109–0115).
+       - If indicator 72 is on, prints payee name 2 (`PYN2`) on a second line (line JB01).
+     - **L2 Totals** (lines 0116–0120):
+       - Prints “** TOTALS”, vendor count (`L2CNT`), and total amounts for boxes 1, 6, and 3 (`L21AMTK`, `L26AMTK`, `L23AMTK`) at the end of each 1099 type group.
+
+---
+
+### Business Rules
+
+The program enforces the following business rules for generating the Vendor 1099 Register:
+
+1. **Vendor Record Processing**:
+   - Only processes records from `AP761` where `VNDEL` (delete code) is not set to indicate deletion.
+   - Groups records by 1099 type (`VN1099`) for reporting, with a control break at L2.
+
+2. **1099 Box Mapping**:
+   - Maps payment amounts (`VNAMT1`, `VNAMT2`) to specific 1099 boxes based on `VNBOX1` and `VNBOX2`:
+     - Box 1: Rent.
+     - Box 3: Non-employee compensation (also used for box 7, miscellaneous).
+     - Box 6: Medical and health care payments.
+   - Accumulates amounts for each box (`BX1AMT`, `BX3AMT`, `BX6AMT`, `BX7AMT`) per vendor and totals them per 1099 type (`L21AMT`, `L23AMT`, `L26AMT`, `L27AMT`).
+
+3. **Payee Name Handling** (JB01, JB02 revisions):
+   - If `VNPYN1` (payee name 1) is blank, uses `VNNAME` (vendor name) for the primary payee name (`PYN1`).
+   - If `VNNOVF = 'Y'`, uses `VNADD1` (address line 1) as the secondary payee name (`PYN2`) and prints it on a second line.
+   - If `VNPYN1` and `VNPYN2` are provided, uses them for `PYN1` and `PYN2`, respectively, and prints both if applicable.
+
+4. **Report Formatting**:
+   - Prints a header with the report title, date, time, and page number.
+   - Groups data by 1099 type, displaying the type code and description from `GSTABL`.
+   - Includes vendor details (number, 1099 ID, payee name(s), and box amounts) and totals for each 1099 type group.
+   - Uses indicators (33, 34 for type validation; 71, 72 for payee name formatting) to control report output.
+
+5. **Type Validation**:
+   - Validates 1099 types against `GSTABL` using the `AP1099` key prefix.
+   - Adjusts formatting based on whether `KYTY1` is `'M'` (miscellaneous) or `'N'` (non-employee compensation).
+
+---
+
+### Tables/Files Used
+
+The program uses the following files:
+1. **AP761**:
+   - Type: Primary input file (`IP`), 196 bytes, sequential access.
+   - Contains vendor 1099 data, including:
+     - `VNDEL` (1 byte): Delete code.
+     - `VN1099` (1 byte): 1099 type code.
+     - `VNVENDL1` (6 bytes): Vendor number.
+     - `VNID#` (11 bytes): 1099 ID number (e.g., TIN).
+     - `VNNAME` (30 bytes): Vendor name.
+     - `VNAMT1`, `VNAMT2` (9 bytes each, zoned decimal): Payment amounts for boxes.
+     - `VNBOX1`, `VNBOX2` (2 bytes each): Box numbers for payments.
+     - `VNPYN1`, `VNPYN2` (40 bytes each, JB01): Payee names 1 and 2.
+     - `VNNOVF` (1 byte, JB02): Name overflow flag (‘Y’ if address used as second line).
+     - `VNADD1` (30 bytes, JB02): Address line 1.
+2. **GSTABL**:
+   - Type: Indexed file (`IC`), 256 bytes, 12-byte key, shared access (`DISP-SHR`).
+   - Contains 1099 type descriptions under the `AP1099` key prefix.
+   - Fields used: `TBDESC` (30 bytes, table description).
+3. **APPRINT**:
+   - Type: Printer output file (`O`), 132 bytes, with overflow indicator (`OF`).
+   - Used to generate the 1099 Register report, including headers, vendor details, and totals.
+
+---
+
+### External Programs Called
+
+The `AP760` program does not explicitly call any external programs. However:
+- It is invoked by the `AP760P.ocl36.txt` OCL program, either directly or via a job queue, as specified in the OCL’s `// JOBQ` or `// AP760` commands.
+- The `AP760P` program (previously analyzed) sets up and validates parameters passed to `AP760` via the User Data Structure (UDS), specifically `KYTY1` for 1099 type filtering.
+
+---
+
+### Summary
+
+The `AP760` RPG/36 program generates a Vendor 1099 Register by:
+1. Initializing date, time, and report formatting settings.
+2. Processing vendor records from `AP761`, grouped by 1099 type (`VN1099`), and retrieving type descriptions from `GSTABL`.
+3. Accumulating payment amounts for 1099 boxes (1: rent, 3: non-employee compensation, 6: medical, 7: miscellaneous) and handling payee names (using vendor name, payee names, or address for overflow).
+4. Printing a formatted report to `APPRINT` with headers, vendor details, and totals for each 1099 type group.
+5. Enforcing business rules for box mapping, payee name formatting, and report structure.
+
+**Tables/Files Used**:
+- `AP761` (vendor 1099 data, primary input).
+- `GSTABL` (1099 type descriptions, indexed).
+- `APPRINT` (printer output for the report).
+
+**External Programs Called**:
+- None directly called, but invoked by `AP760P.ocl36.txt` and relies on parameters set by `AP760P`.
+
+If you need further details, such as a sample report layout or additional analysis of the `AP761` file structure, let me know!
