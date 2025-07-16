@@ -12,28 +12,28 @@
         <meta name="author" content="American Refining Group">
       
       
-        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-payable/01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP125%20ARGLMS/AP125P%20RPGLE/">
+        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-payable/07%20Vendor%201099/AP795%20OCL%201099%20Convert%20IRS%20File%20to%20PC/AP795%20OCL/">
       
       
-        <link rel="prev" href="../AP125%20RPGLE/">
+        <link rel="prev" href="../../AP790%20OCL%201099%20Print%20File/Summary%20AP790%20OCL/">
       
       
-        <link rel="next" href="../Summary%20AP1012/">
+        <link rel="next" href="../Summary%20AP795%20OCL/">
       
       
-      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
     
     
       
-        <title>AP125P RPGLE - ARG AS400 IBMi Documentation</title>
+        <title>AP795 OCL - ARG AS400 IBMi Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -52,7 +52,7 @@
       
     
     
-    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#process-steps-of-the-ap125p-program" class="md-skip">
+        <a href="#process-steps-of-the-ocl-program" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../../.." title="ARG AS400 IBMi Documentation" class="md-header__button md-logo" aria-label="ARG AS400 IBMi Documentation" data-md-component="logo">
+    <a href="../../../.." title="ARG AS400 IBMi Documentation" class="md-header__button md-logo" aria-label="ARG AS400 IBMi Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AP125P RPGLE
+              AP795 OCL
             
           </span>
         </div>
@@ -204,7 +204,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../../.." title="ARG AS400 IBMi Documentation" class="md-nav__button md-logo" aria-label="ARG AS400 IBMi Documentation" data-md-component="logo">
+    <a href="../../../.." title="ARG AS400 IBMi Documentation" class="md-nav__button md-logo" aria-label="ARG AS400 IBMi Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -234,7 +234,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../.." class="md-nav__link">
+      <a href="../../../.." class="md-nav__link">
         
   
   
@@ -298,8 +298,6 @@
                 
   
   
-    
-  
   
   
     
@@ -309,11 +307,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
         
           
           <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
@@ -329,7 +327,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_1">
             <span class="md-nav__icon md-icon"></span>
             01 Voucher Entry
@@ -340,8 +338,6 @@
                 
   
   
-    
-  
   
   
     
@@ -351,11 +347,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" >
         
           
           <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
@@ -371,7 +367,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_1_1">
             <span class="md-nav__icon md-icon"></span>
             AP100 OCL Voucher Entry
@@ -385,7 +381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../AP100%20OCL/" class="md-nav__link">
+      <a href="../../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP100%20OCL/" class="md-nav__link">
         
   
   
@@ -408,7 +404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../AP100%20RPG/" class="md-nav__link">
+      <a href="../../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP100%20RPG/" class="md-nav__link">
         
   
   
@@ -431,7 +427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../AP100%20Summary/" class="md-nav__link">
+      <a href="../../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP100%20Summary/" class="md-nav__link">
         
   
   
@@ -454,7 +450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../AP110%20RPG/" class="md-nav__link">
+      <a href="../../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP110%20RPG/" class="md-nav__link">
         
   
   
@@ -477,7 +473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../AP115%20RPG/" class="md-nav__link">
+      <a href="../../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP115%20RPG/" class="md-nav__link">
         
   
   
@@ -500,7 +496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Summary%20AP100/" class="md-nav__link">
+      <a href="../../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/Summary%20AP100/" class="md-nav__link">
         
   
   
@@ -563,7 +559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../AP106%20Flexi%20Capture/AP106%20OCL/" class="md-nav__link">
+      <a href="../../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP106%20Flexi%20Capture/AP106%20OCL/" class="md-nav__link">
         
   
   
@@ -586,7 +582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../AP106%20Flexi%20Capture/AP106%20Summary/" class="md-nav__link">
+      <a href="../../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP106%20Flexi%20Capture/AP106%20Summary/" class="md-nav__link">
         
   
   
@@ -609,7 +605,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../AP106%20Flexi%20Capture/AP106/" class="md-nav__link">
+      <a href="../../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP106%20Flexi%20Capture/AP106/" class="md-nav__link">
         
   
   
@@ -632,7 +628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../AP106%20Flexi%20Capture/AP107/" class="md-nav__link">
+      <a href="../../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP106%20Flexi%20Capture/AP107/" class="md-nav__link">
         
   
   
@@ -660,8 +656,6 @@
                 
   
   
-    
-  
   
   
     
@@ -671,11 +665,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1_8" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1_8" >
         
           
           <label class="md-nav__link" for="__nav_2_1_1_8" id="__nav_2_1_1_8_label" tabindex="0">
@@ -691,7 +685,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_1_1_8_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_1_1_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_1_1_8">
             <span class="md-nav__icon md-icon"></span>
             AP125 ARGLMS
@@ -705,7 +699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../AP1012%20RPG/" class="md-nav__link">
+      <a href="../../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP125%20ARGLMS/AP1012%20RPG/" class="md-nav__link">
         
   
   
@@ -728,7 +722,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../AP125%20OCL/" class="md-nav__link">
+      <a href="../../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP125%20ARGLMS/AP125%20OCL/" class="md-nav__link">
         
   
   
@@ -751,7 +745,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../AP125%20RPGLE/" class="md-nav__link">
+      <a href="../../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP125%20ARGLMS/AP125%20RPGLE/" class="md-nav__link">
         
   
   
@@ -771,30 +765,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    AP125P RPGLE
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP125%20ARGLMS/AP125P%20RPGLE/" class="md-nav__link">
         
   
   
@@ -805,69 +779,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#process-steps-of-the-ap125p-program" class="md-nav__link">
-    <span class="md-ellipsis">
-      Process Steps of the AP125P Program
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#business-rules" class="md-nav__link">
-    <span class="md-ellipsis">
-      Business Rules
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tables-files-used" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tables (Files) Used
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#external-programs-called" class="md-nav__link">
-    <span class="md-ellipsis">
-      External Programs Called
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      Summary
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -880,7 +791,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Summary%20AP1012/" class="md-nav__link">
+      <a href="../../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP125%20ARGLMS/Summary%20AP1012/" class="md-nav__link">
         
   
   
@@ -903,7 +814,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Summary%20AP125/" class="md-nav__link">
+      <a href="../../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP125%20ARGLMS/Summary%20AP125/" class="md-nav__link">
         
   
   
@@ -982,7 +893,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AP105PCL%20CLP%20SOGAS/AP105%20Call%20Stack%20Summary/" class="md-nav__link">
+      <a href="../../../01%20Voucher%20Entry/AP105PCL%20CLP%20SOGAS/AP105%20Call%20Stack%20Summary/" class="md-nav__link">
         
   
   
@@ -1005,7 +916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AP105PCL%20CLP%20SOGAS/AP105%20OCL/" class="md-nav__link">
+      <a href="../../../01%20Voucher%20Entry/AP105PCL%20CLP%20SOGAS/AP105%20OCL/" class="md-nav__link">
         
   
   
@@ -1028,7 +939,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AP105PCL%20CLP%20SOGAS/AP105%20RPG/" class="md-nav__link">
+      <a href="../../../01%20Voucher%20Entry/AP105PCL%20CLP%20SOGAS/AP105%20RPG/" class="md-nav__link">
         
   
   
@@ -1051,7 +962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AP105PCL%20CLP%20SOGAS/AP105P%20RPG/" class="md-nav__link">
+      <a href="../../../01%20Voucher%20Entry/AP105PCL%20CLP%20SOGAS/AP105P%20RPG/" class="md-nav__link">
         
   
   
@@ -1074,7 +985,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AP105PCL%20CLP%20SOGAS/AP105PCL%20CLP/" class="md-nav__link">
+      <a href="../../../01%20Voucher%20Entry/AP105PCL%20CLP%20SOGAS/AP105PCL%20CLP/" class="md-nav__link">
         
   
   
@@ -1145,7 +1056,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AP200%20OCL%20Convert%20Voucher%20to%20Payable/AP200%20OCL/" class="md-nav__link">
+      <a href="../../../01%20Voucher%20Entry/AP200%20OCL%20Convert%20Voucher%20to%20Payable/AP200%20OCL/" class="md-nav__link">
         
   
   
@@ -1168,7 +1079,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AP200%20OCL%20Convert%20Voucher%20to%20Payable/AP200%20RPG/" class="md-nav__link">
+      <a href="../../../01%20Voucher%20Entry/AP200%20OCL%20Convert%20Voucher%20to%20Payable/AP200%20RPG/" class="md-nav__link">
         
   
   
@@ -1191,7 +1102,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AP200%20OCL%20Convert%20Voucher%20to%20Payable/AP200P%20RPG/" class="md-nav__link">
+      <a href="../../../01%20Voucher%20Entry/AP200%20OCL%20Convert%20Voucher%20to%20Payable/AP200P%20RPG/" class="md-nav__link">
         
   
   
@@ -1214,7 +1125,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AP200%20OCL%20Convert%20Voucher%20to%20Payable/AP205%20RPG/" class="md-nav__link">
+      <a href="../../../01%20Voucher%20Entry/AP200%20OCL%20Convert%20Voucher%20to%20Payable/AP205%20RPG/" class="md-nav__link">
         
   
   
@@ -1237,7 +1148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AP200%20OCL%20Convert%20Voucher%20to%20Payable/AP210%20RPG/" class="md-nav__link">
+      <a href="../../../01%20Voucher%20Entry/AP200%20OCL%20Convert%20Voucher%20to%20Payable/AP210%20RPG/" class="md-nav__link">
         
   
   
@@ -1260,7 +1171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AP200%20OCL%20Convert%20Voucher%20to%20Payable/Summary%20AP200%20Purchase%20Journal/" class="md-nav__link">
+      <a href="../../../01%20Voucher%20Entry/AP200%20OCL%20Convert%20Voucher%20to%20Payable/Summary%20AP200%20Purchase%20Journal/" class="md-nav__link">
         
   
   
@@ -1379,7 +1290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../02%20Payables/AP196%20OCL%20Status%20Code%20Update/196OCL/" class="md-nav__link">
+      <a href="../../../02%20Payables/AP196%20OCL%20Status%20Code%20Update/196OCL/" class="md-nav__link">
         
   
   
@@ -1402,7 +1313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../02%20Payables/AP196%20OCL%20Status%20Code%20Update/197RPG/" class="md-nav__link">
+      <a href="../../../02%20Payables/AP196%20OCL%20Status%20Code%20Update/197RPG/" class="md-nav__link">
         
   
   
@@ -1521,7 +1432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../03%20Payment%20Cycle/AP150%20OCL%20Payment%20Selection%20%26%20Rpt/AP150%20Summary/" class="md-nav__link">
+      <a href="../../../03%20Payment%20Cycle/AP150%20OCL%20Payment%20Selection%20%26%20Rpt/AP150%20Summary/" class="md-nav__link">
         
   
   
@@ -1544,7 +1455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../03%20Payment%20Cycle/AP150%20OCL%20Payment%20Selection%20%26%20Rpt/AP150OCL/" class="md-nav__link">
+      <a href="../../../03%20Payment%20Cycle/AP150%20OCL%20Payment%20Selection%20%26%20Rpt/AP150OCL/" class="md-nav__link">
         
   
   
@@ -1567,7 +1478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../03%20Payment%20Cycle/AP150%20OCL%20Payment%20Selection%20%26%20Rpt/AP150RPG/" class="md-nav__link">
+      <a href="../../../03%20Payment%20Cycle/AP150%20OCL%20Payment%20Selection%20%26%20Rpt/AP150RPG/" class="md-nav__link">
         
   
   
@@ -1590,7 +1501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../03%20Payment%20Cycle/AP150%20OCL%20Payment%20Selection%20%26%20Rpt/AP151%20RPG/" class="md-nav__link">
+      <a href="../../../03%20Payment%20Cycle/AP150%20OCL%20Payment%20Selection%20%26%20Rpt/AP151%20RPG/" class="md-nav__link">
         
   
   
@@ -1613,7 +1524,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../03%20Payment%20Cycle/AP150%20OCL%20Payment%20Selection%20%26%20Rpt/AP155%20RPG/" class="md-nav__link">
+      <a href="../../../03%20Payment%20Cycle/AP150%20OCL%20Payment%20Selection%20%26%20Rpt/AP155%20RPG/" class="md-nav__link">
         
   
   
@@ -1636,7 +1547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../03%20Payment%20Cycle/AP150%20OCL%20Payment%20Selection%20%26%20Rpt/AP156%20RPG/" class="md-nav__link">
+      <a href="../../../03%20Payment%20Cycle/AP150%20OCL%20Payment%20Selection%20%26%20Rpt/AP156%20RPG/" class="md-nav__link">
         
   
   
@@ -1707,7 +1618,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../03%20Payment%20Cycle/AP160%20OCL%20Print%20Checks/AP160%20Print%20Checks%20Summary/" class="md-nav__link">
+      <a href="../../../03%20Payment%20Cycle/AP160%20OCL%20Print%20Checks/AP160%20Print%20Checks%20Summary/" class="md-nav__link">
         
   
   
@@ -1730,7 +1641,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../03%20Payment%20Cycle/AP160%20OCL%20Print%20Checks/AP160OCL/" class="md-nav__link">
+      <a href="../../../03%20Payment%20Cycle/AP160%20OCL%20Print%20Checks/AP160OCL/" class="md-nav__link">
         
   
   
@@ -1753,7 +1664,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../03%20Payment%20Cycle/AP160%20OCL%20Print%20Checks/AP160RPG/" class="md-nav__link">
+      <a href="../../../03%20Payment%20Cycle/AP160%20OCL%20Print%20Checks/AP160RPG/" class="md-nav__link">
         
   
   
@@ -1824,7 +1735,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP250%20Summary%20Check%20Register/" class="md-nav__link">
+      <a href="../../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP250%20Summary%20Check%20Register/" class="md-nav__link">
         
   
   
@@ -1847,7 +1758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP250OCL%20GROK/" class="md-nav__link">
+      <a href="../../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP250OCL%20GROK/" class="md-nav__link">
         
   
   
@@ -1870,7 +1781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP250RPG%20GROK/" class="md-nav__link">
+      <a href="../../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP250RPG%20GROK/" class="md-nav__link">
         
   
   
@@ -1893,7 +1804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP251%20RPG/" class="md-nav__link">
+      <a href="../../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP251%20RPG/" class="md-nav__link">
         
   
   
@@ -1916,7 +1827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP255%20RPG/" class="md-nav__link">
+      <a href="../../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP255%20RPG/" class="md-nav__link">
         
   
   
@@ -1939,7 +1850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP256%20RPG/" class="md-nav__link">
+      <a href="../../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP256%20RPG/" class="md-nav__link">
         
   
   
@@ -1962,7 +1873,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP256A/" class="md-nav__link">
+      <a href="../../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP256A/" class="md-nav__link">
         
   
   
@@ -2041,7 +1952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../05%20Clear%20Checks%20%26%20Reconciliation/AP190%20OCL%20Summary/" class="md-nav__link">
+      <a href="../../../05%20Clear%20Checks%20%26%20Reconciliation/AP190%20OCL%20Summary/" class="md-nav__link">
         
   
   
@@ -2064,7 +1975,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../05%20Clear%20Checks%20%26%20Reconciliation/AP190%20OCL/" class="md-nav__link">
+      <a href="../../../05%20Clear%20Checks%20%26%20Reconciliation/AP190%20OCL/" class="md-nav__link">
         
   
   
@@ -2087,7 +1998,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../05%20Clear%20Checks%20%26%20Reconciliation/AP190%20RPG/" class="md-nav__link">
+      <a href="../../../05%20Clear%20Checks%20%26%20Reconciliation/AP190%20RPG/" class="md-nav__link">
         
   
   
@@ -2110,7 +2021,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../05%20Clear%20Checks%20%26%20Reconciliation/AP195%20RPG/" class="md-nav__link">
+      <a href="../../../05%20Clear%20Checks%20%26%20Reconciliation/AP195%20RPG/" class="md-nav__link">
         
   
   
@@ -2173,7 +2084,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../05%20Clear%20Checks%20%26%20Reconciliation/AP192%20Upload%20Checks%20to%20Clear/AP192%20OCL/" class="md-nav__link">
+      <a href="../../../05%20Clear%20Checks%20%26%20Reconciliation/AP192%20Upload%20Checks%20to%20Clear/AP192%20OCL/" class="md-nav__link">
         
   
   
@@ -2196,7 +2107,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../05%20Clear%20Checks%20%26%20Reconciliation/AP192%20Upload%20Checks%20to%20Clear/AP192%20RPG/" class="md-nav__link">
+      <a href="../../../05%20Clear%20Checks%20%26%20Reconciliation/AP192%20Upload%20Checks%20to%20Clear/AP192%20RPG/" class="md-nav__link">
         
   
   
@@ -2219,7 +2130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../05%20Clear%20Checks%20%26%20Reconciliation/AP192%20Upload%20Checks%20to%20Clear/AP192%20Summary%20Upload%20Checks%20to%20Clear/" class="md-nav__link">
+      <a href="../../../05%20Clear%20Checks%20%26%20Reconciliation/AP192%20Upload%20Checks%20to%20Clear/AP192%20Summary%20Upload%20Checks%20to%20Clear/" class="md-nav__link">
         
   
   
@@ -2242,7 +2153,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../05%20Clear%20Checks%20%26%20Reconciliation/AP192%20Upload%20Checks%20to%20Clear/AP193%20RPG/" class="md-nav__link">
+      <a href="../../../05%20Clear%20Checks%20%26%20Reconciliation/AP192%20Upload%20Checks%20to%20Clear/AP193%20RPG/" class="md-nav__link">
         
   
   
@@ -2321,7 +2232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../06%20ADP%20Expenses/AP140%20OCL/" class="md-nav__link">
+      <a href="../../../06%20ADP%20Expenses/AP140%20OCL/" class="md-nav__link">
         
   
   
@@ -2344,7 +2255,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../06%20ADP%20Expenses/AP140%20RPG/" class="md-nav__link">
+      <a href="../../../06%20ADP%20Expenses/AP140%20RPG/" class="md-nav__link">
         
   
   
@@ -2367,7 +2278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../06%20ADP%20Expenses/AP140%20Summary%20Emp%20Expense/" class="md-nav__link">
+      <a href="../../../06%20ADP%20Expenses/AP140%20Summary%20Emp%20Expense/" class="md-nav__link">
         
   
   
@@ -2390,7 +2301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../06%20ADP%20Expenses/AP141%20RPG/" class="md-nav__link">
+      <a href="../../../06%20ADP%20Expenses/AP141%20RPG/" class="md-nav__link">
         
   
   
@@ -2413,7 +2324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../06%20ADP%20Expenses/AP145%20RPG/" class="md-nav__link">
+      <a href="../../../06%20ADP%20Expenses/AP145%20RPG/" class="md-nav__link">
         
   
   
@@ -2441,6 +2352,8 @@
                 
   
   
+    
+  
   
   
     
@@ -2450,11 +2363,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" checked>
         
           
           <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
@@ -2470,7 +2383,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_6">
             <span class="md-nav__icon md-icon"></span>
             07 Vendor 1099
@@ -2524,7 +2437,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../07%20Vendor%201099/AP760P%20OCL%201099%20Vendor%20Register/AP760%20RPG36/" class="md-nav__link">
+      <a href="../../AP760P%20OCL%201099%20Vendor%20Register/AP760%20RPG36/" class="md-nav__link">
         
   
   
@@ -2547,7 +2460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../07%20Vendor%201099/AP760P%20OCL%201099%20Vendor%20Register/AP760P%20OCL/" class="md-nav__link">
+      <a href="../../AP760P%20OCL%201099%20Vendor%20Register/AP760P%20OCL/" class="md-nav__link">
         
   
   
@@ -2570,7 +2483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../07%20Vendor%201099/AP760P%20OCL%201099%20Vendor%20Register/AP760P%20RPG36/" class="md-nav__link">
+      <a href="../../AP760P%20OCL%201099%20Vendor%20Register/AP760P%20RPG36/" class="md-nav__link">
         
   
   
@@ -2593,7 +2506,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../07%20Vendor%201099/AP760P%20OCL%201099%20Vendor%20Register/Summary%20AP760P%20OCL/" class="md-nav__link">
+      <a href="../../AP760P%20OCL%201099%20Vendor%20Register/Summary%20AP760P%20OCL/" class="md-nav__link">
         
   
   
@@ -2664,7 +2577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../07%20Vendor%201099/AP765P%20OCL%201099%20Vendor%20Forms/AP765%20RPG36/" class="md-nav__link">
+      <a href="../../AP765P%20OCL%201099%20Vendor%20Forms/AP765%20RPG36/" class="md-nav__link">
         
   
   
@@ -2687,7 +2600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../07%20Vendor%201099/AP765P%20OCL%201099%20Vendor%20Forms/AP765N%20RPG36/" class="md-nav__link">
+      <a href="../../AP765P%20OCL%201099%20Vendor%20Forms/AP765N%20RPG36/" class="md-nav__link">
         
   
   
@@ -2710,7 +2623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../07%20Vendor%201099/AP765P%20OCL%201099%20Vendor%20Forms/AP765P%20OCL/" class="md-nav__link">
+      <a href="../../AP765P%20OCL%201099%20Vendor%20Forms/AP765P%20OCL/" class="md-nav__link">
         
   
   
@@ -2733,7 +2646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../07%20Vendor%201099/AP765P%20OCL%201099%20Vendor%20Forms/AP765P%20RPG36/" class="md-nav__link">
+      <a href="../../AP765P%20OCL%201099%20Vendor%20Forms/AP765P%20RPG36/" class="md-nav__link">
         
   
   
@@ -2756,7 +2669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../07%20Vendor%201099/AP765P%20OCL%201099%20Vendor%20Forms/Summary%20AP765P%20OCL/" class="md-nav__link">
+      <a href="../../AP765P%20OCL%201099%20Vendor%20Forms/Summary%20AP765P%20OCL/" class="md-nav__link">
         
   
   
@@ -2827,7 +2740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../07%20Vendor%201099/AP780%20OCL%201099%20Create%20File%20for%20IRS/AP780%20OCL/" class="md-nav__link">
+      <a href="../../AP780%20OCL%201099%20Create%20File%20for%20IRS/AP780%20OCL/" class="md-nav__link">
         
   
   
@@ -2850,7 +2763,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../07%20Vendor%201099/AP780%20OCL%201099%20Create%20File%20for%20IRS/AP780%20RPG36/" class="md-nav__link">
+      <a href="../../AP780%20OCL%201099%20Create%20File%20for%20IRS/AP780%20RPG36/" class="md-nav__link">
         
   
   
@@ -2873,7 +2786,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../07%20Vendor%201099/AP780%20OCL%201099%20Create%20File%20for%20IRS/AP780P%20RPG36/" class="md-nav__link">
+      <a href="../../AP780%20OCL%201099%20Create%20File%20for%20IRS/AP780P%20RPG36/" class="md-nav__link">
         
   
   
@@ -2896,7 +2809,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../07%20Vendor%201099/AP780%20OCL%201099%20Create%20File%20for%20IRS/AP781%20RPG36/" class="md-nav__link">
+      <a href="../../AP780%20OCL%201099%20Create%20File%20for%20IRS/AP781%20RPG36/" class="md-nav__link">
         
   
   
@@ -2919,7 +2832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../07%20Vendor%201099/AP780%20OCL%201099%20Create%20File%20for%20IRS/Summary%20AP780%20OCL/" class="md-nav__link">
+      <a href="../../AP780%20OCL%201099%20Create%20File%20for%20IRS/Summary%20AP780%20OCL/" class="md-nav__link">
         
   
   
@@ -2990,7 +2903,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../07%20Vendor%201099/AP790%20OCL%201099%20Print%20File/AP790%20OCL/" class="md-nav__link">
+      <a href="../../AP790%20OCL%201099%20Print%20File/AP790%20OCL/" class="md-nav__link">
         
   
   
@@ -3013,7 +2926,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../07%20Vendor%201099/AP790%20OCL%201099%20Print%20File/AP790%20RPG36/" class="md-nav__link">
+      <a href="../../AP790%20OCL%201099%20Print%20File/AP790%20RPG36/" class="md-nav__link">
         
   
   
@@ -3036,7 +2949,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../07%20Vendor%201099/AP790%20OCL%201099%20Print%20File/Summary%20AP790%20OCL/" class="md-nav__link">
+      <a href="../../AP790%20OCL%201099%20Print%20File/Summary%20AP790%20OCL/" class="md-nav__link">
         
   
   
@@ -3064,6 +2977,8 @@
                 
   
   
+    
+  
   
   
     
@@ -3073,11 +2988,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_5" checked>
         
           
           <label class="md-nav__link" for="__nav_2_6_5" id="__nav_2_6_5_label" tabindex="0">
@@ -3093,7 +3008,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_6_5">
             <span class="md-nav__icon md-icon"></span>
             AP795 OCL 1099 Convert IRS File to PC
@@ -3104,10 +3019,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../../07%20Vendor%201099/AP795%20OCL%201099%20Convert%20IRS%20File%20to%20PC/AP795%20OCL/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    AP795 OCL
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -3118,6 +3053,60 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#process-steps-of-the-ocl-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Steps of the OCL Program
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-programs-called" class="md-nav__link">
+    <span class="md-ellipsis">
+      External Programs Called
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tables-files-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tables (Files) Used
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3130,7 +3119,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../07%20Vendor%201099/AP795%20OCL%201099%20Convert%20IRS%20File%20to%20PC/Summary%20AP795%20OCL/" class="md-nav__link">
+      <a href="../Summary%20AP795%20OCL/" class="md-nav__link">
         
   
   
@@ -3201,7 +3190,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../07%20Vendor%201099/AP910P99%20OCL%201099%20Vendor%20Maintenance/AP910%20RPGLE/" class="md-nav__link">
+      <a href="../../AP910P99%20OCL%201099%20Vendor%20Maintenance/AP910%20RPGLE/" class="md-nav__link">
         
   
   
@@ -3224,7 +3213,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../07%20Vendor%201099/AP910P99%20OCL%201099%20Vendor%20Maintenance/AP9104%20RPGLE/" class="md-nav__link">
+      <a href="../../AP910P99%20OCL%201099%20Vendor%20Maintenance/AP9104%20RPGLE/" class="md-nav__link">
         
   
   
@@ -3247,7 +3236,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../07%20Vendor%201099/AP910P99%20OCL%201099%20Vendor%20Maintenance/AP910P%20RPGLE/" class="md-nav__link">
+      <a href="../../AP910P99%20OCL%201099%20Vendor%20Maintenance/AP910P%20RPGLE/" class="md-nav__link">
         
   
   
@@ -3270,7 +3259,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../07%20Vendor%201099/AP910P99%20OCL%201099%20Vendor%20Maintenance/AP910P99%20OCL/" class="md-nav__link">
+      <a href="../../AP910P99%20OCL%201099%20Vendor%20Maintenance/AP910P99%20OCL/" class="md-nav__link">
         
   
   
@@ -3293,7 +3282,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../07%20Vendor%201099/AP910P99%20OCL%201099%20Vendor%20Maintenance/Summary%20AP910P99%20OCL/" class="md-nav__link">
+      <a href="../../AP910P99%20OCL%201099%20Vendor%20Maintenance/Summary%20AP910P99%20OCL/" class="md-nav__link">
         
   
   
@@ -3462,7 +3451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../accounts-receivable/01%20Customer/01%20Customer%20Master%20AP900/AP900%20OCL/" class="md-nav__link">
+      <a href="../../../../accounts-receivable/01%20Customer/01%20Customer%20Master%20AP900/AP900%20OCL/" class="md-nav__link">
         
   
   
@@ -3485,7 +3474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../accounts-receivable/01%20Customer/01%20Customer%20Master%20AP900/AP900%20RPGLE/" class="md-nav__link">
+      <a href="../../../../accounts-receivable/01%20Customer/01%20Customer%20Master%20AP900/AP900%20RPGLE/" class="md-nav__link">
         
   
   
@@ -3508,7 +3497,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../accounts-receivable/01%20Customer/01%20Customer%20Master%20AP900/Summary%20AP900%20Customer/" class="md-nav__link">
+      <a href="../../../../accounts-receivable/01%20Customer/01%20Customer%20Master%20AP900/Summary%20AP900%20Customer/" class="md-nav__link">
         
   
   
@@ -3572,27 +3561,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-ap125p-program" class="md-nav__link">
+  <a href="#process-steps-of-the-ocl-program" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the AP125P Program
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#business-rules" class="md-nav__link">
-    <span class="md-ellipsis">
-      Business Rules
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tables-files-used" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tables (Files) Used
+      Process Steps of the OCL Program
     </span>
   </a>
   
@@ -3602,6 +3573,15 @@
   <a href="#external-programs-called" class="md-nav__link">
     <span class="md-ellipsis">
       External Programs Called
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tables-files-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tables (Files) Used
     </span>
   </a>
   
@@ -3635,300 +3615,100 @@
   
 
 
-  <h1>AP125P RPGLE</h1>
+  <h1>AP795 OCL</h1>
 
-<p>The <code>AP125P.rpgle</code> program is an RPGLE program running on an IBM AS/400 (iSeries) system, designed for "Freight Invoice Import Selection" as part of an Accounts Payable (A/P) process. It is called from the <code>AP125.ocl36.txt</code> OCL script and facilitates the selection and management of freight invoices for batch processing. Below, I will explain the process steps, business rules, tables used, and external programs called, based on the provided source code.</p>
+<p>The provided document is an OCL (Operation Control Language) script, typically used in IBM midrange systems like the AS/400 (now IBM i). This script, named <code>AP795.ocl36.txt</code>, is designed to convert 1099 information as required by government regulations, preparing the <code>IRSTAX</code> file for download to a PC. Below, I’ll explain the process steps of the program, list the external programs called, and identify the tables (files) used.</p>
 <hr />
-<h3 id="process-steps-of-the-ap125p-program"><strong>Process Steps of the AP125P Program</strong><a class="headerlink" href="#process-steps-of-the-ap125p-program" title="Permanent link">&para;</a></h3>
-<p>The program is structured to manage a subfile (SFL) interface for selecting freight invoices, allowing users to add or remove invoices from a batch, validate inputs, and create batches for further processing. The main process steps are:</p>
+<h3 id="process-steps-of-the-ocl-program">Process Steps of the OCL Program<a class="headerlink" href="#process-steps-of-the-ocl-program" title="Permanent link">&para;</a></h3>
+<p>The OCL script performs a series of conditional checks and operations to manage the creation or replacement of the <code>IRSTAX</code> file, potentially in a test or production environment. Here’s a step-by-step breakdown of the process:</p>
 <ol>
-<li><strong>Initialization (<code>*inzsr</code> Subroutine)</strong>:</li>
-<li><strong>Parameters</strong>: Receives input parameters:<ul>
-<li><code>a$co</code>: Company code (2 digits).</li>
-<li><code>p$inty</code>: Invoice type filter (<code>P</code> for paper, <code>N</code> for non-paper).</li>
-<li><code>p$mode</code>: Run mode (<code>MNT</code> for maintenance, otherwise inquiry).</li>
-<li><code>p$fgrp</code>: File group (<code>G</code> or <code>Z</code>, determining which library files to use).</li>
+<li><strong>Initial Setup and Comments</strong>:</li>
+<li>The script begins with comments (<code>// *</code>) explaining its purpose: converting 1099 information and preparing the <code>IRSTAX</code> file for download to a PC.</li>
+<li>
+<p>A specific comment indicates that in a test environment, the file is named <code>?9?IRSTAX</code> (where <code>?9?</code> is a placeholder for a prefix, likely a library or environment identifier, such as <code>TEST</code> or <code>PROD</code>).</p>
+</li>
+<li>
+<p><strong>Environment Check and Pause</strong>:</p>
+</li>
+<li>The script checks if the environment variable <code>?9?</code> is set to <code>/G</code> (likely indicating a specific environment or mode, such as production or test).</li>
+<li>
+<p>A <code>PAUSE</code> statement is executed, prompting the user to interact with the system, possibly to confirm the operation or review the setup before proceeding.</p>
+</li>
+<li>
+<p><strong>Check for Existing <code>IRSTAX</code> File</strong>:</p>
+</li>
+<li>The script checks if the <code>IRSTAX</code> file exists in the <code>DATAF1</code> library:<ul>
+<li>If <code>?9?</code> is <code>/G</code> and <code>DATAF1-IRSTAX</code> exists, it displays a message: <code>'IRSTAX ALREADY EXISTS. DO YOU WANT TO DELETE IT'</code>.</li>
+<li>If <code>?9?</code> is not <code>/G</code> and <code>DATAF1-?9?IRSTAX</code> exists, it displays the same message but for the prefixed file (e.g., <code>TESTIRSTAX</code>).</li>
 </ul>
 </li>
-<li>Initializes work fields, subfile control fields (e.g., <code>rrn1</code>, <code>pagsz1</code>), and key lists for file access.</li>
+<li>Further messages ask the user if they want to continue (<code>'AND CONTINUE? IF NO, PRESS "SYS RQ" AND TAKE OPTION 3'</code>), suggesting a manual intervention option (e.g., pressing the System Request key to abort or choose an alternative action).</li>
 <li>
-<p>Sets up message handling and default headers/comments.</p>
+<p>If the file exists, another <code>PAUSE</code> statement halts execution, likely to allow the user to confirm whether to proceed with deletion.</p>
 </li>
 <li>
-<p><strong>Open Database Tables (<code>opntbl</code> Subroutine)</strong>:</p>
+<p><strong>Delete Existing <code>IRSTAX</code> File</strong>:</p>
 </li>
-<li>Overrides database files based on the <code>p$fgrp</code> parameter (<code>G</code> or <code>Z</code>) using <code>QCMDEXC</code> to execute override commands (e.g., <code>ovrdbf</code> for <code>apcont</code>, <code>frbinh</code>, etc.).</li>
-<li>
-<p>Opens input files (<code>apcont</code>, <code>frbinh</code>, <code>frcinh</code>, <code>frcfbh</code>, <code>bbcaid</code>, <code>frcinhj4</code>) and the add/update file (<code>ap125pw</code>).</p>
-</li>
-<li>
-<p><strong>Create or Clear Work File (<code>crtwrkf</code> Subroutine)</strong>:</p>
-</li>
-<li>Calls the external program <code>AP125PC</code> to create or clear the work file <code>ap125pw</code>.</li>
-<li>Overrides the <code>ap125pw</code> file to <code>qtemp/ap125pw</code> with <code>share(*no)</code>.</li>
-<li>
-<p>Opens the <code>ap125pw</code> file for add/update operations.</p>
+<li>If the <code>IRSTAX</code> file exists:<ul>
+<li>For <code>?9?=/G</code>, the script deletes <code>IRSTAX</code> from the <code>DATAF1</code> library using <code>DELETE IRSTAX,F1</code>.</li>
+<li>For <code>?9?!=/G</code>, the script deletes the prefixed file (e.g., <code>?9?IRSTAX</code>) using <code>DELETE ?9?IRSTAX,F1</code>.</li>
+</ul>
 </li>
 <li>
-<p><strong>Process Subfile (<code>srsfl1</code> Subroutine)</strong>:</p>
+<p>This step ensures that any existing <code>IRSTAX</code> file is removed before creating a new one, avoiding conflicts or data duplication.</p>
 </li>
-<li><strong>Clear Message Subfile</strong>: Clears any existing messages (<code>clrmsg</code>) and writes initial messages (<code>wrtmsg</code>).</li>
-<li><strong>Initialize Subfile</strong>: Sets the subfile mode to folded (<code>sfmod1 = '1'</code>, <code>*in45 = *on</code>) and initializes control fields (e.g., <code>c1co</code> from <code>a$co</code>, <code>c1mode</code> to <code>All</code>).</li>
-<li><strong>Global Protection</strong>: Sets <code>*in70</code> based on <code>p$mode</code> (<code>*off</code> for <code>MNT</code>, <code>*on</code> for inquiry mode, protecting fields in inquiry mode).</li>
-<li><strong>Position File</strong>: Calls <code>sf1rep</code> to position the file and load the subfile.</li>
 <li>
-<p><strong>Main Loop</strong>:</p>
+<p><strong>Copy Data to Create New <code>IRSTAX</code> File</strong>:</p>
+</li>
+<li>The script uses the <code>COPYDATA</code> command to create a new <code>IRSTAX</code> file by copying data from the <code>AP1099</code> file (or <code>?9?AP1099</code> in a test environment):<ul>
+<li>For <code>?9?=/G</code>, it executes: <code>COPYDATA AP1099,,IRSTAX,,,,,,,750,NE,'D'</code>.</li>
+<li>For <code>?9?!=/G</code>, it executes: <code>COPYDATA ?9?AP1099,,?9?IRSTAX,,,,,,,750,NE,'D'</code>.</li>
+</ul>
+</li>
+<li>
+<p>Parameters in the <code>COPYDATA</code> command:</p>
 <ul>
-<li>Displays the subfile control (<code>sflctl1</code>) and command line (<code>sflcmd1</code>).</li>
-<li>Checks for subfile records to enable display (<code>*in41</code>).</li>
-<li>Handles user inputs (function keys and Enter):</li>
-<li><strong>F03 (Exit)</strong>: Checks for pending selections in <code>ap125pw</code>. If present, displays a confirmation window (<code>f03wdw</code>) via <code>sf1f03</code>. Exits if confirmed.</li>
-<li><strong>F04 (Field Prompting)</strong>: Calls <code>prompt</code> to handle field prompting (e.g., for <code>c1caid</code> using <code>LBBCAID</code>).</li>
-<li><strong>F05 (All/Review Toggle)</strong>: Toggles between <code>All</code> and <code>Review</code> modes, updating <code>c1mode</code> and repositioning the subfile.</li>
-<li><strong>F06 (Create Batch and Exit)</strong>: Displays a confirmation window (<code>f06wdw</code>) via <code>sf1crtbat</code> and creates a batch by calling <code>crtbat</code>.</li>
-<li><strong>F22 (Add All)</strong>: Adds all displayed invoices to the batch via <code>sf1prcall</code>.</li>
-<li><strong>F23 (Remove All)</strong>: Removes all displayed invoices from the batch via <code>sf1prcall</code>.</li>
-<li><strong>Page Down</strong>: Loads additional subfile records (<code>sf1lod</code>).</li>
-<li><strong>Enter</strong>: Processes subfile changes (<code>sf1prc</code>).</li>
-<li><strong>Positioning</strong>: Repositions the subfile if <code>c1caid</code>, <code>c1fmdy</code>, or <code>c1tmdy</code> change (<code>sf1rep</code>).</li>
-<li><strong>F10</strong>: Moves the cursor to the control record.</li>
+<li>Source file: <code>AP1099</code> or <code>?9?AP1099</code> (the 1099 data source).</li>
+<li>Target file: <code>IRSTAX</code> or <code>?9?IRSTAX</code> (the output file).</li>
+<li><code>750</code>: Likely specifies the record length or a processing parameter (common in IBM i for file creation).</li>
+<li><code>NE</code>: Indicates "No Error" handling, meaning the operation will not stop on certain errors.</li>
+<li><code>'D'</code>: Specifies a disposition or mode, possibly indicating a direct copy or a specific data format.</li>
 </ul>
 </li>
 <li>
-<p><strong>Process Subfile on Enter (<code>sf1prc</code> Subroutine)</strong>:</p>
+<p><strong>Environment Handling</strong>:</p>
 </li>
-<li>Reads changed subfile records (<code>readc sfl1</code>) and processes options (<code>sf1chg</code>).</li>
-<li>Handles options:<ul>
-<li><strong>Option 1 (Add)</strong>: Adds the invoice to the batch (<code>sf1s01</code>) if in <code>MNT</code> mode.</li>
-<li><strong>Option 4 (Remove)</strong>: Removes the invoice from the batch (<code>sf1s04</code>) if in <code>MNT</code> mode.</li>
-</ul>
-</li>
-<li>
-<p>Updates subfile fields and colors (<code>sf1fmt</code>, <code>sf1col</code>) and writes the updated record.</p>
-</li>
-<li>
-<p><strong>Reposition Subfile (<code>sf1rep</code> Subroutine)</strong>:</p>
-</li>
-<li>Clears the subfile (<code>sf1clr</code>) and resets the relative record number (<code>rrn1</code>).</li>
-<li>Validates control fields (<code>sf1cte</code>) and positions the file (<code>frcinhj4</code>) using <code>setll</code>.</li>
-<li>
-<p>Loads subfile records (<code>sf1lod</code>) and retains control field values for repositioning.</p>
-</li>
-<li>
-<p><strong>Edit Subfile Control Input (<code>sf1cte</code> Subroutine)</strong>:</p>
-</li>
-<li>Validates:<ul>
-<li><strong>Company (<code>c1co</code>)</strong>: Chains to <code>apcont</code> to verify the company code and retrieve the company name (<code>c1conm</code>).</li>
-<li><strong>Carrier ID (<code>c1caid</code>)</strong>: Chains to <code>bbcaid</code> to verify the carrier ID and retrieve the carrier name (<code>c1crnm</code>). If blank, sets to <code>*All</code>.</li>
-<li><strong>From/To Invoice Dates (<code>c1fmdy</code>, <code>c1tmdy</code>)</strong>: Calls <code>GSDTEDIT</code> to validate dates and convert to <code>c1fdat</code>/<code>c1tdat</code>. Errors trigger messages (<code>ERR0020</code>).</li>
-</ul>
-</li>
-<li>
-<p>Adds error messages to the message subfile if validation fails.</p>
-</li>
-<li>
-<p><strong>Load Subfile Records (<code>sf1lod</code> Subroutine)</strong>:</p>
-</li>
-<li>Reads records from <code>frcinhj4</code> (replacing <code>frcinh4</code>) for the specified company (<code>c1co</code>).</li>
-<li>Retrieves the order ship date (<code>boshd8</code>) from <code>frbinh</code> (replacing invoice date per revision <code>dc01</code>).</li>
-<li>Applies filters (<code>sf1fltr</code>) and skips records that don’t match criteria.</li>
-<li>Formats (<code>sf1fmt</code>) and color-codes (<code>sf1col</code>) subfile lines, then writes them to the subfile.</li>
-<li>
-<p>Sets <code>s1nosflrecs</code> if no records are found.</p>
-</li>
-<li>
-<p><strong>Apply Filters (<code>sf1fltr</code> Subroutine)</strong>:</p>
-</li>
-<li>Filters records based on:<ul>
-<li>Approval status (<code>fralst ≠ 'Y'</code> or <code>frapst ≠ 'N'</code>).</li>
-<li>Invoice type (<code>frinty</code> must match <code>p$inty</code>).</li>
-<li>Non-zero invoice amount (<code>s1inam ≠ 0</code>, per revision <code>jb03</code>).</li>
-<li>Carrier ID (<code>c1caid</code> must match <code>frcaid</code> if specified).</li>
-</ul>
-</li>
-<li>
-<p>Sets <code>s1fltr</code> to <code>*on</code> to skip records that fail filters.</p>
-</li>
-<li>
-<p><strong>Format Subfile Line (<code>sf1fmt</code> Subroutine)</strong>:</p>
-<ul>
-<li>Populates subfile fields (<code>s1caid</code>, <code>s1cain</code>, <code>s1inty</code>, <code>s1rdno</code>, <code>s1srn</code>, <code>s1inam</code>, <code>s1smdy</code>) from <code>frcinhj4</code> or <code>frbinh</code>.</li>
-<li>Adjusts invoice amount (<code>s1inam = frinam - frfboa</code>, per revision <code>jb02</code>).</li>
-<li>Checks if the record is already in <code>ap125pw</code> and sets <code>s1flag</code> to <code>'*'</code> if present.</li>
-</ul>
-</li>
-<li>
-<p><strong>Color Coding (<code>sf1col</code> Subroutine)</strong>:</p>
-<ul>
-<li>Placeholder for color-coding subfile records (currently empty but reserved for visual indicators).</li>
-</ul>
-</li>
-<li>
-<p><strong>Add Invoice to Batch (<code>sf1s01</code> Subroutine)</strong>:</p>
-<ul>
-<li>Chains to <code>ap125pw</code> to check if the record exists.</li>
-<li>If not, writes a new record with company, carrier ID, invoice number, record type (<code>s1rcd</code>), and reference number (<code>s1rdno</code>).</li>
-<li>Updates the total invoice amount (<code>c1inam</code>).</li>
-</ul>
-</li>
-<li>
-<p><strong>Remove Invoice from Batch (<code>sf1s04</code> Subroutine)</strong>:</p>
-<ul>
-<li>Chains to <code>ap125pw</code> to locate the record.</li>
-<li>If found, deletes it and subtracts the invoice amount from <code>c1inam</code>.</li>
-</ul>
-</li>
-<li>
-<p><strong>Process All Records (<code>sf1prcall</code> and <code>sf1prcall2</code> Subroutines)</strong>:</p>
-<ul>
-<li>Displays a window (<code>addwdw</code> for adding, <code>rmvwdw</code> for removing) and processes all displayed records.</li>
-<li>Iterates through <code>frcinhj4</code>, applies filters, and calls <code>sf1s01</code> (add) or <code>sf1s04</code> (remove) based on <code>w$add</code>.</li>
-</ul>
-</li>
-<li>
-<p><strong>Create Batch (<code>crtbat</code> Subroutine)</strong>:</p>
-<ul>
-<li>Reads <code>ap125pw</code> records and chains to <code>frcinh</code> or <code>frcfbh</code> based on <code>w1rcd</code>.</li>
-<li>For approved (<code>fralst = 'Y'</code>, <code>frapst = 'N'</code>) records, calls <code>AP125</code> with parameters (<code>o$co</code>, <code>o$caid</code>, <code>o$cain</code>, <code>o$rcd</code>, <code>o$rdno</code>) to create the batch.</li>
-</ul>
-</li>
-<li>
-<p><strong>Field Prompting (<code>prompt</code> Subroutine)</strong>:</p>
-<ul>
-<li>For the <code>C1CAID</code> field, calls <code>LBBCAID</code> to prompt for a carrier ID, passing <code>c1co</code>, <code>c1caid</code>, and <code>p$fgrp</code>.</li>
-</ul>
-</li>
-<li>
-<p><strong>Message Handling (<code>addmsg</code>, <code>wrtmsg</code>, <code>clrmsg</code> Subroutines)</strong>:</p>
-<ul>
-<li><code>addmsg</code>: Sends error messages (e.g., <code>ERR0010</code>, <code>ERR0020</code>) to the program message queue using <code>QMHSNDPM</code>.</li>
-<li><code>wrtmsg</code>: Displays the message subfile (<code>msgctl</code>).</li>
-<li><code>clrmsg</code>: Clears the message subfile using <code>QMHRMVPM</code>.</li>
-</ul>
-</li>
-<li>
-<p><strong>Program Termination</strong>:</p>
-<ul>
-<li>Closes all files and sets <code>*inlr = *on</code> to end the program.</li>
-</ul>
-</li>
+<li>The script uses conditional logic (<code>IF ?9?/G</code>) to handle different environments (e.g., production vs. test). The <code>?9?</code> variable allows the script to dynamically adjust file names (e.g., <code>TESTIRSTAX</code> vs. <code>IRSTAX</code>) based on the environment.</li>
 </ol>
 <hr />
-<h3 id="business-rules"><strong>Business Rules</strong><a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
-<p>The program enforces the following business rules:
-1. <strong>Invoice Filtering</strong>:
-   - Only approved invoices (<code>fralst = 'Y'</code>, <code>frapst = 'N'</code>) are eligible for selection.
-   - Invoices must match the specified invoice type (<code>p$inty</code>, <code>P</code> or <code>N</code>).
-   - Invoices with zero amounts are excluded (revision <code>jb03</code>).
-   - Carrier ID (<code>c1caid</code>) must match if specified, otherwise all carriers are included.</p>
-<ol>
-<li><strong>Invoice Amount Adjustment</strong>:</li>
-<li>
-<p>The displayed invoice amount (<code>s1inam</code>) is calculated as <code>frinam - frfboa</code> (Freight Balancing Order Override Total, revision <code>jb02</code>).</p>
-</li>
-<li>
-<p><strong>Date Usage</strong>:</p>
-</li>
-<li>
-<p>Uses the order ship date (<code>boshd8</code> from <code>frbinh</code>) instead of the invoice date (<code>frindt</code>, revision <code>dc01</code>) for filtering and display.</p>
-</li>
-<li>
-<p><strong>Batch Processing</strong>:</p>
-</li>
-<li>Invoices are added to or removed from <code>ap125pw</code> based on user selections (options 1 or 4, or F22/F23).</li>
-<li>
-<p>Batch creation (<code>crtbat</code>) only processes approved invoices with valid status codes.</p>
-</li>
-<li>
-<p><strong>Mode-Based Access</strong>:</p>
-</li>
-<li>In <code>MNT</code> mode, users can add/remove invoices and create batches.</li>
-<li>
-<p>In inquiry mode, fields are protected (<code>*in70 = *on</code>), preventing modifications.</p>
-</li>
-<li>
-<p><strong>Validation</strong>:</p>
-</li>
-<li>Company code (<code>c1co</code>) must exist in <code>apcont</code>.</li>
-<li>Carrier ID (<code>c1caid</code>) must exist in <code>bbcaid</code> (revision <code>jk01</code>).</li>
-<li>
-<p>Dates (<code>c1fmdy</code>, <code>c1tmdy</code>) must be valid, checked via <code>GSDTEDIT</code>.</p>
-</li>
-<li>
-<p><strong>Subfile Behavior</strong>:</p>
-</li>
-<li>Supports <code>All</code> (all eligible invoices) and <code>Review</code> (only invoices in <code>ap125pw</code>) modes.</li>
-<li>Displays a "No Records Found" message if no invoices meet the criteria.</li>
-</ol>
+<h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
+<p>The OCL script explicitly calls the following external program or command:
+- <strong>COPYDATA</strong>: This is an IBM i system command used to copy data from one file to another, with options for formatting, error handling, and record length specification. It is used to create the <code>IRSTAX</code> file from <code>AP1099</code>.</p>
+<p>No other external programs (e.g., RPG programs) are explicitly called in the script. The <code>GSY2K</code> reference appears to be a label or comment, possibly indicating a system or module context, but it is not a program call.</p>
 <hr />
-<h3 id="tables-files-used"><strong>Tables (Files) Used</strong><a class="headerlink" href="#tables-files-used" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>Display File</strong>:</li>
-<li>
-<p><code>ap125pd</code>: Display file with subfile <code>sfl1</code>, used for the user interface.</p>
-</li>
-<li>
-<p><strong>Input Files</strong>:</p>
-</li>
-<li><code>apcont</code>: Accounts Payable control file (company data).</li>
-<li><code>frbinh</code>: Freight Out Balancing Customer Invoice Header (for order ship date).</li>
-<li><code>frcinh</code>: Freight Invoice Header.</li>
-<li><code>frcfbh</code>: Freight Billed Balance Header (revision <code>jb02</code>).</li>
-<li><code>bbcaid</code>: Carrier ID table (replacing <code>gstabl</code>, revision <code>jk01</code>).</li>
-<li>
-<p><code>frcinhj4</code>: Multi-file logical file combining <code>frcinh</code> and <code>frcfbh</code> (replacing <code>frcinh4</code>, revision <code>jb02</code>).</p>
-</li>
-<li>
-<p><strong>Add/Update File</strong>:</p>
-</li>
-<li><code>ap125pw</code>: Work file in <code>qtemp</code> for storing selected invoices.</li>
-</ol>
+<h3 id="tables-files-used">Tables (Files) Used<a class="headerlink" href="#tables-files-used" title="Permanent link">&para;</a></h3>
+<p>The script interacts with the following files (referred to as "tables" in some contexts, though they are physical files in IBM i terminology):
+1. <strong>AP1099</strong> (or <code>?9?AP1099</code>):
+   - The source file containing 1099 data.
+   - In a test environment, it may be prefixed (e.g., <code>TESTAP1099</code>).
+   - Located in an unspecified library (assumed to be accessible in the job’s library list).
+2. <strong>IRSTAX</strong> (or <code>?9?IRSTAX</code>):
+   - The target file created or replaced by the script, containing the converted 1099 data formatted for government requirements.
+   - Located in the <code>DATAF1</code> library (as indicated by <code>DATAF1-IRSTAX</code>).
+   - In a test environment, it may be prefixed (e.g., <code>TESTIRSTAX</code>).</p>
 <hr />
-<h3 id="external-programs-called"><strong>External Programs Called</strong><a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>AP125PC</strong>:</li>
-<li>
-<p>Called in <code>crtwrkf</code> to create or clear the <code>ap125pw</code> work file.</p>
-</li>
-<li>
-<p><strong>GSDTEDIT</strong>:</p>
-</li>
-<li>
-<p>Called in <code>sf1cte</code> to validate and convert dates (<code>c1fmdy</code>, <code>c1tmdy</code>).</p>
-</li>
-<li>
-<p><strong>AP125</strong>:</p>
-</li>
-<li>
-<p>Called in <code>crtbat</code> to create the invoice batch, passing company, carrier ID, invoice number, record type, and reference number.</p>
-</li>
-<li>
-<p><strong>LBBCAID</strong>:</p>
-</li>
-<li>
-<p>Called in <code>prompt</code> to provide carrier ID prompting, replacing <code>LGSTABL</code> (revision <code>jk01</code>).</p>
-</li>
-<li>
-<p><strong>QCMDEXC</strong>:</p>
-</li>
-<li>
-<p>System program to execute override commands (<code>ovrdbf</code>) in <code>opntbl</code> and <code>crtwrkf</code>.</p>
-</li>
-<li>
-<p><strong>QMHSNDPM</strong>:</p>
-</li>
-<li>
-<p>System program to send error messages to the program message queue in <code>addmsg</code>.</p>
-</li>
-<li>
-<p><strong>QMHRMVPM</strong>:</p>
-</li>
-<li>System program to clear the message subfile in <code>clrmsg</code>.</li>
-</ol>
-<hr />
-<h3 id="summary"><strong>Summary</strong><a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
-<p>The <code>AP125P</code> program is a user-interactive RPGLE program for selecting freight invoices for batch processing. It uses a subfile interface to display invoices from <code>frcinhj4</code>, allows users to add/remove invoices to/from <code>ap125pw</code>, and creates batches via <code>AP125</code>. Key features include filtering by approval status, invoice type, and non-zero amounts, using order ship dates, and supporting maintenance/inquiry modes. The program integrates with multiple files and external programs to validate data and manage the batch process.</p>
-<p>If you need further details or clarification on specific subroutines, business rules, or file structures, please let me know!</p>
+<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
+<p>The OCL program <code>AP795.ocl36.txt</code> automates the process of preparing the <code>IRSTAX</code> file for 1099 reporting by:
+1. Checking the environment and pausing for user confirmation.
+2. Verifying if the <code>IRSTAX</code> file exists and prompting the user to delete it if necessary.
+3. Deleting the existing <code>IRSTAX</code> file (if present).
+4. Copying data from <code>AP1099</code> to create a new <code>IRSTAX</code> file, formatted for government requirements.</p>
+<p><strong>External Programs Called</strong>:
+- <code>COPYDATA</code> (IBM i system command).</p>
+<p><strong>Tables Used</strong>:
+- <code>AP1099</code> (or <code>?9?AP1099</code>): Source 1099 data file.
+- <code>IRSTAX</code> (or <code>?9?IRSTAX</code>): Target file in the <code>DATAF1</code> library.</p>
+<p>The script is designed to handle both production and test environments, using the <code>?9?</code> variable to adjust file names dynamically. It includes user interaction points (via <code>PAUSE</code>) to ensure manual oversight before critical operations like file deletion.</p>
 
 
 
@@ -3987,10 +3767,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../../../..", "features": ["content.code.copy", "content.tabs", "navigation.sections", "search.suggest", "search.highlight", "palette.toggle"], "search": "../../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy", "content.tabs", "navigation.sections", "search.suggest", "search.highlight", "palette.toggle"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
       
     
   </body>
