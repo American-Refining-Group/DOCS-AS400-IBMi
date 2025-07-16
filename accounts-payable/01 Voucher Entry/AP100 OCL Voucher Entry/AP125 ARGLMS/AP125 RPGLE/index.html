@@ -12,13 +12,13 @@
         <meta name="author" content="American Refining Group">
       
       
-        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-payable/01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP125%20ARGLMS/AP1012/">
+        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-payable/01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP125%20ARGLMS/AP125%20RPGLE/">
       
       
-        <link rel="prev" href="../../AP106%20Flexi%20Capture/AP107/">
+        <link rel="prev" href="../AP125%20OCL/">
       
       
-        <link rel="next" href="../../../AP105PCL%20CLP%20SOGAS/AP105%20Call%20Stack%20Summary/">
+        <link rel="next" href="../AP125P%20RPGLE/">
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>AP1012 - ARG AS400 IBMi Documentation</title>
+        <title>AP125 RPGLE - ARG AS400 IBMi Documentation</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#functional-requirements-document-ap-voucher-freight-allocation-system" class="md-skip">
+        <a href="#process-steps-of-the-ap125-program" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AP1012
+              AP125 RPGLE
             
           </span>
         </div>
@@ -702,6 +702,52 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../AP1012%20RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP1012 RPG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AP125%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP125 OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -711,15 +757,13 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
   
   <span class="md-ellipsis">
-    AP1012
+    AP125 RPGLE
     
   </span>
   
@@ -732,7 +776,7 @@
   
   
   <span class="md-ellipsis">
-    AP1012
+    AP125 RPGLE
     
   </span>
   
@@ -745,8 +789,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -755,265 +797,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-document-information" class="md-nav__link">
+  <a href="#process-steps-of-the-ap125-program" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Document Information
+      Process Steps of the AP125 Program
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-system-overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. System Overview
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. System Overview">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21-objectives" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.1 Objectives
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22-scope" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.2 Scope
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-functional-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Functional Requirements
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Functional Requirements">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31-input-processing" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.1 Input Processing
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32-data-retrieval-and-filtering" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.2 Data Retrieval and Filtering
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#33-freight-proration" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.3 Freight Proration
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#34-ap-transaction-processing" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.4 A/P Transaction Processing
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#35-error-handling-and-data-validation" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.5 Error Handling and Data Validation
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-data-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Data Requirements
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Data Requirements">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41-input-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.1 Input Files
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42-output-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.2 Output File
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#43-data-structures" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.3 Data Structures
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-non-functional-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Non-Functional Requirements
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Non-Functional Requirements">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51-performance" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.1 Performance
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#52-reliability" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.2 Reliability
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#53-compatibility" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.3 Compatibility
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#54-maintainability" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.4 Maintainability
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-constraints" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Constraints
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-assumptions" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Assumptions
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-differences-between-ap1011-and-ap1012" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. Differences Between AP1011 and AP1012
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-future-considerations" class="md-nav__link">
-    <span class="md-ellipsis">
-      9. Future Considerations
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-approval" class="md-nav__link">
-    <span class="md-ellipsis">
-      10. Approval
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#additional-technical-details-" class="md-nav__link">
-    <span class="md-ellipsis">
-      Additional Technical Details --
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Additional Technical Details --">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#process-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      Process Steps
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#business-rules" class="md-nav__link">
     <span class="md-ellipsis">
       Business Rules
@@ -1021,26 +813,17 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#differences-in-business-rules" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#tables-files-used" class="md-nav__link">
     <span class="md-ellipsis">
-      Differences in Business Rules
+      Tables (Files) Used
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#tables-used" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tables Used
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#external-programs-called" class="md-nav__link">
     <span class="md-ellipsis">
       External Programs Called
@@ -1048,27 +831,13 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#summary-of-differences" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Summary of Differences
+      Summary
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    <span class="md-ellipsis">
-      Conclusion
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1076,6 +845,75 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AP125P%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP125P RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Summary%20AP1012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Summary AP1012
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Summary%20AP125/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Summary AP125
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -3632,8 +3470,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -3642,265 +3478,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-document-information" class="md-nav__link">
+  <a href="#process-steps-of-the-ap125-program" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Document Information
+      Process Steps of the AP125 Program
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-system-overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. System Overview
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. System Overview">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21-objectives" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.1 Objectives
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22-scope" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.2 Scope
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-functional-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Functional Requirements
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Functional Requirements">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31-input-processing" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.1 Input Processing
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32-data-retrieval-and-filtering" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.2 Data Retrieval and Filtering
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#33-freight-proration" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.3 Freight Proration
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#34-ap-transaction-processing" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.4 A/P Transaction Processing
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#35-error-handling-and-data-validation" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.5 Error Handling and Data Validation
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-data-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Data Requirements
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Data Requirements">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41-input-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.1 Input Files
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42-output-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.2 Output File
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#43-data-structures" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.3 Data Structures
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-non-functional-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Non-Functional Requirements
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Non-Functional Requirements">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51-performance" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.1 Performance
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#52-reliability" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.2 Reliability
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#53-compatibility" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.3 Compatibility
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#54-maintainability" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.4 Maintainability
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-constraints" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Constraints
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-assumptions" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Assumptions
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-differences-between-ap1011-and-ap1012" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. Differences Between AP1011 and AP1012
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-future-considerations" class="md-nav__link">
-    <span class="md-ellipsis">
-      9. Future Considerations
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-approval" class="md-nav__link">
-    <span class="md-ellipsis">
-      10. Approval
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#additional-technical-details-" class="md-nav__link">
-    <span class="md-ellipsis">
-      Additional Technical Details --
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Additional Technical Details --">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#process-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      Process Steps
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#business-rules" class="md-nav__link">
     <span class="md-ellipsis">
       Business Rules
@@ -3908,26 +3494,17 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#differences-in-business-rules" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#tables-files-used" class="md-nav__link">
     <span class="md-ellipsis">
-      Differences in Business Rules
+      Tables (Files) Used
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#tables-used" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tables Used
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#external-programs-called" class="md-nav__link">
     <span class="md-ellipsis">
       External Programs Called
@@ -3935,27 +3512,13 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#summary-of-differences" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Summary of Differences
+      Summary
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    <span class="md-ellipsis">
-      Conclusion
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3978,374 +3541,301 @@
   
 
 
-<p>Below is a Functional Requirements Document (FRD) for the RPG programs <code>AP1011</code> and <code>AP1012</code>, which are designed to create Accounts Payable (A/P) voucher entry detail totals by prorating carrier freight based on sales details or miscellaneous freight amounts. Since both programs are intended to perform the same function with minor differences, this FRD consolidates the requirements for a single system, noting any variations where applicable. The document is structured to provide a clear, comprehensive description of the system's purpose, functionality, data requirements, and constraints.</p>
-<h1 id="functional-requirements-document-ap-voucher-freight-allocation-system">Functional Requirements Document: A/P Voucher Freight Allocation System<a class="headerlink" href="#functional-requirements-document-ap-voucher-freight-allocation-system" title="Permanent link">&para;</a></h1>
-<h2 id="1-document-information">1. Document Information<a class="headerlink" href="#1-document-information" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Document Title</strong>: Functional Requirements Document for A/P Voucher Freight Allocation System</li>
-<li><strong>Document ID</strong>: FRD-AP1011-AP1012-001</li>
-<li><strong>Version</strong>: 1.0</li>
-<li><strong>Date</strong>: July 01, 2025</li>
-<li><strong>Prepared By</strong>: Grok 3, xAI</li>
-<li><strong>Purpose</strong>: To define the functional requirements for the A/P Voucher Freight Allocation System, implemented by RPG programs <code>AP1011</code> and <code>AP1012</code>, which prorate carrier freight costs across sales detail or miscellaneous lines for Accounts Payable voucher entry.</li>
-</ul>
-<h2 id="2-system-overview">2. System Overview<a class="headerlink" href="#2-system-overview" title="Permanent link">&para;</a></h2>
-<p>The A/P Voucher Freight Allocation System processes sales invoice data to allocate carrier freight costs across detail or miscellaneous lines based on net gallons or freight amounts, respectively. The system generates or updates A/P transaction records in the <code>APTRAN</code> file, ensuring accurate freight cost distribution and proper General Ledger (G/L) account assignment. The system supports both regular sales invoices (with detail lines) and miscellaneous-only invoices (without detail lines).</p>
-<h3 id="21-objectives">2.1 Objectives<a class="headerlink" href="#21-objectives" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Calculate total net gallons for freight allocation from sales detail records.</li>
-<li>Prorate freight costs across detail lines based on net gallons or miscellaneous lines based on freight amounts.</li>
-<li>Assign appropriate freight G/L accounts based on product codes or miscellaneous types.</li>
-<li>Create or update A/P transaction records with prorated freight amounts, discounts, and relevant details.</li>
-<li>Ensure data integrity by filtering records within one year of the invoice date.</li>
-</ul>
-<h3 id="22-scope">2.2 Scope<a class="headerlink" href="#22-scope" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>In-Scope</strong>:</li>
-<li>Processing sales detail records from <code>SA5FIUD</code> or <code>SA5MOUD</code> and miscellaneous records from <code>SA5FIUM</code> or <code>SA5MOUM</code>.</li>
-<li>Retrieving freight G/L accounts from <code>GSCTUM</code>, <code>GSTABL</code>, or <code>BICONT</code>.</li>
-<li>Writing or updating A/P transaction records in <code>APTRAN</code>.</li>
-<li>Handling discounts and ensuring total freight allocation matches the input freight amount.</li>
-<li><strong>Out-of-Scope</strong>:</li>
-<li>Generation of sales invoices or modification of source data in <code>SA5FI*</code> or <code>SA5MO*</code> files.</li>
-<li>Validation of input parameters beyond what is provided in the <code>SALES</code> data structure.</li>
-<li>Integration with external systems beyond file I/O.</li>
-</ul>
-<h2 id="3-functional-requirements">3. Functional Requirements<a class="headerlink" href="#3-functional-requirements" title="Permanent link">&para;</a></h2>
-<h3 id="31-input-processing">3.1 Input Processing<a class="headerlink" href="#31-input-processing" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>FR-001</strong>: The system shall accept input parameters via a <code>SALES</code> data structure with the following fields:</li>
-<li><code>SACO</code> (2 bytes): Company number.</li>
-<li><code>SAORD</code> (6 bytes): Order number.</li>
-<li><code>SASRN#</code> (3 bytes): Shipping reference number.</li>
-<li><code>SASEQ</code> (3 bytes): Sequence number.</li>
-<li><code>FRTTOT</code> (7,2): Total freight amount to allocate.</li>
-<li><code>VEND</code> (5 bytes): Vendor number.</li>
-<li><code>ENTNUM</code> (5 bytes): Entry number.</li>
-<li><code>EXGL</code> (8 bytes): Expense G/L number.</li>
-<li><code>DSPC</code> (4,3): Discount percentage.</li>
-<li><code>CMPDT8</code> (8 bytes): Comparison date (YYYYMMDD) for filtering records.</li>
-<li><code>S@FIMO</code> (1 byte): Table indicator (<code>F</code> for <code>SA5FI*</code>, <code>M</code> for <code>SA5MO*</code>).</li>
-<li><code>S@DM</code> (1 byte): Record type (<code>D</code> for detail, <code>M</code> for miscellaneous).</li>
-<li><strong>FR-002</strong>: If <code>S@FIMO</code> is blank, the system shall determine the appropriate table (<code>SA5FI*</code> or <code>SA5MO*</code>) and record type (<code>D</code> or <code>M</code>) by searching for valid records in <code>SA5FIUD</code>, <code>SA5MOUD</code>, <code>SA5FIUM</code>, or <code>SA5MOUM</code> matching <code>SACO</code>, <code>SAORD</code>, <code>SASRN#</code>, and <code>CMPDT8</code> (specific to <code>AP1012</code>).</li>
-</ul>
-<h3 id="32-data-retrieval-and-filtering">3.2 Data Retrieval and Filtering<a class="headerlink" href="#32-data-retrieval-and-filtering" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>FR-003</strong>: The system shall read detail records from <code>SA5FIUD</code> (sales detail) or <code>SA5MOUD</code> (move detail) when <code>S@FIMO = 'F'</code> or <code>S@FIMO = 'M'</code>, respectively, filtering by:</li>
-<li><code>S5CO# = SACO</code> (company number).</li>
-<li><code>S5ORD# = SAORD</code> (order number).</li>
-<li><code>S5SRN# = SASRN#</code> (shipping reference number).</li>
-<li><code>S5SHD8 &gt;= CMPDT8</code> (ship date within one year of invoice date).</li>
-<li><strong>FR-004</strong>: The system shall read miscellaneous records from <code>SA5FIUM</code> (sales miscellaneous) or <code>SA5MOUM</code> (move miscellaneous) when no detail records are found, filtering by:</li>
-<li><code>SMCO# = SACO</code> (company number).</li>
-<li><code>SMORD# = SAORD</code> (order number).</li>
-<li><code>SMSRN# = SASRN#</code> (shipping reference number).</li>
-<li><code>SMSHD8 &gt;= CMPDT8</code> (ship date within one year of invoice date).</li>
-<li><code>SMMSTY = 'F'</code> (freight type).</li>
-<li><code>SMGLNO ≠ 0</code> (non-zero G/L number).</li>
-<li><strong>FR-005</strong>: The system shall retrieve freight G/L numbers (<code>FEGL</code>) as follows:</li>
-<li>For detail records with alpha characters in <code>S5PROD</code> (product code), use <code>CUFEGL</code> from <code>GSCTUM</code> based on <code>S5CO#</code>, <code>S5PROD</code>, <code>S5CNTR</code>, and <code>S5UM</code>.</li>
-<li>For detail records with numeric <code>S5PROD</code>, combine <code>TBFEG4</code> (first 4 digits) from <code>GSTABL</code> (keyed by <code>CNTRPF</code> and <code>S5TANK</code>) with <code>S5PROD</code>, or use <code>BCFRGL</code> from <code>BICONT</code> if not found.</li>
-<li>For miscellaneous records, use <code>SMGLNO</code> directly.</li>
-</ul>
-<h3 id="33-freight-proration">3.3 Freight Proration<a class="headerlink" href="#33-freight-proration" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>FR-006</strong>: For detail records:</li>
-<li>Calculate total net gallons (<code>TTLQTY</code>) by summing <code>S5NGAL</code> from filtered records.</li>
-<li>Calculate the percentage (<code>PCTHLD</code>) for each record as <code>S5NGAL / TTLQTY</code>.</li>
-<li>Multiply <code>PCTHLD</code> by <code>FRTTOT</code> to compute the freight amount (<code>AMTITM</code>) for each line.</li>
-<li>Adjust the last record’s amount to ensure the sum of all amounts equals <code>FRTTOT</code>:<ul>
-<li>If sum equals <code>FRTTOT</code>, no adjustment.</li>
-<li>If sum is less than <code>FRTTOT</code>, add the difference to the last record.</li>
-<li>If sum is greater than <code>FRTTOT</code>, subtract the difference from the last record.</li>
-</ul>
-</li>
-<li><strong>FR-007</strong>: For miscellaneous records (when no detail records exist):</li>
-<li>Calculate total miscellaneous freight (<code>TTLMFT</code>) by summing <code>SMMAMT * SMMQTY</code> for filtered records.</li>
-<li>Calculate the percentage (<code>PCTHLD</code>) for each record as <code>(SMMAMT * SMMQTY) / TTLMFT</code>.</li>
-<li>Multiply <code>PCTHLD</code> by <code>FRTTOT</code> to compute the freight amount (<code>FRTAMT</code>) for each line.</li>
-<li>For the last record, set <code>FRTAMT = FRTTOT - sum(previous FRTAMT)</code> to ensure the total matches <code>FRTTOT</code>.</li>
-</ul>
-<h3 id="34-ap-transaction-processing">3.4 A/P Transaction Processing<a class="headerlink" href="#34-ap-transaction-processing" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>FR-008</strong>: The system shall write or update records in <code>APTRAN</code> (A/P transaction file) as follows:</li>
-<li><strong>Key Fields</strong>: <code>S5CO#</code> or <code>SMCO#</code> (company number), <code>ENTNUM</code> (entry number), <code>COUNT2</code> or <code>COUNT3</code> (sequence number).</li>
-<li><strong>Common Fields</strong>:<ul>
-<li>Record type: <code>A</code> (active).</li>
-<li>Vendor number: <code>VEND</code>.</li>
-<li>Freight G/L: <code>FEGL</code>.</li>
-<li>Description: <code>FRTCHG</code> (detail) or <code>MISC CHARGE</code> (miscellaneous) from <code>MSG</code> array.</li>
-<li>Order number: <code>SAORD</code> or <code>SMORD#</code>.</li>
-<li>Shipping reference number: <code>SASRN#</code> or <code>SMSRN#</code>.</li>
-<li>Discount percentage: <code>DSPC</code>.</li>
-<li>Status: <code>C</code> (closed).</li>
-<li>Zero-filled fields for unused amounts (e.g., <code>ATDISC</code>, <code>ATQTY</code>, <code>ATGALN</code>, etc.).</li>
-</ul>
-</li>
-<li><strong>Detail-Specific Fields</strong>:<ul>
-<li>Product code: <code>S5PROD</code>.</li>
-<li>Container code: <code>S5CNTR</code>.</li>
-<li>Amount: <code>LINAMT</code> (prorated freight).</li>
-</ul>
-</li>
-<li><strong>Miscellaneous-Specific Fields</strong>:<ul>
-<li>Amount: <code>FRTAMT</code> (adjusted for last record).</li>
-</ul>
-</li>
-<li><strong>FR-009</strong>: If an <code>APTRAN</code> record exists for the key (<code>CHAIN</code> succeeds), update it (<code>UPDT</code> or <code>UPDTM</code>); otherwise, write a new record (<code>ADDT</code> or <code>ADDTM</code>).</li>
-</ul>
-<h3 id="35-error-handling-and-data-validation">3.5 Error Handling and Data Validation<a class="headerlink" href="#35-error-handling-and-data-validation" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>FR-010</strong>: The system shall skip records marked as deleted (<code>S5DEL = 'D'</code> or <code>SMDEL = 'D'</code>).</li>
-<li><strong>FR-011</strong>: If no valid records are found in <code>SA5FIUD</code>/<code>SA5MOUD</code> or <code>SA5FIUM</code>/<code>SA5MOUM</code>, the system shall exit without writing to <code>APTRAN</code>.</li>
-<li><strong>FR-012</strong>: If <code>TTLQTY = 0</code> for detail records or <code>TTLMFT = 0</code> for miscellaneous records, set <code>PCTHLD</code> to zero to avoid division by zero.</li>
-</ul>
-<h2 id="4-data-requirements">4. Data Requirements<a class="headerlink" href="#4-data-requirements" title="Permanent link">&para;</a></h2>
-<h3 id="41-input-files">4.1 Input Files<a class="headerlink" href="#41-input-files" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>SA5FIUD</strong> (Sales Detail, 1024 bytes, keyed):</li>
-<li>Fields: <code>S5DEL</code>, <code>S5CO#</code>, <code>S5CUST</code>, <code>S5SHIP</code>, <code>S5PROD</code>, <code>PRD1-4</code>, <code>S5TANK</code>, <code>S5ORD#</code>, <code>S5UM</code>, <code>S5NGAL</code>, <code>S5CNTR</code>, <code>S5SHD8</code>, <code>S5SRN#</code>.</li>
-<li><strong>SA5MOUD</strong> (Move Detail, 1024 bytes, keyed):</li>
-<li>Same fields as <code>SA5FIUD</code>.</li>
-<li><strong>SA5FIUM</strong> (Sales Miscellaneous, 1024 bytes, keyed):</li>
-<li>Fields: <code>SMDEL</code>, <code>SMCO#</code>, <code>SMCUST</code>, <code>SMSHIP</code>, <code>SMMQTY</code>, <code>SMMAMT</code>, <code>SMORD#</code>, <code>SMSEQ</code>, <code>SMMSTY</code>, <code>SMGLNO</code>, <code>SMIND8</code>, <code>SMSHD8</code>, <code>SMSRN#</code>.</li>
-<li><strong>SA5MOUM</strong> (Move Miscellaneous, 1024 bytes, keyed):</li>
-<li>Same fields as <code>SA5FIUM</code>.</li>
-<li><strong>GSTABL</strong> (General Table, 256 bytes, keyed):</li>
-<li>Field: <code>TBFEG4</code> (freight G/L first 4 digits).</li>
-<li><strong>BICONT</strong> (Business Control, 256 bytes, keyed):</li>
-<li>Field: <code>BCFRGL</code> (default freight G/L).</li>
-<li><strong>GSCTUM</strong> (Customer Table, 64 bytes, keyed):</li>
-<li>Field: <code>CUFEGL</code> (freight expense G/L).</li>
-</ul>
-<h3 id="42-output-file">4.2 Output File<a class="headerlink" href="#42-output-file" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>APTRAN</strong> (A/P Transaction, 404 bytes, keyed):</li>
-<li>Fields: <code>ATDDEL</code>, <code>ATCONO</code>, <code>ATENT#</code>, <code>ATENSQ</code>, <code>ATVEND</code>, <code>ATEXCO</code>, <code>ATEXGL</code>, <code>ATDDES</code>, <code>ATAMT</code>, <code>ATDISC</code>, <code>ATDSPC</code>, <code>ATITEM</code>, <code>ATQTY</code>, <code>ATJOB#</code>, <code>ATCCOD</code>, <code>ATCTYP</code>, <code>ATJQTY</code>, <code>ATPONO</code>, <code>ATGALN</code>, <code>ATRCPT</code>, <code>ATCLCD</code>, <code>ATPOSQ</code>, <code>ATPRAM</code>, <code>ATFRAM</code>.</li>
-</ul>
-<h3 id="43-data-structures">4.3 Data Structures<a class="headerlink" href="#43-data-structures" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>SALES</strong>: Input parameter structure with fields listed in FR-001.</li>
-<li><strong>Internal Arrays</strong>:</li>
-<li><code>PCT</code> (999, 7,3): Percentage for each line.</li>
-<li><code>AMT</code> (999, 11,2): Freight amounts for each line.</li>
-<li><code>MSG</code> (2, 25 bytes): Descriptions (<code>FRTCHG</code>, <code>MISC CHARGE</code>).</li>
-</ul>
-<h2 id="5-non-functional-requirements">5. Non-Functional Requirements<a class="headerlink" href="#5-non-functional-requirements" title="Permanent link">&para;</a></h2>
-<h3 id="51-performance">5.1 Performance<a class="headerlink" href="#51-performance" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>NFR-001</strong>: The system shall process invoices with up to 999 detail or miscellaneous lines within 5 seconds per invoice.</li>
-<li><strong>NFR-002</strong>: The system shall handle concurrent processing of multiple invoices without data corruption.</li>
-</ul>
-<h3 id="52-reliability">5.2 Reliability<a class="headerlink" href="#52-reliability" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>NFR-003</strong>: The system shall ensure that the sum of prorated freight amounts equals <code>FRTTOT</code> within a tolerance of ±0.01.</li>
-<li><strong>NFR-004</strong>: The system shall maintain data integrity by locking <code>APTRAN</code> records during updates.</li>
-</ul>
-<h3 id="53-compatibility">5.3 Compatibility<a class="headerlink" href="#53-compatibility" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>NFR-005</strong>: The system shall operate on IBM AS/400 or compatible systems supporting RPG/36 (<code>AP1011</code>) and RPG IV (<code>AP1012</code>).</li>
-<li><strong>NFR-006</strong>: The system shall use standard file formats for <code>SA5FI*</code>, <code>SA5MO*</code>, <code>GSTABL</code>, <code>BICONT</code>, <code>GSCTUM</code>, and <code>APTRAN</code>.</li>
-</ul>
-<h3 id="54-maintainability">5.4 Maintainability<a class="headerlink" href="#54-maintainability" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>NFR-007</strong>: Changes to <code>AP1011</code> must be mirrored in <code>AP1012</code> to maintain functional consistency, as noted in the file headers.</li>
-<li><strong>NFR-008</strong>: The system shall include clear comments and change logs (e.g., JB02, MG03, JB07, JB08) to track modifications.</li>
-</ul>
-<h2 id="6-constraints">6. Constraints<a class="headerlink" href="#6-constraints" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>C-001</strong>: The system assumes input parameters in the <code>SALES</code> data structure are valid and does not perform extensive validation.</li>
-<li><strong>C-002</strong>: Records older than one year from the invoice date (<code>S5SHD8</code> or <code>SMSHD8 &lt; CMPDT8</code>) are excluded.</li>
-<li><strong>C-003</strong>: The system relies on the presence of <code>GSTABL</code>, <code>BICONT</code>, and <code>GSCTUM</code> for G/L number retrieval.</li>
-<li><strong>C-004</strong>: <code>AP1011</code> assumes <code>S@FIMO</code> and <code>S@DM</code> are provided, while <code>AP1012</code> can derive them via the <code>GETS@</code> subroutine.</li>
-</ul>
-<h2 id="7-assumptions">7. Assumptions<a class="headerlink" href="#7-assumptions" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Input data in <code>SA5FI*</code> and <code>SA5MO*</code> files is accurate and consistent.</li>
-<li>The <code>APTRAN</code> file supports both create and update operations.</li>
-<li>The <code>CMPDT8</code> date is provided in YYYYMMDD format and represents a valid comparison date.</li>
-<li>Discounts (<code>DSPC</code>) are applicable to all transaction lines.</li>
-</ul>
-<h2 id="8-differences-between-ap1011-and-ap1012">8. Differences Between AP1011 and AP1012<a class="headerlink" href="#8-differences-between-ap1011-and-ap1012" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>GETS@ Subroutine</strong>:</li>
-<li><strong>AP1012</strong>: Includes a <code>GETS@</code> subroutine to determine <code>S@FIMO</code> and <code>S@DM</code> when blank, enhancing flexibility.</li>
-<li><strong>AP1011</strong>: Assumes <code>S@FIMO</code> and <code>S@DM</code> are provided, potentially limiting its use in certain scenarios.</li>
-<li><strong>File Access Mode</strong>:</li>
-<li><strong>AP1011</strong>: <code>APTRAN</code> defined as <code>UC</code> (update/create).</li>
-<li><strong>AP1012</strong>: <code>APTRAN</code> defined as <code>UF</code> (update/file), potentially allowing broader access.</li>
-<li><strong>Change Log Dates</strong>:</li>
-<li><strong>AP1011</strong>: JB07 dated 07/10/2024.</li>
-<li><strong>AP1012</strong>: JB07 dated 04/01/2019, indicating possible synchronization issues.</li>
-<li><strong>File Definition Syntax</strong>:</li>
-<li><strong>AP1011</strong>: Uses <code>EXTK</code> and <code>L14AI</code> for some file definitions, reflecting RPG/36 syntax.</li>
-<li><strong>AP1012</strong>: Uses simpler <code>14AI</code>, reflecting RPG IV conventions.</li>
-</ul>
-<h2 id="9-future-considerations">9. Future Considerations<a class="headerlink" href="#9-future-considerations" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Synchronize the <code>GETS@</code> subroutine across both programs to ensure consistent handling of blank <code>S@FIMO</code> and <code>S@DM</code>.</li>
-<li>Standardize file access modes (<code>UC</code> vs. <code>UF</code>) to avoid potential operational differences.</li>
-<li>Implement additional input validation to handle invalid or missing parameters.</li>
-<li>Consider consolidating <code>AP1011</code> and <code>AP1012</code> into a single program to reduce maintenance overhead.</li>
-</ul>
-<h2 id="10-approval">10. Approval<a class="headerlink" href="#10-approval" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Prepared By</strong>: Grok 3, xAI</li>
-<li><strong>Reviewed By</strong>: [Pending Stakeholder Review]</li>
-<li><strong>Approved By</strong>: [Pending Stakeholder Approval]</li>
-<li><strong>Date Approved</strong>: [Pending]</li>
-</ul>
-<h2 id="additional-technical-details-">Additional Technical Details --<a class="headerlink" href="#additional-technical-details-" title="Permanent link">&para;</a></h2>
-<p>The two RPG programs, <code>AP1011.rpg36.txt</code> and <code>AP1012.rpg.txt</code>, are designed to perform the same function: creating Accounts Payable (A/P) voucher entry detail totals by prorating carrier freight based on sales details (gallons) or miscellaneous freight amounts. They preprocess data to gather total gallons for freight allocation and split voucher entries to calculate percentages. Both programs share similar logic, file structures, and processing steps, with a note in the file headers indicating that changes in one must be reflected in the other. However, there are minor differences, primarily in file access modes and a specific subroutine present only in <code>AP1012</code>. Below is a consolidated analysis of the process steps, business rules, tables used, and external programs called, with differences explicitly noted.</p>
-<h3 id="process-steps">Process Steps<a class="headerlink" href="#process-steps" title="Permanent link">&para;</a></h3>
-<p>Both programs follow these steps to prorate freight costs and create A/P transaction records:</p>
+  <h1>AP125 RPGLE</h1>
+
+<p>The <code>AP125.rpg</code> program is an RPG III program running on an IBM AS/400 (iSeries) system, designed to create voucher transactions from freight invoice data, likely called from the <code>AP125.ocl36.txt</code> OCL script after the <code>AP125P</code> program has selected invoices for batch processing. It processes freight invoice headers (<code>FRCINH</code> or <code>FRCFBH</code>) to generate accounts payable transactions in the <code>APTRAN</code> file, including header and detail records. Below, I will detail the process steps, business rules, tables used, and external programs called, based on the provided source code.</p>
+<hr />
+<h3 id="process-steps-of-the-ap125-program"><strong>Process Steps of the AP125 Program</strong><a class="headerlink" href="#process-steps-of-the-ap125-program" title="Permanent link">&para;</a></h3>
+<p>The program is structured to process freight invoices, validate data, calculate due dates, and create or update accounts payable transactions. The main process steps are:</p>
 <ol>
-<li><strong>Input Parameter Processing</strong>:</li>
+<li><strong>Initialization</strong>:</li>
+<li><strong>Parameters</strong>: Receives input parameters:<ul>
+<li><code>CO</code>: Company code (2 digits).</li>
+<li><code>CAID</code>: Carrier ID (6 characters).</li>
+<li><code>CAIN</code>: Invoice number (25 characters).</li>
+<li><code>RCD</code>: Record type (<code>FRCFBHP4</code> for freight billed balance header, otherwise <code>FRCINHP4</code>, per revision <code>JB06</code>).</li>
+<li><code>RDNO</code>: Reference number (numeric, defined like <code>FRRDNO</code>).</li>
+</ul>
+</li>
+<li>Initializes fields and indicators, setting indicators 81-83, 50-53, 60-69, and 51-62 to off.</li>
 <li>
-<p>Receive input via a parameter list (<code>SALES</code> data structure) containing fields like company number (<code>SACO</code>), order number (<code>SAORD</code>), shipping reference number (<code>SASRN#</code>), freight total (<code>FRTTOT</code>), vendor number (<code>VEND</code>), entry number (<code>ENTNUM</code>), expense G/L (<code>EXGL</code>), discount percentage (<code>DSPC</code>), comparison date (<code>CMPDT8</code>), and table indicators (<code>S@FIMO</code>, <code>S@DM</code>).</p>
+<p>Sets up key fields for file access (e.g., <code>TERMKY</code> for <code>APTERM</code>, <code>BBCAKY</code> for <code>BBCAID</code>).</p>
 </li>
 <li>
-<p><strong>Determine Table Access (AP1012 only)</strong>:</p>
+<p><strong>Subroutine S1 (Main Processing)</strong>:</p>
 </li>
-<li>
-<p>In <code>AP1012</code>, if <code>S@FIMO</code> is blank, the <code>GETS@</code> subroutine determines whether to use <code>SA5FI</code> or <code>SA5MO</code> tables and whether to process detail (<code>D</code>) or miscellaneous (<code>M</code>) records by checking <code>SA5FIUD</code>, <code>SA5MOUD</code>, <code>SA5FIUM</code>, and <code>SA5MOUM</code> for matching records.</p>
+<li><strong>Validate Company</strong>: Chains to <code>APCONT</code> using <code>CO</code> to retrieve company details (e.g., <code>ACAPGL</code>, <code>ACCAGL</code>, <code>ACRTGL</code>, <code>ACNXTE</code>). If not found, sets indicator 50.</li>
+<li><strong>Retrieve Invoice Data</strong>:<ul>
+<li>Constructs a key (<code>FRCKEY</code> or <code>FRCK39</code>) using <code>CO</code>, <code>CAID</code>, <code>CAIN</code>, and <code>RDNO</code> (for <code>FRCFBH</code>).</li>
+<li>Chains to <code>FRCINH</code> (if <code>RCD ≠ 'FRCFBHP4'</code>) or <code>FRCFBH</code> (if <code>RCD = 'FRCFBHP4'</code>, per <code>JB06</code>) to retrieve invoice details.</li>
+<li>If found, populates transaction fields:</li>
+<li><code>ATINV#</code>: Invoice number (<code>FRCAIN</code>).</li>
+<li><code>INTY</code>: Invoice type (<code>FRINTY</code>).</li>
+<li><code>ATINDT</code>/<code>INDT</code>: Invoice date (<code>FRIYMD</code> converted to MMDDYY).</li>
+<li><code>ATIAMT</code>/<code>IAMT</code>/<code>ATFRTL</code>/<code>FRTL</code>: Invoice amount (<code>FRINAM - FRFBOA</code>, per <code>JB06</code>).</li>
+<li><code>ATSORN</code>/<code>SORN</code>: Sales order number (<code>FRRDNO</code>).</li>
+<li><code>ATSSRN</code>/<code>SSRN</code>: Sales sequence number (<code>FRSRN</code>).</li>
+<li>Sets indicators 51 (<code>INTY = 'P'</code>) or 52 (<code>INTY = 'O'</code>) for invoice description.</li>
+</ul>
 </li>
-<li>
-<p><strong>Calculate Total Net Gallons</strong>:</p>
+<li><strong>Generate Entry Number</strong>:<ul>
+<li>If <code>ENT#</code> is zero, sets <code>RECSTS = 'ADDNEW'</code>, retrieves the next entry number (<code>ACNXTE</code>) from <code>APCONT</code>, increments it, and updates <code>APCONT</code>.</li>
+<li>Ensures <code>ENT#</code> does not exceed 99999, adjusting <code>ACNXTE</code> accordingly.</li>
+</ul>
 </li>
-<li>Read through <code>SA5FIUD</code> (detail) or <code>SA5MOUD</code> (move detail) based on <code>S@FIMO</code> (<code>F</code> for <code>SA5FI</code>, <code>M</code> for <code>SA5MO</code>).</li>
-<li>Filter records by company (<code>S5CO# = SACO</code>), order (<code>S5ORD# = SAORD</code>), shipping reference number (<code>S5SRN# = SASRN#</code>), and ship date (<code>S5SHD8 &gt;= CMPDT8</code>, within one year of invoice date).</li>
-<li>
-<p>Sum net gallons (<code>S5NGAL</code>) into <code>TTLQTY</code> and count records (<code>COUNT1</code>).</p>
-</li>
-<li>
-<p><strong>Handle No Detail Records</strong>:</p>
-</li>
-<li>
-<p>If no detail records are found (<code>TTLQTY = 0</code> and <code>COUNT1 = 0</code>), proceed to process miscellaneous records (<code>SA5FIUM</code> or <code>SA5MOUM</code>).</p>
-</li>
-<li>
-<p><strong>Prorate Freight Based on Detail Records</strong>:</p>
-</li>
-<li>Re-read <code>SA5FIUD</code> or <code>SA5MOUD</code> to calculate the percentage of total gallons (<code>S5NGAL / TTLQTY</code>) for each record.</li>
-<li>Multiply the percentage (<code>PCTHLD</code>) by the total freight (<code>FRTTOT</code>) to compute the freight amount (<code>AMT,Y</code>) for each line.</li>
-<li>Store the amount in <code>AMTITM</code> and <code>LINAMT</code> (array elements).</li>
-<li>Adjust the last record’s amount to ensure the sum matches <code>FRTTOT</code>:<ul>
-<li>If <code>FRTTOT = sum(AMT)</code>, write records.</li>
-<li>If <code>FRTTOT &gt; sum(AMT)</code>, add the difference to the last record.</li>
-<li>If <code>FRTTOT &lt; sum(AMT)</code>, subtract the difference from the last record.</li>
+<li><strong>Retrieve Vendor Information</strong>:<ul>
+<li>Chains to <code>APVENY</code> using <code>CO</code> and <code>CAID</code> to get the vendor number (<code>VYVEND</code>).</li>
+<li>Chains to <code>APVEND</code> using <code>CO</code> and <code>VEND</code> to retrieve vendor details (<code>VNVNAM</code>, <code>VNAD1</code>, <code>VNAD2</code>, <code>VNAD3</code>, <code>VNAD4</code>, <code>VNHOLD</code>, <code>VNSNGL</code>, <code>VNTERM</code>, <code>VNEXGL</code>).</li>
+<li>Sets hold description (<code>HLDD</code>) based on <code>VNHOLD</code> (per <code>JB02</code> and <code>MG18</code>):</li>
+<li><code>H</code>: "VENDOR ON HOLD" (COM,01).</li>
+<li><code>A</code>: "ON HOLD FOR ACH" (COM,02).</li>
+<li><code>W</code>: "ON HOLD FOR WIRE TRANSFER" (COM,03).</li>
+<li><code>U</code>: "ON HOLD FOR UTILITY AUTO-PAYMENT" (COM,04).</li>
 </ul>
 </li>
 <li>
-<p>Call the <code>GOOD</code> subroutine to write or update <code>APTRAN</code> records.</p>
+<p><strong>Output</strong>: Writes or updates the transaction header in <code>APTRAN</code> via the <code>EXCPT</code> operation.</p>
 </li>
 <li>
-<p><strong>Prorate Freight Based on Miscellaneous Records</strong>:</p>
+<p><strong>Subroutine S2 (Header Processing and Detail Setup)</strong>:</p>
 </li>
-<li>If no detail records exist, call the <code>MFRTO</code> subroutine to calculate the total miscellaneous freight amount (<code>TTLMFT</code>) and count (<code>COUNTM</code>) from <code>SA5FIUM</code> or <code>SA5MOUM</code> where <code>SMMSTY = 'F'</code> (freight) and <code>SMGLNO ≠ 0</code>.</li>
-<li>Read <code>SA5FIUM</code> or <code>SA5MOUM</code>, calculate the percentage (<code>CLCAMT / TTLMFT</code>) for each record, and apply it to <code>FRTTOT</code> to get <code>FRTAMT</code>.</li>
-<li>For the last record, adjust <code>FRTAMT</code> to ensure the sum equals <code>FRTTOT</code>.</li>
+<li>Chains to <code>APTRAN</code> using <code>KEYENT</code> (constructed from <code>COENT</code> and "000") to check for an existing header.</li>
+<li>If not found, populates header fields from <code>APCONT</code> (<code>APGL</code>, <code>BKGL</code>, <code>RTGL</code>) and vendor data.</li>
+<li>Calls <code>S2EDIT</code> to validate header fields.</li>
+<li>Calls <code>HDRADD</code> to write/update the transaction header.</li>
+<li>Calls <code>ROLFWD</code> to initiate detail line processing.</li>
 <li>
-<p>Call the <code>GETFRT</code> subroutine to write or update <code>APTRAN</code> records.</p>
+<p>Sets indicator 81 to trigger further processing.</p>
 </li>
 <li>
-<p><strong>Write/Update A/P Transaction Records</strong>:</p>
+<p><strong>Subroutine S2EDIT (Header Validation)</strong>:</p>
 </li>
-<li>In the <code>GOOD</code> subroutine:<ul>
-<li>Retrieve the freight G/L number (<code>FEGL</code>) based on product code (<code>S5PROD</code>):</li>
-<li>If the product code contains an alpha character, use <code>GSCTUM</code> (<code>CUFEGL</code>).</li>
-<li>Otherwise, combine the first 4 digits from <code>GSTABL</code> (<code>TBFEG4</code>) and the product code, or use the default from <code>BICONT</code> (<code>BCFRGL</code>).</li>
-<li>Write (<code>ADDT</code>) or update (<code>UPDT</code>) <code>APTRAN</code> with fields like company number, entry number, vendor, freight G/L, description, order, SRN, product code, container code, amount, and discount.</li>
+<li><strong>Validate Invoice Date</strong>:<ul>
+<li>Moves <code>INDT</code> to <code>MMDDYY</code> and calls <code>DTEDIT</code> to validate the date.</li>
+</ul>
+</li>
+<li><strong>Calculate Due Date</strong>:<ul>
+<li>If <code>DUDT</code> is zero and <code>VEND</code> is non-zero, calls <code>CLCDUE</code> to calculate the due date based on vendor terms (<code>VNTERM</code>).</li>
+<li>Otherwise, sets <code>DUDT = INDT</code>.</li>
+</ul>
+</li>
+<li><strong>Validate Due Date</strong>:<ul>
+<li>Converts <code>DUDT</code> to <code>MMDDYY</code> and validates via <code>DTEDIT</code>.</li>
+<li>Adjusts for century (<code>Y2KCEN</code>) to create <code>INDT8</code> and <code>DUDT8</code> (8-digit dates).</li>
+<li>Checks <code>APDATE</code> (per <code>MG17</code>) to replace <code>DUDT8</code> with a non-holiday/non-weekend date (<code>ADNED8</code>).</li>
 </ul>
 </li>
 <li>
-<p>In the <code>GETFRT</code> subroutine:</p>
+<p><strong>Validate G/L Accounts</strong>:</p>
 <ul>
-<li>Use the miscellaneous G/L number (<code>SMGLNO</code>) as <code>FEGL</code>.</li>
-<li>Write (<code>ADDTM</code>) or update (<code>UPDTM</code>) <code>APTRAN</code> with similar fields, using <code>FRTAMT</code> for the amount.</li>
+<li>Chains to <code>GLMAST</code> to validate <code>APGL</code>, <code>BKGL</code>, and <code>RTGL</code>, retrieving descriptions (<code>APGLNM</code>, <code>BKGLNM</code>, <code>RTGLNM</code>). Sets indicators 61, 62, or 63 if invalid.</li>
 </ul>
 </li>
 <li>
-<p><strong>Exit</strong>:</p>
+<p><strong>Subroutine CLCDUE (Calculate Due Date)</strong>:</p>
 </li>
-<li>Set the last record indicator (<code>LR</code>) and terminate.</li>
+<li>If <code>VNTERM</code> is non-zero, chains to <code>GSTABL</code> (table <code>APTERM</code>) to retrieve terms (<code>TBNETD</code>, <code>TBPRXD</code>, <code>TBDISC</code>, <code>TBDISD</code>).</li>
+<li>If valid, retrieves discount percentage (<code>TBDISC</code> to <code>SVDSPC</code>, per <code>MG03</code>).</li>
+<li>
+<p>Calls <code>TMDATN</code> (net days) or <code>TMDATP</code> (prox days) to calculate <code>DUDT</code>.</p>
+</li>
+<li>
+<p><strong>Subroutine TMDATN (Net Days Calculation)</strong>:</p>
+</li>
+<li>Converts <code>INDT</code> to Julian format (<code>G$JD</code>) via <code>@DTE1</code>.</li>
+<li>Adds net days (<code>TBNETD</code>) to <code>G$JD</code>.</li>
+<li>
+<p>Converts back to Gregorian format (<code>$MDY</code>) via <code>@DTE2</code> to set <code>DUDT</code>.</p>
+</li>
+<li>
+<p><strong>Subroutine TMDATP (Prox Days Calculation)</strong>:</p>
+</li>
+<li>
+<p>Adjusts <code>INDT</code> by incrementing the month (and year if December) and sets the day to <code>TBPRXD</code> to calculate <code>DUDT</code>.</p>
+</li>
+<li>
+<p><strong>Subroutine DTEDIT (Date Validation)</strong>:</p>
+</li>
+<li>Validates <code>MMDDYY</code> by breaking it into month, day, and year.</li>
+<li>Checks:<ul>
+<li>Month (1-12).</li>
+<li>Day (1-31, or 1-28/29 for February, accounting for leap years).</li>
+</ul>
+</li>
+<li>
+<p>Sets indicator 99 if invalid.</p>
+</li>
+<li>
+<p><strong>Subroutine @DTE1 (Gregorian to Julian Conversion)</strong>:</p>
+</li>
+<li>Converts a Gregorian date (<code>$MDY</code>, <code>$CN</code>) to Julian days (<code>G$JD</code>) for dates between March 1, 1900, and February 28, 2100.</li>
+<li>
+<p>Calculates the day of the week (<code>G$JW</code>).</p>
+</li>
+<li>
+<p><strong>Subroutine @DTE2 (Julian to Gregorian Conversion)</strong>:</p>
+<ul>
+<li>Converts a Julian date (<code>G$JD</code>) back to Gregorian format (<code>$MDY</code>, <code>$CN</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Subroutine ROLFWD (Detail Line Processing)</strong>:</p>
+<ul>
+<li>If <code>SORN</code> and <code>SSRN</code> are non-zero and <code>RECSTS = 'ADDNEW'</code>, populates a <code>SALES</code> data structure with <code>CO</code>, <code>SORN</code>, <code>SSRN</code>, <code>ENT#</code>, <code>VEND</code>, <code>FRTL</code>, <code>SVDSPC</code>, and <code>CMPDT8</code> (invoice date minus one year, per <code>JB05</code>).</li>
+<li>Calls <code>AP1012</code> to populate freight detail lines with calculated percentage amounts.</li>
+<li>Resets <code>RECSTS</code> and sets <code>KEYENT</code> to "001" for the first detail line.</li>
+</ul>
+</li>
+<li>
+<p><strong>Subroutine S3 (Detail Line Processing)</strong>:</p>
+<ul>
+<li>If <code>FRTL</code> and <code>PRAM</code> are non-zero, calculates the freight amount (<code>FRAM = PRAM * FRTL</code>) and adds it to <code>HOLDAM</code> and <code>SVTTL</code>.</li>
+<li>Adjusts <code>FRAM</code> if <code>IAMT &gt; SVTTL</code> to balance the invoice amount.</li>
+<li>Combines <code>PRAM</code> and <code>FRAM</code> to set <code>AMT</code>.</li>
+<li>If <code>AMT</code> is zero, clears the header (<code>HDRCLR</code>) and exits.</li>
+<li>Calls <code>S3EDIT</code> to validate detail fields.</li>
+<li>Calls <code>DETADD</code> to write the detail line.</li>
+<li>Calls <code>DETCLR</code> to clear detail fields.</li>
+<li>Calls <code>ROLFWD</code> to process additional lines.</li>
+<li>Updates <code>FRCINH</code> or <code>FRCFBH</code> (setting <code>FRAPST = 'Y'</code>) based on <code>RCD</code>.</li>
+<li>Writes the updated record via <code>EXCPT</code> (<code>APINST</code> for <code>FRCINH</code>, <code>APINSF</code> for <code>FRCFBH</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Subroutine S3EDIT (Detail Validation)</strong>:</p>
+<ul>
+<li>Sets default expense G/L (<code>EXGL</code>) from <code>VNEXGL</code> if not specified.</li>
+<li>Chains to <code>GLMAST</code> to validate <code>EXGL</code>, setting indicator 50 if invalid.</li>
+</ul>
+</li>
+<li>
+<p><strong>Subroutine HDRADD (Add/Update Header)</strong>:</p>
+<ul>
+<li>Chains to <code>APTRAN</code> and writes/updates the header record using <code>EXCPT</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Subroutine DETADD (Add Detail Line)</strong>:</p>
+<ul>
+<li>Writes the detail line to <code>APTRAN</code> using <code>EXCPT</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Subroutine HDRCLR (Clear Header Fields)</strong>:</p>
+<ul>
+<li>Clears header fields (e.g., <code>SVAPGL</code>, <code>SVBKGL</code>, <code>HDEL</code>, <code>ENT#</code>, <code>VNAM</code>, etc.).</li>
+</ul>
+</li>
+<li>
+<p><strong>Subroutine DETCLR (Clear Detail Fields)</strong>:</p>
+<ul>
+<li>Clears detail fields (e.g., <code>SVLNGL</code>, <code>SVLNCO</code>, <code>DDEL</code>, <code>AMT</code>, <code>DISC</code>, etc.).</li>
+</ul>
+</li>
+<li>
+<p><strong>Subroutine ROLLBK (Rollback Processing)</strong>:</p>
+<ul>
+<li>Rolls back detail lines by decrementing <code>NXLINE</code> and chaining to <code>APTRAN</code>.</li>
+<li>If a header is reached, calls <code>S2EDIT</code> to validate and sets indicator 82.</li>
+</ul>
+</li>
+<li>
+<p><strong>Program Termination</strong>:</p>
+<ul>
+<li>Sets <code>*INLR = *ON</code> to end the program.</li>
+</ul>
+</li>
 </ol>
-<h3 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
-<p>The following business rules govern the processing in both programs:</p>
+<hr />
+<h3 id="business-rules"><strong>Business Rules</strong><a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>Freight Allocation</strong>:</li>
-<li>Freight (<code>FRTTOT</code>) is prorated across detail lines based on net gallons (<code>S5NGAL / TTLQTY</code>) or across miscellaneous lines based on freight amounts (<code>CLCAMT / TTLMFT</code>).</li>
+<li><strong>Invoice Processing</strong>:</li>
+<li>Processes invoices from <code>FRCINH</code> or <code>FRCFBH</code> based on <code>RCD</code> (<code>FRCFBHP4</code> for freight billed balance, per <code>JB06</code>).</li>
 <li>
-<p>The last record’s amount is adjusted to ensure the total allocated freight matches <code>FRTTOT</code>.</p>
+<p>Adjusts invoice amount (<code>ATIAMT = FRINAM - FRFBOA</code>, per <code>JB06</code>) to account for freight balancing order override total.</p>
 </li>
 <li>
-<p><strong>Table Selection</strong>:</p>
+<p><strong>Hold Status</strong>:</p>
 </li>
-<li>Use <code>SA5FIUD</code> or <code>SA5MOUD</code> for detail records and <code>SA5FIUM</code> or <code>SA5MOUM</code> for miscellaneous records, determined by <code>S@FIMO</code> (<code>F</code> or <code>M</code>).</li>
+<li>Supports hold codes (<code>VNHOLD</code>): <code>H</code> (hold), <code>A</code> (ACH), <code>W</code> (wire transfer), <code>U</code> (utility auto-payment, per <code>MG18</code>).</li>
 <li>
-<p>Records are filtered by company, order, SRN, and ship date (within one year of invoice date, <code>S5SHD8 &gt;= CMPDT8</code>).</p>
-</li>
-<li>
-<p><strong>Freight G/L Determination</strong>:</p>
-</li>
-<li>For detail records with alpha product codes, retrieve <code>FEGL</code> from <code>GSCTUM</code>.</li>
-<li>For numeric product codes, combine <code>TBFEG4</code> from <code>GSTABL</code> with <code>S5PROD</code>, or use <code>BCFRGL</code> from <code>BICONT</code> if not found.</li>
-<li>
-<p>For miscellaneous records, use <code>SMGLNO</code> as <code>FEGL</code>.</p>
+<p>Assigns corresponding descriptions to <code>HLDD</code> (per <code>JB02</code>, <code>MG18</code>).</p>
 </li>
 <li>
-<p><strong>Record Writing</strong>:</p>
+<p><strong>Due Date Calculation</strong>:</p>
 </li>
-<li>Write new <code>APTRAN</code> records if no existing record is found (<code>CHAIN APTRAN</code> fails).</li>
-<li>Update existing <code>APTRAN</code> records if found.</li>
+<li>Calculates due date (<code>DUDT</code>) based on vendor terms (<code>VNTERM</code>) using net days (<code>TBNETD</code>) or prox days (<code>TBPRXD</code>) from <code>GSTABL</code>.</li>
+<li>Adjusts due date to avoid holidays/weekends using <code>APDATE</code> (<code>ADNED8</code>, per <code>MG17</code>).</li>
 <li>
-<p>Include discounts (<code>DSPC</code>) in <code>APTRAN</code> records.</p>
+<p>Defaults to invoice date (<code>INDT</code>) if no terms are specified.</p>
 </li>
 <li>
-<p><strong>Miscellaneous Records</strong>:</p>
+<p><strong>Discount Handling</strong>:</p>
 </li>
-<li>Process miscellaneous records only if no detail records exist.</li>
-<li>Only records with <code>SMMSTY = 'F'</code> (freight) and non-zero <code>SMGLNO</code> are used for freight proration.</li>
+<li>
+<p>Retrieves discount percentage (<code>TBDISC</code>) from <code>GSTABL</code> and applies it to <code>SVDSPC</code> (per <code>MG03</code>).</p>
+</li>
+<li>
+<p><strong>Date Validation</strong>:</p>
+</li>
+<li>Validates invoice and due dates for valid months, days, and leap years.</li>
+<li>
+<p>Handles century adjustments for Y2K compliance.</p>
+</li>
+<li>
+<p><strong>G/L Account Validation</strong>:</p>
+</li>
+<li>
+<p>Validates accounts payable (<code>APGL</code>), bank (<code>BKGL</code>), and retention (<code>RTGL</code>) G/L accounts against <code>GLMAST</code>.</p>
+</li>
+<li>
+<p><strong>Detail Line Calculation</strong>:</p>
+</li>
+<li>Calculates freight amount (<code>FRAM</code>) as a proportion of <code>PRAM</code> and <code>FRTL</code>.</li>
+<li>
+<p>Ensures total line amount (<code>AMT = PRAM + FRAM</code>) aligns with the invoice amount (<code>IAMT</code>).</p>
+</li>
+<li>
+<p><strong>Freight Detail Lines</strong>:</p>
+</li>
+<li>
+<p>Calls <code>AP1012</code> to populate detail lines with calculated freight percentages, using sales order (<code>SORN</code>), sequence number (<code>SSRN</code>), and invoice date minus one year (<code>CMPDT8</code>, per <code>JB05</code>).</p>
+</li>
+<li>
+<p><strong>Transaction Creation</strong>:</p>
+</li>
+<li>Creates header and detail records in <code>APTRAN</code> with vendor, G/L, and freight details.</li>
+<li>Updates <code>FRCINH</code> or <code>FRCFBH</code> to mark invoices as processed (<code>FRAPST = 'Y'</code>).</li>
 </ol>
-<h3 id="differences-in-business-rules">Differences in Business Rules<a class="headerlink" href="#differences-in-business-rules" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>S@FIMO and S@DM Handling (JB07)</strong>:</li>
-<li>In <code>AP1012</code>, the <code>GETS@</code> subroutine is added to determine <code>S@FIMO</code> and <code>S@DM</code> when they are blank, by checking <code>SA5FIUD</code>, <code>SA5MOUD</code>, <code>SA5FIUM</code>, and <code>SA5MOUM</code> for valid records. This logic is absent in <code>AP1011</code>, implying <code>AP1011</code> assumes <code>S@FIMO</code> and <code>S@DM</code> are always provided.</li>
-<li><strong>Date of Change JB07</strong>:</li>
-<li><code>AP1011</code>: JB07 dated 07/10/2024.</li>
-<li><code>AP1012</code>: JB07 dated 04/01/2019, indicating a potential discrepancy in update synchronization, though the logic appears identical.</li>
-</ul>
-<h3 id="tables-used">Tables Used<a class="headerlink" href="#tables-used" title="Permanent link">&para;</a></h3>
-<p>Both programs use the same tables:
-- <strong>SA5FIUD</strong>: Sales detail file (input, 1024 bytes, keyed).
-- <strong>SA5FIUM</strong>: Sales miscellaneous file (input, 1024 bytes, keyed).
-- <strong>SA5MOUD</strong>: Move detail file (input, 1024 bytes, keyed, added in JB06).
-- <strong>SA5MOUM</strong>: Move miscellaneous file (input, 1024 bytes, keyed, added in JB06).
-- <strong>GSTABL</strong>: General table for freight G/L number lookup (input, 256 bytes, keyed).
-- <strong>BICONT</strong>: Business control file for default freight G/L (input, 256 bytes, keyed).
-- <strong>GSCTUM</strong>: Customer table for freight expense G/L (input, 64 bytes, keyed, added in JB02).
-- <strong>APTRAN</strong>: A/P transaction file (update in <code>AP1011</code>, update/input in <code>AP1012</code>, 404 bytes, keyed).</p>
-<p><strong>Difference</strong>:
-- <code>AP1011</code> defines <code>APTRAN</code> with <code>UC</code> (update/create), while <code>AP1012</code> uses <code>UF</code> (update/file). This suggests <code>AP1012</code> may have broader file access capabilities, though the logic uses <code>UC</code>-style operations (write/update).</p>
-<h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Neither program explicitly calls external programs (no <code>CALL</code> statements). All processing is handled via subroutines (<code>GOOD</code>, <code>GETFRT</code>, and <code>MFRTO</code> in both; <code>GETS@</code> in <code>AP1012</code> only).</li>
-</ul>
-<h3 id="summary-of-differences">Summary of Differences<a class="headerlink" href="#summary-of-differences" title="Permanent link">&para;</a></h3>
+<hr />
+<h3 id="tables-files-used"><strong>Tables (Files) Used</strong><a class="headerlink" href="#tables-files-used" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>GETS@ Subroutine</strong>:</li>
-<li>Present in <code>AP1012</code> to handle blank <code>S@FIMO</code> and <code>S@DM</code>, absent in <code>AP1011</code>.</li>
-<li><strong>File Access Mode</strong>:</li>
-<li><code>APTRAN</code> is <code>UC</code> in <code>AP1011</code> and <code>UF</code> in <code>AP1012</code>.</li>
-<li><strong>JB07 Date</strong>:</li>
-<li>Different dates for the JB07 change (07/10/2024 in <code>AP1011</code>, 04/01/2019 in <code>AP1012</code>).</li>
-<li><strong>Field Length Consistency</strong>:</li>
-<li>Both programs updated the <code>AMT</code> array to 11,2 in JB07/JB08, but some commented lines suggest prior inconsistencies (e.g., 7,2 in <code>AP1011</code>).</li>
-<li><strong>File Definition Syntax</strong>:</li>
-<li><code>AP1011</code> includes <code>EXTK</code> and <code>L14AI</code> in some file definitions, while <code>AP1012</code> uses simpler <code>14AI</code>. This may reflect platform-specific syntax (e.g., RPG/36 vs. RPG IV) but does not affect logic.</li>
+<li><strong>Update Files</strong>:</li>
+<li><code>APTRAN</code>: Accounts Payable transaction file (header and detail records, 404 bytes, keyed by company and entry number).</li>
+<li><code>APCONT</code>: Accounts Payable control file (256 bytes, keyed by company).</li>
+<li><code>FRCINH</code>: Freight Invoice Header (206 bytes, keyed by company, carrier ID, invoice number).</li>
+<li>
+<p><code>FRCFBH</code>: Freight Billed Balance Header (206 bytes, keyed by company, carrier ID, invoice number, reference number, per <code>JB06</code>).</p>
+</li>
+<li>
+<p><strong>Input Files</strong>:</p>
+</li>
+<li><code>APVEND</code>: Vendor master file (579 bytes, keyed by company and vendor number).</li>
+<li><code>APVENY</code>: Vendor cross-reference file (320 bytes, keyed by company and carrier ID).</li>
+<li><code>GLMAST</code>: General Ledger master file (256 bytes, keyed by company and G/L account).</li>
+<li><code>GSTABL</code>: General table file (256 bytes, keyed by table type <code>APTERM</code> for terms).</li>
+<li><code>APDATE</code>: Due date adjustment file (19 bytes, keyed by company and due date, per <code>MG17</code>).</li>
 </ol>
-<h3 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h3>
-<p>Both programs perform identical core functions with minor differences in handling input parameters (<code>GETS@</code> in <code>AP1012</code>) and file access modes. The presence of <code>GETS@</code> in <code>AP1012</code> makes it more robust for cases where table indicators are not provided. The file header warning about synchronizing changes suggests these differences may be oversights or platform-specific adaptations. Developers should ensure <code>GETS@</code> is added to <code>AP1011</code> or confirm that <code>S@FIMO</code> and <code>S@DM</code> are always provided to maintain consistency.</p>
+<hr />
+<h3 id="external-programs-called"><strong>External Programs Called</strong><a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>AP1012</strong>:</li>
+<li>Called in <code>ROLFWD</code> to populate freight detail lines with calculated percentage amounts, passing the <code>SALES</code> data structure.</li>
+</ol>
+<hr />
+<h3 id="summary"><strong>Summary</strong><a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
+<p>The <code>AP125.rpg</code> program processes freight invoices from <code>FRCINH</code> or <code>FRCFBH</code> to create accounts payable transactions in <code>APTRAN</code>. It validates company, vendor, and G/L data, calculates due dates (adjusted for holidays/weekends), applies discounts, and generates header and detail records. The program handles freight balancing adjustments, hold statuses, and detail line calculations via <code>AP1012</code>. It ensures data integrity through extensive validation and updates the source invoice records upon completion.</p>
+<p>If you need further details or clarification on specific subroutines, business rules, or file structures, please let me know!</p>
 
 
 

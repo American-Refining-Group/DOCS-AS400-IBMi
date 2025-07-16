@@ -12,28 +12,28 @@
         <meta name="author" content="American Refining Group">
       
       
-        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-payable/05%20Clear%20Checks%20%26%20Reconciliation/AP195%20RPG/">
+        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-payable/01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP125%20ARGLMS/AP125%20OCL/">
       
       
-        <link rel="prev" href="../AP190%20RPG/">
+        <link rel="prev" href="../AP1012%20RPG/">
       
       
-        <link rel="next" href="../AP192%20Upload%20Checks%20to%20Clear/AP192%20OCL/">
+        <link rel="next" href="../AP125%20RPGLE/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
     
     
       
-        <title>AP195 RPG - ARG AS400 IBMi Documentation</title>
+        <title>AP125 OCL - ARG AS400 IBMi Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -52,7 +52,7 @@
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#process-steps-of-the-ap195-rpg-program" class="md-skip">
+        <a href="#process-steps-of-the-ocl-program" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="ARG AS400 IBMi Documentation" class="md-header__button md-logo" aria-label="ARG AS400 IBMi Documentation" data-md-component="logo">
+    <a href="../../../../.." title="ARG AS400 IBMi Documentation" class="md-header__button md-logo" aria-label="ARG AS400 IBMi Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AP195 RPG
+              AP125 OCL
             
           </span>
         </div>
@@ -204,7 +204,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="ARG AS400 IBMi Documentation" class="md-nav__button md-logo" aria-label="ARG AS400 IBMi Documentation" data-md-component="logo">
+    <a href="../../../../.." title="ARG AS400 IBMi Documentation" class="md-nav__button md-logo" aria-label="ARG AS400 IBMi Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -234,7 +234,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../../../../.." class="md-nav__link">
         
   
   
@@ -298,6 +298,8 @@
                 
   
   
+    
+  
   
   
     
@@ -307,11 +309,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
         
           
           <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
@@ -327,7 +329,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_1">
             <span class="md-nav__icon md-icon"></span>
             01 Voucher Entry
@@ -338,6 +340,8 @@
                 
   
   
+    
+  
   
   
     
@@ -347,11 +351,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" checked>
         
           
           <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
@@ -367,7 +371,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_1_1">
             <span class="md-nav__icon md-icon"></span>
             AP100 OCL Voucher Entry
@@ -381,7 +385,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP100%20OCL/" class="md-nav__link">
+      <a href="../../AP100%20OCL/" class="md-nav__link">
         
   
   
@@ -404,7 +408,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP100%20RPG/" class="md-nav__link">
+      <a href="../../AP100%20RPG/" class="md-nav__link">
         
   
   
@@ -427,7 +431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP100%20Summary/" class="md-nav__link">
+      <a href="../../AP100%20Summary/" class="md-nav__link">
         
   
   
@@ -450,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP110%20RPG/" class="md-nav__link">
+      <a href="../../AP110%20RPG/" class="md-nav__link">
         
   
   
@@ -473,7 +477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP115%20RPG/" class="md-nav__link">
+      <a href="../../AP115%20RPG/" class="md-nav__link">
         
   
   
@@ -496,7 +500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/Summary%20AP100/" class="md-nav__link">
+      <a href="../../Summary%20AP100/" class="md-nav__link">
         
   
   
@@ -559,7 +563,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP106%20Flexi%20Capture/AP106%20OCL/" class="md-nav__link">
+      <a href="../../AP106%20Flexi%20Capture/AP106%20OCL/" class="md-nav__link">
         
   
   
@@ -582,7 +586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP106%20Flexi%20Capture/AP106%20Summary/" class="md-nav__link">
+      <a href="../../AP106%20Flexi%20Capture/AP106%20Summary/" class="md-nav__link">
         
   
   
@@ -605,7 +609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP106%20Flexi%20Capture/AP106/" class="md-nav__link">
+      <a href="../../AP106%20Flexi%20Capture/AP106/" class="md-nav__link">
         
   
   
@@ -628,7 +632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP106%20Flexi%20Capture/AP107/" class="md-nav__link">
+      <a href="../../AP106%20Flexi%20Capture/AP107/" class="md-nav__link">
         
   
   
@@ -656,6 +660,8 @@
                 
   
   
+    
+  
   
   
     
@@ -665,11 +671,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1_8" checked>
         
           
           <label class="md-nav__link" for="__nav_2_1_1_8" id="__nav_2_1_1_8_label" tabindex="0">
@@ -685,7 +691,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_1_1_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_1_1_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_1_1_8">
             <span class="md-nav__icon md-icon"></span>
             AP125 ARGLMS
@@ -699,7 +705,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP125%20ARGLMS/AP1012%20RPG/" class="md-nav__link">
+      <a href="../AP1012%20RPG/" class="md-nav__link">
         
   
   
@@ -719,10 +725,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP125%20ARGLMS/AP125%20OCL/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    AP125 OCL
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -733,6 +759,60 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#process-steps-of-the-ocl-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Steps of the OCL Program
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-programs-called" class="md-nav__link">
+    <span class="md-ellipsis">
+      External Programs Called
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tables-files-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tables (Files) Used
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -745,7 +825,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP125%20ARGLMS/AP125%20RPGLE/" class="md-nav__link">
+      <a href="../AP125%20RPGLE/" class="md-nav__link">
         
   
   
@@ -768,7 +848,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP125%20ARGLMS/AP125P%20RPGLE/" class="md-nav__link">
+      <a href="../AP125P%20RPGLE/" class="md-nav__link">
         
   
   
@@ -791,7 +871,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP125%20ARGLMS/Summary%20AP1012/" class="md-nav__link">
+      <a href="../Summary%20AP1012/" class="md-nav__link">
         
   
   
@@ -814,7 +894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01%20Voucher%20Entry/AP100%20OCL%20Voucher%20Entry/AP125%20ARGLMS/Summary%20AP125/" class="md-nav__link">
+      <a href="../Summary%20AP125/" class="md-nav__link">
         
   
   
@@ -893,7 +973,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01%20Voucher%20Entry/AP105PCL%20CLP%20SOGAS/AP105%20Call%20Stack%20Summary/" class="md-nav__link">
+      <a href="../../../AP105PCL%20CLP%20SOGAS/AP105%20Call%20Stack%20Summary/" class="md-nav__link">
         
   
   
@@ -916,7 +996,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01%20Voucher%20Entry/AP105PCL%20CLP%20SOGAS/AP105%20OCL/" class="md-nav__link">
+      <a href="../../../AP105PCL%20CLP%20SOGAS/AP105%20OCL/" class="md-nav__link">
         
   
   
@@ -939,7 +1019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01%20Voucher%20Entry/AP105PCL%20CLP%20SOGAS/AP105%20RPG/" class="md-nav__link">
+      <a href="../../../AP105PCL%20CLP%20SOGAS/AP105%20RPG/" class="md-nav__link">
         
   
   
@@ -962,7 +1042,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01%20Voucher%20Entry/AP105PCL%20CLP%20SOGAS/AP105P%20RPG/" class="md-nav__link">
+      <a href="../../../AP105PCL%20CLP%20SOGAS/AP105P%20RPG/" class="md-nav__link">
         
   
   
@@ -985,7 +1065,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01%20Voucher%20Entry/AP105PCL%20CLP%20SOGAS/AP105PCL%20CLP/" class="md-nav__link">
+      <a href="../../../AP105PCL%20CLP%20SOGAS/AP105PCL%20CLP/" class="md-nav__link">
         
   
   
@@ -1056,7 +1136,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01%20Voucher%20Entry/AP200%20OCL%20Convert%20Voucher%20to%20Payable/AP200%20OCL/" class="md-nav__link">
+      <a href="../../../AP200%20OCL%20Convert%20Voucher%20to%20Payable/AP200%20OCL/" class="md-nav__link">
         
   
   
@@ -1079,7 +1159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01%20Voucher%20Entry/AP200%20OCL%20Convert%20Voucher%20to%20Payable/AP200%20RPG/" class="md-nav__link">
+      <a href="../../../AP200%20OCL%20Convert%20Voucher%20to%20Payable/AP200%20RPG/" class="md-nav__link">
         
   
   
@@ -1102,7 +1182,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01%20Voucher%20Entry/AP200%20OCL%20Convert%20Voucher%20to%20Payable/AP200P%20RPG/" class="md-nav__link">
+      <a href="../../../AP200%20OCL%20Convert%20Voucher%20to%20Payable/AP200P%20RPG/" class="md-nav__link">
         
   
   
@@ -1125,7 +1205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01%20Voucher%20Entry/AP200%20OCL%20Convert%20Voucher%20to%20Payable/AP205%20RPG/" class="md-nav__link">
+      <a href="../../../AP200%20OCL%20Convert%20Voucher%20to%20Payable/AP205%20RPG/" class="md-nav__link">
         
   
   
@@ -1148,7 +1228,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01%20Voucher%20Entry/AP200%20OCL%20Convert%20Voucher%20to%20Payable/AP210%20RPG/" class="md-nav__link">
+      <a href="../../../AP200%20OCL%20Convert%20Voucher%20to%20Payable/AP210%20RPG/" class="md-nav__link">
         
   
   
@@ -1171,7 +1251,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01%20Voucher%20Entry/AP200%20OCL%20Convert%20Voucher%20to%20Payable/Summary%20AP200%20Purchase%20Journal/" class="md-nav__link">
+      <a href="../../../AP200%20OCL%20Convert%20Voucher%20to%20Payable/Summary%20AP200%20Purchase%20Journal/" class="md-nav__link">
         
   
   
@@ -1290,7 +1370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02%20Payables/AP196%20OCL%20Status%20Code%20Update/196OCL/" class="md-nav__link">
+      <a href="../../../../02%20Payables/AP196%20OCL%20Status%20Code%20Update/196OCL/" class="md-nav__link">
         
   
   
@@ -1313,7 +1393,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02%20Payables/AP196%20OCL%20Status%20Code%20Update/197RPG/" class="md-nav__link">
+      <a href="../../../../02%20Payables/AP196%20OCL%20Status%20Code%20Update/197RPG/" class="md-nav__link">
         
   
   
@@ -1432,7 +1512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03%20Payment%20Cycle/AP150%20OCL%20Payment%20Selection%20%26%20Rpt/AP150%20Summary/" class="md-nav__link">
+      <a href="../../../../03%20Payment%20Cycle/AP150%20OCL%20Payment%20Selection%20%26%20Rpt/AP150%20Summary/" class="md-nav__link">
         
   
   
@@ -1455,7 +1535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03%20Payment%20Cycle/AP150%20OCL%20Payment%20Selection%20%26%20Rpt/AP150OCL/" class="md-nav__link">
+      <a href="../../../../03%20Payment%20Cycle/AP150%20OCL%20Payment%20Selection%20%26%20Rpt/AP150OCL/" class="md-nav__link">
         
   
   
@@ -1478,7 +1558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03%20Payment%20Cycle/AP150%20OCL%20Payment%20Selection%20%26%20Rpt/AP150RPG/" class="md-nav__link">
+      <a href="../../../../03%20Payment%20Cycle/AP150%20OCL%20Payment%20Selection%20%26%20Rpt/AP150RPG/" class="md-nav__link">
         
   
   
@@ -1501,7 +1581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03%20Payment%20Cycle/AP150%20OCL%20Payment%20Selection%20%26%20Rpt/AP151%20RPG/" class="md-nav__link">
+      <a href="../../../../03%20Payment%20Cycle/AP150%20OCL%20Payment%20Selection%20%26%20Rpt/AP151%20RPG/" class="md-nav__link">
         
   
   
@@ -1524,7 +1604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03%20Payment%20Cycle/AP150%20OCL%20Payment%20Selection%20%26%20Rpt/AP155%20RPG/" class="md-nav__link">
+      <a href="../../../../03%20Payment%20Cycle/AP150%20OCL%20Payment%20Selection%20%26%20Rpt/AP155%20RPG/" class="md-nav__link">
         
   
   
@@ -1547,7 +1627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03%20Payment%20Cycle/AP150%20OCL%20Payment%20Selection%20%26%20Rpt/AP156%20RPG/" class="md-nav__link">
+      <a href="../../../../03%20Payment%20Cycle/AP150%20OCL%20Payment%20Selection%20%26%20Rpt/AP156%20RPG/" class="md-nav__link">
         
   
   
@@ -1618,7 +1698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03%20Payment%20Cycle/AP160%20OCL%20Print%20Checks/AP160%20Print%20Checks%20Summary/" class="md-nav__link">
+      <a href="../../../../03%20Payment%20Cycle/AP160%20OCL%20Print%20Checks/AP160%20Print%20Checks%20Summary/" class="md-nav__link">
         
   
   
@@ -1641,7 +1721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03%20Payment%20Cycle/AP160%20OCL%20Print%20Checks/AP160OCL/" class="md-nav__link">
+      <a href="../../../../03%20Payment%20Cycle/AP160%20OCL%20Print%20Checks/AP160OCL/" class="md-nav__link">
         
   
   
@@ -1664,7 +1744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03%20Payment%20Cycle/AP160%20OCL%20Print%20Checks/AP160RPG/" class="md-nav__link">
+      <a href="../../../../03%20Payment%20Cycle/AP160%20OCL%20Print%20Checks/AP160RPG/" class="md-nav__link">
         
   
   
@@ -1735,7 +1815,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP250%20Summary%20Check%20Register/" class="md-nav__link">
+      <a href="../../../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP250%20Summary%20Check%20Register/" class="md-nav__link">
         
   
   
@@ -1758,7 +1838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP250OCL%20GROK/" class="md-nav__link">
+      <a href="../../../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP250OCL%20GROK/" class="md-nav__link">
         
   
   
@@ -1781,7 +1861,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP250RPG%20GROK/" class="md-nav__link">
+      <a href="../../../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP250RPG%20GROK/" class="md-nav__link">
         
   
   
@@ -1804,7 +1884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP251%20RPG/" class="md-nav__link">
+      <a href="../../../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP251%20RPG/" class="md-nav__link">
         
   
   
@@ -1827,7 +1907,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP255%20RPG/" class="md-nav__link">
+      <a href="../../../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP255%20RPG/" class="md-nav__link">
         
   
   
@@ -1850,7 +1930,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP256%20RPG/" class="md-nav__link">
+      <a href="../../../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP256%20RPG/" class="md-nav__link">
         
   
   
@@ -1873,7 +1953,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP256A/" class="md-nav__link">
+      <a href="../../../../03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP256A/" class="md-nav__link">
         
   
   
@@ -1909,8 +1989,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1920,11 +1998,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
         
           
           <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
@@ -1940,7 +2018,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_4">
             <span class="md-nav__icon md-icon"></span>
             05 Clear Checks & Reconciliation
@@ -1954,7 +2032,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../AP190%20OCL%20Summary/" class="md-nav__link">
+      <a href="../../../../05%20Clear%20Checks%20%26%20Reconciliation/AP190%20OCL%20Summary/" class="md-nav__link">
         
   
   
@@ -1977,7 +2055,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../AP190%20OCL/" class="md-nav__link">
+      <a href="../../../../05%20Clear%20Checks%20%26%20Reconciliation/AP190%20OCL/" class="md-nav__link">
         
   
   
@@ -2000,7 +2078,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../AP190%20RPG/" class="md-nav__link">
+      <a href="../../../../05%20Clear%20Checks%20%26%20Reconciliation/AP190%20RPG/" class="md-nav__link">
         
   
   
@@ -2020,30 +2098,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    AP195 RPG
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../../05%20Clear%20Checks%20%26%20Reconciliation/AP195%20RPG/" class="md-nav__link">
         
   
   
@@ -2054,69 +2112,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#process-steps-of-the-ap195-rpg-program" class="md-nav__link">
-    <span class="md-ellipsis">
-      Process Steps of the AP195 RPG Program
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#business-rules" class="md-nav__link">
-    <span class="md-ellipsis">
-      Business Rules
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tables-files-used" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tables (Files) Used
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#external-programs-called" class="md-nav__link">
-    <span class="md-ellipsis">
-      External Programs Called
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      Summary
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2169,7 +2164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../AP192%20Upload%20Checks%20to%20Clear/AP192%20OCL/" class="md-nav__link">
+      <a href="../../../../05%20Clear%20Checks%20%26%20Reconciliation/AP192%20Upload%20Checks%20to%20Clear/AP192%20OCL/" class="md-nav__link">
         
   
   
@@ -2192,7 +2187,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../AP192%20Upload%20Checks%20to%20Clear/AP192%20RPG/" class="md-nav__link">
+      <a href="../../../../05%20Clear%20Checks%20%26%20Reconciliation/AP192%20Upload%20Checks%20to%20Clear/AP192%20RPG/" class="md-nav__link">
         
   
   
@@ -2215,7 +2210,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../AP192%20Upload%20Checks%20to%20Clear/AP192%20Summary%20Upload%20Checks%20to%20Clear/" class="md-nav__link">
+      <a href="../../../../05%20Clear%20Checks%20%26%20Reconciliation/AP192%20Upload%20Checks%20to%20Clear/AP192%20Summary%20Upload%20Checks%20to%20Clear/" class="md-nav__link">
         
   
   
@@ -2238,7 +2233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../AP192%20Upload%20Checks%20to%20Clear/AP193%20RPG/" class="md-nav__link">
+      <a href="../../../../05%20Clear%20Checks%20%26%20Reconciliation/AP192%20Upload%20Checks%20to%20Clear/AP193%20RPG/" class="md-nav__link">
         
   
   
@@ -2317,7 +2312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06%20ADP%20Expenses/AP140%20OCL/" class="md-nav__link">
+      <a href="../../../../06%20ADP%20Expenses/AP140%20OCL/" class="md-nav__link">
         
   
   
@@ -2340,7 +2335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06%20ADP%20Expenses/AP140%20RPG/" class="md-nav__link">
+      <a href="../../../../06%20ADP%20Expenses/AP140%20RPG/" class="md-nav__link">
         
   
   
@@ -2363,7 +2358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06%20ADP%20Expenses/AP140%20Summary%20Emp%20Expense/" class="md-nav__link">
+      <a href="../../../../06%20ADP%20Expenses/AP140%20Summary%20Emp%20Expense/" class="md-nav__link">
         
   
   
@@ -2386,7 +2381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06%20ADP%20Expenses/AP141%20RPG/" class="md-nav__link">
+      <a href="../../../../06%20ADP%20Expenses/AP141%20RPG/" class="md-nav__link">
         
   
   
@@ -2409,7 +2404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06%20ADP%20Expenses/AP145%20RPG/" class="md-nav__link">
+      <a href="../../../../06%20ADP%20Expenses/AP145%20RPG/" class="md-nav__link">
         
   
   
@@ -2520,7 +2515,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../07%20Vendor%201099/AP760P%20OCL%201099%20Vendor%20Register/AP760%20RPG36/" class="md-nav__link">
+      <a href="../../../../07%20Vendor%201099/AP760P%20OCL%201099%20Vendor%20Register/AP760%20RPG36/" class="md-nav__link">
         
   
   
@@ -2543,7 +2538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../07%20Vendor%201099/AP760P%20OCL%201099%20Vendor%20Register/AP760P%20OCL/" class="md-nav__link">
+      <a href="../../../../07%20Vendor%201099/AP760P%20OCL%201099%20Vendor%20Register/AP760P%20OCL/" class="md-nav__link">
         
   
   
@@ -2566,7 +2561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../07%20Vendor%201099/AP760P%20OCL%201099%20Vendor%20Register/AP760P%20RPG36/" class="md-nav__link">
+      <a href="../../../../07%20Vendor%201099/AP760P%20OCL%201099%20Vendor%20Register/AP760P%20RPG36/" class="md-nav__link">
         
   
   
@@ -2589,7 +2584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../07%20Vendor%201099/AP760P%20OCL%201099%20Vendor%20Register/Summary%20AP760P%20OCL/" class="md-nav__link">
+      <a href="../../../../07%20Vendor%201099/AP760P%20OCL%201099%20Vendor%20Register/Summary%20AP760P%20OCL/" class="md-nav__link">
         
   
   
@@ -2660,7 +2655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../07%20Vendor%201099/AP765P%20OCL%201099%20Vendor%20Forms/AP765%20RPG36/" class="md-nav__link">
+      <a href="../../../../07%20Vendor%201099/AP765P%20OCL%201099%20Vendor%20Forms/AP765%20RPG36/" class="md-nav__link">
         
   
   
@@ -2683,7 +2678,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../07%20Vendor%201099/AP765P%20OCL%201099%20Vendor%20Forms/AP765N%20RPG36/" class="md-nav__link">
+      <a href="../../../../07%20Vendor%201099/AP765P%20OCL%201099%20Vendor%20Forms/AP765N%20RPG36/" class="md-nav__link">
         
   
   
@@ -2706,7 +2701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../07%20Vendor%201099/AP765P%20OCL%201099%20Vendor%20Forms/AP765P%20OCL/" class="md-nav__link">
+      <a href="../../../../07%20Vendor%201099/AP765P%20OCL%201099%20Vendor%20Forms/AP765P%20OCL/" class="md-nav__link">
         
   
   
@@ -2729,7 +2724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../07%20Vendor%201099/AP765P%20OCL%201099%20Vendor%20Forms/AP765P%20RPG36/" class="md-nav__link">
+      <a href="../../../../07%20Vendor%201099/AP765P%20OCL%201099%20Vendor%20Forms/AP765P%20RPG36/" class="md-nav__link">
         
   
   
@@ -2752,7 +2747,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../07%20Vendor%201099/AP765P%20OCL%201099%20Vendor%20Forms/Summary%20AP765P%20OCL/" class="md-nav__link">
+      <a href="../../../../07%20Vendor%201099/AP765P%20OCL%201099%20Vendor%20Forms/Summary%20AP765P%20OCL/" class="md-nav__link">
         
   
   
@@ -2823,7 +2818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../07%20Vendor%201099/AP780%20OCL%201099%20Create%20File%20for%20IRS/AP780%20OCL/" class="md-nav__link">
+      <a href="../../../../07%20Vendor%201099/AP780%20OCL%201099%20Create%20File%20for%20IRS/AP780%20OCL/" class="md-nav__link">
         
   
   
@@ -2846,7 +2841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../07%20Vendor%201099/AP780%20OCL%201099%20Create%20File%20for%20IRS/AP780%20RPG36/" class="md-nav__link">
+      <a href="../../../../07%20Vendor%201099/AP780%20OCL%201099%20Create%20File%20for%20IRS/AP780%20RPG36/" class="md-nav__link">
         
   
   
@@ -2869,7 +2864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../07%20Vendor%201099/AP780%20OCL%201099%20Create%20File%20for%20IRS/AP780P%20RPG36/" class="md-nav__link">
+      <a href="../../../../07%20Vendor%201099/AP780%20OCL%201099%20Create%20File%20for%20IRS/AP780P%20RPG36/" class="md-nav__link">
         
   
   
@@ -2892,7 +2887,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../07%20Vendor%201099/AP780%20OCL%201099%20Create%20File%20for%20IRS/AP781%20RPG36/" class="md-nav__link">
+      <a href="../../../../07%20Vendor%201099/AP780%20OCL%201099%20Create%20File%20for%20IRS/AP781%20RPG36/" class="md-nav__link">
         
   
   
@@ -2915,7 +2910,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../07%20Vendor%201099/AP780%20OCL%201099%20Create%20File%20for%20IRS/Summary%20AP780%20OCL/" class="md-nav__link">
+      <a href="../../../../07%20Vendor%201099/AP780%20OCL%201099%20Create%20File%20for%20IRS/Summary%20AP780%20OCL/" class="md-nav__link">
         
   
   
@@ -2986,7 +2981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../07%20Vendor%201099/AP790%20OCL%201099%20Print%20File/AP790%20OCL/" class="md-nav__link">
+      <a href="../../../../07%20Vendor%201099/AP790%20OCL%201099%20Print%20File/AP790%20OCL/" class="md-nav__link">
         
   
   
@@ -3009,7 +3004,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../07%20Vendor%201099/AP790%20OCL%201099%20Print%20File/AP790%20RPG36/" class="md-nav__link">
+      <a href="../../../../07%20Vendor%201099/AP790%20OCL%201099%20Print%20File/AP790%20RPG36/" class="md-nav__link">
         
   
   
@@ -3032,7 +3027,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../07%20Vendor%201099/AP790%20OCL%201099%20Print%20File/Summary%20AP790%20OCL/" class="md-nav__link">
+      <a href="../../../../07%20Vendor%201099/AP790%20OCL%201099%20Print%20File/Summary%20AP790%20OCL/" class="md-nav__link">
         
   
   
@@ -3103,7 +3098,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../07%20Vendor%201099/AP910P99%20OCL%201099%20Vendor%20Maintenance/AP910%20RPGLE/" class="md-nav__link">
+      <a href="../../../../07%20Vendor%201099/AP910P99%20OCL%201099%20Vendor%20Maintenance/AP910%20RPGLE/" class="md-nav__link">
         
   
   
@@ -3126,7 +3121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../07%20Vendor%201099/AP910P99%20OCL%201099%20Vendor%20Maintenance/AP9104%20RPGLE/" class="md-nav__link">
+      <a href="../../../../07%20Vendor%201099/AP910P99%20OCL%201099%20Vendor%20Maintenance/AP9104%20RPGLE/" class="md-nav__link">
         
   
   
@@ -3149,7 +3144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../07%20Vendor%201099/AP910P99%20OCL%201099%20Vendor%20Maintenance/AP910P%20RPGLE/" class="md-nav__link">
+      <a href="../../../../07%20Vendor%201099/AP910P99%20OCL%201099%20Vendor%20Maintenance/AP910P%20RPGLE/" class="md-nav__link">
         
   
   
@@ -3172,7 +3167,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../07%20Vendor%201099/AP910P99%20OCL%201099%20Vendor%20Maintenance/AP910P99%20OCL/" class="md-nav__link">
+      <a href="../../../../07%20Vendor%201099/AP910P99%20OCL%201099%20Vendor%20Maintenance/AP910P99%20OCL/" class="md-nav__link">
         
   
   
@@ -3195,7 +3190,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../07%20Vendor%201099/AP910P99%20OCL%201099%20Vendor%20Maintenance/Summary%20AP910P99%20OCL/" class="md-nav__link">
+      <a href="../../../../07%20Vendor%201099/AP910P99%20OCL%201099%20Vendor%20Maintenance/Summary%20AP910P99%20OCL/" class="md-nav__link">
         
   
   
@@ -3364,7 +3359,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../accounts-receivable/01%20Customer/01%20Customer%20Master%20AP900/AP900%20OCL/" class="md-nav__link">
+      <a href="../../../../../accounts-receivable/01%20Customer/01%20Customer%20Master%20AP900/AP900%20OCL/" class="md-nav__link">
         
   
   
@@ -3387,7 +3382,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../accounts-receivable/01%20Customer/01%20Customer%20Master%20AP900/AP900%20RPGLE/" class="md-nav__link">
+      <a href="../../../../../accounts-receivable/01%20Customer/01%20Customer%20Master%20AP900/AP900%20RPGLE/" class="md-nav__link">
         
   
   
@@ -3410,7 +3405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../accounts-receivable/01%20Customer/01%20Customer%20Master%20AP900/Summary%20AP900%20Customer/" class="md-nav__link">
+      <a href="../../../../../accounts-receivable/01%20Customer/01%20Customer%20Master%20AP900/Summary%20AP900%20Customer/" class="md-nav__link">
         
   
   
@@ -3474,27 +3469,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-ap195-rpg-program" class="md-nav__link">
+  <a href="#process-steps-of-the-ocl-program" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the AP195 RPG Program
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#business-rules" class="md-nav__link">
-    <span class="md-ellipsis">
-      Business Rules
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tables-files-used" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tables (Files) Used
+      Process Steps of the OCL Program
     </span>
   </a>
   
@@ -3504,6 +3481,15 @@
   <a href="#external-programs-called" class="md-nav__link">
     <span class="md-ellipsis">
       External Programs Called
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tables-files-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tables (Files) Used
     </span>
   </a>
   
@@ -3537,131 +3523,161 @@
   
 
 
-  <h1>AP195 RPG</h1>
+  <h1>AP125 OCL</h1>
 
-<p>The provided RPG program, <code>AP195.rpg36</code>, is an RPG II or RPG/400 program called from the <code>AP190.ocl36</code> OCL program as part of the Accounts Payable (A/P) check reconciliation process. It generates a report listing cancelled checks, including totals by bank G/L account and company. Below, I’ll explain the <strong>process steps</strong>, <strong>business rules</strong>, <strong>tables (files) used</strong>, and <strong>external programs called</strong>.</p>
-<h3 id="process-steps-of-the-ap195-rpg-program">Process Steps of the AP195 RPG Program<a class="headerlink" href="#process-steps-of-the-ap195-rpg-program" title="Permanent link">&para;</a></h3>
-<p>The program reads the A/P check reconciliation transaction file (<code>APCRTR</code>), retrieves company information from the control file (<code>APCONT</code>), and produces a printed report on the <code>LIST</code> file with details of cancelled checks, subtotals by bank G/L account, and company totals. Here’s a detailed breakdown of the process steps:</p>
+<p>The provided OCL (Operation Control Language) script, <code>AP125.ocl36.txt</code>, is part of an IBM AS/400 (iSeries) system and appears to be related to Accounts Payable (A/P) voucher transaction processing. It is called from another OCL script that sets up voucher entry tables. Below, I will explain the process steps of this OCL program, identify the external programs called, and list the tables (files) used.</p>
+<hr />
+<h3 id="process-steps-of-the-ocl-program"><strong>Process Steps of the OCL Program</strong><a class="headerlink" href="#process-steps-of-the-ocl-program" title="Permanent link">&para;</a></h3>
+<p>The OCL script performs a series of steps to prepare and process Accounts Payable voucher transactions. Here's a breakdown of the steps based on the script:</p>
 <ol>
-<li><strong>Program Initialization</strong>:</li>
-<li><strong>Header (H) and File (F) Specifications</strong> (Lines 0002–0011):<ul>
-<li>Defines the program (<code>AP195</code>) and files:</li>
-<li><code>APCRTR</code>: Input primary file (IP) for check reconciliation transactions.</li>
-<li><code>APCONT</code>: Input control file (IC) for company data.</li>
-<li><code>LIST</code>: Output file (O) for the printer, producing the report.</li>
-<li><code>APCRTR</code> is keyed by a 16-byte field (company + bank G/L + check number).</li>
-<li><code>APCONT</code> is keyed by a 2-byte company number.</li>
-</ul>
-</li>
-<li><strong>Data Structures</strong> (Lines 0014–0022):<ul>
-<li>Defines input fields for <code>APCRTR</code>: <code>ATCONOL2</code> (company #), <code>ATBKGLL1</code> (bank G/L #), <code>ATCHK#</code> (check number), <code>ATCLAM</code> (clear amount), <code>ATCLDT</code> (clear date).</li>
-<li>Defines <code>ACNAME</code> (company name) from <code>APCONT</code>.</li>
-</ul>
+<li><strong>Invoice Type Selection</strong>:</li>
+<li>
+<p>The script starts with a comment indicating <code>AP ARGLMS OR PAPER</code> and a parameter <code>?8?</code> for selecting the invoice type (<code>N</code> or <code>P</code>). This suggests the script supports different processing modes for invoices (possibly non-PO or PO-based).</p>
 </li>
 <li>
-<p><strong>Purpose</strong>: Sets up the environment for reading transaction data and generating the report.</p>
+<p><strong>File Creation/Verification</strong>:</p>
 </li>
-<li>
-<p><strong>Report Initialization</strong> (Lines 0025–0032):</p>
-</li>
-<li><strong>Level 2 (L2) Processing</strong> (Company-level):<ul>
-<li>Executes at the start of a new company (<code>L2</code> indicator).</li>
-<li>Retrieves the current time and date (<code>TIME</code> to <code>TIMDAT</code>, split into <code>SYSTIM</code> and <code>SYSDAT</code>).</li>
-<li>Initializes the separator line (<code>SEP</code>) to <code>'* '</code>.</li>
-<li>Resets the page number (<code>PAGE</code>) to zero.</li>
-<li>Chains to <code>APCONT</code> using <code>ATCONO</code> (company #). If not found (<code>92</code>), <code>ACNAME</code> is not updated.</li>
-<li>Resets the company total clear amount (<code>L2CLAM</code>) to zero.</li>
+<li>The script checks for the existence of specific files using <code>IFF</code> (If) conditions:<ul>
+<li><code>DATAF1-?9??20?</code>: Verifies if the file <code>?9??20?</code> exists. If it does, it builds a file (<code>BLDFILE</code>) with specific attributes (500 records, 404 bytes per record, etc.).</li>
+<li><code>DATAF1-?9?APTX?WS?</code>: If this file exists, it builds an index (<code>BLDINDEX</code>) for it with specific key fields and attributes.</li>
+<li><code>DATAF1-?9?LMS?WS?</code>: If this file exists, it builds another file with similar attributes.</li>
 </ul>
 </li>
 <li>
-<p><strong>Purpose</strong>: Prepares headers and totals for each company in the report.</p>
+<p>These steps ensure that necessary temporary or work files (<code>?9??20?</code>, <code>?9?APTX?WS?</code>, <code>?9?LMS?WS?</code>) are created or validated before proceeding.</p>
 </li>
 <li>
-<p><strong>Bank G/L Level Processing</strong> (Lines 0038–0040):</p>
+<p><strong>Override Database Files (OVRDBF)</strong>:</p>
 </li>
-<li><strong>Level 1 (L1) Processing</strong> (Bank G/L-level):<ul>
-<li>Executes at the start of a new bank G/L number (<code>L1</code> indicator).</li>
-<li>Resets the bank G/L total clear amount (<code>L1CLAM</code>) to zero.</li>
+<li>The script uses multiple <code>OVRDBF</code> commands to override the default file definitions, specifying the library (<code>*LIBL/?9?</code>) and member (<code>*FIRST</code>) for various files. This ensures the program uses the correct files from the specified library. The files overridden include:<ul>
+<li><code>APCONT</code>, <code>GSTABL</code>, <code>FRCINH</code>, <code>FRCFBH</code>, <code>FRCINH4</code>, <code>GLMAST</code>, <code>APVEND</code>, <code>APVENY</code>, <code>SA5FIUD</code>, <code>SA5FIUM</code>, <code>SA5MOUD</code>, <code>SA5MOUM</code>, <code>GSCTUM</code>, <code>APDATE</code>, <code>BICONT</code>, <code>APTRAN</code>.</li>
 </ul>
 </li>
 <li>
-<p><strong>Purpose</strong>: Initializes subtotals for each bank G/L account within a company.</p>
+<p>These overrides are critical to ensure the correct data files are accessed during processing.</p>
 </li>
 <li>
-<p><strong>Detail Processing and Accumulation</strong> (Lines 0042–0044):</p>
+<p><strong>Call External Program (AP125P)</strong>:</p>
 </li>
-<li>For each <code>APCRTR</code> record:<ul>
-<li>Adds the clear amount (<code>ATCLAM</code>) to the bank G/L total (<code>L1CLAM</code>).</li>
-<li>At the <code>L1</code> break (change in bank G/L), adds <code>L1CLAM</code> to the company total (<code>L2CLAM</code>).</li>
+<li>The script calls an external program named <code>AP125P</code> with parameters:<ul>
+<li><code>'10'</code>: Likely a mode or control parameter.</li>
+<li><code>'?8?'</code>: The invoice type (<code>N</code> or <code>P</code>).</li>
+<li><code>'MNT'</code>: Indicates maintenance mode (possibly for voucher entry or editing).</li>
+<li><code>'?9?'</code>: A library or file prefix (dynamic substitution variable).</li>
 </ul>
 </li>
 <li>
-<p><strong>Purpose</strong>: Accumulates totals for reporting at both bank G/L and company levels.</p>
+<p>This program (<code>AP125P</code>) likely performs the core logic for voucher transaction processing, such as editing or validating transactions.</p>
 </li>
 <li>
-<p><strong>Report Output</strong> (Lines 0047–0082):</p>
+<p><strong>Conditional File Deletion and Creation</strong>:</p>
 </li>
-<li><strong>Header Output</strong> (Lines 0047–0072):<ul>
-<li>At <code>L1</code> break or overflow (<code>OFNL1</code>):</li>
-<li>Outputs company name (<code>ACNAME</code>) if found (<code>N92</code>).</li>
-<li>Prints page number (<code>PAGE</code>), system date (<code>SYSDAT</code>), and time (<code>SYSTIM</code>).</li>
-<li>Prints report title (“A/P CANCELLED CHECKS EDIT”) and bank G/L number (<code>ATBKGL</code>).</li>
-<li>Outputs column headers: “CHECK #”, “CLEAR DATE”, “CLEAR AMOUNT”.</li>
-<li>Prints separator lines (<code>SEP</code>).</li>
+<li>The commented-out <code>GSDELETE APCT?WS?</code> suggests a potential step to delete an existing work file (not executed in this script).</li>
+<li>A commented-out <code>BLDFILE ?9?APCT?WS?</code> indicates a step to create a temporary file with 500 records and 80 bytes per record (not executed).</li>
+<li>
+<p>A <code>LOCAL OFFSET-221,DATA-'?9??20?'</code> command suggests setting a local variable or data area with the file name <code>?9??20?</code>.</p>
+</li>
+<li>
+<p><strong>Conditional Exit</strong>:</p>
+</li>
+<li>
+<p>The <code>IFF DATAF1-?9??20? GOTO END</code> checks if the file <code>?9??20?</code> exists. If it does not, the script jumps to the <code>END</code> tag, bypassing the subsequent steps.</p>
+</li>
+<li>
+<p><strong>Voucher Transaction Edit (AP110)</strong>:</p>
+</li>
+<li>If the file <code>?9??20?</code> exists, the script proceeds to the <code>LOAD AP110</code> section, which is responsible for A/P voucher transaction editing.</li>
+<li><strong>File Definitions</strong>:<ul>
+<li>The script defines multiple files with their labels and attributes (e.g., <code>DISP-SHR</code> for shared access, <code>EXTEND-100</code> for extending file size). The files include:</li>
+<li><code>APTRAN</code> (labeled <code>?9??20?</code>): Likely the main transaction file.</li>
+<li><code>APCONT</code>, <code>APCHKR</code>, <code>APCHKT</code> (labeled <code>?9?APCT?WS?</code>), <code>APTRNX</code> (labeled <code>?9?APTX?WS?</code>), <code>GLMAST</code>, <code>APOPNHC</code>, <code>APINVH</code>, <code>GSTABL</code>, <code>APSTAT</code>, <code>APVEND</code>, <code>INFIL1</code>, <code>INTZH1</code>.</li>
 </ul>
 </li>
-<li><strong>Detail Lines</strong> (Lines 0073–0076):<ul>
-<li>For each <code>APCRTR</code> record (<code>01</code> indicator):</li>
-<li>Prints check number (<code>ATCHK#</code>), clear date (<code>ATCLDT</code>), and clear amount (<code>ATCLAM</code>).</li>
+<li><strong>Printer Overrides</strong>:<ul>
+<li>If the condition <code>?9?/G</code> is true, the script overrides the printer file <code>APLIST</code> to output to <code>QUSRSYS/APEDIT</code>.</li>
+<li>If <code>?9?/G</code> is false, it overrides <code>APLIST</code> to output to <code>QUSRSYS/TESTOUTQ</code>.</li>
 </ul>
 </li>
-<li><strong>Total Lines</strong> (Lines 0077–0082):<ul>
-<li>At <code>L1</code> break (after 21 lines, <code>T 21 L1</code>): Prints bank G/L total (<code>L1CLAM</code>) with label “BANK G/L # TOTAL”.</li>
-<li>At <code>L2</code> break (after 21 lines, <code>T 21 L2</code>): Prints company total (<code>L2CLAM</code>) with label “COMPANY TOTAL”.</li>
+<li>
+<p><strong>Execution</strong>:</p>
+<ul>
+<li>The <code>RUN</code> command executes the <code>AP110</code> program, which performs the voucher transaction edit, likely validating or processing transactions and generating a report.</li>
 </ul>
 </li>
-<li><strong>Purpose</strong>: Generates a formatted report with check details and totals.</li>
+<li>
+<p><strong>End of Script</strong>:</p>
+</li>
+<li>The <code>TAG END</code> marks the end of the script, where processing terminates if the earlier <code>GOTO END</code> condition is met.</li>
 </ol>
-<h3 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
-<p>The program enforces the following business rules for the A/P cancelled checks edit report:
-1. <strong>Data Source</strong>:
-   - Reads all records from <code>APCRTR</code> sequentially, grouped by company (<code>ATCONOL2</code>) and bank G/L number (<code>ATBKGLL1</code>).
-2. <strong>Company Validation</strong>:
-   - Attempts to retrieve company name (<code>ACNAME</code>) from <code>APCONT</code> using <code>ATCONO</code>. If not found, the report omits the company name but continues processing.
-3. <strong>Report Structure</strong>:
-   - Organizes the report by company (<code>L2</code>) and bank G/L number (<code>L1</code>), with subtotals for each bank G/L and company.
-   - Includes headers with company name, bank G/L number, date, time, and page number.
-   - Lists check number, clear date, and clear amount for each transaction.
-   - Prints totals after 21 detail lines or at level breaks (<code>L1</code>, <code>L2</code>).
-4. <strong>Formatting</strong>:
-   - Uses a separator line (<code>SEP = '* '</code>) to visually distinguish sections.
-   - Formats dates (<code>ATCLDT</code>, <code>SYSDAT</code>) and amounts (<code>ATCLAM</code>, <code>L1CLAM</code>, <code>L2CLAM</code>) for readability (e.g., <code>Z</code> for zero suppression, <code>M</code> for monetary format, <code>Y</code> for date format).
-5. <strong>Accumulation</strong>:
-   - Accumulates clear amounts (<code>ATCLAM</code>) into bank G/L totals (<code>L1CLAM</code>) and company totals (<code>L2CLAM</code>) for accurate reporting.</p>
-<h3 id="tables-files-used">Tables (Files) Used<a class="headerlink" href="#tables-files-used" title="Permanent link">&para;</a></h3>
-<p>The program uses the following files:
-1. <strong>APCRTR</strong>:
-   - Input primary file (IP) for check reconciliation transactions.
-   - Keyed by a 16-byte field (company + bank G/L + check number).
-   - Fields: <code>ATCONOL2</code> (company #), <code>ATBKGLL1</code> (bank G/L #), <code>ATCHK#</code> (check number), <code>ATCLAM</code> (clear amount), <code>ATCLDT</code> (clear date).
-   - Record length: 80 bytes.
-2. <strong>APCONT</strong>:
-   - Input control file (IC) for company data.
-   - Keyed by company number (2 bytes).
-   - Field: <code>ACNAME</code> (company name).
-   - Record length: 256 bytes.
-3. <strong>LIST</strong>:
-   - Output file (O) for the printed report.
-   - Record length: 132 bytes (standard printer width).</p>
-<h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
-<p>The program does <strong>not</strong> call any external programs. All processing is handled within <code>AP195</code> using its RPG logic.</p>
-<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
-<p>The <code>AP195</code> RPG program generates a report for A/P cancelled checks:
-- <strong>Process</strong>: Reads <code>APCRTR</code> for check reconciliation data, retrieves company names from <code>APCONT</code>, accumulates totals by bank G/L and company, and outputs a formatted report to <code>LIST</code> with headers, detail lines, and totals.
-- <strong>Business Rules</strong>: Groups data by company and bank G/L, validates company numbers, formats output for readability, and provides totals after 21 lines or level breaks.
-- <strong>Files Used</strong>: <code>APCRTR</code> (input), <code>APCONT</code> (input), <code>LIST</code> (output).
-- <strong>External Programs</strong>: None.</p>
-<p>This program complements the <code>AP190</code> program (data entry and validation) by producing a final edit report, as orchestrated by the <code>AP190.ocl36</code> OCL script.</p>
+<hr />
+<h3 id="external-programs-called"><strong>External Programs Called</strong><a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
+<p>The OCL script explicitly calls the following external programs:
+1. <strong>AP125P</strong>:
+   - Called with parameters: <code>'10'</code>, <code>'?8?'</code>, <code>'MNT'</code>, <code>'?9?'</code>.
+   - Likely responsible for the main processing of voucher transactions (e.g., data entry, validation, or updates).
+2. <strong>AP110</strong>:
+   - Loaded in the voucher transaction edit section.
+   - Handles the editing or validation of A/P voucher transactions and possibly generates a report.</p>
+<hr />
+<h3 id="tables-files-used"><strong>Tables (Files) Used</strong><a class="headerlink" href="#tables-files-used" title="Permanent link">&para;</a></h3>
+<p>The script references the following files (tables) for processing:</p>
+<ol>
+<li><strong>From OVRDBF Commands</strong>:</li>
+<li><code>APCONT</code>: Accounts Payable control file.</li>
+<li><code>GSTABL</code>: General system table.</li>
+<li><code>FRCINH</code>, <code>FRCFBH</code>, <code>FRCINH4</code>: Likely related to financial or reconciliation data.</li>
+<li><code>GLMAST</code>: General Ledger master file.</li>
+<li><code>APVEND</code>: Vendor master file.</li>
+<li><code>APVENY</code>: Additional vendor file (possibly for secondary vendor data).</li>
+<li><code>SA5FIUD</code>, <code>SA5FIUM</code>, <code>SA5MOUD</code>, <code>SA5MOUM</code>: Likely related to specific application modules (e.g., financial or manufacturing).</li>
+<li><code>GSCTUM</code>: General system customer or control file.</li>
+<li><code>APDATE</code>: Accounts Payable date file.</li>
+<li><code>BICONT</code>: Possibly a billing or contract control file.</li>
+<li>
+<p><code>APTRAN</code>: Accounts Payable transaction file (labeled <code>?9??20?</code>).</p>
+</li>
+<li>
+<p><strong>From AP110 Section</strong>:</p>
+</li>
+<li><code>APTRAN</code> (labeled <code>?9??20?</code>): Main transaction file.</li>
+<li><code>APCONT</code> ( labeled <code>?9?APCONT</code>): Control file.</li>
+<li><code>APCHKR</code>: Check register file.</li>
+<li><code>APCHKT</code> (labeled <code>?9?APCT?WS?</code>): Temporary check file.</li>
+<li><code>APTRNX</code> (labeled <code>?9?APTX?WS?</code>): Transaction index file.</li>
+<li><code>GLMAST</code> (labeled <code>?9?GLMAST</code>): General Ledger master.</li>
+<li><code>APOPNHC</code>: Open invoice header file.</li>
+<li><code>APINVH</code>: Invoice header file.</li>
+<li><code>GSTABL</code> (labeled <code>?9?GSTABL</code>): General system table.</li>
+<li><code>APSTAT</code>: Accounts Payable status file.</li>
+<li><code>APVEND</code> (labeled <code>?9?APVEND</code>): Vendor master.</li>
+<li><code>INFIL1</code>, <code>INTZH1</code>: Additional files, possibly for interface or temporary data.</li>
+<li>
+<p><code>APLIST</code>: Printer file for output (report).</p>
+</li>
+<li>
+<p><strong>Temporary/Work Files</strong>:</p>
+</li>
+<li><code>?9??20?</code>: Main transaction work file.</li>
+<li><code>?9?APTX?WS?</code>: Transaction index work file.</li>
+<li><code>?9?LMS?WS?</code>: Additional work file.</li>
+<li><code>?9?APCT?WS?</code>: Temporary check file.</li>
+</ol>
+<hr />
+<h3 id="summary"><strong>Summary</strong><a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
+<p>The <code>AP125.ocl36.txt</code> OCL script is designed to set up and process Accounts Payable voucher transactions. It performs the following high-level steps:
+1. Validates or creates necessary work files.
+2. Overrides database files to ensure correct file access.
+3. Calls the <code>AP125P</code> program for core voucher processing.
+4. If the main transaction file exists, it loads the <code>AP110</code> program to edit or validate transactions and generate reports.
+5. Uses printer overrides to direct output to specific queues.</p>
+<p><strong>External Programs</strong>:
+- <code>AP125P</code>
+- <code>AP110</code></p>
+<p><strong>Tables/Files</strong>:
+- Core files: <code>APCONT</code>, <code>GSTABL</code>, <code>GLMAST</code>, <code>APVEND</code>, <code>APVENY</code>, <code>APDATE</code>, <code>APTRAN</code>, etc.
+- Temporary/work files: <code>?9??20?</code>, <code>?9?APTX?WS?</code>, <code>?9?LMS?WS?</code>, <code>?9?APCT?WS?</code>.
+- Printer file: <code>APLIST</code>.</p>
+<p>This script is tightly integrated with the AS/400 environment, relying on dynamic file naming (via <code>?9?</code> and <code>?8?</code>) and external RPG programs to handle the business logic. If you need further clarification or details about specific files or programs, please let me know!</p>
 
 
 
@@ -3720,10 +3736,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.tabs", "navigation.sections", "search.suggest", "search.highlight", "palette.toggle"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../../../..", "features": ["content.code.copy", "content.tabs", "navigation.sections", "search.suggest", "search.highlight", "palette.toggle"], "search": "../../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
       
     
   </body>
