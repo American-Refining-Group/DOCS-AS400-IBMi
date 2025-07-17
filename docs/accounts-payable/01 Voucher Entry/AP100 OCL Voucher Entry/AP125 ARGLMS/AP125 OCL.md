@@ -7,7 +7,7 @@ The provided OCL (Operation Control Language) script, `AP125.ocl36.txt`, is part
 The OCL script performs a series of steps to prepare and process Accounts Payable voucher transactions. Here's a breakdown of the steps based on the script:
 
 1. **Invoice Type Selection**:
-   - The script starts with a comment indicating `AP ARGLMS OR PAPER` and a parameter `?8?` for selecting the invoice type (`N` or `P`). This suggests the script supports different processing modes for invoices (possibly non-PO or PO-based).
+   - The script starts with a comment indicating `AP ARGLMS OR PAPER` and a parameter `?8?` for selecting the invoice type (`N` or `P`). This suggests the script supports different processing modes for invoices `P` = PAPER FREIGHT manual entry, `N` = ARGLMS invoices coming from a different legacy application.
 
 2. **File Creation/Verification**:
    - The script checks for the existence of specific files using `IFF` (If) conditions:
