@@ -12,13 +12,13 @@
         <meta name="author" content="American Refining Group">
       
       
-        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/01%20Customer/01%20Customer%20Master%20AP900/AP900%20OCL/">
+        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/01%20Customer%20Maint/01%20Customer%20Master%20AP900/AP900%20RPGLE/">
       
       
-        <link rel="prev" href="../../../../accounts-payable/07%20Vendor%201099/AP910P99%20OCL%201099%20Vendor%20Maintenance/Summary%20AP910P99%20OCL/">
+        <link rel="prev" href="../AP900%20OCL/">
       
       
-        <link rel="next" href="../AP900%20RPGLE/">
+        <link rel="next" href="../Summary%20AP900%20Customer/">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>AP900 OCL - ARG AS400 IBMi Documentation</title>
+        <title>AP900 RPGLE - ARG AS400 IBMi Documentation</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#process-steps-of-the-rpg-ocl-program" class="md-skip">
+        <a href="#process-steps-of-the-rpgle-program-ar900" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AP900 OCL
+              AP900 RPGLE
             
           </span>
         </div>
@@ -3595,7 +3595,7 @@
   
   
   <span class="md-ellipsis">
-    01 Customer
+    01 Customer Maint
     
   </span>
   
@@ -3606,7 +3606,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_1">
             <span class="md-nav__icon md-icon"></span>
-            01 Customer
+            01 Customer Maint
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -3656,6 +3656,29 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../AP900%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP900 OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -3671,7 +3694,7 @@
   
   
   <span class="md-ellipsis">
-    AP900 OCL
+    AP900 RPGLE
     
   </span>
   
@@ -3684,7 +3707,7 @@
   
   
   <span class="md-ellipsis">
-    AP900 OCL
+    AP900 RPGLE
     
   </span>
   
@@ -3705,18 +3728,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-rpg-ocl-program" class="md-nav__link">
+  <a href="#process-steps-of-the-rpgle-program-ar900" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the RPG .OCL Program
+      Process Steps of the RPGLE Program (AR900)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#external-programs-called" class="md-nav__link">
+  <a href="#business-rules" class="md-nav__link">
     <span class="md-ellipsis">
-      External Programs Called
+      Business Rules
     </span>
   </a>
   
@@ -3726,6 +3749,15 @@
   <a href="#tables-files-used" class="md-nav__link">
     <span class="md-ellipsis">
       Tables (Files) Used
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-programs-called" class="md-nav__link">
+    <span class="md-ellipsis">
+      External Programs Called
     </span>
   </a>
   
@@ -3744,29 +3776,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../AP900%20RPGLE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    AP900 RPGLE
-    
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -3843,18 +3852,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-rpg-ocl-program" class="md-nav__link">
+  <a href="#process-steps-of-the-rpgle-program-ar900" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the RPG .OCL Program
+      Process Steps of the RPGLE Program (AR900)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#external-programs-called" class="md-nav__link">
+  <a href="#business-rules" class="md-nav__link">
     <span class="md-ellipsis">
-      External Programs Called
+      Business Rules
     </span>
   </a>
   
@@ -3864,6 +3873,15 @@
   <a href="#tables-files-used" class="md-nav__link">
     <span class="md-ellipsis">
       Tables (Files) Used
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-programs-called" class="md-nav__link">
+    <span class="md-ellipsis">
+      External Programs Called
     </span>
   </a>
   
@@ -3897,145 +3915,198 @@
   
 
 
-  <h1>AP900 OCL</h1>
+  <h1>AP900 RPGLE</h1>
 
-<p>The provided document is an Operation Control Language (OCL) program for an IBM System/3x or AS/400 system, specifically for managing customer master data (add/update) in an Accounts Receivable (AR) system. Below, I’ll explain the process steps of the OCL program, list the external programs called, and identify the tables (files) used.</p>
+<p>The <code>AR900.rpgle.txt</code> is an RPGLE (RPG IV) program called by the <code>AR900.ocl36.txt</code> OCL program, designed for maintaining the Accounts Receivable (AR) customer master file. It handles adding, updating, and reactivating customer records, with additional features like history tracking and validation. Below, I’ll explain the process steps, business rules, tables used, and external programs called.</p>
 <hr />
-<h3 id="process-steps-of-the-rpg-ocl-program">Process Steps of the RPG .OCL Program<a class="headerlink" href="#process-steps-of-the-rpg-ocl-program" title="Permanent link">&para;</a></h3>
-<p>OCL is used to define job control and file operations for RPG (Report Program Generator) programs on IBM midrange systems. The program <code>AR900.ocl36.txt</code> sets up the environment and files needed to execute the RPG program <code>AR900</code> and its associated subprograms. Here’s a step-by-step breakdown of the process:</p>
+<h3 id="process-steps-of-the-rpgle-program-ar900">Process Steps of the RPGLE Program (AR900)<a class="headerlink" href="#process-steps-of-the-rpgle-program-ar900" title="Permanent link">&para;</a></h3>
+<p>The program is a screen-based application for customer master file maintenance, operating in two modes: <strong>Entry Mode</strong> (add new customers) and <strong>Update Mode</strong> (modify existing customers). It uses multiple display file formats (<code>FMT01</code>, <code>FMT02</code>, <code>FMT03</code>, <code>FMT05</code>) to interact with users and updates files like <code>ARCUST</code> (customer master) and <code>ARCUSP</code> (supplemental customer data). Here’s a step-by-step breakdown of the process:</p>
 <ol>
-<li><strong>Program and Environment Setup</strong>:</li>
+<li><strong>Program Initialization (<code>ONETIM</code> Subroutine)</strong>:</li>
+<li>Initializes variables (e.g., <code>CO</code>, <code>CUSN</code>, <code>ZERO5</code>, <code>ZERO6</code>, etc.) to zero or blanks.</li>
+<li>Sets up key fields for table lookups (<code>SLKEY</code>, <code>TRMKEY</code>, <code>CUCLKY</code>, <code>GRUPKY</code>).</li>
+<li>Captures system date (<code>UDATE</code>) and time (<code>SYSTIM</code>) for history file updates, formatting the date as <code>SYSCYM</code> (e.g., <code>20YYMMDD</code>).</li>
 <li>
-<p>The OCL starts with comments and directives to configure the environment:</p>
-<ul>
-<li><code>SCPROCP ,,,,,,,,?9?</code>: Likely a system procedure call or parameter placeholder (<code>?9?</code> is a variable substituted at runtime).</li>
-<li><code>GSY2K</code>: Possibly a Year 2000 compliance flag or system identifier.</li>
-<li><code>LOCAL OFFSET-480,DATA-'?9?'</code>, <code>LOCAL OFFSET-410,DATA-'?WS?'</code>, <code>LOCAL OFFSET-400,DATA-'?USER?'</code>: These set local variables or parameters, such as a company code (<code>?9?</code>), workstation ID (<code>?WS?</code>), or user ID (<code>?USER?</code>), which are passed to the program at runtime.</li>
+<p>Sets the initial screen format (<code>FMT01</code>) and indicator <code>81</code> for display.</p>
+</li>
+<li>
+<p><strong>Main Processing Loop</strong>:</p>
+</li>
+<li>The program enters a loop (<code>fmtagn</code>) that displays and processes screen formats until terminated (e.g., via <code>KG</code> for End of Job).</li>
+<li>Depending on indicators (<code>*IN81</code>, <code>*IN82</code>, <code>*IN83</code>, <code>*IN85</code>), it displays one of the following:<ul>
+<li><code>FMT01</code>: Initial customer lookup screen.</li>
+<li><code>FMT02</code>: Customer details entry/update screen.</li>
+<li><code>FMT03</code>: Supplemental customer data screen.</li>
+<li><code>FMT05</code>: Additional maintenance screen (e.g., for ship-to products).</li>
 </ul>
 </li>
 <li>
-<p><strong>Index Build for Credit Details File</strong>:</p>
+<p>Clears error messages (<code>MSG1</code>, <code>MSG2</code>) and indicators before each screen display.</p>
 </li>
 <li>
-<p>The <code>IFF</code> (If) statement checks if the program <code>AR300</code> is active and if the <code>CRDETX</code> file contains a specific data field (<code>?9?CRDETX</code>):</p>
+<p><strong>Screen Processing</strong>:</p>
+</li>
+<li>
+<p><strong>S1 (FMT01 - Customer Lookup)</strong>:</p>
 <ul>
-<li><code>BLDINDEX ?9?CRDETX,2,8,+ ?9?ARDETL,,DUPKEY,,71,8,10,7</code>: This builds an index for the <code>CRDETX</code> file (credit details) to optimize access. The parameters specify:</li>
-<li>Starting position (2), length (8) for the key.</li>
-<li><code>?9?ARDETL</code> as the output file.</li>
-<li><code>DUPKEY</code> allows duplicate keys.</li>
-<li>Additional key fields at positions 71 (length 8), 10 (length 7).</li>
+<li>Validates the company number (<code>CO</code>) against <code>ARCONT</code>. If invalid, displays error message <code>MSG(1)</code> ("INVALID COMPANY NUMBER ENTERED").</li>
+<li>Retrieves aging limits (<code>ACLMT1</code>, <code>ACLMT2</code>, <code>ACLMT3</code>, <code>ACLMT4</code>) from <code>ARCONT</code> for display.</li>
+<li>Chains to <code>ARCUST</code> and <code>ARCUSP</code> using <code>ARKEY</code> (company + customer number). If not found, displays errors (<code>MSG(2)</code>, <code>MSG(22)</code>).</li>
+<li>Checks if the customer is deleted/inactive (<code>ARDEL = 'D'</code> or <code>'I'</code>). If so, sets indicator <code>94</code> and displays <code>MSG(6)</code> ("THIS CUSTOMER WAS PREVIOUSLY DELETED").</li>
+<li>Retrieves billing instructions (<code>BCINST</code>) from <code>BICONT</code> to set the screen header (<code>S4HEAD</code>).</li>
+<li>Calls <code>GETCUS</code> and <code>GETSUP</code> to populate customer and supplemental data for display.</li>
+<li>Sets indicator <code>82</code> to display <code>FMT02</code>.</li>
 </ul>
 </li>
 <li>
-<p><strong>Load the Main Program</strong>:</p>
-</li>
-<li>
-<p><code>LOAD AR900</code>: Loads the RPG program <code>AR900</code>, which handles the core logic for adding or updating customer master records.</p>
-</li>
-<li>
-<p><strong>File Definitions</strong>:</p>
-</li>
-<li>
-<p>The OCL defines multiple files (tables) used by <code>AR900</code> and its subprograms, all opened in shared mode (<code>DISP-SHR</code>):</p>
+<p><strong>S2 (FMT02 - Customer Details)</strong>:</p>
 <ul>
-<li><code>ARCUST</code>: Customer master file.</li>
-<li><code>ARCUSP</code>: Customer profile or secondary customer file.</li>
-<li><code>ARCUPR</code>: Customer pricing or rate file.</li>
-<li><code>CRDETX</code>: Credit details file.</li>
-<li><code>ARCONT</code>: AR control file (likely for configuration settings).</li>
-<li><code>BICONT</code>: Billing control file.</li>
-<li><code>GSPROD</code>: General system product file.</li>
-<li><code>GSTABL</code>: General system table file.</li>
-<li><code>BISLTX</code>: Billing sales tax file.</li>
-<li><code>ARCLGR</code>: AR customer ledger file.</li>
-<li><code>ARCUST2</code>: Alternate customer master file (same label as <code>ARCUST</code>).</li>
-<li><code>ARCUSHS</code>: Customer ship-to history file.</li>
-<li><code>ARCUSPH</code>: Customer phone history file.</li>
-<li><code>ARCUPHS</code>: Customer pricing history file.</li>
+<li>Handles both Entry (<code>08</code>) and Update (<code>07</code>) modes.</li>
+<li>In Entry Mode, validates that the customer number (<code>CUSN</code>) is not zero (<code>MSG(19)</code>) and doesn’t exist in <code>ARCUST</code> (<code>MSG(7)</code>).</li>
+<li>Performs validations via <code>SC2EDT</code> subroutine (see Business Rules).</li>
+<li>If validations pass, chains to <code>ARCUSP</code> to check for existing supplemental records. If found, displays errors (<code>MSG(26)</code>, <code>MSG(27)</code>).</li>
+<li>Sets indicator <code>83</code> to display <code>FMT03</code>.</li>
 </ul>
 </li>
 <li>
-<p><strong>File Definitions for Called Programs</strong>:</p>
-</li>
-<li>
-<p>Additional files are defined for specific subprograms called by <code>AR900</code>:</p>
+<p><strong>S3 (FMT03 - Supplemental Data)</strong>:</p>
 <ul>
-<li><strong>For <code>AR9009</code></strong> (likely a utility or data fix program):</li>
-<li><code>SA5FIXD</code>, <code>SA5FIXM</code>: Fixed data files.</li>
-<li><code>SA5BCXD</code>, <code>SA5BCXM</code>: Billing credit files.</li>
-<li><code>SA5DBXD</code>, <code>SA5DBXM</code>: Debit files.</li>
-<li><code>SA5COXD</code>, <code>SA5COXM</code>: Customer order files.</li>
-<li><strong>For <code>AR9006</code></strong> (possibly a pricing update program):</li>
-<li><code>PFARCUPR</code>, <code>PTARCUPR</code>: Pricing files (same label as <code>ARCUPR</code> but with different prefixes).</li>
-<li><strong>For <code>AR915P</code></strong> (possibly a customer file maintenance program):</li>
-<li><code>ARCUFM</code>, <code>ARCUFMX</code>: Customer file maintenance files.</li>
-<li><strong>For <code>BI907</code></strong> (likely a billing or shipping program):</li>
-<li><code>SHIPTO</code>: Ship-to address file.</li>
-<li><code>ARCUP3</code>: Another customer pricing file.</li>
+<li>Validates date fields (<code>STDATE</code>, <code>FSDATE</code>, <code>ICDATE</code>) for start date, last financial statement date, and insurance certification expiration date.</li>
+<li>Adds century to dates if not provided, using <code>Y2KCEN</code> (e.g., <code>19</code> or <code>20</code>) based on <code>Y2KCMP</code>.</li>
+<li>Calls <code>@DTEDT</code> to validate date formats (e.g., checks for valid months, days, leap years). If invalid, sets indicator <code>79</code> and displays errors (<code>MSG(44)</code>, <code>MSG(45)</code>, <code>MSG(46)</code>).</li>
+<li>Calls <code>BI907AC</code> to maintain ship-to products in <code>ARCUPR</code> (replacing previous <code>S4</code> logic).</li>
+<li>Sets indicator <code>85</code> to display <code>FMT05</code>.</li>
 </ul>
 </li>
 <li>
-<p><strong>Execute the Program</strong>:</p>
+<p><strong>S5 (FMT05 - Final Processing)</strong>:</p>
+<ul>
+<li>Updates or adds records to <code>ARCUST</code> and <code>ARCUSP</code> based on mode (<code>07</code> or <code>08</code>).</li>
+<li>Updates <code>ARCLGR</code> (group ledger) to synchronize the credit problem flag (<code>CLPB</code>) across grouped accounts.</li>
+<li>Writes history records to <code>ARCUSHS</code> (customer history) and <code>ARCUSPH</code> (supplemental history) with system date, time, user ID, and workstation ID.</li>
+<li>Clears fields via <code>CLEAR</code> subroutine and redisplays <code>FMT02</code>.</li>
+</ul>
 </li>
 <li>
-<p><code>RUN</code>: Executes the <code>AR900</code> program, which processes customer master add/update operations using the defined files and calls subprograms as needed.</p>
+<p><strong>Command Key Processing</strong>:</p>
+</li>
+<li><strong>KA (Rekey)</strong>: Clears fields (<code>CLEAR</code>) and redisplays <code>FMT01</code> or <code>FMT02</code> based on mode.</li>
+<li><strong>KD (Delete/Reactivate)</strong>:<ul>
+<li><strong>Delete</strong>: Checks if the customer has outstanding invoices (<code>BAL ≠ 0</code>). If so, displays <code>MSG(9)</code> and <code>MSG(10)</code> ("THIS CUSTOMER HAS OUTSTANDING INVOICES"). If not, marks <code>ARCUST</code> and <code>ARCUSP</code> as inactive (<code>'I'</code>) instead of deleting (per revision note).</li>
+<li><strong>Reactivate</strong>: Clears the delete flag (<code>ARDEL</code>, <code>CSDEL</code>) and sets status to active (<code>'A'</code>), displaying <code>MSG(12)</code> ("PREVIOUS CUSTOMER WAS REACTIVATED").</li>
+</ul>
+</li>
+<li><strong>KG (End of Job)</strong>: Sets <code>LR</code> (Last Record) indicator, closes files, and exits.</li>
+<li><strong>KJ (Entry Mode)</strong>: Clears fields, sets <code>08</code> (Entry Mode), and displays <code>FMT02</code>.</li>
+<li>
+<p><strong>KK (Update Mode)</strong>: Clears fields, sets <code>07</code> (Update Mode), and displays <code>FMT02</code>.</p>
 </li>
 <li>
-<p><strong>Post-Processing</strong>:</p>
+<p><strong>End of Program</strong>:</p>
 </li>
-<li>The OCL ends with <code>ARFX39 ,,,,,,,,?9?</code>, which might be a cleanup procedure or a call to another program for final processing (e.g., logging or file closing).</li>
+<li>Closes all files, sets <code>*INLR = *ON</code>, and returns.</li>
 </ol>
 <hr />
-<h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
-<p>The OCL references the following external programs:
-1. <strong>AR900</strong>: The main RPG program for customer master add/update.
-2. <strong>AR9009</strong>: A utility program, possibly for data fixes or validations.
-3. <strong>AR9006</strong>: A program likely related to customer pricing updates.
-4. <strong>AR915P</strong>: A program for customer file maintenance.
-5. <strong>BI907</strong>: A billing or shipping-related program.
-6. <strong>AR300</strong>: Referenced in the <code>IFF</code> condition, possibly for checking system status.
-7. <strong>ARFX39</strong>: Likely a cleanup or final processing program.</p>
+<h3 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
+<p>The program enforces the following business rules:
+1. <strong>Customer Number Validation</strong>:
+   - Must not be zero in Entry Mode (<code>MSG(19)</code>).
+   - Must not already exist in <code>ARCUST</code> for new records (<code>MSG(7)</code>).
+   - Must exist in <code>ARCUST</code> and <code>ARCUSP</code> for updates.</p>
+<ol>
+<li><strong>Mandatory Fields</strong>:</li>
+<li>Sort name (<code>LSTN</code>) must not be blank (<code>MSG(21)</code>).</li>
+<li>Federal EIN (<code>FEIN</code>) is required (<code>MSG(55)</code>).</li>
+<li>
+<p>State (<code>STAT</code>) must not be blank (<code>MSG(29)</code>).</p>
+</li>
+<li>
+<p><strong>Code Validations</strong> (checked against <code>GSTABL</code>):</p>
+</li>
+<li>Salesman number (<code>SLS#</code>): Must exist in <code>GSTABL</code> (<code>MSG(13)</code>).</li>
+<li>Terms code (<code>TERM</code>): Must exist in <code>GSTABL</code> (<code>MSG(14)</code>).</li>
+<li>
+<p>Customer class (<code>CCLASS</code>): Must exist in <code>GSTABL</code> under <code>ARCUCL</code> table type (<code>MSG(47)</code>).</p>
+</li>
+<li>
+<p><strong>Valid Codes</strong>:</p>
+</li>
+<li>Statement code (<code>STMT</code>): Must be <code>Y</code>, <code>N</code>, or blank (<code>MSG(16)</code>).</li>
+<li>Finance charge code (<code>FINC</code>): Must be <code>Y</code>, <code>N</code>, or blank (<code>MSG(17)</code>).</li>
+<li>Separate freight code (<code>SFRT</code>): Must be <code>Y</code>, <code>N</code>, or blank (<code>MSG(30)</code>).</li>
+<li>Freight code (<code>FRCD</code>): Must be <code>C</code> (Collect), <code>P</code> (Prepaid), <code>A</code> (Prepaid &amp; Add), or blank (<code>MSG(35)</code>).</li>
+<li>EFT participant (<code>EFT</code>): Must be <code>Y</code>, <code>N</code>, or blank (<code>MSG(32)</code>).</li>
+<li>EDI participant (<code>EDI</code>): Must be <code>Y</code>, <code>N</code>, or blank (<code>MSG(50)</code>).</li>
+<li>Credit problem code (<code>CLPB</code>): Must be <code>Y</code>, <code>N</code>, or blank (<code>MSG(51)</code>).</li>
+<li>Wire transfer code (<code>WIRE</code>): Must be <code>Y</code>, <code>N</code>, or blank (<code>MSG(52)</code>).</li>
+<li>Duplicate order match type (<code>DUPC</code>): Must be <code>A</code> (match on customer/ship-to/product), <code>B</code> (match on customer/ship-to/product/PO#), or blank (<code>MSG(53)</code>).</li>
+<li>
+<p>Product move code (<code>PRMV</code>): Must be <code>Y</code>, <code>N</code>, or blank (<code>MSG(50)</code>).</p>
+</li>
+<li>
+<p><strong>EFT Validation</strong>:</p>
+</li>
+<li>
+<p>If <code>AREFT = 'Y'</code>, bank routing code (<code>CSARTE</code>) and account number (<code>CSABK#</code>) must not be blank (<code>indicator 40</code>).</p>
+</li>
+<li>
+<p><strong>Date Validation</strong>:</p>
+</li>
+<li>Validates <code>STDATE</code> (start date), <code>FSDATE</code> (financial statement date), and <code>ICDATE</code> (insurance certification date) using <code>@DTEDT</code>.</li>
+<li>Ensures valid months (1-12), days (1-31 or 1-28/29 for February), and leap year logic.</li>
+<li>
+<p>Adds century (<code>Y2KCEN</code>) to two-digit years based on <code>Y2KCMP</code>.</p>
+</li>
+<li>
+<p><strong>Group Credit Synchronization</strong>:</p>
+</li>
+<li>
+<p>Updates <code>CLPB</code> (credit problem flag) in <code>ARCUST2</code> for all customers in the same group (<code>ARCLGR</code>) when modified.</p>
+</li>
+<li>
+<p><strong>Deletion Rules</strong>:</p>
+</li>
+<li>Customers with outstanding invoices (<code>BAL ≠ 0</code>) cannot be deleted (<code>MSG(9)</code>, <code>MSG(10)</code>).</li>
+<li>
+<p>Deletion marks records as inactive (<code>'I'</code>) instead of physical deletion (<code>JB11</code> revision).</p>
+</li>
+<li>
+<p><strong>Freight Handling</strong>:</p>
+</li>
+<li>Supports <code>C</code> (freight collect), <code>P</code> (prepaid), <code>A</code> (prepaid &amp; add) (<code>JB09</code>, <code>JB10</code>).</li>
+<li>Special case for freight collect with a $100 service fee (<code>CYY</code>) when shipping is arranged by ARG but billed by the carrier.</li>
+</ol>
 <hr />
 <h3 id="tables-files-used">Tables (Files) Used<a class="headerlink" href="#tables-files-used" title="Permanent link">&para;</a></h3>
-<p>The OCL defines the following files (tables) used by the program and its subprograms:
-1. <strong>ARCUST</strong>: Customer master file.
-2. <strong>ARCUSP</strong>: Customer profile file.
-3. <strong>ARCUPR</strong>: Customer pricing file.
-4. <strong>CRDETX</strong>: Credit details file.
-5. <strong>ARCONT</strong>: AR control file.
-6. <strong>BICONT</strong>: Billing control file.
-7. <strong>GSPROD</strong>: General system product file.
-8. <strong>GSTABL</strong>: General system table file.
-9. <strong>BISLTX</strong>: Billing sales tax file.
-10. <strong>ARCLGR</strong>: AR customer ledger file.
-11. <strong>ARCUST2</strong>: Alternate customer master file.
-12. <strong>ARCUSHS</strong>: Customer ship-to history file.
-13. <strong>ARCUSPH</strong>: Customer phone history file.
-14. <strong>ARCUPHS</strong>: Customer pricing history file.
-15. <strong>SA5FIXD</strong>: Fixed data file (for <code>AR9009</code>).
-16. <strong>SA5FIXM</strong>: Fixed master file (for <code>AR9009</code>).
-17. <strong>SA5BCXD</strong>: Billing credit fixed data (for <code>AR9009</code>).
-18. <strong>SA5BCXM</strong>: Billing credit fixed master file (for <code>AR9009</code>).
-19. <strong>SA5DBXD</strong>: Debit fixed data file (for <code>AR9009</code>).
-20. <strong>SA5DBXM</strong>: Debit master file (for <code>AR9009</code>).
-21. <strong>SA5COXD</strong>: Customer order fixed data (for <code>AR9009</code>).
-22. <strong>SA5COXM</strong>: Customer order master file (for <code>AR9009</code>).
-23. <strong>PFARCUPR</strong>: Pricing file (for <code>AR9006</code>).
-24. <strong>PTARCUPR</strong>: Pricing file (for <code>AR9006</code>).
-25. <strong>ARCUFM</strong>: Customer file maintenance file (for <code>AR915P</code>).
-26. <strong>ARCUFMX</strong>: Customer file maintenance index file (for <code>AR915P</code>).
-27. <strong>SHIPTO</strong>: Ship-to address file (for <code>BI907</code>).
-28. <strong>ARCUP3</strong>: Customer pricing file (for <code>BI907</code>).
-29. <strong>ARDETL</strong>: Output file for index build (referenced in <code>BLDINDEX</code>).</p>
+<p>The program uses the following files:
+1. <strong>AR900D</strong> (<code>WORKSTN</code>): Display file for user interaction, externally described with <code>PROFOUNDUI</code> handler (<code>JB11</code>).
+2. <strong>ARCUST</strong> (<code>UF A</code>, 384 bytes, key starts at position 2): Customer master file for add/update.
+3. <strong>ARCUSP</strong> (<code>UF A</code>, 1344 bytes, key starts at position 2): Supplemental customer data file.
+4. <strong>GSTABL</strong> (<code>IF</code>, 256 bytes, key starts at position 2): General system table for validating salesman, terms, and customer class codes.
+5. <strong>ARCONT</strong> (<code>IF</code>, 256 bytes, key starts at position 2): AR control file for aging limits.
+6. <strong>BICONT</strong> (<code>IF</code>, 256 bytes, key starts at position 2): Billing control file for invoicing style.
+7. <strong>ARCLGR</strong> (<code>IF</code>, 240 bytes, key starts at position 2): Customer group ledger file for credit synchronization.
+8. <strong>ARCUST2</strong> (<code>UF</code>, 384 bytes, key starts at position 2): Alternate customer master file for group updates.
+9. <strong>ARCUSHS</strong> (<code>O A</code>, 411 bytes, key starts at position 2): Customer history file.
+10. <strong>ARCUSPH</strong> (<code>O A</code>, 1371 bytes, key starts at position 2): Supplemental customer history file.</p>
+<hr />
+<h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
+<p>The program calls the following external programs:
+1. <strong>BI907AC</strong> (<code>JB08</code>): Maintains ship-to products in <code>ARCUPR</code> (replaces <code>S4</code> logic).
+   - Parameters: Company (<code>@CPCO</code>), Customer (<code>@CPCUS</code>), Ship-to (<code>@CPSHP</code>), Mode (<code>@CPMI = 'MNT'</code>), File Group (<code>@CPFGR</code>).</p>
+<p>Note: The following calls are commented out (<code>DC01</code>, <code>JK01</code>), indicating they are no longer used but were part of earlier versions:
+- <strong>AR915P</strong>: For customer form type contacts maintenance (<code>ARCUFM</code>).
+- <strong>GB730P</strong>: For history inquiries on <code>ARCUST</code> and <code>ARCUSP</code>.</p>
 <hr />
 <h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
-<p>The <code>AR900.ocl36.txt</code> OCL program orchestrates the execution of the <code>AR900</code> RPG program to add or update customer master records in an Accounts Receivable system. It:
-- Sets up the environment and parameters.
-- Builds an index for the credit details file if conditions are met.
-- Loads the main program and defines shared files for customer, billing, and system data.
-- Calls subprograms (<code>AR9009</code>, <code>AR9006</code>, <code>AR915P</code>, <code>BI907</code>) for specific tasks like data fixes, pricing updates, file maintenance, and billing/shipping.
-- Executes the program and performs post-processing.</p>
-<p>The program interacts with 29 files (tables) and calls 7 external programs to manage customer-related data comprehensively.</p>
+<p>The <code>AR900</code> RPGLE program is a comprehensive customer master maintenance application that:
+- Manages customer data (<code>ARCUST</code>, <code>ARCUSP</code>) through interactive screens (<code>FMT01</code>–<code>FMT05</code>).
+- Supports adding, updating, and reactivating customers with strict validations (e.g., mandatory fields, valid codes, date checks).
+- Synchronizes credit problem flags across grouped accounts (<code>ARCLGR</code>).
+- Maintains history files (<code>ARCUSHS</code>, <code>ARCUSPH</code>) for auditing.
+- Integrates with <code>BI907AC</code> for ship-to product maintenance.
+- Uses 10 files and calls 1 active external program (<code>BI907AC</code>).</p>
+<p>The program enforces robust business rules to ensure data integrity, including validations against <code>GSTABL</code>, restrictions on deletions, and special freight handling logic.</p>
 
 
 
