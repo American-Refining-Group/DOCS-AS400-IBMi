@@ -75,6 +75,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#process-steps-of-the-rpgle-program" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -5157,6 +5162,19 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    AR489 RPGLE
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -5168,6 +5186,68 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#process-steps-of-the-rpgle-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Steps of the RPGLE Program
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#business-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Business Rules
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tables-files-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tables (Files) Used
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-programs-called" class="md-nav__link">
+    <span class="md-ellipsis">
+      External Programs Called
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -6243,6 +6323,59 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#process-steps-of-the-rpgle-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Steps of the RPGLE Program
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#business-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Business Rules
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tables-files-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tables (Files) Used
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-programs-called" class="md-nav__link">
+    <span class="md-ellipsis">
+      External Programs Called
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -6262,210 +6395,337 @@
 
   <h1>AR489 RPGLE</h1>
 
-<p>Process Steps of the RPGLE Program
-The RPGLE program manages a workstation (interactive screen) application for maintaining credit limit groupings, allowing users to add, update, or delete customer records associated with credit limit groups. Here’s a step-by-step breakdown of the process:
-1.  Program Initialization (<em>inzsr Subroutine): 
-o   Code: 
-rpgle
-c     </em>inzsr        begsr
+<p>The provided RPGLE program (<code>AR489.rpgle.txt</code>) is an RPG IV program, converted from an earlier RPG version (likely RPG/400 or RPG III) for IBM midrange systems (e.g., AS/400 or IBM i). It is invoked by the OCL program (<code>AR489.ocl36.txt</code>) and handles the <strong>Credit Limit Grouping Maintenance</strong> functionality. Below, I’ll explain the process steps, business rules, tables (files) used, and external programs called.</p>
+<hr />
+<h3 id="process-steps-of-the-rpgle-program">Process Steps of the RPGLE Program<a class="headerlink" href="#process-steps-of-the-rpgle-program" title="Permanent link">&para;</a></h3>
+<p>The RPGLE program manages a workstation (interactive screen) application for maintaining credit limit groupings, allowing users to add, update, or delete customer records associated with credit limit groups. Here’s a step-by-step breakdown of the process:</p>
+<ol>
+<li><strong>Program Initialization (<code>*inzsr</code> Subroutine)</strong>:</li>
+<li><strong>Code</strong>: 
+     <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>c     *inzsr        begsr
 c                   z-add     0             cono
 c                   z-add     0             cust
 c                   endsr
-o   Description: 
-   The initialization subroutine (<em>inzsr) sets the company number (cono) and customer number (cust) to zero.
-   This ensures a clean state for variables used in the program.
-2.  Main Routine Execution: 
-o   Code: 
-rpgle
-c                   if        qsctl = ' '
-c                   move      '1'           </em>in09
-c                   move      'R'           qsctl             1
+</code></pre></div></td></tr></table></div></li>
+<li>
+<p><strong>Description</strong>: </p>
+<ul>
+<li>The initialization subroutine (<code>*inzsr</code>) sets the company number (<code>cono</code>) and customer number (<code>cust</code>) to zero.</li>
+<li>This ensures a clean state for variables used in the program.</li>
+</ul>
+</li>
+<li>
+<p><strong>Main Routine Execution</strong>:</p>
+</li>
+<li><strong>Code</strong>:
+     <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>c                   if        qsctl = &#39; &#39;
+c                   move      &#39;1&#39;           *in09
+c                   move      &#39;R&#39;           qsctl             1
 c                   else
-c                   move      '0'           <em>in09
-c                   move      '0'           </em>in01
-c                   move      '0'           <em>in02
+c                   move      &#39;0&#39;           *in09
+c                   move      &#39;0&#39;           *in01
+c                   move      &#39;0&#39;           *in02
 c   lr              return
 c                   end
-o   Description: 
-   Checks the control variable qsctl (likely a system or session control flag).
-   If qsctl is blank, sets indicator </em>in09 to '1' (on) and qsctl to 'R', indicating the program is ready to process.
-   If qsctl is not blank, clears indicators <em>in09, </em>in01, <em>in02, and sets </em>inlr (last record) to terminate the program.
-   Indicators <em>in01 and </em>in02 control screen formats (AR489S1 and AR489S2).
-3.  Read Workstation File: 
-o   Code: 
-rpgle
-c   81              read      ar489s1                                lr
+</code></pre></div></td></tr></table></div></li>
+<li>
+<p><strong>Description</strong>:</p>
+<ul>
+<li>Checks the control variable <code>qsctl</code> (likely a system or session control flag).</li>
+<li>If <code>qsctl</code> is blank, sets indicator <code>*in09</code> to <code>'1'</code> (on) and <code>qsctl</code> to <code>'R'</code>, indicating the program is ready to process.</li>
+<li>If <code>qsctl</code> is not blank, clears indicators <code>*in09</code>, <code>*in01</code>, <code>*in02</code>, and sets <code>*inlr</code> (last record) to terminate the program.</li>
+<li>Indicators <code>*in01</code> and <code>*in02</code> control screen formats (<code>AR489S1</code> and <code>AR489S2</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Read Workstation File</strong>:</p>
+</li>
+<li><strong>Code</strong>:
+     <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>c   81              read      ar489s1                                lr
 c   82              read      ar489s2                                lr
-c   81              move      <em>on           </em>in01
-c   82              move      <em>on           </em>in02
-o   Description: 
-   Reads the workstation file formats AR489S1 (first screen) and AR489S2 (second screen) based on indicators <em>in81 and </em>in82.
-   Sets <em>in01 and </em>in02 to control which screen format is active for display or input.
-   Clears message fields (msg1, msg2) and indicators (<em>in81, </em>in82, <em>in90) to prepare for user interaction.
-4.  Handle Function Keys: 
-o   Code: 
-rpgle
-c                   if        (</em>inka = <em>on)
-c                   eval      </em>in01 = <em>off
-c                   eval      </em>in02 = <em>off
-c                   eval      </em>in81 = <em>on
+c   81              move      *on           *in01
+c   82              move      *on           *in02
+</code></pre></div></td></tr></table></div></li>
+<li>
+<p><strong>Description</strong>:</p>
+<ul>
+<li>Reads the workstation file formats <code>AR489S1</code> (first screen) and <code>AR489S2</code> (second screen) based on indicators <code>*in81</code> and <code>*in82</code>.</li>
+<li>Sets <code>*in01</code> and <code>*in02</code> to control which screen format is active for display or input.</li>
+<li>Clears message fields (<code>msg1</code>, <code>msg2</code>) and indicators (<code>*in81</code>, <code>*in82</code>, <code>*in90</code>) to prepare for user interaction.</li>
+</ul>
+</li>
+<li>
+<p><strong>Handle Function Keys</strong>:</p>
+</li>
+<li><strong>Code</strong>:
+     <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>c                   if        (*inka = *on)
+c                   eval      *in01 = *off
+c                   eval      *in02 = *off
+c                   eval      *in81 = *on
 c                   endif
-c                   if        (</em>inkg = <em>on)
-c                   eval      </em>inlr = <em>on
-c                   eval      </em>in01 = <em>off
-c                   eval      </em>in02 = <em>off
+c                   if        (*inkg = *on)
+c                   eval      *inlr = *on
+c                   eval      *in01 = *off
+c                   eval      *in02 = *off
 c                   endif
-o   Description: 
-   If function key F10 (</em>inka) is pressed, clears <em>in01 and </em>in02 (disables screen formats) and sets <em>in81 to display the first screen (AR489S1).
-   If function key F3 or F12 (</em>inkg) is pressed, sets <em>inlr to terminate the program and clears </em>in01 and <em>in02.
-5.  Validate Company Number: 
-o   Code: 
-rpgle
-c   09              do
-c     '00'          chain     gscont                             99
-c  n99gxcono        ifne      </em>zeros
+</code></pre></div></td></tr></table></div></li>
+<li>
+<p><strong>Description</strong>:</p>
+<ul>
+<li>If function key F10 (<code>*inka</code>) is pressed, clears <code>*in01</code> and <code>*in02</code> (disables screen formats) and sets <code>*in81</code> to display the first screen (<code>AR489S1</code>).</li>
+<li>If function key F3 or F12 (<code>*inkg</code>) is pressed, sets <code>*inlr</code> to terminate the program and clears <code>*in01</code> and <code>*in02</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Validate Company Number</strong>:</p>
+</li>
+<li><strong>Code</strong>:
+     <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>c   09              do
+c     &#39;00&#39;          chain     gscont                             99
+c  n99gxcono        ifne      *zeros
 c  n99              z-add     gxcono        cono
 c                   endif
 c                   end
-o   Description: 
-   When indicator <em>in09 is on (initial program entry), the program reads the GSCONT file using key '00' to retrieve a company number (gxcono).
-   If found (</em>in99 off) and gxcono is non-zero, it sets the cono variable to gxcono.
-   This validates or sets the company number for subsequent processing.
-6.  Screen Processing: 
-o   Code: 
-rpgle
-c  n09              if        (<em>in01 = </em>on)
+</code></pre></div></td></tr></table></div></li>
+<li>
+<p><strong>Description</strong>:</p>
+<ul>
+<li>When indicator <code>*in09</code> is on (initial program entry), the program reads the <code>GSCONT</code> file using key <code>'00'</code> to retrieve a company number (<code>gxcono</code>).</li>
+<li>If found (<code>*in99</code> off) and <code>gxcono</code> is non-zero, it sets the <code>cono</code> variable to <code>gxcono</code>.</li>
+<li>This validates or sets the company number for subsequent processing.</li>
+</ul>
+</li>
+<li>
+<p><strong>Screen Processing</strong>:</p>
+</li>
+<li><strong>Code</strong>:
+     <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>c  n09              if        (*in01 = *on)
 c                   exsr      s1
 c                   endif
-c                   if        (<em>in02 = </em>on)
+c                   if        (*in02 = *on)
 c                   exsr      s2
 c                   endif
 c   81              write     ar489s1
 c   82              write     ar489s2
-o   Description: 
-   If <em>inchelle01 is on, executes subroutine s1 (processes first screen for company/customer validation).
-   If </em>in02 is on, executes subroutine s2 (processes second screen for group maintenance).
-   Writes the appropriate screen formats (AR489S1 or AR489S2) to the workstation based on indicators <em>in81 and </em>in82.
-7.  Subroutine s1 (First Screen Processing): 
-o   Code: 
-rpgle
-csr   s1            begsr
+</code></pre></div></td></tr></table></div></li>
+<li>
+<p><strong>Description</strong>:</p>
+<ul>
+<li>If <code>*inchelle01</code> is on, executes subroutine <code>s1</code> (processes first screen for company/customer validation).</li>
+<li>If <code>*in02</code> is on, executes subroutine <code>s2</code> (processes second screen for group maintenance).</li>
+<li>Writes the appropriate screen formats (<code>AR489S1</code> or <code>AR489S2</code>) to the workstation based on indicators <code>*in81</code> and <code>*in82</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Subroutine <code>s1</code> (First Screen Processing)</strong>:</p>
+</li>
+<li><strong>Code</strong>:
+     <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code>csr   s1            begsr
 c     cono          chain     arcont                             99
-c                   if        (<em>in99 = </em>on)
+c                   if        (*in99 = *on)
 c                   movel     msg(1)        msg2
-c                   eval      <em>in81 = </em>on
-c                   eval      <em>in90 = </em>on
+c                   eval      *in81 = *on
+c                   eval      *in90 = *on
 c                   goto      ends1
 c                   endif
-c                   if        cust = <em>zero
+c                   if        cust = *zero
 c                   movel     msg(2)        msg2
-c                   eval      </em>in81 = <em>on
-c                   eval      </em>in90 = <em>on
+c                   eval      *in81 = *on
+c                   eval      *in90 = *on
 c                   goto      ends1
 c                   end
 c     clgrky        chain     arclgr                             99
 c                   move      cgdel         del
 c                   movea     arc           ars
-c                   eval      </em>in82 = <em>on
+c                   eval      *in82 = *on
 csr   ends1         endsr
-o   Description: 
-   Validate Company: Uses cono to chain (read) the ARCONT file. If not found (</em>in99 on), sets error message msg(1) ("INVALID COMPANY NUMBER ENTERED") in msg2, sets <em>in81 and </em>in90 (error indicator), and exits the subroutine.
-   Validate Customer: Checks if cust is zero. If true, sets error message msg(2) ("INVALID CUSTOMER") in msg2, sets <em>in81 and </em>in90, and exits.
-   Retrieve Group Data: Uses the key clgrky (concatenation of cono and cust) to chain the ARCLGR file. If found, moves the delete code (cgdel) to del and the customer array (arc) to ars. Sets <em>in82 to display the second screen.
-   This subroutine validates input and retrieves existing group data for editing.
-8.  Subroutine s2 (Second Screen Processing): 
-o   Code: 
-rpgle
-csr   s2            begsr
+</code></pre></div></td></tr></table></div></li>
+<li>
+<p><strong>Description</strong>:</p>
+<ul>
+<li><strong>Validate Company</strong>: Uses <code>cono</code> to chain (read) the <code>ARCONT</code> file. If not found (<code>*in99</code> on), sets error message <code>msg(1)</code> ("INVALID COMPANY NUMBER ENTERED") in <code>msg2</code>, sets <code>*in81</code> and <code>*in90</code> (error indicator), and exits the subroutine.</li>
+<li><strong>Validate Customer</strong>: Checks if <code>cust</code> is zero. If true, sets error message <code>msg(2)</code> ("INVALID CUSTOMER") in <code>msg2</code>, sets <code>*in81</code> and <code>*in90</code>, and exits.</li>
+<li><strong>Retrieve Group Data</strong>: Uses the key <code>clgrky</code> (concatenation of <code>cono</code> and <code>cust</code>) to chain the <code>ARCLGR</code> file. If found, moves the delete code (<code>cgdel</code>) to <code>del</code> and the customer array (<code>arc</code>) to <code>ars</code>. Sets <code>*in82</code> to display the second screen.</li>
+<li>This subroutine validates input and retrieves existing group data for editing.</li>
+</ul>
+</li>
+<li>
+<p><strong>Subroutine <code>s2</code> (Second Screen Processing)</strong>:</p>
+</li>
+<li><strong>Code</strong>:
+     <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code>csr   s2            begsr
 c                   z-add     0             y                 2 0
 c                   dou       y = 25
 c                   add       1             y
 c     clgrky        chain     arclgr                             99
-c                   if        (</em>in99 = <em>on)
+c                   if        (*in99 = *on)
 c                   except    addclg
 c                   else
 c                   except    updclg
 c                   endif
 c                   end
-c                   eval      </em>in81 = <em>on
+c                   eval      *in81 = *on
 csr   ends2         endsr
-o   Description: 
-   Iterates through the ars array (25 elements) to process customer group assignments.
-   For each iteration, uses clgrky to chain the ARCLGR file: 
-   If not found (</em>in99 on), executes the addclg exception to add a new record to ARCLGR with del = 'A', cono, cust, and ars values.
-   If found, executes the updclg exception to update the existing ARCLGR record with del and ars values.
-   Sets *in81 to return to the first screen after processing.
-9.  Exception Outputs: 
-o   Code: 
-rpgle
-oarclgr    e            updclg
+</code></pre></div></td></tr></table></div></li>
+<li>
+<p><strong>Description</strong>:</p>
+<ul>
+<li>Iterates through the <code>ars</code> array (25 elements) to process customer group assignments.</li>
+<li>For each iteration, uses <code>clgrky</code> to chain the <code>ARCLGR</code> file:</li>
+<li>If not found (<code>*in99</code> on), executes the <code>addclg</code> exception to add a new record to <code>ARCLGR</code> with <code>del = 'A'</code>, <code>cono</code>, <code>cust</code>, and <code>ars</code> values.</li>
+<li>If found, executes the <code>updclg</code> exception to update the existing <code>ARCLGR</code> record with <code>del</code> and <code>ars</code> values.</li>
+<li>Sets <code>*in81</code> to return to the first screen after processing.</li>
+</ul>
+</li>
+<li>
+<p><strong>Exception Outputs</strong>:</p>
+</li>
+<li><strong>Code</strong>:
+     <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>oarclgr    e            updclg
 o                       del                  1
 o                       ars                159
 oarclgr    eadd         addclg
-o                                            1 'A'
+o                                            1 &#39;A&#39;
 o                       cono                 3
 o                       cust                 9
 o                       ars                159
-o   Description: 
-   updclg: Updates an existing ARCLGR record with the delete code (del) and customer array (ars).
-   addclg: Adds a new ARCLGR record with del = 'A' (active), cono, cust, and ars.</p>
+</code></pre></div></td></tr></table></div></li>
+<li><strong>Description</strong>:<ul>
+<li><code>updclg</code>: Updates an existing <code>ARCLGR</code> record with the delete code (<code>del</code>) and customer array (<code>ars</code>).</li>
+<li><code>addclg</code>: Adds a new <code>ARCLGR</code> record with <code>del = 'A'</code> (active), <code>cono</code>, <code>cust</code>, and <code>ars</code>.</li>
+</ul>
+</li>
+</ol>
 <hr />
-<p>Business Rules
-The program enforces the following business rules for credit limit grouping maintenance:
-1.  Company Number Validation: 
-o   The company number (cono) must exist in the ARCONT file. If not, an "INVALID COMPANY NUMBER ENTERED" error is displayed, and the user is prompted to correct the input.
-2.  Customer Number Validation: 
-o   The customer number (cust) must be non-zero. If zero, an "INVALID CUSTOMER" error is displayed.
-3.  Credit Limit Group Management: 
-o   A group is identified by a composite key (clgrky, combining cono and cust).
-o   The program allows adding new group records (if not found in ARCLGR) or updating existing ones.
-o   The ars array stores up to 25 customer numbers associated with a group.
-o   The del field indicates the record’s status (e.g., 'A' for active, or other codes for deletion).
-4.  Interactive Processing: 
-o   The first screen (AR489S1) accepts cono and cust for validation and retrieves group data.
-o   The second screen (AR489S2) displays group details (arname, ars, del) for editing or adding customers.
-o   Function keys (F10, F3/F12) control navigation and program termination.
-5.  Error Handling: 
-o   Errors (invalid company or customer) are displayed via msg1 and msg2 fields, with indicator *in90 enabling error highlighting.
-6.  Data Persistence: 
-o   Changes to group assignments are saved to the ARCLGR file via addclg (add) or updclg (update) operations.</p>
+<h3 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
+<p>The program enforces the following business rules for credit limit grouping maintenance:
+1. <strong>Company Number Validation</strong>:
+   - The company number (<code>cono</code>) must exist in the <code>ARCONT</code> file. If not, an "INVALID COMPANY NUMBER ENTERED" error is displayed, and the user is prompted to correct the input.
+2. <strong>Customer Number Validation</strong>:
+   - The customer number (<code>cust</code>) must be non-zero. If zero, an "INVALID CUSTOMER" error is displayed.
+3. <strong>Credit Limit Group Management</strong>:
+   - A group is identified by a composite key (<code>clgrky</code>, combining <code>cono</code> and <code>cust</code>).
+   - The program allows adding new group records (if not found in <code>ARCLGR</code>) or updating existing ones.
+   - The <code>ars</code> array stores up to 25 customer numbers associated with a group.
+   - The <code>del</code> field indicates the record’s status (e.g., <code>'A'</code> for active, or other codes for deletion).
+4. <strong>Interactive Processing</strong>:
+   - The first screen (<code>AR489S1</code>) accepts <code>cono</code> and <code>cust</code> for validation and retrieves group data.
+   - The second screen (<code>AR489S2</code>) displays group details (<code>arname</code>, <code>ars</code>, <code>del</code>) for editing or adding customers.
+   - Function keys (F10, F3/F12) control navigation and program termination.
+5. <strong>Error Handling</strong>:
+   - Errors (invalid company or customer) are displayed via <code>msg1</code> and <code>msg2</code> fields, with indicator <code>*in90</code> enabling error highlighting.
+6. <strong>Data Persistence</strong>:
+   - Changes to group assignments are saved to the <code>ARCLGR</code> file via <code>addclg</code> (add) or <code>updclg</code> (update) operations.</p>
 <hr />
-<p>Tables (Files) Used
-The program uses the following files (equivalent to tables in modern database terminology):
-1.  ARCLGR: 
-o   Description: Stores credit limit grouping data.
-o   Attributes: Update file (uf), 240 bytes, keyed on position 2 (likely clgrky, a composite of cgcono and cgcust).
-o   Fields: 
-   cgdel (1 byte): Delete code (e.g., 'A' for active).
-   cgcono (2 bytes): Company number.
-   cgcust (6 bytes): Customer number.
-   arc (150 bytes): Array of customer numbers in the group.
-2.  ARCONT: 
-o   Description: Accounts receivable control file, storing company information.
-o   Attributes: Input file (if), 256 bytes, keyed on position 2.
-o   Fields: 
-   arname (30 bytes): Company name.
-3.  GSCONT: 
-o   Description: General system control file, likely for system-wide settings or defaults.
-o   Attributes: Input file (if), 512 bytes, keyed on position 2.
-o   Fields: 
-   gxdel (1 byte): Delete code.
-   gxcono (2 bytes): Company number.
-4.  AR489D (Workstation File): 
-o   Description: Display file for the interactive screens (AR489S1 and AR489S2), handled by PROFOUNDUI(HANDLER).
-o   Formats: 
-   AR489S1: Accepts cono, cust, and displays messages (msg1, msg2).
-   AR489S2: Displays cono, arname, cust, ars (group customers), del, and messages.</p>
+<h3 id="tables-files-used">Tables (Files) Used<a class="headerlink" href="#tables-files-used" title="Permanent link">&para;</a></h3>
+<p>The program uses the following files (equivalent to tables in modern database terminology):
+1. <strong>ARCLGR</strong>:
+   - <strong>Description</strong>: Stores credit limit grouping data.
+   - <strong>Attributes</strong>: Update file (<code>uf</code>), 240 bytes, keyed on position 2 (likely <code>clgrky</code>, a composite of <code>cgcono</code> and <code>cgcust</code>).
+   - <strong>Fields</strong>:
+     - <code>cgdel</code> (1 byte): Delete code (e.g., 'A' for active).
+     - <code>cgcono</code> (2 bytes): Company number.
+     - <code>cgcust</code> (6 bytes): Customer number.
+     - <code>arc</code> (150 bytes): Array of customer numbers in the group.
+2. <strong>ARCONT</strong>:
+   - <strong>Description</strong>: Accounts receivable control file, storing company information.
+   - <strong>Attributes</strong>: Input file (<code>if</code>), 256 bytes, keyed on position 2.
+   - <strong>Fields</strong>:
+     - <code>arname</code> (30 bytes): Company name.
+3. <strong>GSCONT</strong>:
+   - <strong>Description</strong>: General system control file, likely for system-wide settings or defaults.
+   - <strong>Attributes</strong>: Input file (<code>if</code>), 512 bytes, keyed on position 2.
+   - <strong>Fields</strong>:
+     - <code>gxdel</code> (1 byte): Delete code.
+     - <code>gxcono</code> (2 bytes): Company number.
+4. <strong>AR489D</strong> (Workstation File):
+   - <strong>Description</strong>: Display file for the interactive screens (<code>AR489S1</code> and <code>AR489S2</code>), handled by <code>PROFOUNDUI(HANDLER)</code>.
+   - <strong>Formats</strong>:
+     - <code>AR489S1</code>: Accepts <code>cono</code>, <code>cust</code>, and displays messages (<code>msg1</code>, <code>msg2</code>).
+     - <code>AR489S2</code>: Displays <code>cono</code>, <code>arname</code>, <code>cust</code>, <code>ars</code> (group customers), <code>del</code>, and messages.</p>
 <hr />
-<p>External Programs Called
-The RPGLE program does not explicitly call any external programs via CALL operations. All processing is handled within the program, using subroutines (s1, s2, *inzsr) and file I/O operations. However, the program is invoked by the OCL program (AR489.ocl36.txt), which calls GSGENIEC, SCPROCP, and GSY2K before loading AR489.</p>
+<h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
+<p>The RPGLE program does not explicitly call any external programs via <code>CALL</code> operations. All processing is handled within the program, using subroutines (<code>s1</code>, <code>s2</code>, <code>*inzsr</code>) and file I/O operations. However, the program is invoked by the OCL program (<code>AR489.ocl36.txt</code>), which calls <code>GSGENIEC</code>, <code>SCPROCP</code>, and <code>GSY2K</code> before loading <code>AR489</code>.</p>
 <hr />
-<p>Summary
-The AR489 RPGLE program manages credit limit groupings through an interactive workstation interface:
-•   Process Steps: Initializes variables, validates company and customer inputs, retrieves group data, and allows users to add or update group assignments via two screens.
-•   Business Rules: Enforces valid company and customer numbers, manages up to 25 customers per group, and handles add/update/delete operations with error messaging.
-•   Files Used: ARCLGR (group data), ARCONT (company data), GSCONT (system control), and AR489D (display file).
-•   External Programs: None called directly within the RPGLE code, but the OCL program invokes GSGENIEC, SCPROCP, GSY2K, and AR489.</p>
+<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
+<p>The <code>AR489</code> RPGLE program manages credit limit groupings through an interactive workstation interface:
+- <strong>Process Steps</strong>: Initializes variables, validates company and customer inputs, retrieves group data, and allows users to add or update group assignments via two screens.
+- <strong>Business Rules</strong>: Enforces valid company and customer numbers, manages up to 25 customers per group, and handles add/update/delete operations with error messaging.
+- <strong>Files Used</strong>: <code>ARCLGR</code> (group data), <code>ARCONT</code> (company data), <code>GSCONT</code> (system control), and <code>AR489D</code> (display file).
+- <strong>External Programs</strong>: None called directly within the RPGLE code, but the OCL program invokes <code>GSGENIEC</code>, <code>SCPROCP</code>, <code>GSY2K</code>, and <code>AR489</code>.</p>
+<p>If you need further details, such as specific field mappings, screen layouts, or additional context about the OCL integration, please let me know!</p>
 
 
 
