@@ -75,6 +75,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#process-steps-of-the-ocl-program" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -5180,6 +5185,19 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    AR489 ocl
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -5191,6 +5209,59 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#process-steps-of-the-ocl-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Steps of the OCL Program
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-programs-called" class="md-nav__link">
+    <span class="md-ellipsis">
+      External Programs Called
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tables-files-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tables (Files) Used
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -6243,6 +6314,50 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#process-steps-of-the-ocl-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Steps of the OCL Program
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-programs-called" class="md-nav__link">
+    <span class="md-ellipsis">
+      External Programs Called
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tables-files-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tables (Files) Used
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -6262,67 +6377,117 @@
 
   <h1>AR489 ocl</h1>
 
-<p>Process Steps of the OCL Program
-OCL is a scripting language used to define job control steps, such as loading programs, specifying files, and controlling execution flow. Here’s a breakdown of the steps in the provided OCL program:
-1.  Comment Section: 
-o   The lines starting with ** are comments, providing metadata about the program: 
-   CREDIT LIMIT GROUPING MAINTENANCE indicates the program’s purpose, likely related to maintaining credit limit groupings in an accounts receivable (AR) system.
-2.  Call External Program (GSGENIEC): 
-o   // CALL PGM(GSGENIEC): 
-   This step invokes an external program named GSGENIEC. This program is likely a utility or initialization program that performs setup or validation tasks before the main program execution.
-   The specific functionality of GSGENIEC is not detailed in the snippet, but it’s a prerequisite step.
-3.  Conditional Check (IFF Statement): 
-o   // IFF ?L'506,3'?/YES RETURN: 
-   This is a conditional statement checking a system variable or parameter at location L'506,3'. The ?L'506,3'? syntax refers to a specific memory location or indicator in the system’s Local Data Area (LDA) or a similar mechanism.
-   If the condition evaluates to YES (true), the program executes a RETURN, which terminates the OCL procedure without proceeding further.
-   This acts as a gatekeeper, allowing the program to proceed only if the condition is false.
-4.  Procedure Call (SCPROCP): 
-o   // SCPROCP ,,,,,,,,?9?: 
-   This invokes a procedure named SCPROCP with placeholder parameters (indicated by commas and ?9?).
-   The ?9? likely represents a parameter or library reference (e.g., a library name or a specific value passed to the procedure).
-   The exact purpose of SCPROCP is unclear from the snippet, but it could be a system procedure for setting up the environment or processing data.
-5.  GSY2K Execution: 
-o   // GSY2K: 
-   This step calls a program or proceduremechanism named GSY2K, likely related to Year 2000 (Y2K) compliance or date handling, which is common in legacy RPG systems.
-   This program may perform date-related validations or transformations, ensuring compatibility with two-digit year formats.
-6.  Load Program (AR489): 
-o   // LOAD AR489: 
-   This loads the main RPG program named AR489, which is the core program for the credit limit grouping maintenance functionality.
-   AR489 is likely an RPG (Report Program Generator) program responsible for the business logic, such as updating or querying credit limit groupings.
-7.  File Definitions: 
-o   // FILE NAME-ARCLGR,LABEL-?9?ARCLGR,DISP-SHR: 
-   Declares a file named ARCLGR (likely “Accounts Receivable Credit Limit Grouping”) with a label prefixed by ?9? (indicating a library or system-specific prefix).
-   DISP-SHR specifies that the file is opened in shared mode, allowing multiple processes to access it concurrently.
-o   // FILE NAME-ARCONT,LABEL-?9?ARCONT,DISP-SHR: 
-   Declares another file named ARCONT (likely “Accounts Receivable Control”), also with a ?9? prefix and shared access.
-   These files are likely database files containing data for credit limit groupings and control information.
-8.  Run the Program: 
-o   // RUN: 
-   Executes the loaded AR489 program, which processes the data in the ARCLGR and ARCONT files to perform the credit limit grouping maintenance tasks.
-External Programs Called
-The OCL program explicitly calls the following external programs:
-1.  GSGENIEC: 
-o   Likely a utility or initialization program for setup or validation.
-2.  GSY2K: 
-o   A program handling Year 2000 date-related logic.
-3.  AR489: 
-o   The main RPG program for credit limit grouping maintenance.
-4.  SCPROCP: 
-o   A procedure, possibly for system setup or parameter processing, though its exact role is unclear.
-Tables (Files) Used
-The OCL program references the following files (equivalent to tables in modern database terminology):
-1.  ARCLGR: 
-o   Likely stores data related to credit limit groupings, such as customer credit limits or group assignments.
-2.  ARCONT: 
-o   Likely a control file containing configuration or control data for the accounts receivable system.
-Summary
-The OCL program orchestrates the execution of the AR489 RPG program for maintaining credit limit groupings. It performs the following steps:
-•   Calls GSGENIEC for initialization.
-•   Checks a condition to decide whether to proceed or terminate.
-•   Invokes SCPROCP for additional setup or processing.
-•   Runs GSY2K for date-related processing.
-•   Loads and executes AR489, using the ARCLGR and ARCONT files for data access.
-The program relies on two database files (ARCLGR and ARCONT) and calls four external programs/procedures (GSGENIEC, SCPROCP, GSY2K, and AR489) to complete its tasks. The ?9? placeholders suggest dynamic library or parameter references, typical in System/36 environments.</p>
+<p>The provided document is an Operation Control Language (OCL) program snippet, typically used in IBM midrange systems like the IBM System/36 or AS/400 to control job execution and file operations. Below, I’ll explain the process steps of the RPG .OCL program, identify external programs called, and list the tables (files) used.</p>
+<h3 id="process-steps-of-the-ocl-program">Process Steps of the OCL Program<a class="headerlink" href="#process-steps-of-the-ocl-program" title="Permanent link">&para;</a></h3>
+<p>OCL is a scripting language used to define job control steps, such as loading programs, specifying files, and controlling execution flow. Here’s a breakdown of the steps in the provided OCL program:</p>
+<ol>
+<li><strong>Comment Section</strong>:</li>
+<li>
+<p>The lines starting with <code>**</code> are comments, providing metadata about the program:</p>
+<ul>
+<li><code>CREDIT LIMIT GROUPING MAINTENANCE</code> indicates the program’s purpose, likely related to maintaining credit limit groupings in an accounts receivable (AR) system.</li>
+</ul>
+</li>
+<li>
+<p><strong>Call External Program (<code>GSGENIEC</code>)</strong>:</p>
+</li>
+<li>
+<p><code>// CALL PGM(GSGENIEC)</code>:</p>
+<ul>
+<li>This step invokes an external program named <code>GSGENIEC</code>. This program is likely a utility or initialization program that performs setup or validation tasks before the main program execution.</li>
+<li>The specific functionality of <code>GSGENIEC</code> is not detailed in the snippet, but it’s a prerequisite step.</li>
+</ul>
+</li>
+<li>
+<p><strong>Conditional Check (<code>IFF</code> Statement)</strong>:</p>
+</li>
+<li>
+<p><code>// IFF ?L'506,3'?/YES RETURN</code>:</p>
+<ul>
+<li>This is a conditional statement checking a system variable or parameter at location <code>L'506,3'</code>. The <code>?L'506,3'?</code> syntax refers to a specific memory location or indicator in the system’s Local Data Area (LDA) or a similar mechanism.</li>
+<li>If the condition evaluates to <code>YES</code> (true), the program executes a <code>RETURN</code>, which terminates the OCL procedure without proceeding further.</li>
+<li>This acts as a gatekeeper, allowing the program to proceed only if the condition is false.</li>
+</ul>
+</li>
+<li>
+<p><strong>Procedure Call (<code>SCPROCP</code>)</strong>:</p>
+</li>
+<li>
+<p><code>// SCPROCP ,,,,,,,,?9?</code>:</p>
+<ul>
+<li>This invokes a procedure named <code>SCPROCP</code> with placeholder parameters (indicated by commas and <code>?9?</code>).</li>
+<li>The <code>?9?</code> likely represents a parameter or library reference (e.g., a library name or a specific value passed to the procedure).</li>
+<li>The exact purpose of <code>SCPROCP</code> is unclear from the snippet, but it could be a system procedure for setting up the environment or processing data.</li>
+</ul>
+</li>
+<li>
+<p><strong>GSY2K Execution</strong>:</p>
+</li>
+<li>
+<p><code>// GSY2K</code>:</p>
+<ul>
+<li>This step calls a program or proceduremechanism named <code>GSY2K</code>, likely related to Year 2000 (Y2K) compliance or date handling, which is common in legacy RPG systems.</li>
+<li>This program may perform date-related validations or transformations, ensuring compatibility with two-digit year formats.</li>
+</ul>
+</li>
+<li>
+<p><strong>Load Program (<code>AR489</code>)</strong>:</p>
+</li>
+<li>
+<p><code>// LOAD AR489</code>:</p>
+<ul>
+<li>This loads the main RPG program named <code>AR489</code>, which is the core program for the credit limit grouping maintenance functionality.</li>
+<li><code>AR489</code> is likely an RPG (Report Program Generator) program responsible for the business logic, such as updating or querying credit limit groupings.</li>
+</ul>
+</li>
+<li>
+<p><strong>File Definitions</strong>:</p>
+</li>
+<li><code>// FILE NAME-ARCLGR,LABEL-?9?ARCLGR,DISP-SHR</code>:<ul>
+<li>Declares a file named <code>ARCLGR</code> (likely “Accounts Receivable Credit Limit Grouping”) with a label prefixed by <code>?9?</code> (indicating a library or system-specific prefix).</li>
+<li><code>DISP-SHR</code> specifies that the file is opened in shared mode, allowing multiple processes to access it concurrently.</li>
+</ul>
+</li>
+<li>
+<p><code>// FILE NAME-ARCONT,LABEL-?9?ARCONT,DISP-SHR</code>:</p>
+<ul>
+<li>Declares another file named <code>ARCONT</code> (likely “Accounts Receivable Control”), also with a <code>?9?</code> prefix and shared access.</li>
+<li>These files are likely database files containing data for credit limit groupings and control information.</li>
+</ul>
+</li>
+<li>
+<p><strong>Run the Program</strong>:</p>
+</li>
+<li><code>// RUN</code>:<ul>
+<li>Executes the loaded <code>AR489</code> program, which processes the data in the <code>ARCLGR</code> and <code>ARCONT</code> files to perform the credit limit grouping maintenance tasks.</li>
+</ul>
+</li>
+</ol>
+<h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
+<p>The OCL program explicitly calls the following external programs:
+1. <strong>GSGENIEC</strong>:
+   - Likely a utility or initialization program for setup or validation.
+2. <strong>GSY2K</strong>:
+   - A program handling Year 2000 date-related logic.
+3. <strong>AR489</strong>:
+   - The main RPG program for credit limit grouping maintenance.
+4. <strong>SCPROCP</strong>:
+   - A procedure, possibly for system setup or parameter processing, though its exact role is unclear.</p>
+<h3 id="tables-files-used">Tables (Files) Used<a class="headerlink" href="#tables-files-used" title="Permanent link">&para;</a></h3>
+<p>The OCL program references the following files (equivalent to tables in modern database terminology):
+1. <strong>ARCLGR</strong>:
+   - Likely stores data related to credit limit groupings, such as customer credit limits or group assignments.
+2. <strong>ARCONT</strong>:
+   - Likely a control file containing configuration or control data for the accounts receivable system.</p>
+<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
+<p>The OCL program orchestrates the execution of the <code>AR489</code> RPG program for maintaining credit limit groupings. It performs the following steps:
+- Calls <code>GSGENIEC</code> for initialization.
+- Checks a condition to decide whether to proceed or terminate.
+- Invokes <code>SCPROCP</code> for additional setup or processing.
+- Runs <code>GSY2K</code> for date-related processing.
+- Loads and executes <code>AR489</code>, using the <code>ARCLGR</code> and <code>ARCONT</code> files for data access.</p>
+<p>The program relies on two database files (<code>ARCLGR</code> and <code>ARCONT</code>) and calls four external programs/procedures (<code>GSGENIEC</code>, <code>SCPROCP</code>, <code>GSY2K</code>, and <code>AR489</code>) to complete its tasks. The <code>?9?</code> placeholders suggest dynamic library or parameter references, typical in System/36 environments.</p>
+<p>If you need further details or clarification (e.g., specific RPG logic or file structures), please let me know!</p>
 
 
 
