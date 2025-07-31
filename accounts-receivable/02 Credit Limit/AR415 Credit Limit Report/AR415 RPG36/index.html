@@ -12,13 +12,13 @@
         <meta name="author" content="American Refining Group">
       
       
-        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/02%20Credit%20Limit/AR415/Summary%20AR415%20OCL/">
+        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/02%20Credit%20Limit/AR415%20Credit%20Limit%20Report/AR415%20RPG36/">
       
       
-        <link rel="prev" href="../AR415P%20RPGLE/">
+        <link rel="prev" href="../AR415%20OCL/">
       
       
-        <link rel="next" href="../../AR489/AR489%20OCL/">
+        <link rel="next" href="../AR415P%20RPGLE/">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Summary AR415 OCL - ARG AS400 IBMi Documentation</title>
+        <title>AR415 RPG36 - ARG AS400 IBMi Documentation</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#list-of-use-cases-implemented-by-the-program" class="md-skip">
+        <a href="#process-steps-of-the-ar415-rpg-program" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Summary AR415 OCL
+              AR415 RPG36
             
           </span>
         </div>
@@ -5133,7 +5133,7 @@
   
   
   <span class="md-ellipsis">
-    AR415
+    AR415 Credit Limit Report
     
   </span>
   
@@ -5144,7 +5144,7 @@
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2_1">
             <span class="md-nav__icon md-icon"></span>
-            AR415
+            AR415 Credit Limit Report
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -5175,10 +5175,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../AR415%20RPG36/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    AR415 RPG36
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -5189,6 +5209,69 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#process-steps-of-the-ar415-rpg-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Steps of the AR415 RPG Program
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#business-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Business Rules
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tables-files-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tables (Files) Used
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-programs-called" class="md-nav__link">
+    <span class="md-ellipsis">
+      External Programs Called
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -5221,30 +5304,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Summary AR415 OCL
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../Summary%20AR415%20OCL/" class="md-nav__link">
         
   
   
@@ -5255,120 +5318,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#list-of-use-cases-implemented-by-the-program" class="md-nav__link">
-    <span class="md-ellipsis">
-      List of Use Cases Implemented by the Program
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#function-requirement-document" class="md-nav__link">
-    <span class="md-ellipsis">
-      Function Requirement Document
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#customer-credit-report-function-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Customer Credit Report Function Requirements
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Customer Credit Report Function Requirements">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Overview
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#inputs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Inputs
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#outputs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Outputs
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#process-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      Process Steps
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#business-rules" class="md-nav__link">
-    <span class="md-ellipsis">
-      Business Rules
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#calculations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Calculations
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#error-handling" class="md-nav__link">
-    <span class="md-ellipsis">
-      Error Handling
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -5407,7 +5356,7 @@
   
   
   <span class="md-ellipsis">
-    AR489
+    AR489 Credit Limit Grouping Add Update
     
   </span>
   
@@ -5418,7 +5367,7 @@
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_2_2">
             <span class="md-nav__icon md-icon"></span>
-            AR489
+            AR489 Credit Limit Grouping Add Update
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -5429,7 +5378,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../AR489/AR489%20OCL/" class="md-nav__link">
+      <a href="../../AR489%20Credit%20Limit%20Grouping%20Add_Update/AR489%20OCL/" class="md-nav__link">
         
   
   
@@ -5452,7 +5401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../AR489/AR489%20RPGLE/" class="md-nav__link">
+      <a href="../../AR489%20Credit%20Limit%20Grouping%20Add_Update/AR489%20RPGLE/" class="md-nav__link">
         
   
   
@@ -5475,7 +5424,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../AR489/Summary%20AR489%20OCL/" class="md-nav__link">
+      <a href="../../AR489%20Credit%20Limit%20Grouping%20Add_Update/Summary%20AR489%20OCL/" class="md-nav__link">
         
   
   
@@ -6521,70 +6470,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#list-of-use-cases-implemented-by-the-program" class="md-nav__link">
+  <a href="#process-steps-of-the-ar415-rpg-program" class="md-nav__link">
     <span class="md-ellipsis">
-      List of Use Cases Implemented by the Program
+      Process Steps of the AR415 RPG Program
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#function-requirement-document" class="md-nav__link">
-    <span class="md-ellipsis">
-      Function Requirement Document
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#customer-credit-report-function-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Customer Credit Report Function Requirements
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Customer Credit Report Function Requirements">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Overview
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#inputs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Inputs
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#outputs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Outputs
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#process-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      Process Steps
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#business-rules" class="md-nav__link">
     <span class="md-ellipsis">
       Business Rules
@@ -6592,27 +6486,31 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#calculations" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#tables-files-used" class="md-nav__link">
     <span class="md-ellipsis">
-      Calculations
+      Tables (Files) Used
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#error-handling" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#external-programs-called" class="md-nav__link">
     <span class="md-ellipsis">
-      Error Handling
+      External Programs Called
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
   
 </li>
       
@@ -6635,113 +6533,201 @@
   
 
 
-<h3 id="list-of-use-cases-implemented-by-the-program">List of Use Cases Implemented by the Program<a class="headerlink" href="#list-of-use-cases-implemented-by-the-program" title="Permanent link">&para;</a></h3>
-<p>The call stack consists of three components:
-1. <strong>AR415.ocl36.txt</strong>: An OCL program that orchestrates the process by invoking <code>AR415P</code> and <code>AR415</code> programs and sorting data with <code>#GSORT</code>.
-2. <strong>AR415P.rpgle.txt</strong>: An RPGLE program that handles interactive company code input and validation.
-3. <strong>AR415.rpg36.txt</strong>: An RPG III program that generates the Customer Credit Report.</p>
-<p><strong>Use Case Identified</strong>:
-- <strong>Generate Customer Credit Report</strong>: The primary use case is to produce a report listing customers' credit status, including those exceeding their credit limits, for a specified company. The report details credit limits, total amounts due, open orders, unposted amounts, and available credit, with a secondary report listing specific orders that exceed credit limits.</p>
-<p>Only one use case is implemented, as the programs collectively focus on generating this report, with <code>AR415P</code> validating the company code and <code>AR415</code> processing and printing the report data.</p>
+  <h1>AR415 RPG36</h1>
+
+<p>The provided document, <code>AR415.rpg36.txt</code>, is an RPG III program (RPG/400) on the IBM i (AS/400) platform, called by the OCL program <code>AR415.ocl36.txt</code>. This program generates a <strong>Customers Over Credit Report</strong>, processing customer data to identify and report customers whose total due amounts exceed their credit limits. It uses multiple files to gather customer, order, and ledger data, producing two printed reports: one for all customers and another for orders exceeding credit limits. Below, I’ll explain the process steps, business rules, tables used, and any external programs called.</p>
 <hr />
-<h3 id="function-requirement-document">Function Requirement Document<a class="headerlink" href="#function-requirement-document" title="Permanent link">&para;</a></h3>
-<h1 id="customer-credit-report-function-requirements">Customer Credit Report Function Requirements<a class="headerlink" href="#customer-credit-report-function-requirements" title="Permanent link">&para;</a></h1>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>The <code>generateCustomerCreditReport</code> function produces a Customer Credit Report for a specified company, listing customers' credit details and identifying those over their credit limits. A secondary report lists specific orders exceeding credit limits. The function takes input parameters and processes data from predefined files without interactive screen input.</p>
-<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Company Code</strong> (<code>co</code>, 2-digit numeric): Identifies the company for which the report is generated.</li>
-<li><strong>Cancel Flag</strong> (<code>kycanc</code>, 6-character): Indicates if the process should be canceled ("CANCEL").</li>
-<li><strong>Input Files</strong>:</li>
-<li><code>BICONT</code>: Company control file (company name, deletion status).</li>
-<li><code>ARCUST</code>: Sorted customer file (customer number, name, total due, credit limit).</li>
-<li><code>ARCUSA</code>: Alternate customer file (customer number, total due, credit limit).</li>
-<li><code>ARCLGR</code>: Ledger file (customer numbers array).</li>
-<li><code>BBORCL</code>: Order file (order details, amounts, over-limit status).</li>
-</ul>
-<h2 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>ARLIST Report</strong>: Primary report listing all customers with:</li>
-<li>Customer number, name, credit limit, total due, open orders total, unposted amount, available credit.</li>
-<li>Indicates customers over their credit limit.</li>
-<li><strong>ARLIS2 Report</strong>: Secondary report listing orders exceeding credit limits with:</li>
-<li>Customer number, name, credit limit, total due, order number, unposted amount, batch number.</li>
-<li><strong>Return Status</strong>: Success, invalid company, deleted company, or canceled.</li>
-</ul>
-<h2 id="process-steps">Process Steps<a class="headerlink" href="#process-steps" title="Permanent link">&para;</a></h2>
+<h3 id="process-steps-of-the-ar415-rpg-program">Process Steps of the AR415 RPG Program<a class="headerlink" href="#process-steps-of-the-ar415-rpg-program" title="Permanent link">&para;</a></h3>
+<p>The <code>AR415</code> program processes customer data by company, calculates credit-related metrics, and generates two printed reports (<code>ARLIST</code> and <code>ARLIS2</code>). Here’s a step-by-step breakdown of the process:</p>
 <ol>
-<li><strong>Validate Company Code</strong>:</li>
-<li>Check if <code>co</code> is non-zero and exists in <code>BICONT</code>.</li>
-<li>Verify <code>co</code> is not marked as deleted (<code>bcdel &lt;&gt; 'D'</code>).</li>
-<li>If invalid or deleted, return error status.</li>
-<li><strong>Sort Customer Data</strong>:</li>
-<li>Use sorted <code>ARCUST</code> file (pre-sorted by <code>#GSORT</code> on positions 2–9, filtering non-deleted customers and specific conditions).</li>
-<li><strong>Process Company Data</strong>:</li>
-<li>Retrieve company name (<code>BCNAME</code>) from <code>BICONT</code> for report headers.</li>
-<li>Capture system date and time for report headers.</li>
-<li><strong>Process Customer Data</strong>:</li>
-<li>For each customer in <code>ARCUST</code> (control break on customer number):<ul>
-<li>Initialize <code>LIMIT</code>, <code>OWED</code>, <code>ORDVAL</code>, <code>TRXVAL</code>, <code>OVER</code> to zero.</li>
-<li>Retrieve additional customer numbers from <code>ARCLGR</code> (up to 25, skipping deleted entries).</li>
-<li>For each customer (from <code>ARCLGR</code> and <code>ARCUST</code>):</li>
-<li>Chain to <code>ARCUSA</code> to get <code>AXCLMT</code> (credit limit) and <code>AXTOTD</code> (total due).</li>
-<li>Add <code>AXCLMT</code> to <code>LIMIT</code> if non-zero; add <code>AXTOTD</code> to <code>OWED</code>.</li>
-<li>Process <code>BBORCL</code> for matching orders (skip deleted, <code>BLDEL = 'D'</code>):<ul>
-<li>Add <code>BLTAMT</code> (unposted amount) to <code>TRXVAL</code> and <code>OWED</code>.</li>
-<li>Add <code>BLOAMT</code> (order amount) to <code>ORDVAL</code> and <code>OWED</code>.</li>
-<li>If <code>BLOVCL = 'Y'</code>, output order details to <code>ARLIS2</code>.</li>
+<li><strong>Program Initialization</strong>:</li>
+<li>The program defines files:<ul>
+<li><code>ARCUST</code> (input primary, 384 bytes, sorted input from <code>#GSORT</code>).</li>
+<li><code>ARCUSA</code> (input chained, 384 bytes, keyed at position 2).</li>
+<li><code>BBORCL</code> (input file, 256 bytes, keyed at position 2).</li>
+<li><code>BICONT</code> (input file, 256 bytes, keyed at position 2).</li>
+<li><code>ARCLGR</code> (input chained, 240 bytes, keyed at position 2).</li>
+<li><code>ARLIST</code> (output, 164 bytes, primary printer file).</li>
+<li><code>ARLIS2</code> (output, 164 bytes, secondary printer file for over-limit orders).</li>
 </ul>
 </li>
-<li>Set <code>LIMIT = ARCLMT</code> from <code>ARCUST</code> if <code>LIMIT = 0</code>.</li>
-<li>Add <code>ARTOTD</code> to <code>OWED</code>.</li>
+<li>Defines arrays and data structures:<ul>
+<li><code>SEP</code> (2-element array for separator lines).</li>
+<li><code>ARC</code> (25-element array, 6 bytes each, for customer numbers from <code>ARCLGR</code>).</li>
+<li>Data structure <code>UDS</code> with <code>CO</code> (company code, 2 digits) and <code>KYCANC</code> (cancel key, 6 characters).</li>
 </ul>
 </li>
-<li>Calculate <code>OVER = LIMIT - OWED</code>.</li>
-<li><strong>Generate Reports</strong>:</li>
-<li><strong>ARLIST</strong>: Print for each customer:<ul>
-<li>Customer number (<code>ARCUST</code>), name (<code>ARNAME</code>), credit limit (<code>ARCLMT</code>), total due (<code>ARTOTD</code>), open orders (<code>ORDVAL</code>), unposted amount (<code>TRXVAL</code>), available credit (<code>OVER</code>).</li>
-<li>Mark "OVER CREDIT LIMIT" if <code>OVER &lt; 0</code>.</li>
+<li>Input specifications define fields for each file (e.g., <code>ARKEY</code>, <code>ARCO</code>, <code>ARCUST</code>, <code>ARNAME</code>, <code>ARTOTD</code>, <code>ARCLMT</code>, etc.).</li>
+<li>
+<p>Initializes variables like <code>TIMDAT</code>, <code>SYTIME</code>, and <code>SYDATE</code> for report headers.</p>
+</li>
+<li>
+<p><strong>Company-Level Processing (<code>L2</code> Loop)</strong>:</p>
+</li>
+<li>
+<p>For each company (<code>L2</code> control break on <code>ARCO</code>):</p>
+<ul>
+<li>Chains to <code>BICONT</code> using <code>CO</code> to retrieve company name (<code>BCNAME</code>).</li>
+<li>Sets separator line (<code>SEP = '* '</code>) and captures system time (<code>SYTIME</code>) and date (<code>SYDATE</code>) using the <code>TIME</code> operation.</li>
+<li>Prints company-level headings on both <code>ARLIST</code> (via <code>PRTL2</code>) and <code>ARLIS2</code> (via <code>PRTL22</code>) output files.</li>
 </ul>
 </li>
-<li><strong>ARLIS2</strong>: Print for orders with <code>BLOVCL = 'Y'</code>:<ul>
-<li>Customer number, name, credit limit, total due, order number (<code>BLORDR</code>), unposted amount (<code>BLTAMT</code>), batch number (<code>BLBTCH</code>).</li>
+<li>
+<p><strong>Customer-Level Processing (<code>L1</code> Loop)</strong>:</p>
+</li>
+<li>
+<p>For each customer (<code>L1</code> control break on <code>ARCUST</code>):</p>
+<ul>
+<li>Initializes variables: <code>OVER</code>, <code>LIMIT</code>, <code>OWED</code>, <code>ORDVAL</code>, <code>TRXVAL</code> to zero, and clears indicator <code>93</code>.</li>
+<li>Chains to <code>ARCLGR</code> using <code>ARKEY</code> (positions 2–9) to retrieve customer numbers in the <code>ARC</code> array.</li>
+<li>If <code>ARCLGR</code> is found (<code>*IN95 = *OFF</code>) and not deleted (<code>CGDEL &lt;&gt; 'D'</code>):</li>
+<li>Loops through the <code>ARC</code> array (up to 25 customer numbers):<ul>
+<li>Constructs <code>CUSKEY</code> (company + customer number).</li>
+<li>Chains to <code>ARCUSA</code> using <code>CUSKEY</code> to get customer data (<code>AXCLMT</code>, <code>AXTOTD</code>).</li>
+<li>If found (<code>*IN93 = *OFF</code>) and <code>AXCLMT &lt;&gt; 0</code>, adds <code>AXCLMT</code> to <code>LIMIT</code>.</li>
+<li>Adds <code>AXTOTD</code> to <code>OWED</code>.</li>
+<li>Processes <code>BBORCL</code> records for the customer (using <code>BCLKEY</code> = <code>HLD8</code>):</li>
+<li>Sets lower limit (<code>SETLL</code>) and reads <code>BBORCL</code> until EOF (<code>*IN66</code>) or customer mismatch (<code>*IN79</code>).</li>
+<li>Skips deleted records (<code>BLDEL = 'D'</code>).</li>
+<li>Adds <code>BLTAMT</code> (unposted amount) to <code>TRXVAL</code> and <code>OWED</code> if non-zero.</li>
+<li>Adds <code>BLOAMT</code> (order amount) to <code>ORDVAL</code> and <code>OWED</code> if non-zero.</li>
 </ul>
 </li>
-<li>Include headers with company name, date, time, and page numbers.</li>
+</ul>
+</li>
+<li>
+<p><strong>Primary Customer Processing</strong>:</p>
+</li>
+<li>
+<p>After the <code>ARCLGR</code> loop, processes the primary <code>ARCUST</code> record:</p>
+<ul>
+<li>If <code>LIMIT = 0</code>, sets <code>LIMIT = ARCLMT</code> (from <code>ARCUST</code>).</li>
+<li>Adds <code>ARTOTD</code> to <code>OWED</code>.</li>
+<li>Processes <code>BBORCL</code> records again for the customer (using <code>BCLKEY = ARKEY</code>):</li>
+<li>Similar logic to above: skips deleted records, adds <code>BLTAMT</code> to <code>TRXVAL</code> and <code>OWED</code>, adds <code>BLOAMT</code> to <code>ORDVAL</code> and <code>OWED</code>.</li>
+<li>If <code>BLOVCL = 'Y'</code> (over credit limit), prints an over-limit line (<code>OVRLNE</code>) to <code>ARLIS2</code> with order details (<code>BLORDR</code>, <code>BLTAMT</code>, <code>BLBTCH</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Credit Limit Check and Output</strong>:</p>
+</li>
+<li>Calculates <code>OVER = LIMIT - OWED</code>.</li>
+<li>If <code>OVER &lt; 0</code>, sets indicator <code>44</code> to indicate the customer is over their credit limit.</li>
+<li>
+<p>Prints customer details to <code>ARLIST</code> (via <code>PRTL2</code>):</p>
+<ul>
+<li>Includes <code>ARCUST</code>, <code>ARNAME</code>, <code>ARCLMT</code>, <code>ARTOTD</code>, <code>ORDVAL</code>, <code>TRXVAL</code>, and <code>OVER</code> (with “OVER CREDIT LIMIT” if <code>*IN44 = *ON</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Report Output</strong>:</p>
+</li>
+<li><code>ARLIST</code> report:<ul>
+<li>Prints company name (<code>BCNAME</code>), date (<code>SYDATE</code>), time (<code>SYTIME</code>), and page number.</li>
+<li>Includes headers for “CREDIT LIMIT”, “TOTAL DUE”, “OPEN ORDERS TOTAL”, “UNPOSTED AMOUNT”, and “AVAIL CREDIT”.</li>
+<li>Lists customer data with over-limit indication.</li>
+</ul>
+</li>
+<li>
+<p><code>ARLIS2</code> report:</p>
+<ul>
+<li>Prints similar headers but focuses on “ORDERS OVER CREDIT LIMIT”.</li>
+<li>Lists orders exceeding credit limits with <code>BLORDR</code>, <code>BLTAMT</code>, and <code>BLBTCH</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Program Termination</strong>:</p>
+</li>
+<li>The program ends after processing all <code>ARCUST</code> records, triggered by the end of the input file.</li>
 </ol>
-<h2 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>Company Validation</strong>:</li>
-<li>Company code must be non-zero, exist in <code>BICONT</code>, and not be deleted (<code>bcdel &lt;&gt; 'D'</code>).</li>
-<li>Cancel process if <code>kycanc = 'CANCEL'</code>.</li>
-<li><strong>Customer Filtering</strong>:</li>
-<li>Skip deleted customers (<code>CGDEL = 'D'</code> in <code>ARCLGR</code>) and orders (<code>BLDEL = 'D'</code> in <code>BBORCL</code>).</li>
-<li>Process only non-zero amounts (<code>AXCLMT</code>, <code>AXTOTD</code>, <code>BLTAMT</code>, <code>BLOAMT</code>).</li>
-<li><strong>Credit Calculations</strong>:</li>
-<li><code>LIMIT = AXCLMT</code> (from <code>ARCUSA</code>) or <code>ARCLMT</code> (from <code>ARCUST</code> if <code>AXCLMT = 0</code>).</li>
-<li><code>OWED = ARTOTD + AXTOTD + BLTAMT + BLOAMT</code>.</li>
-<li><code>TRXVAL = sum(BLTAMT)</code> (unposted amounts).</li>
-<li><code>ORDVAL = sum(BLOAMT)</code> (open order amounts).</li>
-<li><code>OVER = LIMIT - OWED</code>; negative <code>OVER</code> indicates over credit limit.</li>
-<li><strong>Report Output</strong>:</li>
-<li><code>ARLIST</code>: Lists all customers with credit details, marking over-limit cases.</li>
-<li><code>ARLIS2</code>: Lists orders exceeding credit limits (<code>BLOVCL = 'Y'</code>).</li>
-<li>Reports include company name, date, time, and page numbers.</li>
+<li>The program processes data for a specific company (<code>CO</code>), retrieving the company name from <code>BICONT</code>.</li>
+<li>
+<p>If the company is not found in <code>BICONT</code>, processing continues with default values.</p>
+</li>
+<li>
+<p><strong>Customer Credit Calculation</strong>:</p>
+</li>
+<li>Aggregates credit limit (<code>LIMIT</code>) from <code>ARCUSA</code> (<code>AXCLMT</code>) or <code>ARCUST</code> (<code>ARCLMT</code>).</li>
+<li>Calculates total owed (<code>OWED</code>) by summing:<ul>
+<li><code>ARTOTD</code> (total due from <code>ARCUST</code>).</li>
+<li><code>AXTOTD</code> (total due from <code>ARCUSA</code> for customers in <code>ARCLGR</code>).</li>
+<li><code>BLTAMT</code> (unposted amounts from <code>BBORCL</code>).</li>
+<li><code>BLOAMT</code> (order amounts from <code>BBORCL</code>).</li>
+</ul>
+</li>
+<li>
+<p>Tracks <code>TRXVAL</code> (unposted amounts) and <code>ORDVAL</code> (order amounts) separately.</p>
+</li>
+<li>
+<p><strong>Over Credit Limit Detection</strong>:</p>
+</li>
+<li>A customer is over their credit limit if <code>OVER = LIMIT - OWED &lt; 0</code>.</li>
+<li>
+<p>Orders marked as over credit limit (<code>BLOVCL = 'Y'</code>) in <code>BBORCL</code> are printed in the <code>ARLIS2</code> report.</p>
+</li>
+<li>
+<p><strong>Data Filtering</strong>:</p>
+</li>
+<li>Skips deleted customers (<code>CGDEL = 'D'</code> in <code>ARCLGR</code>) and deleted orders (<code>BLDEL = 'D'</code> in <code>BBORCL</code>).</li>
+<li>
+<p>Only processes non-zero amounts (<code>BLTAMT</code>, <code>BLOAMT</code>, <code>AXCLMT</code>, <code>AXTOTD</code>).</p>
+</li>
+<li>
+<p><strong>Report Formatting</strong>:</p>
+</li>
+<li>Produces two reports:<ul>
+<li><code>ARLIST</code>: Lists all customers with credit limit, total due, open orders, unposted amounts, and available credit.</li>
+<li><code>ARLIS2</code>: Lists specific orders exceeding credit limits with order number, unposted amount, and batch number.</li>
+</ul>
+</li>
+<li>Includes company name, date, time, and page numbers in headers.</li>
 </ol>
-<h2 id="calculations">Calculations<a class="headerlink" href="#calculations" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Credit Limit (<code>LIMIT</code>)</strong>: Sum of <code>AXCLMT</code> from <code>ARCUSA</code> for valid customers; defaults to <code>ARCLMT</code> from <code>ARCUST</code> if zero.</li>
-<li><strong>Total Owed (<code>OWED</code>)</strong>: Sum of <code>ARTOTD</code> (from <code>ARCUST</code>), <code>AXTOTD</code> (from <code>ARCUSA</code>), <code>BLTAMT</code> (unposted from <code>BBORCL</code>), and <code>BLOAMT</code> (orders from <code>BBORCL</code>).</li>
-<li><strong>Unposted Amount (<code>TRXVAL</code>)</strong>: Sum of <code>BLTAMT</code> from <code>BBORCL</code>.</li>
-<li><strong>Open Orders (<code>ORDVAL</code>)</strong>: Sum of <code>BLOAMT</code> from <code>BBORCL</code>.</li>
-<li><strong>Available Credit (<code>OVER</code>)</strong>: <code>LIMIT - OWED</code>; negative values trigger "OVER CREDIT LIMIT" in <code>ARLIST</code>.</li>
-</ul>
-<h2 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Return "Invalid Company" if <code>co = 0</code> or not found in <code>BICONT</code>.</li>
-<li>Return "Company Deleted" if <code>bcdel = 'D'</code> in <code>BICONT</code>.</li>
-<li>Return "Canceled" if <code>kycanc = 'CANCEL'</code>.</li>
-</ul>
+<hr />
+<h3 id="tables-files-used">Tables (Files) Used<a class="headerlink" href="#tables-files-used" title="Permanent link">&para;</a></h3>
+<p>The program uses the following files:
+1. <strong>ARCUST</strong> (<code>IP</code>, input primary, 384 bytes):
+   - Sorted input file (from <code>#GSORT</code> in the OCL).
+   - Fields: <code>ARKEY</code> (2–9, key), <code>ARCO</code> (2–3, company), <code>ARCUST</code> (4–9, customer), <code>ARNAME</code> (10–39, customer name), <code>ARTOTD</code> (174–179, packed total due), <code>ARCLMT</code> (252–256, packed credit limit).
+2. <strong>ARCUSA</strong> (<code>IC</code>, input chained, 384 bytes, keyed at 2):
+   - Alternate customer file.
+   - Fields: <code>AXCUST</code> (4–9, customer), <code>AXTOTD</code> (174–179, packed total due), <code>AXCLMT</code> (252–256, packed credit limit).
+3. <strong>BBORCL</strong> (<code>IF</code>, input file, 256 bytes, keyed at 2):
+   - Order file.
+   - Fields: <code>BLCOCU</code> (2–9, company/customer key), <code>BLDEL</code> (1, delete code), <code>BLCONO</code> (2–3, company), <code>BLCUST</code> (4–9, customer), <code>BLORDR</code> (10–15, order number), <code>BLBTCH</code> (16–17, batch number), <code>BLTAMT</code> (18–26, unposted amount), <code>BLOAMT</code> (27–35, order amount), <code>BLOVCL</code> (36, over limit Y/N), <code>BLAUIN</code> (37–39, authorization initials), <code>BLUSID</code> (40–47, user ID).
+4. <strong>BICONT</strong> (<code>IF</code>, input file, 256 bytes, keyed at 2):
+   - Company control file.
+   - Fields: <code>BCNAME</code> (4–33, company name), <code>BCINST</code> (92, invoicing style).
+5. <strong>ARCLGR</strong> (<code>IC</code>, input chained, 240 bytes, keyed at 2):
+   - Ledger file with customer numbers.
+   - Fields: <code>CGDEL</code> (1, delete code), <code>ARC</code> (10–159, array of 25 customer numbers, 6 bytes each).
+6. <strong>ARLIST</strong> (<code>O</code>, output, 164 bytes, printer):
+   - Primary report file for customer credit data.
+7. <strong>ARLIS2</strong> (<code>O</code>, output, 164 bytes, printer):
+   - Secondary report file for over-limit orders.</p>
+<hr />
+<h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
+<p>The <code>AR415</code> program does not call any external programs. It performs all processing internally, relying on file I/O and printer output operations.</p>
+<hr />
+<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
+<p><strong>Process Steps</strong>:
+- Initializes files, arrays, and variables.
+- Processes each company (<code>L2</code>), retrieving company name and printing headers.
+- For each customer (<code>L1</code>):
+  - Aggregates credit limits and amounts owed from <code>ARCUST</code>, <code>ARCUSA</code>, and <code>BBORCL</code>.
+  - Processes <code>ARCLGR</code> to include additional customer data.
+  - Calculates over-credit status and prints to <code>ARLIST</code> (all customers) and <code>ARLIS2</code> (over-limit orders).
+- Terminates after processing all records.</p>
+<p><strong>Business Rules</strong>:
+- Validates company and skips deleted customers/orders.
+- Aggregates total owed from multiple sources (<code>ARTOTD</code>, <code>AXTOTD</code>, <code>BLTAMT</code>, <code>BLOAMT</code>).
+- Identifies customers over credit limits (<code>OVER &lt; 0</code>) and orders marked as over limit (<code>BLOVCL = 'Y'</code>).
+- Produces formatted reports with headers and detailed data.</p>
+<p><strong>Files Used</strong>: <code>ARCUST</code>, <code>ARCUSA</code>, <code>BBORCL</code>, <code>BICONT</code>, <code>ARCLGR</code>, <code>ARLIST</code>, <code>ARLIS2</code>.
+<strong>External Programs</strong>: None.</p>
 
 
 
