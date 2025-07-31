@@ -12,13 +12,13 @@
         <meta name="author" content="American Refining Group">
       
       
-        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/02%20Credit%20Limit/AR489/AR489%20ocl/">
+        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/02%20Credit%20Limit/AR415/AR415%20OCL/">
       
       
-        <link rel="prev" href="../AR489%20RPGLE/">
+        <link rel="prev" href="../../../01%20Customer%20Maint/BB929P%20CSR%20Email%20Add-Update/Summary%20BB929P%20RPGLE/">
       
       
-        <link rel="next" href="../Summary%20AR489%20OCL/">
+        <link rel="next" href="../AR415%20RPG36/">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>AR489 ocl - ARG AS400 IBMi Documentation</title>
+        <title>AR415 OCL - ARG AS400 IBMi Documentation</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#process-steps-of-the-ocl-program" class="md-skip">
+        <a href="#process-steps-of-the-rpg-ocl-program" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AR489 ocl
+              AR415 OCL
             
           </span>
         </div>
@@ -5133,7 +5133,7 @@
   
   
   <span class="md-ellipsis">
-    AR489
+    AR415
     
   </span>
   
@@ -5144,32 +5144,9 @@
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2_1">
             <span class="md-nav__icon md-icon"></span>
-            AR489
+            AR415
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../AR489%20RPGLE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    AR489 RPGLE
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
             
               
                 
@@ -5190,7 +5167,7 @@
   
   
   <span class="md-ellipsis">
-    AR489 ocl
+    AR415 OCL
     
   </span>
   
@@ -5203,7 +5180,7 @@
   
   
   <span class="md-ellipsis">
-    AR489 ocl
+    AR415 OCL
     
   </span>
   
@@ -5224,9 +5201,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-ocl-program" class="md-nav__link">
+  <a href="#process-steps-of-the-rpg-ocl-program" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the OCL Program
+      Process Steps of the RPG .OCL Program
     </span>
   </a>
   
@@ -5275,12 +5252,58 @@
   
   
     <li class="md-nav__item">
-      <a href="../Summary%20AR489%20OCL/" class="md-nav__link">
+      <a href="../AR415%20RPG36/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Summary AR489 OCL
+    AR415 RPG36
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AR415P%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AR415P RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Summary%20AR415%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Summary AR415 OCL
     
   </span>
   
@@ -6321,9 +6344,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-ocl-program" class="md-nav__link">
+  <a href="#process-steps-of-the-rpg-ocl-program" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the OCL Program
+      Process Steps of the RPG .OCL Program
     </span>
   </a>
   
@@ -6375,119 +6398,127 @@
   
 
 
-  <h1>AR489 ocl</h1>
+  <h1>AR415 OCL</h1>
 
-<p>The provided document is an Operation Control Language (OCL) program snippet, typically used in IBM midrange systems like the IBM System/36 or AS/400 to control job execution and file operations. Below, I’ll explain the process steps of the RPG .OCL program, identify external programs called, and list the tables (files) used.</p>
-<h3 id="process-steps-of-the-ocl-program">Process Steps of the OCL Program<a class="headerlink" href="#process-steps-of-the-ocl-program" title="Permanent link">&para;</a></h3>
-<p>OCL is a scripting language used to define job control steps, such as loading programs, specifying files, and controlling execution flow. Here’s a breakdown of the steps in the provided OCL program:</p>
+<p>The provided document, <code>AR415.ocl36.txt</code>, is an Operation Control Language (OCL) program used on IBM midrange systems like the AS/400 (now IBM i). OCL is a scripting language used to control job execution, manage files, and invoke programs. The program appears to generate a <strong>Customer Credit Report</strong> by performing a series of steps involving file overrides, sorting, and report generation. Below, I’ll explain the process steps, list the external programs called, and identify the tables (files) used.</p>
+<hr />
+<h3 id="process-steps-of-the-rpg-ocl-program">Process Steps of the RPG .OCL Program<a class="headerlink" href="#process-steps-of-the-rpg-ocl-program" title="Permanent link">&para;</a></h3>
+<p>The OCL program orchestrates a sequence of operations to produce the Customer Credit Report. Here’s a step-by-step explanation of the process:</p>
 <ol>
-<li><strong>Comment Section</strong>:</li>
+<li><strong>Delete All Overrides (DLTOVR *ALL)</strong>:</li>
 <li>
-<p>The lines starting with <code>**</code> are comments, providing metadata about the program:</p>
+<p>The <code>DLTOVR *ALL</code> command clears all existing file overrides in the job to ensure no unintended file mappings interfere with the program’s execution.</p>
+</li>
+<li>
+<p><strong>Commented-Out Program Call (GSGENIEC)</strong>:</p>
+</li>
+<li>The line <code>// CALL PGM(GSGENIEC)</code> is commented out (preceded by <code>//</code>), so it is not executed. If uncommented, it would call the program <code>GSGENIEC</code>, likely a utility or initialization program.</li>
+<li>
+<p>The conditional logic <code>// IFF ?L'506,3'?/YES RETURN</code> is also commented out. If active, it would check a condition (likely a data area or variable at location <code>L'506,3'</code>) and terminate the job (<code>RETURN</code>) if the condition is met.</p>
+</li>
+<li>
+<p><strong>SCPROCP Command</strong>:</p>
+</li>
+<li>
+<p>The line <code>// SCPROCP ,,,,,,,,?9?</code> invokes a procedure or command named <code>SCPROCP</code> with placeholder <code>?9?</code> for a parameter (likely a library or file prefix). The eight commas indicate empty parameters, suggesting <code>SCPROCP</code> may use default values or only require the ninth parameter.</p>
+</li>
+<li>
+<p><strong>Set Local Variables (LOCAL BLANK-*ALL)</strong>:</p>
+</li>
+<li>
+<p>The <code>LOCAL BLANK-*ALL</code> command clears all local variables in the job, ensuring a clean state for subsequent operations.</p>
+</li>
+<li>
+<p><strong>GSY2K Command</strong>:</p>
+</li>
+<li>
+<p>The <code>GSY2K</code> command is executed, likely a utility to handle Year 2000 (Y2K) date conversions or system settings, ensuring date fields are processed correctly.</p>
+</li>
+<li>
+<p><strong>Override Database File (OVRDBF)</strong>:</p>
+</li>
+<li>
+<p>The command <code>OVRDBF FILE(BICONT) TOFILE(QS36F/?9?BICONT)</code> overrides the file <code>BICONT</code> to point to <code>QS36F/?9?BICONT</code> (a file in the <code>QS36F</code> library with a prefix <code>?9?</code>). This ensures the program uses the correct version of the <code>BICONT</code> file.</p>
+</li>
+<li>
+<p><strong>Load and Run AR415P</strong>:</p>
+</li>
+<li>The <code>// LOAD AR415P</code> command loads the program <code>AR415P</code>, and the <code>// RUN</code> command executes it.</li>
+<li>The file specification <code>FILE NAME-BICONT,LABEL-?9?BICONT,DISP-SHR</code> indicates that <code>AR415P</code> uses the <code>BICONT</code> file (with prefix <code>?9?</code>) in shared mode (<code>DISP-SHR</code>), allowing multiple jobs to access it concurrently.</li>
+<li>
+<p>This program likely performs initial processing or validation on the <code>BICONT</code> file, preparing data for the report.</p>
+</li>
+<li>
+<p><strong>Load and Run #GSORT for Sorting</strong>:</p>
+</li>
+<li>The <code>// LOAD #GSORT</code> command loads the <code>#GSORT</code> utility, a general-purpose sort program.</li>
+<li><strong>Input and Output Files</strong>:<ul>
+<li>Input file: <code>ARCUST</code> (labeled <code>?9?ARCUST</code>, shared mode).</li>
+<li>Output file: <code>AR415S</code> (labeled <code>?9?AR415S</code>, with a capacity of 999,000 records, extendable by 999,000, and retained as a job file <code>RETAIN-J</code>).</li>
+</ul>
+</li>
+<li><strong>Sort Specifications</strong>:<ul>
+<li><code>HSORTR 8A 3X 384 N</code>: Defines the sort header with an 8-character key, 3 fields, 384 bytes per record, and no sequence checking (<code>N</code>).</li>
+<li><code>I C 1 1NECD</code>: Includes records where position 1 (1 byte) is not equal to a specific condition (<code>NECD</code>, possibly "not equal to customer delete").</li>
+<li><code>IAC 2 3EQC?L'101,2'?</code>: Includes records where positions 2–3 equal a value at location <code>L'101,2'</code> (likely a data area or variable).</li>
+<li><code>FNC 2 9 KEY</code>: Specifies positions 2–9 as the sort key (ascending order by default).</li>
+<li><code>FDC 1 256 RECORD</code>: Includes positions 1–256 in the output record.</li>
+<li><code>FDC 257 384 RECORD</code>: Includes positions 257–384 in the output record.</li>
+</ul>
+</li>
+<li>
+<p><strong>Purpose</strong>: This step sorts the <code>ARCUST</code> file based on a key (positions 2–9) and filters records based on conditions, writing the sorted output to <code>AR415S</code>.</p>
+</li>
+<li>
+<p><strong>Load and Run AR415</strong>:</p>
+</li>
+<li>The <code>// LOAD AR415</code> command loads the main report program <code>AR415</code>, and <code>// RUN</code> executes it.</li>
+<li><strong>Files Used</strong>:<ul>
+<li><code>ARCUST</code> (labeled <code>?9?AR415S</code>, the sorted output from <code>#GSORT</code>, shared mode).</li>
+<li><code>ARCUSA</code> (labeled <code>?9?ARCUST</code>, shared mode).</li>
+<li><code>ARCLGR</code> (labeled <code>?9?ARCLGR</code>, shared mode).</li>
+<li><code>BBORCL</code> (labeled <code>?9?BBORCL</code>, shared mode).</li>
+<li><code>BICONT</code> (labeled <code>?9?BICONT</code>, shared mode).</li>
+</ul>
+</li>
+<li>
+<p><strong>Purpose</strong>: The <code>AR415</code> program processes the sorted <code>AR415S</code> file and other input files (<code>ARCUSA</code>, <code>ARCLGR</code>, <code>BBORCL</code>, <code>BICONT</code>) to generate the final Customer Credit Report, likely formatting and printing the data.</p>
+</li>
+<li>
+<p><strong>End of Program</strong>:</p>
 <ul>
-<li><code>CREDIT LIMIT GROUPING MAINTENANCE</code> indicates the program’s purpose, likely related to maintaining credit limit groupings in an accounts receivable (AR) system.</li>
-</ul>
-</li>
-<li>
-<p><strong>Call External Program (<code>GSGENIEC</code>)</strong>:</p>
-</li>
-<li>
-<p><code>// CALL PGM(GSGENIEC)</code>:</p>
-<ul>
-<li>This step invokes an external program named <code>GSGENIEC</code>. This program is likely a utility or initialization program that performs setup or validation tasks before the main program execution.</li>
-<li>The specific functionality of <code>GSGENIEC</code> is not detailed in the snippet, but it’s a prerequisite step.</li>
-</ul>
-</li>
-<li>
-<p><strong>Conditional Check (<code>IFF</code> Statement)</strong>:</p>
-</li>
-<li>
-<p><code>// IFF ?L'506,3'?/YES RETURN</code>:</p>
-<ul>
-<li>This is a conditional statement checking a system variable or parameter at location <code>L'506,3'</code>. The <code>?L'506,3'?</code> syntax refers to a specific memory location or indicator in the system’s Local Data Area (LDA) or a similar mechanism.</li>
-<li>If the condition evaluates to <code>YES</code> (true), the program executes a <code>RETURN</code>, which terminates the OCL procedure without proceeding further.</li>
-<li>This acts as a gatekeeper, allowing the program to proceed only if the condition is false.</li>
-</ul>
-</li>
-<li>
-<p><strong>Procedure Call (<code>SCPROCP</code>)</strong>:</p>
-</li>
-<li>
-<p><code>// SCPROCP ,,,,,,,,?9?</code>:</p>
-<ul>
-<li>This invokes a procedure named <code>SCPROCP</code> with placeholder parameters (indicated by commas and <code>?9?</code>).</li>
-<li>The <code>?9?</code> likely represents a parameter or library reference (e.g., a library name or a specific value passed to the procedure).</li>
-<li>The exact purpose of <code>SCPROCP</code> is unclear from the snippet, but it could be a system procedure for setting up the environment or processing data.</li>
-</ul>
-</li>
-<li>
-<p><strong>GSY2K Execution</strong>:</p>
-</li>
-<li>
-<p><code>// GSY2K</code>:</p>
-<ul>
-<li>This step calls a program or proceduremechanism named <code>GSY2K</code>, likely related to Year 2000 (Y2K) compliance or date handling, which is common in legacy RPG systems.</li>
-<li>This program may perform date-related validations or transformations, ensuring compatibility with two-digit year formats.</li>
-</ul>
-</li>
-<li>
-<p><strong>Load Program (<code>AR489</code>)</strong>:</p>
-</li>
-<li>
-<p><code>// LOAD AR489</code>:</p>
-<ul>
-<li>This loads the main RPG program named <code>AR489</code>, which is the core program for the credit limit grouping maintenance functionality.</li>
-<li><code>AR489</code> is likely an RPG (Report Program Generator) program responsible for the business logic, such as updating or querying credit limit groupings.</li>
-</ul>
-</li>
-<li>
-<p><strong>File Definitions</strong>:</p>
-</li>
-<li><code>// FILE NAME-ARCLGR,LABEL-?9?ARCLGR,DISP-SHR</code>:<ul>
-<li>Declares a file named <code>ARCLGR</code> (likely “Accounts Receivable Credit Limit Grouping”) with a label prefixed by <code>?9?</code> (indicating a library or system-specific prefix).</li>
-<li><code>DISP-SHR</code> specifies that the file is opened in shared mode, allowing multiple processes to access it concurrently.</li>
-</ul>
-</li>
-<li>
-<p><code>// FILE NAME-ARCONT,LABEL-?9?ARCONT,DISP-SHR</code>:</p>
-<ul>
-<li>Declares another file named <code>ARCONT</code> (likely “Accounts Receivable Control”), also with a <code>?9?</code> prefix and shared access.</li>
-<li>These files are likely database files containing data for credit limit groupings and control information.</li>
-</ul>
-</li>
-<li>
-<p><strong>Run the Program</strong>:</p>
-</li>
-<li><code>// RUN</code>:<ul>
-<li>Executes the loaded <code>AR489</code> program, which processes the data in the <code>ARCLGR</code> and <code>ARCONT</code> files to perform the credit limit grouping maintenance tasks.</li>
+<li>The <code>// END</code> statement marks the end of the <code>#GSORT</code> section, though it appears after the <code>AR415</code> section, possibly indicating a structured block for <code>#GSORT</code> or a minor formatting issue in the OCL.</li>
 </ul>
 </li>
 </ol>
+<hr />
 <h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
-<p>The OCL program explicitly calls the following external programs:
-1. <strong>GSGENIEC</strong>:
-   - Likely a utility or initialization program for setup or validation.
-2. <strong>GSY2K</strong>:
-   - A program handling Year 2000 date-related logic.
-3. <strong>AR489</strong>:
-   - The main RPG program for credit limit grouping maintenance.
-4. <strong>SCPROCP</strong>:
-   - A procedure, possibly for system setup or parameter processing, though its exact role is unclear.</p>
+<p>The OCL program invokes the following external programs:
+1. <strong>GSGENIEC</strong>: Commented out, so not executed. If active, it would be called as a utility or initialization program.
+2. <strong>AR415P</strong>: A program that processes the <code>BICONT</code> file, likely for data preparation or validation.
+3. <strong>#GSORT</strong>: A sort utility that sorts the <code>ARCUST</code> file and produces the <code>AR415S</code> file.
+4. <strong>AR415</strong>: The main report program that generates the Customer Credit Report using multiple input files.</p>
+<p>Additionally, the <code>SCPROCP</code> command is executed, which may be a system command or procedure rather than a program, depending on its definition.</p>
+<hr />
 <h3 id="tables-files-used">Tables (Files) Used<a class="headerlink" href="#tables-files-used" title="Permanent link">&para;</a></h3>
-<p>The OCL program references the following files (equivalent to tables in modern database terminology):
-1. <strong>ARCLGR</strong>:
-   - Likely stores data related to credit limit groupings, such as customer credit limits or group assignments.
-2. <strong>ARCONT</strong>:
-   - Likely a control file containing configuration or control data for the accounts receivable system.</p>
+<p>The program references the following files (tables) in the IBM i environment:
+1. <strong>BICONT</strong> (<code>QS36F/?9?BICONT</code>): Used by <code>AR415P</code> and <code>AR415</code>, likely a control or configuration file.
+2. <strong>ARCUST</strong> (<code>?9?ARCUST</code>): The input customer file used by <code>#GSORT</code> and <code>AR415</code> (as <code>ARCUSA</code>).
+3. <strong>AR415S</strong> (<code>?9?AR415S</code>): The sorted output file created by <code>#GSORT</code> and used as input by <code>AR415</code>.
+4. <strong>ARCUSA</strong> (<code>?9?ARCUST</code>): An alias or alternate reference to the <code>ARCUST</code> file, used by <code>AR415</code>.
+5. <strong>ARCLGR</strong> (<code>?9?ARCLGR</code>): A ledger or transaction file used by <code>AR415</code>, likely containing customer credit data.
+6. <strong>BBORCL</strong> (<code>?9?BBORCL</code>): Another file used by <code>AR415</code>, possibly containing billing or order data related to credit.</p>
+<p>The <code>?9?</code> placeholder in file labels likely represents a library or prefix dynamically substituted at runtime.</p>
+<hr />
 <h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
-<p>The OCL program orchestrates the execution of the <code>AR489</code> RPG program for maintaining credit limit groupings. It performs the following steps:
-- Calls <code>GSGENIEC</code> for initialization.
-- Checks a condition to decide whether to proceed or terminate.
-- Invokes <code>SCPROCP</code> for additional setup or processing.
-- Runs <code>GSY2K</code> for date-related processing.
-- Loads and executes <code>AR489</code>, using the <code>ARCLGR</code> and <code>ARCONT</code> files for data access.</p>
-<p>The program relies on two database files (<code>ARCLGR</code> and <code>ARCONT</code>) and calls four external programs/procedures (<code>GSGENIEC</code>, <code>SCPROCP</code>, <code>GSY2K</code>, and <code>AR489</code>) to complete its tasks. The <code>?9?</code> placeholders suggest dynamic library or parameter references, typical in System/36 environments.</p>
-<p>If you need further details or clarification (e.g., specific RPG logic or file structures), please let me know!</p>
+<p>The OCL program <code>AR415.ocl36.txt</code> orchestrates the generation of a Customer Credit Report through the following steps:
+- Clears overrides and local variables.
+- Executes a Y2K utility and overrides the <code>BICONT</code> file.
+- Runs <code>AR415P</code> to process <code>BICONT</code>.
+- Uses <code>#GSORT</code> to sort the <code>ARCUST</code> file into <code>AR415S</code> based on specific keys and conditions.
+- Runs <code>AR415</code> to generate the final report using sorted and additional files.</p>
+<p><strong>External Programs</strong>: <code>GSGENIEC</code> (commented out), <code>AR415P</code>, <code>#GSORT</code>, <code>AR415</code>, and possibly <code>SCPROCP</code> (if a program).
+<strong>Files Used</strong>: <code>BICONT</code>, <code>ARCUST</code>, <code>AR415S</code>, <code>ARCUSA</code>, <code>ARCLGR</code>, <code>BBORCL</code>.</p>
 
 
 

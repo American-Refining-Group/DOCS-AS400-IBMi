@@ -12,13 +12,13 @@
         <meta name="author" content="American Refining Group">
       
       
-        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/02%20Credit%20Limit/AR489/Summary%20AR489%20OCL/">
+        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/02%20Credit%20Limit/AR415/AR415P%20RPGLE/">
       
       
-        <link rel="prev" href="../AR489%20ocl/">
+        <link rel="prev" href="../AR415%20RPG36/">
       
       
-        <link rel="next" href="../../../04%20AR%20Invoices/AR101%20Invoices%20Adjustments%20Entry/AR101%20OCL/">
+        <link rel="next" href="../Summary%20AR415%20OCL/">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Summary AR489 OCL - ARG AS400 IBMi Documentation</title>
+        <title>AR415P RPGLE - ARG AS400 IBMi Documentation</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#list-of-use-cases-implemented" class="md-skip">
+        <a href="#process-steps-of-the-ar415p-rpgle-program" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Summary AR489 OCL
+              AR415P RPGLE
             
           </span>
         </div>
@@ -5133,7 +5133,7 @@
   
   
   <span class="md-ellipsis">
-    AR489
+    AR415
     
   </span>
   
@@ -5144,7 +5144,7 @@
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2_1">
             <span class="md-nav__icon md-icon"></span>
-            AR489
+            AR415
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -5155,12 +5155,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../AR489%20RPGLE/" class="md-nav__link">
+      <a href="../AR415%20OCL/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    AR489 RPGLE
+    AR415 OCL
     
   </span>
   
@@ -5178,12 +5178,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../AR489%20ocl/" class="md-nav__link">
+      <a href="../AR415%20RPG36/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    AR489 ocl
+    AR415 RPG36
     
   </span>
   
@@ -5213,7 +5213,7 @@
   
   
   <span class="md-ellipsis">
-    Summary AR489 OCL
+    AR415P RPGLE
     
   </span>
   
@@ -5226,7 +5226,7 @@
   
   
   <span class="md-ellipsis">
-    Summary AR489 OCL
+    AR415P RPGLE
     
   </span>
   
@@ -5247,61 +5247,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#list-of-use-cases-implemented" class="md-nav__link">
+  <a href="#process-steps-of-the-ar415p-rpgle-program" class="md-nav__link">
     <span class="md-ellipsis">
-      List of Use Cases Implemented
+      Process Steps of the AR415P RPGLE Program
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#function-requirement-document" class="md-nav__link">
-    <span class="md-ellipsis">
-      Function Requirement Document
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#function-requirement-document-maintain-customer-credit-limit-groups" class="md-nav__link">
-    <span class="md-ellipsis">
-      Function Requirement Document: Maintain Customer Credit Limit Groups
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Function Requirement Document: Maintain Customer Credit Limit Groups">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#purpose" class="md-nav__link">
-    <span class="md-ellipsis">
-      Purpose
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#inputs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Inputs
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#outputs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Outputs
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#business-rules" class="md-nav__link">
     <span class="md-ellipsis">
       Business Rules
@@ -5309,69 +5263,31 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#process-steps" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#tables-files-used" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps
+      Tables (Files) Used
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#calculations" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#external-programs-called" class="md-nav__link">
     <span class="md-ellipsis">
-      Calculations
+      External Programs Called
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#database-files" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Database Files
+      Summary
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#error-handling" class="md-nav__link">
-    <span class="md-ellipsis">
-      Error Handling
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#assumptions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Assumptions
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Assumptions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Notes
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -5379,6 +5295,29 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Summary%20AR415%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Summary AR415 OCL
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -6414,61 +6353,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#list-of-use-cases-implemented" class="md-nav__link">
+  <a href="#process-steps-of-the-ar415p-rpgle-program" class="md-nav__link">
     <span class="md-ellipsis">
-      List of Use Cases Implemented
+      Process Steps of the AR415P RPGLE Program
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#function-requirement-document" class="md-nav__link">
-    <span class="md-ellipsis">
-      Function Requirement Document
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#function-requirement-document-maintain-customer-credit-limit-groups" class="md-nav__link">
-    <span class="md-ellipsis">
-      Function Requirement Document: Maintain Customer Credit Limit Groups
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Function Requirement Document: Maintain Customer Credit Limit Groups">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#purpose" class="md-nav__link">
-    <span class="md-ellipsis">
-      Purpose
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#inputs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Inputs
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#outputs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Outputs
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#business-rules" class="md-nav__link">
     <span class="md-ellipsis">
       Business Rules
@@ -6476,69 +6369,31 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#process-steps" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#tables-files-used" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps
+      Tables (Files) Used
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#calculations" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#external-programs-called" class="md-nav__link">
     <span class="md-ellipsis">
-      Calculations
+      External Programs Called
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#database-files" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Database Files
+      Summary
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#error-handling" class="md-nav__link">
-    <span class="md-ellipsis">
-      Error Handling
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#assumptions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Assumptions
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Assumptions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Notes
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -6561,120 +6416,160 @@
   
 
 
-<p>The RPGLE program <code>AR489</code> and its associated OCL program (<code>AR489.ocl36.txt</code>) implement a <strong>Credit Limit Grouping Maintenance</strong> system for managing customer credit limit groups in an accounts receivable system on an IBM midrange platform. Below, I’ll identify the use cases implemented by the program and then provide a concise function requirement document for a non-interactive version of the primary use case, assuming inputs are provided programmatically rather than via a screen.</p>
-<h3 id="list-of-use-cases-implemented">List of Use Cases Implemented<a class="headerlink" href="#list-of-use-cases-implemented" title="Permanent link">&para;</a></h3>
-<p>Based on the analysis of the OCL and RPGLE programs, the primary use case implemented is:</p>
+  <h1>AR415P RPGLE</h1>
+
+<p>The provided document, <code>AR415P.rpgle.txt</code>, is an RPGLE (RPG IV) program on the IBM i (AS/400) platform, called by the OCL program <code>AR415.ocl36.txt</code>. The program appears to handle the initial screen processing for the Customer Credit Report, allowing the user to select a company code (<code>co</code>) and validating it against the <code>BICONT</code> and <code>GSCONT</code> files. Below, I’ll explain the process steps, business rules, tables used, and any external programs called.</p>
+<hr />
+<h3 id="process-steps-of-the-ar415p-rpgle-program">Process Steps of the AR415P RPGLE Program<a class="headerlink" href="#process-steps-of-the-ar415p-rpgle-program" title="Permanent link">&para;</a></h3>
+<p>The <code>AR415P</code> program is a workstation-based interactive program that displays a screen to capture a company code, validates it, and sets up conditions for the subsequent report generation. Here’s a step-by-step breakdown of the process:</p>
 <ol>
-<li><strong>Maintain Customer Credit Limit Groups</strong>:</li>
-<li><strong>Description</strong>: Allows users to add, update, or delete customer records associated with a credit limit group, identified by a company number and customer number. The program validates inputs, retrieves existing group data, and persists changes to the database.</li>
-<li><strong>Details</strong>:<ul>
-<li>Validates the company number against the <code>ARCONT</code> file and ensures the customer number is non-zero.</li>
-<li>Manages a group of up to 25 customers (<code>ars</code> array) with a delete code (<code>del</code>) to indicate active or deleted status.</li>
-<li>Provides interactive screens (<code>AR489S1</code> and <code>AR489S2</code>) for input validation and group maintenance, with error handling for invalid inputs.</li>
-<li>Supports navigation via function keys (F10 to switch screens, F3/F12 to exit).</li>
+<li><strong>Program Initialization</strong>:</li>
+<li>The program uses the <code>DFTACTGRP(*NO)</code> directive, indicating it runs in a named activation group, and <code>DFTNAME(AR415P)</code> sets the default program name.</li>
+<li>The <code>FIXNBR(*ZONED:*INPUTPACKED)</code> option ensures zoned decimal and packed decimal fields are handled correctly during input.</li>
+<li>Files are defined:<ul>
+<li><code>AR415PD</code> (workstation file, likely a display file for screen interaction, using the Profound UI handler).</li>
+<li><code>BICONT</code> (input file, 256 bytes, keyed at position 2).</li>
+<li><code>GSCONT</code> (input file, 512 bytes, keyed at position 2).</li>
 </ul>
 </li>
-</ol>
-<p>No additional distinct use cases are explicitly implemented, as the program focuses on the single function of maintaining credit limit groups. The OCL program’s calls to <code>GSGENIEC</code>, <code>SCPROCP</code>, and <code>GSY2K</code> are preparatory steps (e.g., initialization, Y2K compliance) rather than separate use cases.</p>
-<hr />
-<h3 id="function-requirement-document">Function Requirement Document<a class="headerlink" href="#function-requirement-document" title="Permanent link">&para;</a></h3>
-<p>Below is a function requirement document for a non-interactive version of the <strong>Maintain Customer Credit Limit Groups</strong> use case, assuming inputs are provided programmatically (e.g., via function parameters) rather than through interactive screens. The document outlines the business requirements, process steps, and calculations concisely.</p>
-<h1 id="function-requirement-document-maintain-customer-credit-limit-groups">Function Requirement Document: Maintain Customer Credit Limit Groups<a class="headerlink" href="#function-requirement-document-maintain-customer-credit-limit-groups" title="Permanent link">&para;</a></h1>
-<h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">&para;</a></h2>
-<p>The <code>MaintainCustomerCreditLimitGroups</code> function manages customer credit limit groups by adding, updating, or deleting customer assignments for a specified company and customer group, ensuring valid inputs and persisting changes to the database.</p>
-<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">&para;</a></h2>
+<li>
+<p>Data structures and variables are defined:</p>
 <ul>
-<li><strong>Company Number</strong> (<code>cono</code>: 2-digit numeric): Identifies the company.</li>
-<li><strong>Customer Number</strong> (<code>cust</code>: 6-digit numeric): Identifies the primary customer for the group.</li>
-<li><strong>Customer Array</strong> (<code>ars</code>: Array of 25 6-digit numeric): List of customer numbers in the group.</li>
-<li><strong>Delete Code</strong> (<code>del</code>: 1-character): Status of the group record ('A' for active, other values for deletion).</li>
-<li><strong>System Control Key</strong> (<code>control_key</code>: 2-character): Key for accessing system control data (e.g., '00').</li>
-</ul>
-<h2 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Success Indicator</strong>: Boolean indicating successful processing.</li>
-<li><strong>Error Message</strong>: String describing any validation or processing errors (e.g., "INVALID COMPANY NUMBER ENTERED").</li>
-<li><strong>Updated Group Data</strong>: Updated customer array and delete code if applicable.</li>
-</ul>
-<h2 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>Company Validation</strong>:</li>
-<li>The company number (<code>cono</code>) must exist in the <code>ARCONT</code> file.</li>
-<li>If invalid, return error: "INVALID COMPANY NUMBER ENTERED".</li>
-<li><strong>Customer Validation</strong>:</li>
-<li>The primary customer number (<code>cust</code>) must be non-zero.</li>
-<li>If zero, return error: "INVALID CUSTOMER".</li>
-<li><strong>Group Management</strong>:</li>
-<li>A group is uniquely identified by a composite key (<code>clgrky</code>: <code>cono</code> + <code>cust</code>).</li>
-<li>The customer array (<code>ars</code>) can hold up to 25 customer numbers.</li>
-<li>The delete code (<code>del</code>) indicates the group’s status ('A' for active, other values for deletion).</li>
-<li><strong>Data Persistence</strong>:</li>
-<li>Add a new group record if no existing record is found for <code>clgrky</code>.</li>
-<li>Update an existing group record if found.</li>
-<li>Ensure all changes are saved to the <code>ARCLGR</code> file.</li>
-</ol>
-<h2 id="process-steps">Process Steps<a class="headerlink" href="#process-steps" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>Initialize</strong>:</li>
-<li>Set default values for <code>cono</code> and <code>cust</code> to 0 if not provided.</li>
-<li><strong>Validate System Control</strong>:</li>
-<li>Read the <code>GSCONT</code> file using <code>control_key</code> (e.g., '00').</li>
-<li>If found and <code>gxcono</code> is non-zero, set <code>cono</code> to <code>gxcono</code>.</li>
-<li><strong>Validate Company</strong>:</li>
-<li>Read the <code>ARCONT</code> file using <code>cono</code>.</li>
-<li>If not found, return error: "INVALID COMPANY NUMBER ENTERED".</li>
-<li><strong>Validate Customer</strong>:</li>
-<li>Check if <code>cust</code> is non-zero.</li>
-<li>If zero, return error: "INVALID CUSTOMER".</li>
-<li><strong>Process Group</strong>:</li>
-<li>Form composite key <code>clgrky</code> (<code>cono</code> + <code>cust</code>).</li>
-<li>Read the <code>ARCLGR</code> file using <code>clgrky</code>:<ul>
-<li>If not found, create a new record with <code>del = 'A'</code>, <code>cono</code>, <code>cust</code>, and <code>ars</code>.</li>
-<li>If found, update the existing record with provided <code>del</code> and <code>ars</code>.</li>
+<li><code>msg</code> array for error messages.</li>
+<li><code>@infds</code> for workstation file information (e.g., function key status).</li>
+<li><code>uds</code> data structure with <code>co</code> (company code, 2-digit numeric) and <code>kycanc</code> (cancel key status, 6 characters).</li>
+<li>Input specifications for <code>BICONT</code> (field <code>bcdel</code> at position 1) and <code>GSCONT</code> (fields <code>GXDEL</code> at position 1, <code>GXCONO</code> at positions 77–78).</li>
 </ul>
 </li>
-<li>Write changes to the <code>ARCLGR</code> file.</li>
-<li><strong>Return Results</strong>:</li>
-<li>Return success indicator and any error messages.</li>
+<li>
+<p><strong>Main Processing Loop (<code>dow @sfnex &lt;&gt; 'EJ'</code>)</strong></p>
+</li>
+<li>The program enters a <code>DO</code> loop that continues until <code>@sfnex</code> (screen exit flag) equals <code>'EJ'</code> (end job).</li>
+<li>The loop processes the screen based on the <code>@sfid</code> (screen format ID) value:<ul>
+<li>If <code>@sfid</code> is blank, execute subroutine <code>$sblk</code> (initial blank screen).</li>
+<li>If <code>@sfid</code> is <code>'S1'</code>, execute subroutine <code>$s1</code> (process screen input).</li>
+</ul>
+</li>
+<li>The <code>$xcpt</code> subroutine is called to handle screen display.</li>
+<li>The program reads the <code>AR415S1</code> format (from <code>AR415PD</code> display file) with indicators <code>50</code> (error) or <code>LR</code> (last record), depending on whether it’s the first screen (<code>@ccnt = 1</code>) or subsequent iterations.</li>
+<li>
+<p>The loop ends when <code>@sfnex = 'EJ'</code> (set in <code>$s1ent</code> or <code>$s1ck</code>), triggering the <code>endit</code> tag and setting <code>*INLR</code> to <code>*ON</code> to end the program.</p>
+</li>
+<li>
+<p><strong>Subroutine <code>$sblk</code>: Initial Blank Screen</strong></p>
+</li>
+<li>Executed when <code>@sfid</code> is blank (first time only).</li>
+<li>Sets indicator <code>*IN99</code> to <code>*ON</code> to display the blank screen.</li>
+<li>Retrieves the company code (<code>GXCONO</code>) from the <code>GSCONT</code> file using a <code>CHAIN</code> operation (keyed on <code>'00'</code>).<ul>
+<li>If found (<code>*IN95 = *OFF</code>) and <code>GXCONO</code> is non-zero, sets <code>co = GXCONO</code>.</li>
+</ul>
+</li>
+<li>
+<p>Sets <code>@sfnex</code> and <code>@sfid</code> to <code>'S1'</code> to display the <code>AR415S1</code> screen format next.</p>
+</li>
+<li>
+<p><strong>Subroutine <code>$s1</code>: Process Screen Input</strong></p>
+</li>
+<li>Handles input from the <code>AR415S1</code> screen format.</li>
+<li>
+<p>Checks the function key pressed (via <code>@vkey</code> in <code>@infds</code>):</p>
+<ul>
+<li>If <code>@vkey = 0</code> (Enter key), calls <code>$s1ent</code> to validate the entered company code.</li>
+<li>If <code>@vkey = 2</code> (Command key, likely F3 or Cancel), calls <code>$s1ck</code> to handle cancellation.</li>
+</ul>
+</li>
+<li>
+<p><strong>Subroutine <code>$s1ent</code>: Validate Company Code</strong></p>
+</li>
+<li>Validates the <code>co</code> field entered by the user:<ul>
+<li>If <code>co = 0</code>, sets error message <code>msg(1)</code> (“INVALID COMPANY”) and indicator <code>*IN90</code> to <code>*ON</code>, then jumps to <code>ends1e</code> to redisplay the screen.</li>
+<li>Performs a <code>CHAIN</code> to <code>BICONT</code> using <code>co</code> as the key:</li>
+<li>If not found (<code>*IN96 = *ON</code>), sets error message <code>msg(1)</code> (“INVALID COMPANY”) and <code>*IN90</code> to <code>*ON</code>.</li>
+<li>If found but <code>bcdel = 'D'</code> (deleted company), sets error message <code>msg(2)</code> (“COMPANY HAS BEEN DELETED”) and <code>*IN90</code> to <code>*ON</code>.</li>
+<li>If validation passes (valid, non-deleted company), sets <code>@sfnex = 'EJ'</code> to exit the program.</li>
+</ul>
+</li>
+<li>
+<p>The <code>ends1e</code> label ensures the screen is redisplayed with error messages if validation fails.</p>
+</li>
+<li>
+<p><strong>Subroutine <code>$s1ck</code>: Handle Command Key</strong></p>
+</li>
+<li>Processes command key actions (e.g., F3 for Cancel).</li>
+<li>If <code>*INKG</code> (F3 key) is <code>*ON</code>, sets <code>@sfnex = 'EJ'</code> to exit the program and <code>kycanc = 'CANCEL'</code> to indicate cancellation.</li>
+<li>
+<p>Ends with the <code>ends1c</code> label.</p>
+</li>
+<li>
+<p><strong>Subroutine <code>$xcpt</code>: Display Screen</strong></p>
+</li>
+<li>Increments <code>@ccnt</code> (screen counter).</li>
+<li>If <code>@sfnex = @sfid</code>, sets <code>*IN98</code> to <code>*ON</code> to indicate the same screen is being redisplayed.</li>
+<li>If <code>@sfnex = 'S1'</code>, writes the <code>AR415S1</code> format to the display file to show the screen.</li>
+<li>
+<p>Calls <code>clrind</code> to clear indicators and error messages.</p>
+</li>
+<li>
+<p><strong>Subroutine <code>clrind</code>: Clear Indicators</strong></p>
+</li>
+<li>Resets indicators <code>*IN90</code>, <code>*IN81</code>, <code>*IN82</code>, <code>*IN12</code>, <code>*IN13</code>, <code>*IN14</code>, and <code>*IN15</code> to <code>*OFF</code>.</li>
+<li>
+<p>Clears the <code>msg1</code> field to ensure no residual error messages are displayed.</p>
+</li>
+<li>
+<p><strong>Program Termination</strong>:</p>
+</li>
+<li>When <code>@sfnex = 'EJ'</code>, the program jumps to the <code>endit</code> tag, sets <code>*INLR = *ON</code>, and terminates.</li>
 </ol>
-<h2 id="calculations">Calculations<a class="headerlink" href="#calculations" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Composite Key Creation</strong>:</li>
-<li><code>clgrky</code> = Concatenate(<code>cono</code>, <code>cust</code>) as a 10-character field (2 bytes for <code>cono</code>, 6 bytes for <code>cust</code>).</li>
-<li><strong>Array Processing</strong>:</li>
-<li>Iterate through the <code>ars</code> array (25 elements) to validate or update customer numbers.</li>
-<li>Ensure each <code>ars</code> element is a valid 6-digit numeric value.</li>
-<li><strong>Record Status</strong>:</li>
-<li>Set <code>del = 'A'</code> for new records; use provided <code>del</code> for updates.</li>
-</ul>
-<h2 id="database-files">Database Files<a class="headerlink" href="#database-files" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>ARCLGR</strong> (Update File):</li>
-<li>Stores group data: <code>cgdel</code> (1 byte), <code>cgcono</code> (2 bytes), <code>cgcust</code> (6 bytes), <code>arc</code> (150 bytes for 25 customers).</li>
-<li><strong>ARCONT</strong> (Input File):</li>
-<li>Stores company data: <code>arname</code> (30 bytes).</li>
-<li><strong>GSCONT</strong> (Input File):</li>
-<li>Stores system control data: <code>gxdel</code> (1 byte), <code>gxcono</code> (2 bytes).</li>
-</ul>
-<h2 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Return descriptive error messages for invalid inputs (company or customer).</li>
-<li>Ensure database operations (read/write) handle record-not-found conditions gracefully.</li>
-</ul>
-<h2 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Inputs are provided programmatically (e.g., via API or batch process).</li>
-<li>No interactive screen processing is required.</li>
-<li>The <code>GSCONT</code> file provides default company data if needed.</li>
-</ul>
 <hr />
-<h3 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h3>
-<ul>
-<li>The function requirement document assumes a non-interactive implementation, replacing the interactive workstation screens (<code>AR489S1</code>, <code>AR489S2</code>) with direct input parameters.</li>
-<li>The business rules and process steps are derived from the RPGLE program’s logic, focusing on validation, data retrieval, and persistence.</li>
-<li>No external programs are called in the non-interactive version, as the OCL program’s calls (<code>GSGENIEC</code>, <code>SCPROCP</code>, <code>GSY2K</code>) are assumed to be handled externally or unnecessary in a programmatic context.</li>
-</ul>
-<p>If you need further refinements, such as specific input formats, additional calculations, or a different structure for the requirements, please let me know!</p>
+<h3 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
+<p>The program enforces the following business rules:
+1. <strong>Company Code Validation</strong>:
+   - The user must enter a valid company code (<code>co</code>) that exists in the <code>BICONT</code> file.
+   - The company code must not be zero (invalid company).
+   - The company must not be marked as deleted (<code>bcdel &lt;&gt; 'D'</code> in <code>BICONT</code>).
+2. <strong>Default Company Code</strong>:
+   - If available, the program retrieves a default company code (<code>GXCONO</code>) from the <code>GSCONT</code> file (key <code>'00'</code>) for the initial screen.
+3. <strong>Error Handling</strong>:
+   - Displays “INVALID COMPANY” if the entered <code>co</code> is zero or not found in <code>BICONT</code>.
+   - Displays “COMPANY HAS BEEN DELETED” if the company exists but is marked deleted.
+   - Errors cause the screen to be redisplayed with the appropriate message.
+4. <strong>Cancellation</strong>:
+   - The user can cancel the program using a command key (F3, <code>*INKG</code>), setting <code>kycanc = 'CANCEL'</code> and exiting the program.
+5. <strong>Screen Flow</strong>:
+   - Starts with a blank screen, then displays the <code>AR415S1</code> format for company code input.
+   - Exits only when a valid company code is entered or the user cancels.</p>
+<hr />
+<h3 id="tables-files-used">Tables (Files) Used<a class="headerlink" href="#tables-files-used" title="Permanent link">&para;</a></h3>
+<p>The program uses the following files:
+1. <strong>AR415PD</strong> (<code>cf</code>, workstation file):
+   - A display file for screen interaction, using the <code>AR415S1</code> format to capture the company code and display error messages.
+   - Managed by the Profound UI handler for modernized UI.
+2. <strong>BICONT</strong> (<code>if</code>, input file):
+   - A 256-byte file, keyed at position 2, containing company data.
+   - Field: <code>bcdel</code> (position 1, 1 byte, indicates if the company is deleted with <code>'D'</code>).
+3. <strong>GSCONT</strong> (<code>if</code>, input file):
+   - A 512-byte file, keyed at position 2, containing control data.
+   - Fields: <code>GXDEL</code> (position 1, 1 byte), <code>GXCONO</code> (positions 77–78, 2-digit numeric company code).</p>
+<hr />
+<h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
+<p>The <code>AR415P</code> program does not explicitly call any external programs. It is an interactive program that processes user input and validates data using file I/O operations. The Profound UI handler (<code>PROFOUNDUI(HANDLER)</code>) is used for the workstation file, but this is a runtime component, not a separate program.</p>
+<hr />
+<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
+<p><strong>Process Steps</strong>:
+- Initializes the program and displays a blank screen.
+- Retrieves a default company code from <code>GSCONT</code>.
+- Displays the <code>AR415S1</code> screen for user input.
+- Validates the entered company code against <code>BICONT</code>, checking for existence and deletion status.
+- Handles errors by redisplaying the screen with messages or exits on valid input/cancellation.
+- Terminates when a valid company code is entered or the user cancels.</p>
+<p><strong>Business Rules</strong>:
+- Ensures a non-zero, non-deleted company code is entered.
+- Provides default company code from <code>GSCONT</code>.
+- Supports cancellation via F3.
+- Displays error messages for invalid or deleted companies.</p>
+<p><strong>Files Used</strong>: <code>AR415PD</code> (display), <code>BICONT</code> (company data), <code>GSCONT</code> (control data).
+<strong>External Programs</strong>: None.</p>
 
 
 
