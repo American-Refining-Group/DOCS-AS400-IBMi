@@ -1,105 +1,111 @@
-### Use Cases Implemented by the Program Call Stack
+### List of Use Cases Implemented by the AP765 Call Stack
 
-The call stack consists of three RPG36 programs: `AP765P`, `AP765`, and `AP765N`. Together, they implement a system for generating Vendor 1099 forms for tax reporting. The primary use case is:
-
-1. **Generate Vendor 1099 Forms**:
-   - **Description**: The system collects and validates input data for 1099 forms, processes vendor data from a file, and prints either two (`AP765`) or three (`AP765N`) 1099 forms per page on laser paper. The process includes validating user inputs, formatting vendor names and addresses, mapping payment amounts to specific 1099 form boxes, and printing forms with totals.
-   - **Components**:
-     - `AP765P`: Interactive screen program to collect and validate user inputs (e.g., headings, company ID, amount, type, current/last indicator).
-     - `AP765`: Processes vendor data and prints two 1099 forms per page.
-     - `AP765N`: Processes vendor data and prints three 1099 forms per page, likely an updated version for higher throughput.
-
-### Function Requirement Document
+The call stack, consisting of `AP765P.ocl36.txt`, `AP765.ocl36.txt` or `AP765N.ocl36.txt`, `AP766.rpg36.txt`, `AP765.rpg36.txt` (for 1099-MISC) or `AP765N.rpg36.txt` (for 1099-NEC), implements the following primary use case:
 
 
+1. **Generate and Print Vendor 1099 Forms**:
+   - This use case involves processing vendor payment data from a specified year, sorting and consolidating the data, and printing IRS-compliant 1099 forms (either 1099-MISC or 1099-NEC) for vendors whose total payments meet or exceed a threshold amount. The forms include vendor details, payment amounts for specific boxes, and company information, with two forms per page for 1099-MISC (via `AP765`) or three forms per page for 1099-NEC (via `AP765N`).
 
-# Vendor 1099 Form Generation Function Requirements
+| Program | Basic Purpose |
+|---|---|
+| AP765P.ocl36.txt | Controls 1099 processing path (MISC or NEC) |
+| AP765.ocl36.txt | Orchestrates 1099-MISC form generation |
+| AP765N.ocl36.txt | Orchestrates 1099-NEC form generation |
+| AP766.rpg36.txt | Consolidates vendor data for 1099 forms |
+| AP765.rpg36.txt | Prints 1099-MISC forms (two per page) |
+| AP765N.rpg36.txt | Prints 1099-NEC forms (three per page) |
 
-## Overview
-This function processes vendor data to generate IRS 1099 forms, formatting and printing either two or three forms per page on laser paper. It validates input data, formats vendor/payee names and addresses, maps payment amounts to specific form boxes, and accumulates totals.
+
+---
+
+### Function Requirement Document: Generate and Print Vendor 1099 Forms
+
+
+
+# Function Requirement Document: Generate and Print Vendor 1099 Forms
+
+## Purpose
+Generate IRS-compliant 1099 forms (1099-MISC or 1099-NEC) for vendors based on payment data for a specified year, ensuring proper sorting, consolidation, and formatting for printing.
 
 ## Inputs
-- **Company Information**:
-  - `HEAD1`, `HEAD2`, `HEAD3` (30 chars each): Company headings (e.g., name, address).
-  - `ID#` (10 chars): Company tax ID.
-  - `ENTAMT` (8 chars, 2 decimals): Total amount for validation.
-  - `TYPE` (1 char): Form type ('D' for Dividend, 'I' for Interest, 'M' for Miscellaneous, 'N' for Nonemployee Compensation).
-  - `CURLST` (1 char): Current ('C') or Last ('L') year indicator.
-  - `CNYEAR`/`YEAR` (4 chars): Calendar year for the form.
-- **Vendor Data** (from file `AP766`):
-  - `VNDEL` (1 char): Delete code.
-  - `VN1099` (1 char): 1099 code ('M' or 'N').
-  - `VNVEND` (5 chars): Vendor number.
-  - `VNNAME` (30 chars): Vendor name.
-  - `VNADD1–VNADD4` (30 chars each): Address lines.
-  - `L1AMT1`, `L1AMT2` (9 chars, 2 decimals): Payment amounts for two boxes.
-  - `BOX1`, `BOX2` (2 chars): Box numbers (1, 3, 6, or 7) for 1099 form fields.
-  - `VNID#` (11 chars): Vendor tax ID.
-  - `VNPYN1`, `VNPYN2` (40 chars each): Payee names (optional).
-  - `VNNOVF` (1 char): Name overflow flag ('Y' or blank).
-  - `STATID` (8 chars), `STATED` (9 chars, 2 decimals): State-related fields.
+- **Vendor File (`APVNYYYY`, e.g., `APVN2012`)**: Snapshot of vendor payment data from period-end process (`AP300`), containing:
+  - Vendor number, name, address (lines 1-4), Tax ID, 1099 type (`M` for MISC, `N` for NEC), payment amounts, box numbers, payee names (1 and 2), name overflow indicator, state ID, state amount.
+- **Year (`?10?`)**: Four-digit year for the 1099 forms (e.g., 2012).
+- **1099 Type Flag (`?L'110,1'?`)**: `M` for 1099-MISC or `N` for 1099-NEC.
+- **Cross-Reference File (`PA1099X`)**: Configuration data for processing.
+- **Threshold Amount (`ENTAMT`)**: Minimum payment amount for including a vendor in the output.
+- **Company Information**: Company name, address (lines 1-2), Tax ID, stored in User Data Structure (UDS).
 
 ## Outputs
-- **Printed 1099 Forms** (to printer file `AP1099`):
-  - Two forms per page (`AP765`) or three forms per page (`AP765N`).
-  - Fields: Headings, company ID, vendor/payee names, addresses, vendor number (as account number), amounts in boxes 1, 3, 6, or 7, year.
-  - Totals: Count of forms, total amounts for boxes 1, 3, 6, 7.
-- **Error Messages** (if validation fails):
-  - Returned as a list of strings for invalid inputs.
+- **Printed 1099 Forms (`AP1099`)**:
+  - 1099-MISC forms (two per page) or 1099-NEC forms (three per page) on laser paper, formatted with:
+    - Company name, address, Tax ID, and year.
+    - Vendor/payee name, address, Tax ID, vendor number (as account number).
+    - Payment amounts in boxes 1, 3, 6, or 7.
+    - Totals for vendor count and box amounts (1, 3, 6, 7).
+- **Temporary Files**:
+  - Sorted file (`?9?AP765S`): Intermediate sorted vendor data.
+  - Processed file (`?9?AP766`): Consolidated vendor data for printing.
 
 ## Process Steps
-1. **Validate Input Data**:
-   - Check `HEAD1`, `HEAD2`, `ID#` are not blank.
-   - Verify `TYPE` is 'D', 'I', 'M', or 'N'.
-   - Ensure `CURLST` is 'C' or 'L'.
-   - Return error messages for any invalid inputs.
-2. **Process Vendor Records**:
-   - Read vendor data from `AP766`.
-   - Validate that `L1AMT1` + `L1AMT2` equals `ENTAMT`. Skip record if invalid.
-   - If `VN1099` is 'N', mark as Nonemployee Compensation; if 'M', mark as Miscellaneous (optional in `AP765N`).
-   - If `VNVEND` is 9384 (`AP765`) or 32800 (`AP765N`), set a flag (`YES`).
-3. **Format Names**:
-   - If `VNPYN1` is blank, use `VNNAME`; otherwise, use `VNPYN1` and `VNPYN2` (if provided).
-   - If `VNNOVF` is 'Y', format name to continue on a second line.
-4. **Format Addresses**:
-   - Select highest non-blank address line (`VNADD4` to `VNADD1`) for city/state/zip; shift lower lines to address fields.
-5. **Map Amounts**:
-   - Assign `L1AMT1` and `L1AMT2` to box 1, 3, 6, or 7 based on `BOX1` and `BOX2` values.
-6. **Print Forms**:
-   - Accumulate up to two (`AP765`) or three (`AP765N`) forms per page.
-   - Print fields: headings, year, company ID, vendor ID, vendor number (as account), payee names, addresses, amounts.
-   - If fewer than the maximum forms remain at end-of-file, print remaining form(s).
-7. **Accumulate and Print Totals**:
-   - Track count of forms and sum amounts for boxes 1, 3, 6, 7.
-   - Print totals at job end.
+1. **Sort Vendor Data**:
+   - Sort input file (`APVNYYYY`) by 1099 type, vendor number, and company code using `#GSORT`.
+   - Filter records based on 1099 type (`M` or `N`) and include only valid types (`N`, `E`, `C`, `D`).
+   - Output to temporary file `?9?AP765S`.
+
+2. **Process Vendor Data**:
+   - Use `AP766` to read sorted file (`?9?AP765S`) and vendor file (`APVNYYYY`).
+   - Consolidate records into one per vendor, using `PA1099X` for configuration.
+   - Output processed data to `?9?AP766`.
+
+3. **Validate and Prepare for Printing**:
+   - Read `?9?AP766` using `AP765` (for 1099-MISC) or `AP765N` (for 1099-NEC).
+   - Calculate total payment (`TOTAMT` = `L1AMT1` + `L1AMT2`) and include vendors where `TOTAMT` >= `ENTAMT`.
+   - Assign payment amounts to boxes (1, 3, 6, or 7) based on `BOX1` and `BOX2`.
+
+4. **Format Payee and Address**:
+   - If payee name 1 (`VNPYN1`) is blank, use vendor name (`VNNAME`). Otherwise, use `VNPYN1` and `VNPYN2`.
+   - If name overflow (`VNNOVF = 'Y'`), use address fields to continue name on the second line.
+   - Assign highest non-blank address field (`VNADD4` to `VNADD1`) to city/state/ZIP, shifting others accordingly.
+
+5. **Print Forms**:
+   - For 1099-MISC (`AP765`): Print two forms per page with company headers, year, Tax IDs, payee names, addresses, amounts, and vendor number.
+   - For 1099-NEC (`AP765N`): Print three forms per page with similar details.
+   - Print totals (vendor count, box amounts) on the final page.
+
+6. **Clean Up**:
+   - Delete temporary files (`?9?AP765S`, `?9?AP766`) after processing.
 
 ## Business Rules
-1. **Mandatory Fields**: `HEAD1`, `HEAD2`, `ID#` must not be blank.
-2. **Valid Type**: `TYPE` must be 'D', 'I', 'M', or 'N'.
-3. **Valid Year Indicator**: `CURLST` must be 'C' or 'L'.
-4. **Amount Validation**: `L1AMT1` + `L1AMT2` must equal `ENTAMT`.
-5. **Payee Names**: Use `VNPYN1` and `VNPYN2` if provided; otherwise, use `VNNAME`.
-6. **Name Overflow**: If `VNNOVF` is 'Y', extend name to second line.
-7. **Address Formatting**: Use highest non-blank address line for city/state/zip; shift others to address lines.
-8. **Box Mapping**: Map amounts to boxes 1, 3, 6, or 7 based on `BOX1` and `BOX2`.
-9. **Form Layout**: Print two (`AP765`) or three (`AP765N`) forms per page on laser paper.
-10. **Vendor Number**: Print `VNVEND` as account number.
-11. **Form Type**: Support Miscellaneous ('M') and Nonemployee Compensation ('N') forms; 'M' check is optional in `AP765N`.
-12. **Totals**: Accumulate and print total forms and amounts for boxes 1, 3, 6, 7.
+- **Threshold**: Include vendors only if `TOTAMT` >= `ENTAMT`.
+- **Form Type**:
+  - If `?L'110,1'? = 'M'`, generate 1099-MISC forms (two per page).
+  - If `?L'110,1'? = 'N'`, generate 1099-NEC forms (three per page).
+- **Payee Names**: Use `VNPYN1` and `VNPYN2` if provided; otherwise, use `VNNAME`. Handle overflow with address fields if `VNNOVF = 'Y'`.
+- **Address Formatting**: Use highest non-blank address line for city/state/ZIP, shift others for proper formatting.
+- **Box Assignments**: Assign `L1AMT1` and `L1AMT2` to boxes 1, 3, 6, or 7 based on `BOX1` and `BOX2`.
+- **Vendor Number**: Print as account number on forms.
+- **Totals**: Accumulate vendor count and box amounts (1, 3, 6, 7). For 1099-MISC, compute grand total (`LRAMT`).
+- **Special Vendor Flags**:
+  - For 1099-MISC: Flag vendor `9384` with `YES = 'YES'`.
+  - For 1099-NEC: Flag vendor `32800` with `YES = 'YES'`.
+- **Printer Settings**: Use form type `1099`, 10 CPI, 6 LPI on laser paper.
 
 ## Calculations
-- **Total Amount Validation**: `TOTAMT = L1AMT1 + L1AMT2`. Compare with `ENTAMT`.
-- **Form Counter**: Increment `COUNTP` (1 to 2 for `AP765`, 1 to 3 for `AP765N`) to track forms per page. Reset to 0 after printing.
-- **Running Totals**:
-  - `COUNT`: Increment by 1 per form.
-  - `LRAMT1`, `LRAMT3`, `LRAMT6`, `LRAMT7`: Sum amounts for boxes 1, 3, 6, 7, respectively.
+- **Total Payment**: `TOTAMT = L1AMT1 + L1AMT2` (9,2 numeric).
+- **Box Amounts**: Assign `L1AMT1` and `L1AMT2` to boxes (1, 3, 6, or 7) based on `BOX1` and `BOX2` for each form.
+- **Totals**:
+  - Increment `COUNT` for each vendor printed.
+  - Accumulate `AMT1x` to `LRAMT1`, `AMT3x` to `LRAMT3`, `AMT6x` to `LRAMT6`, `AMT7x` to `LRAMT7` (10,2 numeric).
+  - For 1099-MISC: Compute `LRAMT = LRAMT1 + LRAMT3 + LRAMT6 + LRAMT7` (11,2 numeric).
 
-## Error Handling
-- Return error messages for blank `HEAD1`, `HEAD2`, `ID#`, invalid `TYPE`, or invalid `CURLST`.
-- Skip vendor records if `L1AMT1` + `L1AMT2` ≠ `ENTAMT`.
+## Constraints
+- Input file (`APVNYYYY`) must exist and contain valid vendor data.
+- Temporary files are deleted before and after processing to avoid conflicts.
+- Year 2000 compliance is ensured via `GSY2K`.
 
-## Assumptions
-- Input data is provided programmatically (not via screen).
-- Output is formatted for a printer file (`AP1099`) compatible with laser paper.
-- `AP766` file contains valid vendor data.
+## Success Criteria
+- All eligible vendors (meeting threshold) are printed on IRS-compliant 1099 forms (MISC or NEC).
+- Forms are correctly formatted with two (MISC) or three (NEC) per page.
+- Totals and vendor counts are accurate on the final page.
 
