@@ -18,7 +18,7 @@
         <link rel="prev" href="../AP765P%20OCL/">
       
       
-        <link rel="next" href="../Summary%20AP765P%20OCL/">
+        <link rel="next" href="../AP766%20RPG/">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#process-steps" class="md-skip">
+        <a href="#explanation-of-the-process-steps-and-business-rules-in-the-rpg-program-ap765prpg36txt" class="md-skip">
           Skip to content
         </a>
       
@@ -3001,12 +3001,58 @@
   
   
     <li class="md-nav__item">
+      <a href="../AP765%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP765 OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../AP765%20RPG36/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     AP765 RPG36
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AP765N%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP765N OCL
     
   </span>
   
@@ -3116,6 +3162,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#explanation-of-the-process-steps-and-business-rules-in-the-rpg-program-ap765prpg36txt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation of the Process Steps and Business Rules in the RPG Program (AP765P.rpg36.txt)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#process-steps" class="md-nav__link">
     <span class="md-ellipsis">
       Process Steps
@@ -3152,6 +3207,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Outputs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
       Summary
@@ -3164,6 +3228,29 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AP766%20RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP766 RPG
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -7356,6 +7443,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#explanation-of-the-process-steps-and-business-rules-in-the-rpg-program-ap765prpg36txt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation of the Process Steps and Business Rules in the RPG Program (AP765P.rpg36.txt)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#process-steps" class="md-nav__link">
     <span class="md-ellipsis">
       Process Steps
@@ -7392,6 +7488,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Outputs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
       Summary
@@ -7421,117 +7526,198 @@
 
   <h1>AP765P RPG36</h1>
 
-<p>The RPG36 program <code>AP765P</code> is designed to handle prompts for a Vendor 1099 form, likely used for tax reporting purposes. It defines a screen interface to collect and validate input data related to vendor information. Below is a detailed explanation of the process steps, business rules, tables used, and external programs called.</p>
+<h3 id="explanation-of-the-process-steps-and-business-rules-in-the-rpg-program-ap765prpg36txt">Explanation of the Process Steps and Business Rules in the RPG Program (AP765P.rpg36.txt)<a class="headerlink" href="#explanation-of-the-process-steps-and-business-rules-in-the-rpg-program-ap765prpg36txt" title="Permanent link">&para;</a></h3>
+<p>The provided RPG program (<code>AP765P.rpg36.txt</code>) is an RPG III program for the IBM System/36 or AS/400, designed to handle user input for generating 1099 vendor forms, likely called by the OCL program <code>AP765P.ocl36.txt</code>. It defines a screen format (<code>AP765PS1</code>) for capturing and validating input data required for 1099 form processing. Below is a detailed explanation of the process steps, business rules, tables used, external programs called, and outputs.</p>
+<hr />
 <h3 id="process-steps">Process Steps<a class="headerlink" href="#process-steps" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>File and Data Structure Definitions</strong>:</li>
-<li><strong>File Definition (F-Spec)</strong>:<ul>
-<li><code>SCREEN</code> is defined as a workstation file (<code>WORKSTN</code>) with a record length of 512 bytes, used for interactive screen input/output.</li>
+<li><strong>Program Setup and File Definitions</strong>:</li>
+<li><strong>Header Specification (H)</strong>:<ul>
+<li>Line <code>0002</code>: Defines the program name (<code>AP765P</code>) and parameter <code>P014</code>, which may be a control parameter passed from the OCL program.</li>
 </ul>
 </li>
-<li><strong>Array Definition (E-Spec)</strong>:<ul>
-<li><code>MSG</code> is an array to store five error messages, each 35 characters long, used for displaying validation errors.</li>
+<li><strong>File Specification (F)</strong>:<ul>
+<li>Line <code>0008</code>: Defines a workstation file <code>SCREEN</code> (512 bytes) for interactive input/output, used to display and capture data via a display device (e.g., a terminal screen).</li>
 </ul>
 </li>
-<li><strong>Input Specifications (I-Spec)</strong>:<ul>
-<li>Two formats are defined for the <code>SCREEN</code> file:</li>
-<li><strong>Format 01</strong>: Input fields include <code>HEAD1</code> (30 chars), <code>HEAD2</code> (30 chars), <code>HEAD3</code> (30 chars), <code>ID#</code> (10 chars), <code>ENTAMT</code> (8 chars, 2 decimal places), <code>TYPE</code> (1 char), and <code>CURLST</code> (1 char).</li>
-<li><strong>Format 09</strong>: Similar fields but mapped via a data structure (<code>UDS</code>) with slightly different positions.</li>
+<li><strong>Extension Specification (E)</strong>:<ul>
+<li>Line <code>0009</code>: Defines an array <code>MSG</code> with 5 elements, each 35 characters long, to store error messages (loaded from the <code>** MESSAGES</code> section at the end of the program).</li>
 </ul>
 </li>
 <li>
-<p><strong>Output Specifications (O-Spec)</strong>:</p>
+<p><strong>Input Specifications (I)</strong>:</p>
 <ul>
-<li>Defines the output format <code>AP765PS1</code> for the screen, writing fields like <code>HEAD1</code>, <code>HEAD2</code>, <code>HEAD3</code>, <code>ID#</code>, <code>ENTAMT</code>, <code>TYPE</code>, <code>CURLST</code>, and <code>MSGE</code> (error message).</li>
+<li>Lines <code>0010-0027</code>: Define the screen format <code>AP765PS1</code> (used for both input and output) and a data structure (<code>UDS</code>) to hold the following fields:</li>
+<li><code>HEAD1</code> (30 chars, positions 1-30): First heading (e.g., company name).</li>
+<li><code>HEAD2</code> (30 chars, positions 31-60): Second heading (e.g., address line 1).</li>
+<li><code>HEAD3</code> (30 chars, positions 61-90): Third heading (e.g., address line 2).</li>
+<li><code>ID#</code> (10 chars, positions 91-100): Tax ID number.</li>
+<li><code>ENTAMT</code> (8,2 numeric, positions 101-108): Entered amount (likely for 1099 payments).</li>
+<li><code>CURLST</code> (1 char, position 109): Current or Last indicator (<code>C</code> or <code>L</code>).</li>
+<li><code>TYPE</code> (1 char, position 110): Type of 1099 form (<code>I</code> for Interest, <code>D</code> for Dividend, <code>M</code> for Miscellaneous, <code>N</code> for Non-Employee Compensation).</li>
 </ul>
 </li>
 <li>
-<p><strong>Calculation Specifications (C-Spec)</strong>:</p>
+<p><strong>Initialization</strong>:</p>
 </li>
-<li><strong>Initialization</strong>:<ul>
-<li>Lines 0029–0031: Reset indicators 81, 90, 91, 92, 93, 94, 95, and 96 to off.</li>
-<li>Line 0032: Clear the <code>MSGE</code> field to blanks.</li>
+<li>Lines <code>0029-0031</code>: Reset indicators <code>81</code>, <code>90</code>, <code>91</code>, <code>92</code>, <code>93</code>, <code>94</code>, <code>95</code>, and <code>96</code> to off using <code>SETOF</code>.</li>
+<li>Line <code>0032</code>: Initialize the error message field <code>MSGE</code> to blanks.</li>
+<li>
+<p>Line <code>0038</code>: Set indicator <code>60</code> on (likely used to control screen display or program flow).</p>
+</li>
+<li>
+<p><strong>Handle Special Key (KG)</strong>:</p>
+</li>
+<li>
+<p>Lines <code>0034-0036</code>: If the <code>KG</code> key (likely a function key like F3 for exit) is pressed:</p>
+<ul>
+<li>Reset indicator <code>81</code> (if set).</li>
+<li>Set indicator <code>U1</code> and <code>LR</code> (Last Record, signaling program termination).</li>
+<li>Jump to the <code>END</code> tag to exit the program.</li>
 </ul>
 </li>
-<li><strong>Key Processing (KG)</strong>:<ul>
-<li>If the <code>KG</code> (likely a function key like F3 or Cancel) is pressed:</li>
-<li>Line 0034: Turn off indicator 81.</li>
-<li>Line 0035: Turn on indicators U1 and LR (Last Record, typically to exit).</li>
-<li>Line 0036: Branch to the <code>END</code> tag to terminate the program.</li>
+<li>
+<p><strong>Check for Format 09 (NS 09)</strong>:</p>
+</li>
+<li>
+<p>Lines <code>0040-0041</code>: If the program is processing format <code>09</code> (likely a control format or condition):</p>
+<ul>
+<li>Set indicators <code>81</code> and <code>94</code> on.</li>
+<li>Jump to the <code>END</code> tag to exit the program.</li>
 </ul>
 </li>
-<li><strong>Screen Format 09 Handling</strong>:<ul>
-<li>Line 0040: If format 09 is active (likely a specific screen state or input), set indicators 81 and 94, then branch to <code>END</code>.</li>
+<li>
+<p><strong>Main Processing (Format 01)</strong>:</p>
+</li>
+<li>
+<p>Line <code>0043</code>: If processing format <code>01</code> (the main screen input format <code>AP765PS1</code>), execute the subroutine <code>SUBSC1</code> to validate input fields.</p>
+</li>
+<li>
+<p><strong>Validation Subroutine (SUBSC1)</strong>:</p>
+</li>
+<li>Lines <code>0047-0077</code>: The <code>SUBSC1</code> subroutine validates the input fields from the screen:<ul>
+<li><strong>HEAD1 Validation</strong> (Lines <code>0049-0052</code>):</li>
+<li>Check if <code>HEAD1</code> is blank.</li>
+<li>If blank, set indicators <code>81</code> and <code>91</code> on, move message <code>MSG,1</code> ("FIRST HEADING CANNOT BE BLANK") to <code>MSGE</code>, and jump to <code>ENDSC1</code>.</li>
+<li><strong>HEAD2 Validation</strong> (Lines <code>0054-0057</code>):</li>
+<li>Check if <code>HEAD2</code> is blank.</li>
+<li>If blank, set indicators <code>81</code> and <code>92</code> on, move message <code>MSG,2</code> ("SECOND HEADING CANNOT BE BLANK") to <code>MSGE</code>, and jump to <code>ENDSC1</code>.</li>
+<li><strong>ID# Validation</strong> (Lines <code>0059-0062</code>):</li>
+<li>Check if <code>ID#</code> is blank.</li>
+<li>If blank, set indicators <code>81</code> and <code>93</code> on, move message <code>MSG,3</code> ("ID# CANNOT BE BLANK - TRY AGAIN!") to <code>MSGE</code>, and jump to <code>ENDSC1</code>.</li>
+<li><strong>TYPE Validation</strong> (Lines <code>0064-0069</code>):</li>
+<li>Check if <code>TYPE</code> is one of the valid values: <code>D</code> (Dividend), <code>I</code> (Interest), <code>M</code> (Miscellaneous), or <code>N</code> (Non-Employee Compensation).</li>
+<li>If not valid, set indicators <code>81</code> and <code>95</code> on, move message <code>MSG,4</code> ("ENTER I-INT, D-DIV, M-MISC, N-NEC") to <code>MSGE</code>, and jump to <code>ENDSC1</code>.</li>
+<li><strong>CURLST Validation</strong> (Lines <code>0071-0075</code>):</li>
+<li>Check if <code>CURLST</code> is either <code>C</code> (Current) or <code>L</code> (Last).</li>
+<li>If not valid, set indicators <code>81</code> and <code>96</code> on, move message <code>MSG,5</code> ("ENTER 'C'-CURR OR 'L'-LAST") to <code>MSGE</code>, and jump to <code>ENDSC1</code>.</li>
 </ul>
 </li>
-<li><strong>Screen Format 01 Handling</strong>:<ul>
-<li>Line 0043: If format 01 is active, execute the subroutine <code>SUBSC1</code> for input validation.</li>
-</ul>
-</li>
-<li><strong>Subroutine SUBSC1 (Lines 0047–0077)</strong>:<ul>
-<li>Validates input fields in the following order, setting error indicators and messages if validation fails:</li>
-<li><strong>HEAD1</strong> (Line 0049–0052): Check if blank. If blank, set indicators 81 and 91, move message 1 ("FIRST HEADING CANNOT BE BLANK") to <code>MSGE</code>, and branch to <code>ENDSC1</code>.</li>
-<li><strong>HEAD2</strong> (Line 0054–0057): Check if blank. If blank, set indicators 81 and 92, move message 2 ("SECOND HEADING CANNOT BE BLANK") to <code>MSGE</code>, and branch to <code>ENDSC1</code>.</li>
-<li><strong>ID#</strong> (Line 0059–0062): Check if blank. If blank, set indicators 81 and 93, move message 3 ("ID# CANNOT BE BLANK - TRY AGAIN!") to <code>MSGE</code>, and branch to <code>ENDSC1</code>.</li>
-<li><strong>TYPE</strong> (Line 0064–0069): Check if value is one of 'D' (Dividend), 'I' (Interest), 'M' (Miscellaneous), or 'N' (Nonemployee Compensation). If not, set indicators 81 and 95, move message 4 ("ENTER I-INT, D-DIV, M-MISC, N-NEC") to <code>MSGE</code>, and branch to <code>ENDSC1</code>.</li>
-<li><strong>CURLST</strong> (Line 0071–0075): Check if value is 'C' (Current) or 'L' (Last). If not, set indicators 81 and 96, move message 5 ("ENTER 'C'-CURR OR 'L'-LAST") to <code>MSGE</code>, and branch to <code>ENDSC1</code>.</li>
-<li>If any validation fails, the program branches to <code>ENDSC1</code>, which ends the subroutine and returns control to the main logic, typically redisplaying the screen with the error message.</li>
-</ul>
+<li>
+<p>If any validation fails, the program sets the appropriate error indicators and displays an error message (<code>MSGE</code>) on the screen, then exits the subroutine (<code>ENDSC1</code>).</p>
 </li>
 <li>
 <p><strong>Program Termination</strong>:</p>
-<ul>
-<li>Line 0045: The <code>END</code> tag marks the point where the program terminates after processing or if a function key or validation triggers an exit.</li>
-</ul>
+</li>
+<li>Line <code>0045</code>: The <code>END</code> tag marks the program’s termination point.</li>
+<li>
+<p>If validations pass, the program likely proceeds to write the validated data to the screen or another process (not shown in this code snippet).</p>
 </li>
 <li>
-<p><strong>Output Processing</strong>:</p>
+<p><strong>Output Specifications</strong>:</p>
 </li>
-<li>Lines 0079–0088: Write the <code>AP765PS1</code> format to the screen, including all input fields and the error message (<code>MSGE</code>) if applicable. The <code>81</code> indicator controls whether this is the first time the screen is displayed.</li>
+<li>Lines <code>0079-0088</code>: Define the output format for the <code>SCREEN</code> file (format <code>AP765PS1</code>):<ul>
+<li>Output fields <code>HEAD1</code>, <code>HEAD2</code>, <code>HEAD3</code>, <code>ID#</code>, <code>ENTAMT</code>, <code>TYPE</code>, and <code>CURLST</code> to their respective positions (1-110).</li>
+<li>Output the error message <code>MSGE</code> at position 145.</li>
+<li>The output is conditional on indicator <code>81</code> (likely used to display errors or re-display the screen for corrections).</li>
+</ul>
+</li>
 </ol>
+<hr />
 <h3 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>Mandatory Fields</strong>:</li>
-<li><code>HEAD1</code>, <code>HEAD2</code>, and <code>ID#</code> cannot be blank. If any are blank, an error message is displayed, and the screen is redisplayed.</li>
-<li><strong>Valid Values for TYPE</strong>:</li>
-<li>Must be one of 'D' (Dividend), 'I' (Interest), 'M' (Miscellaneous), or 'N' (Nonemployee Compensation). Invalid values trigger an error.</li>
-<li><strong>Valid Values for CURLST</strong>:</li>
-<li>Must be 'C' (Current) or 'L' (Last). Invalid values trigger an error.</li>
-<li><strong>Error Handling</strong>:</li>
-<li>Validation errors set specific indicators (91–96) to highlight the erroneous field and display a corresponding message from the <code>MSG</code> array.</li>
-<li>Indicator 81 controls screen redisplay when validation fails.</li>
-<li><strong>Program Exit</strong>:</li>
-<li>Pressing a function key (<code>KG</code>) sets the <code>LR</code> indicator and exits the program.</li>
-<li>Format 09 processing also leads to an immediate exit with indicators 81 and 94 set.</li>
-</ol>
-<h3 id="tables-used">Tables Used<a class="headerlink" href="#tables-used" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>MSG Array</strong>:</li>
-<li>An array defined in the E-Spec (line 0009) to store five error messages, each 35 characters long, used for validation feedback:<ol>
-<li>"FIRST HEADING CANNOT BE BLANK"</li>
-<li>"SECOND HEADING CANNOT BE BLANK"</li>
-<li>"ID# CANNOT BE BLANK - TRY AGAIN!"</li>
-<li>"ENTER I-INT, D-DIV, M-MISC, N-NEC"</li>
-<li>"ENTER 'C'-CURR OR 'L'-LAST"</li>
-</ol>
+<li><code>HEAD1</code>, <code>HEAD2</code>, and <code>ID#</code> must not be blank. If any are blank, the program displays an error message and prevents further processing.</li>
+<li><strong>Valid 1099 Type</strong>:</li>
+<li>The <code>TYPE</code> field must be one of:<ul>
+<li><code>I</code> (Interest, for 1099-INT).</li>
+<li><code>D</code> (Dividend, for 1099-DIV).</li>
+<li><code>M</code> (Miscellaneous, for 1099-MISC).</li>
+<li><code>N</code> (Non-Employee Compensation, for 1099-NEC).</li>
+</ul>
 </li>
-<li><strong>No database files</strong> are explicitly defined in the program, indicating that this program focuses on screen input validation rather than database interaction.</li>
+<li>Invalid values trigger an error message.</li>
+<li><strong>Current or Last Indicator</strong>:</li>
+<li>The <code>CURLST</code> field must be either <code>C</code> (Current) or <code>L</code> (Last). Invalid values trigger an error message.</li>
+<li><strong>Error Handling</strong>:</li>
+<li>If any validation fails, the program sets indicator <code>81</code> and a specific indicator (<code>91</code>, <code>92</code>, <code>93</code>, <code>95</code>, or <code>96</code>) to highlight the error field, displays an error message, and redisplays the screen for correction.</li>
+<li><strong>User Exit</strong>:</li>
+<li>Pressing the <code>KG</code> key (e.g., F3) allows the user to exit the program immediately, setting <code>U1</code> and <code>LR</code> indicators.</li>
+<li><strong>Screen Interaction</strong>:</li>
+<li>The program uses a workstation file (<code>SCREEN</code>) to display input fields and error messages interactively, allowing the user to correct invalid inputs.</li>
+</ol>
+<hr />
+<h3 id="tables-used">Tables Used<a class="headerlink" href="#tables-used" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>MSG Array</strong>:</li>
+<li>Defined in the <code>E</code> specification (Line <code>0009</code>).</li>
+<li>A table of 5 elements, each 35 characters long, loaded from the <code>** MESSAGES</code> section at the end of the program:<ul>
+<li><code>MSG,1</code>: "FIRST HEADING CANNOT BE BLANK"</li>
+<li><code>MSG,2</code>: "SECOND HEADING CANNOT BE BLANK"</li>
+<li><code>MSG,3</code>: "ID# CANNOT BE BLANK - TRY AGAIN!"</li>
+<li><code>MSG,4</code>: "ENTER I-INT, D-DIV, M-MISC, N-NEC"</li>
+<li><code>MSG,5</code>: "ENTER 'C'-CURR OR 'L'-LAST"</li>
 </ul>
+</li>
+<li>
+<p>Used to display error messages when validation fails.</p>
+</li>
+<li>
+<p><strong>SCREEN File</strong>:</p>
+</li>
+<li>Defined in the <code>F</code> specification (Line <code>0008</code>).</li>
+<li>A workstation file used for interactive input/output, with format <code>AP765PS1</code> for capturing and displaying data.</li>
+</ol>
+<p><em>Note</em>: The program does not explicitly reference any database files (e.g., <code>GAPVEND</code> from the OCL program). It focuses on screen input validation, suggesting that data is either passed from the OCL program or handled in subsequent programs (e.g., <code>AP765</code> or <code>AP765N</code>).</p>
+<hr />
 <h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>None</strong>:</li>
-<li>The program does not explicitly call any external programs (no <code>CALL</code> statements or references to other programs).</li>
-<li>It is invoked from a main OCL (Operation Control Language) script, as mentioned, but no details about the OCL or other programs are provided in the code.</li>
+<p>No external programs are explicitly called within this RPG program. However, based on the context from the OCL program (<code>AP765P.ocl36.txt</code>):
+- The RPG program <code>AP765P</code> is likely one of the programs (<code>AP765</code> or <code>AP765N</code>) called by the OCL procedure.
+- The OCL program references <code>AP765</code> and <code>AP765N</code>, which may perform further processing of the validated data (e.g., generating 1099 forms or updating files).</p>
+<hr />
+<h3 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Screen Output (AP765PS1)</strong>:</li>
+<li>The program outputs the following fields to the workstation screen:<ul>
+<li><code>HEAD1</code> (positions 1-30): First heading.</li>
+<li><code>HEAD2</code> (positions 31-60): Second heading.</li>
+<li><code>HEAD3</code> (positions 61-90): Third heading.</li>
+<li><code>ID#</code> (positions 91-100): Tax ID number.</li>
+<li><code>ENTAMT</code> (positions 101-108): Entered amount (numeric, 8 digits with 2 decimals).</li>
+<li><code>TYPE</code> (position 109): 1099 form type (<code>I</code>, <code>D</code>, <code>M</code>, or <code>N</code>).</li>
+<li><code>CURLST</code> (position 110): Current/Last indicator (<code>C</code> or <code>L</code>).</li>
+<li><code>MSGE</code> (position 145): Error message (if any).</li>
 </ul>
+</li>
+<li>
+<p>The output is conditional on indicator <code>81</code>, which is set when validation fails to redisplay the screen with an error message.</p>
+</li>
+<li>
+<p><strong>No File Outputs</strong>:</p>
+</li>
+<li>The program does not directly write to any database files. The validated data is likely passed to subsequent programs (<code>AP765</code> or <code>AP765N</code>) for further processing, such as updating the <code>GAPVEND</code> file or generating 1099 forms.</li>
+</ol>
+<hr />
 <h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
-<p>The <code>AP765P</code> program is a screen-based input validation program for a Vendor 1099 form. It:
-- Collects input for fields like headings (<code>HEAD1</code>, <code>HEAD2</code>, <code>HEAD3</code>), vendor ID (<code>ID#</code>), amount (<code>ENTAMT</code>), type (<code>TYPE</code>), and current/last indicator (<code>CURLST</code>).
-- Validates these fields to ensure they are not blank (for headings and ID#) and contain valid values (for <code>TYPE</code> and <code>CURLST</code>).
-- Displays error messages from the <code>MSG</code> array if validation fails.
-- Uses a workstation file (<code>SCREEN</code>) for interactive input/output.
-- Exits on function key press or specific screen format (09) processing.
-- Does not interact with database files or call external programs.</p>
-<p>This program is likely part of a larger system where the validated data is passed back to the calling OCL for further processing, such as generating 1099 forms for tax reporting.</p>
+<ul>
+<li><strong>Purpose</strong>: The RPG program <code>AP765P</code> provides an interactive screen (<code>AP765PS1</code>) for users to input data for 1099 vendor forms, including company headings, tax ID, amount, form type, and current/last indicator. It validates these inputs and displays error messages if validations fail.</li>
+<li><strong>Process</strong>: The program initializes, displays a screen for input, validates the fields using the <code>SUBSC1</code> subroutine, and redisplays the screen with error messages if validations fail. Users can exit using the <code>KG</code> key.</li>
+<li><strong>Business Rules</strong>: Enforce non-blank headings and ID#, valid 1099 types (<code>I</code>, <code>D</code>, <code>M</code>, <code>N</code>), and valid <code>CURLST</code> values (<code>C</code>, <code>L</code>).</li>
+<li><strong>Tables Used</strong>: <code>MSG</code> array (for error messages) and <code>SCREEN</code> workstation file (for input/output).</li>
+<li><strong>External Programs</strong>: None called directly, but likely interacts with <code>AP765</code> or <code>AP765N</code> as part of the OCL procedure.</li>
+<li><strong>Outputs</strong>: Screen output to display input fields and error messages; no direct file outputs.</li>
+</ul>
+<p>This program serves as the front-end validation step for 1099 form processing, ensuring accurate data entry before passing control to other programs for further processing.</p>
 
 
 

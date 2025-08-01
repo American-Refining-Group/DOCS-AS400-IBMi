@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#process-steps-of-the-rpg-ocl-program" class="md-skip">
+        <a href="#explanation-of-the-process-steps-in-the-rpg-ocl-program-ap765pocl36txt" class="md-skip">
           Skip to content
         </a>
       
@@ -3001,12 +3001,58 @@
   
   
     <li class="md-nav__item">
+      <a href="../AP765%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP765 OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../AP765%20RPG36/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     AP765 RPG36
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AP765N%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP765N OCL
     
   </span>
   
@@ -3093,9 +3139,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-rpg-ocl-program" class="md-nav__link">
+  <a href="#explanation-of-the-process-steps-in-the-rpg-ocl-program-ap765pocl36txt" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the RPG .OCL Program
+      Explanation of the Process Steps in the RPG .OCL Program (AP765P.ocl36.txt)
     </span>
   </a>
   
@@ -3111,18 +3157,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tablesfiles-used" class="md-nav__link">
+  <a href="#tables-used" class="md-nav__link">
     <span class="md-ellipsis">
-      Tables/Files Used
+      Tables Used
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#additional-notes" class="md-nav__link">
+  <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Additional Notes
+      Summary
     </span>
   </a>
   
@@ -3150,6 +3196,29 @@
   
   <span class="md-ellipsis">
     AP765P RPG36
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AP766%20RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP766 RPG
     
   </span>
   
@@ -7347,9 +7416,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-rpg-ocl-program" class="md-nav__link">
+  <a href="#explanation-of-the-process-steps-in-the-rpg-ocl-program-ap765pocl36txt" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the RPG .OCL Program
+      Explanation of the Process Steps in the RPG .OCL Program (AP765P.ocl36.txt)
     </span>
   </a>
   
@@ -7365,18 +7434,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tablesfiles-used" class="md-nav__link">
+  <a href="#tables-used" class="md-nav__link">
     <span class="md-ellipsis">
-      Tables/Files Used
+      Tables Used
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#additional-notes" class="md-nav__link">
+  <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Additional Notes
+      Summary
     </span>
   </a>
   
@@ -7403,111 +7472,101 @@
 
   <h1>AP765P OCL</h1>
 
-<p>The provided document is an OCL (Operation Control Language) program, specifically <code>AP765P.ocl36.txt</code>, used for processing 1099 forms in an IBM System/36 or AS/400 environment. Below, I’ll explain the process steps of the program, identify the external programs called, and list the tables/files used.</p>
-<h3 id="process-steps-of-the-rpg-ocl-program">Process Steps of the RPG .OCL Program<a class="headerlink" href="#process-steps-of-the-rpg-ocl-program" title="Permanent link">&para;</a></h3>
-<p>The OCL program orchestrates the generation of 1099 forms by setting up parameters, validating inputs, and invoking associated programs. Here’s a step-by-step breakdown of the process:</p>
+<h3 id="explanation-of-the-process-steps-in-the-rpg-ocl-program-ap765pocl36txt">Explanation of the Process Steps in the RPG .OCL Program (AP765P.ocl36.txt)<a class="headerlink" href="#explanation-of-the-process-steps-in-the-rpg-ocl-program-ap765pocl36txt" title="Permanent link">&para;</a></h3>
+<p>This .OCL (Operation Control Language) program, likely written for an IBM System/36 or AS/400 environment, is designed to handle the processing of 1099 vendor forms for a specified year. Below is a step-by-step explanation of the process steps based on the provided code:</p>
 <ol>
-<li><strong>Program Initialization and Parameter Setup</strong>:</li>
-<li>The program starts with the <code>SCPROCP</code> command, which likely initiates a procedure with a parameter <code>?9?</code> (a placeholder for a library or environment-specific value).</li>
-<li>The <code>SWITCH 00000000</code> command resets all job switches to <code>0</code>, ensuring a clean state.</li>
-<li>The <code>LOCAL BLANK-*ALL</code> command clears all local variables to blanks, preventing carryover of stale data.</li>
+<li><strong>Program Initialization</strong>:</li>
+<li>The program starts with <code>SCPROCP</code>, which likely sets up the procedure environment with parameters (up to 9 parameters, as indicated by <code>,,,,,,,?9?</code>).</li>
+<li><code>SWITCH 00000000</code>: Initializes all switches to off (binary 0s).</li>
+<li><code>LOCAL BLANK-*ALL</code>: Clears all local variables to blanks.</li>
 <li>
-<p>The <code>GSY2K</code> command likely adjusts for year 2000 compliance, ensuring proper date handling (common in legacy systems like System/36).</p>
+<p><code>GSY2K</code>: Likely a call to a system routine to handle Year 2000 compliance (date formatting).</p>
 </li>
 <li>
 <p><strong>Prompt for Year Input</strong>:</p>
 </li>
-<li>The program prompts the user with: <code>'WHAT YEAR ARE THESE 1099'S FOR? PLEASE ENTER THE "FOUR DIGIT YEAR"...'</code>.</li>
-<li>The input is stored in the <code>?10?</code> parameter, which represents the four-digit year for the 1099 forms (e.g., <code>2012</code>).</li>
+<li>The program prompts the user with the message: <em>"WHAT YEAR ARE THESE 1099'S FOR? PLEASE ENTER THE 'FOUR DIGIT YEAR'..."</em>.</li>
 <li>
-<p>If <code>?10?</code> is blank (<code>* ''</code>), the program likely pauses or awaits valid input (though the exact behavior isn’t fully specified here).</p>
+<p>The input is stored in parameter <code>?10?</code> (a four-digit year, e.g., 2012).</p>
 </li>
 <li>
 <p><strong>Construct 1099 File Name</strong>:</p>
 </li>
-<li>The program evaluates the <code>?13?</code> parameter (the 1099 file name) based on the value of <code>?9?</code>:<ul>
-<li>If <code>?9?/G</code> is true (indicating a specific condition, possibly a library or global setting), set <code>?13?</code> to <code>'APVN?10?'</code> (e.g., <code>APVN2012</code> for year 2012).</li>
-<li>Otherwise, set <code>?13?</code> to <code>'?9?VN?10?'</code> (e.g., if <code>?9?</code> is <code>LIB</code>, the file name might be <code>LIBVN2012</code>).</li>
-</ul>
+<li>If parameter <code>?9?</code> is 'G', the program sets <code>P13</code> (the 1099 file name) to <code>'APVN?10?'</code>, where <code>?10?</code> is the year (e.g., <code>APVN2012</code> for year 2012).</li>
+<li>Otherwise, if <code>?9?</code> is not 'G', it sets <code>P13</code> to <code>'?9?VN?10?'</code>, incorporating <code>?9?</code> as a prefix (e.g., if <code>?9?</code> is 'XX', the file name becomes <code>XXVN2012</code>).</li>
+<li>
+<p><strong>Programmer Note</strong>: The file <code>APVNYYYY</code> (e.g., <code>APVN2012</code>) is created during the period-end process (<code>AP300</code>) and contains vendor data (<code>GAPVEND</code>) before monthly and yearly totals are cleared.</p>
 </li>
 <li>
-<p>This constructs the file name for the <code>GAPVEND</code> file, which contains vendor data for 1099 processing, created during the period-end process (<code>AP300</code>).</p>
+<p><strong>Validate File Existence</strong>:</p>
 </li>
+<li>The program checks if the file specified in <code>?13?</code> exists using <code>DATAF1-?13?</code>.</li>
+<li>If the file is not found, it displays an error message (<code>'?L'142,4'? NOT FOUND'</code>) and pauses for user interaction.</li>
 <li>
-<p><strong>File Existence Check</strong>:</p>
-</li>
-<li>The program checks if the file specified in <code>?13?</code> (e.g., <code>APVN2012</code>) exists in the <code>DATAF1</code> library or file system.</li>
-<li>
-<p>If the file is not found (<code>IFF DATAF1-?13?</code>), the program:</p>
-<ul>
-<li>Displays a pause message: <code>'?L'142,4'? NOT FOUND'</code> (indicating the file is missing).</li>
-<li>Cancels execution (<code>CANCEL</code>), halting the process to prevent errors.</li>
-</ul>
+<p>If the file still cannot be found, the program cancels execution (<code>CANCEL</code>).</p>
 </li>
 <li>
 <p><strong>Set Company Information</strong>:</p>
 </li>
-<li>The program sets local variables with hardcoded data for the 1099 form header:<ul>
+<li>The program sets local variables with hardcoded company data for the 1099 form:<ul>
 <li><code>OFFSET-1</code>: Company name (<code>AMERICAN REFINING GROUP INC</code>).</li>
 <li><code>OFFSET-31</code>: Address line 1 (<code>55 ALPHA DRIVE WEST</code>).</li>
 <li><code>OFFSET-61</code>: Address line 2 (<code>PITTSBURGH PA 15238</code>).</li>
 <li><code>OFFSET-91</code>: Tax ID (<code>22-2318612</code>).</li>
-<li><code>OFFSET-201</code>: Year (<code>?10?</code>, the user-provided year).</li>
+<li><code>OFFSET-201</code>: Year (<code>?10?</code>, the input year).</li>
 </ul>
 </li>
 <li>
-<p>These values are likely used to populate the 1099 forms with the payer’s information.</p>
+<p>These values are likely used in the 1099 form output.</p>
 </li>
 <li>
-<p><strong>Load and Run AP765P</strong>:</p>
+<p><strong>Load and Run Main Program</strong>:</p>
 </li>
-<li>The <code>LOAD AP765P</code> command loads the <code>AP765P</code> program (likely an RPG or CL program responsible for 1099 processing).</li>
-<li>The <code>RUN</code> command executes the loaded program.</li>
+<li><code>LOAD AP765P</code>: Loads the main program <code>AP765P</code> (this could be the current program or a related module).</li>
+<li><code>RUN</code>: Executes the loaded program.</li>
 <li>
-<p>If <code>SWITCH1-1</code> is set (indicating an error or specific condition in <code>AP765P</code>), the program jumps to the <code>END</code> tag, skipping further processing.</p>
+<p>If <code>SWITCH1-1</code> is set (indicating an error or specific condition), the program jumps to the <code>END</code> tag, terminating execution.</p>
 </li>
 <li>
-<p><strong>Conditional Execution of 1099 Processing Programs</strong>:</p>
+<p><strong>Conditional Program Execution</strong>:</p>
 </li>
-<li>The program checks two flags stored in local variables:<ul>
-<li><code>?L'120,1'?/Y</code>: Indicates whether the job should be queued (<code>Y</code> for yes, run in batch mode).</li>
-<li><code>?L'110,1'?/M</code> or <code>/N</code>: Indicates whether to run the <code>M</code> (magnetic media, e.g., for IRS electronic filing) or <code>N</code> (non-magnetic media, e.g., printed forms) version of the 1099 processing program.</li>
+<li>The program checks two flags:<ul>
+<li><code>?L'120,1'?</code>: Likely indicates whether to submit the job to a job queue (<code>Y</code> for yes, else run directly).</li>
+<li><code>?L'110,1'?</code>: Determines which program to run (<code>M</code> for <code>AP765</code>, <code>N</code> for <code>AP765N</code>).</li>
 </ul>
 </li>
-<li>Based on these flags, one of four scenarios is executed:<ul>
-<li><strong>Batch Mode, Magnetic Media</strong>: If <code>?L'120,1'? = Y</code> and <code>?L'110,1'? = M</code>, submit <code>AP765</code> to the job queue (<code>JOBQ ?CLIB?,AP765,,,,,,,,,?9?,?10?,,,?13?</code>).</li>
-<li><strong>Interactive Mode, Magnetic Media</strong>: If <code>?L'120,1'? ≠ Y</code> and <code>?L'110,1'? = M</code>, run <code>AP765</code> interactively (<code>AP765 ,,,,,,,,?9?,?10?,,,?13?</code>).</li>
-<li><strong>Batch Mode, Non-Magnetic Media</strong>: If <code>?L'120,1'? = Y</code> and <code>?L'110,1'? = N</code>, submit <code>AP765N</code> to the job queue (<code>JOBQ ?CLIB?,AP765N,,,,,,,,?9?,?10?,,,?13?</code>).</li>
-<li><strong>Interactive Mode, Non-Magnetic Media</strong>: If <code>?L'120,1'? ≠ Y</code> and <code>?L'110,1'? = N</code>, run <code>AP765N</code> interactively (<code>AP765N ,,,,,,,,?9?,?10?,,,?13?</code>).</li>
+<li>Based on these flags, the program executes one of four scenarios:<ul>
+<li>If <code>?L'120,1'?</code> is <code>Y</code> and <code>?L'110,1'?</code> is <code>M</code>: Submits <code>AP765</code> to the job queue (<code>JOBQ ?CLIB?,AP765,,,,,,,,,?9?,?10?,,,?13?</code>).</li>
+<li>If <code>?L'120,1'?</code> is not <code>Y</code> and <code>?L'110,1'?</code> is <code>M</code>: Runs <code>AP765</code> directly (<code>AP765 ,,,,,,,,?9?,?10?,,,?13?</code>).</li>
+<li>If <code>?L'120,1'?</code> is <code>Y</code> and <code>?L'110,1'?</code> is <code>N</code>: Submits <code>AP765N</code> to the job queue (<code>JOBQ ?CLIB?,AP765N,,,,,,,,?9?,?10?,,,?13?</code>).</li>
+<li>If <code>?L'120,1'?</code> is not <code>Y</code> and <code>?L'110,1'?</code> is <code>N</code>: Runs <code>AP765N</code> directly (<code>AP765N ,,,,,,,,?9?,?10?,,,?13?</code>).</li>
 </ul>
 </li>
 <li>
-<p>The programs <code>AP765</code> and <code>AP765N</code> process the 1099 data, with parameters <code>?9?</code> (library/environment), <code>?10?</code> (year), and <code>?13?</code> (file name) passed to them.</p>
+<p>Parameters <code>?9?</code>, <code>?10?</code>, and <code>?13?</code> are passed to the called programs.</p>
 </li>
 <li>
 <p><strong>Program Termination</strong>:</p>
 </li>
-<li>The <code>TAG END</code> marks the end of the program.</li>
-<li>The program clears local variables (<code>LOCAL BLANK-*ALL</code>) and resets switches (<code>SWITCH 00000000</code>) to ensure a clean exit.</li>
+<li><code>TAG END</code>: Marks the end of the program.</li>
+<li><code>LOCAL BLANK-*ALL</code>: Clears all local variables again.</li>
+<li><code>SWITCH 00000000</code>: Resets all switches to off.</li>
 </ol>
 <h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
-<p>The OCL program invokes the following external programs:
-1. <strong>AP765P</strong>: The main program loaded and run to initiate 1099 processing. It likely performs initial setup or validation.
-2. <strong>AP765</strong>: The program for processing 1099 forms for magnetic media (e.g., IRS electronic filing).
-3. <strong>AP765N</strong>: The program for processing 1099 forms for non-magnetic media (e.g., printed forms).</p>
-<h3 id="tablesfiles-used">Tables/Files Used<a class="headerlink" href="#tablesfiles-used" title="Permanent link">&para;</a></h3>
+<p>The program references the following external programs:
+1. <strong>AP765</strong>: Likely the main program for processing 1099 forms when <code>?L'110,1'?</code> is <code>M</code>.
+2. <strong>AP765N</strong>: An alternate program for processing 1099 forms when <code>?L'110,1'?</code> is <code>N</code> (possibly for a different format or condition).
+3. <strong>AP300</strong>: Mentioned in the programmer note as the period-end process that creates the <code>APVNYYYY</code> file (not called directly in this program).</p>
+<h3 id="tables-used">Tables Used<a class="headerlink" href="#tables-used" title="Permanent link">&para;</a></h3>
 <p>The program references the following table/file:
-1. <strong>GAPVEND (via ?13?, e.g., APVN2012)</strong>:
-   - This is the vendor file containing data for 1099 forms, created during the period-end process (<code>AP300</code>).
-   - The file name is dynamically constructed as <code>APVN?10?</code> (e.g., <code>APVN2012</code>) or <code>?9?VN?10?</code> based on the <code>?9?</code> parameter.
-   - The program checks for its existence in the <code>DATAF1</code> library or file system.</p>
-<h3 id="additional-notes">Additional Notes<a class="headerlink" href="#additional-notes" title="Permanent link">&para;</a></h3>
-<ul>
-<li>The programmer’s note indicates that <code>APVNYYYY</code> (e.g., <code>APVN2012</code>) is created by the <code>AP300</code> program during period-end processing, before monthly and yearly totals are cleared.</li>
-<li>The program supports both batch (<code>JOBQ</code>) and interactive execution modes, allowing flexibility in how 1099 forms are processed.</li>
-<li>The <code>?9?</code>, <code>?10?</code>, and <code>?13?</code> parameters are critical for dynamic file and program handling, making the program reusable across different years and environments.</li>
-</ul>
-<p>This OCL program is a typical example of legacy System/36 automation for financial processes, coordinating user input, file validation, and program execution for 1099 form generation.</p>
+1. <strong>GAPVEND</strong>: The vendor file, stored as <code>APVNYYYY</code> (e.g., <code>APVN2012</code>), which contains vendor data before monthly and yearly totals are cleared. This file is accessed via the file name constructed in <code>?13?</code>.</p>
+<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
+<p>The program facilitates the generation of 1099 forms by:
+- Prompting for the year and constructing the appropriate file name (<code>APVNYYYY</code>).
+- Validating the existence of the vendor file.
+- Setting company information for the forms.
+- Conditionally running or queuing one of two programs (<code>AP765</code> or <code>AP765N</code>) based on control flags.
+- The process relies on the <code>GAPVEND</code> file and interacts with external programs <code>AP765</code> and <code>AP765N</code>.</p>
 
 
 

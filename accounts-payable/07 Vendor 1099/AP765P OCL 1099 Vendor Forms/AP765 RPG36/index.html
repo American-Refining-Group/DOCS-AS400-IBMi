@@ -15,10 +15,10 @@
         <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-payable/07%20Vendor%201099/AP765P%20OCL%201099%20Vendor%20Forms/AP765%20RPG36/">
       
       
-        <link rel="prev" href="../../AP760P%20OCL%201099%20Vendor%20Register/Summary%20AP760P%20OCL/">
+        <link rel="prev" href="../AP765%20OCL/">
       
       
-        <link rel="next" href="../AP765N%20RPG36/">
+        <link rel="next" href="../AP765N%20OCL/">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#process-steps" class="md-skip">
+        <a href="#explanation-of-the-process-steps-and-business-rules-in-the-rpg-program-ap765rpg36txt" class="md-skip">
           Skip to content
         </a>
       
@@ -2998,6 +2998,29 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../AP765%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP765 OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -3047,6 +3070,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#explanation-of-the-process-steps-and-business-rules-in-the-rpg-program-ap765rpg36txt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation of the Process Steps and Business Rules in the RPG Program (AP765.rpg36.txt)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#process-steps" class="md-nav__link">
     <span class="md-ellipsis">
       Process Steps
@@ -3065,9 +3097,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tables-used" class="md-nav__link">
+  <a href="#tablesfiles-used" class="md-nav__link">
     <span class="md-ellipsis">
-      Tables Used
+      Tables/Files Used
     </span>
   </a>
   
@@ -3077,6 +3109,15 @@
   <a href="#external-programs-called" class="md-nav__link">
     <span class="md-ellipsis">
       External Programs Called
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Outputs
     </span>
   </a>
   
@@ -3095,6 +3136,29 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AP765N%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP765N OCL
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -3159,6 +3223,29 @@
   
   <span class="md-ellipsis">
     AP765P RPG36
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AP766%20RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP766 RPG
     
   </span>
   
@@ -7356,6 +7443,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#explanation-of-the-process-steps-and-business-rules-in-the-rpg-program-ap765rpg36txt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation of the Process Steps and Business Rules in the RPG Program (AP765.rpg36.txt)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#process-steps" class="md-nav__link">
     <span class="md-ellipsis">
       Process Steps
@@ -7374,9 +7470,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tables-used" class="md-nav__link">
+  <a href="#tablesfiles-used" class="md-nav__link">
     <span class="md-ellipsis">
-      Tables Used
+      Tables/Files Used
     </span>
   </a>
   
@@ -7386,6 +7482,15 @@
   <a href="#external-programs-called" class="md-nav__link">
     <span class="md-ellipsis">
       External Programs Called
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Outputs
     </span>
   </a>
   
@@ -7421,152 +7526,307 @@
 
   <h1>AP765 RPG36</h1>
 
-<p>The RPG36 program <code>AP765</code> is designed to generate Vendor 1099 forms, likely for tax reporting purposes, printing two forms per page on laser paper. It processes vendor data from an input file, validates amounts, formats addresses, and prints the forms with specific fields like payee names, vendor IDs, and amounts. Below is a detailed explanation of the process steps, business rules, tables used, and external programs called.</p>
+<h3 id="explanation-of-the-process-steps-and-business-rules-in-the-rpg-program-ap765rpg36txt">Explanation of the Process Steps and Business Rules in the RPG Program (AP765.rpg36.txt)<a class="headerlink" href="#explanation-of-the-process-steps-and-business-rules-in-the-rpg-program-ap765rpg36txt" title="Permanent link">&para;</a></h3>
+<p>The RPG III program <code>AP765.rpg36.txt</code> is designed to print vendor 1099 forms on an IBM System/36 or AS/400 system. It is called by the OCL program <code>AP765.ocl36.txt</code> and uses data from the preprocessed file <code>AP766</code> to generate 1099 forms, printing two forms per page on laser paper. Below is a detailed explanation of the process steps, business rules, tables/files used, and external programs called.</p>
+<hr />
 <h3 id="process-steps">Process Steps<a class="headerlink" href="#process-steps" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>File and Data Structure Definitions</strong>:</li>
-<li><strong>File Definitions (F-Spec)</strong>:<ul>
-<li><code>AP766</code> (Line 0008): Input file (<code>IP</code>), disk-based, with a record length of 300 bytes, containing vendor data.</li>
-<li><code>AP1099</code> (Line 0009): Output file (<code>O</code>), printer file with a record length of 80 bytes, used for printing the 1099 forms.</li>
-<li><code>LAP1099</code> (Line 0011): Logical file for the printer, specifying 66 lines per page with overflow at line 66.</li>
+<li><strong>Program Setup and File Definitions</strong>:</li>
+<li><strong>Header Specification (H)</strong>:<ul>
+<li>Line <code>0002</code>: Defines the program name (<code>AP765</code>) and parameter <code>P016</code>, likely a control parameter passed from the OCL program.</li>
 </ul>
 </li>
-<li><strong>Input Specifications (I-Spec)</strong>:<ul>
-<li><strong>AP766 Record Format (NS 01)</strong> (Lines 0012–0025):</li>
-<li>Fields include <code>VNDEL</code> (delete code), <code>VN1099</code> (1099 code), <code>VNVEND</code> (vendor number), <code>VNNAME</code> (vendor name), <code>VNADD1–VNADD4</code> (address lines), <code>L1AMT1</code> and <code>L1AMT2</code> (amounts for two boxes), <code>BOX1</code> and <code>BOX2</code> (box numbers), <code>VNID#</code> (1099 ID), <code>VNPYN1</code> and <code>VNPYN2</code> (payee names 1 and 2, added in JB01), <code>VNNOVF</code> (name overflow flag, added in JB02), <code>STATID</code>, and <code>STATED</code> (state-related fields).</li>
-<li><strong>Data Structure (UDS)</strong> (Lines 0026–0032):</li>
-<li>Fields include <code>HEAD1</code>, <code>HEAD2</code>, <code>HEAD3</code> (headings), <code>ID#</code> (company ID), <code>ENTAMT</code> (entered amount), <code>CURLST</code> (current/last indicator), <code>CNYEAR</code>, and <code>YEAR</code> (year fields).</li>
+<li><strong>File Specifications (F)</strong>:<ul>
+<li>Line <code>0008</code>: <code>AP766</code> (Input, Primary, 300 bytes): The preprocessed work file (e.g., <code>?9?AP766</code> from the OCL), containing consolidated vendor data.</li>
+<li>Line <code>0009</code>: <code>AP1099</code> (Output, 80 bytes, Printer): The printer file used to output 1099 forms, configured in the OCL with form type <code>1099</code>, 10 CPI, and 6 LPI.</li>
+</ul>
+</li>
+<li><strong>Line Counter Specification (L)</strong>:<ul>
+<li>Line <code>0011</code>: Defines line counter settings for <code>AP1099</code> with 66 lines per form (<code>FL 66</code>) and 66 lines of overflow (<code>OL 66</code>), ensuring proper pagination.</li>
 </ul>
 </li>
 <li>
-<p><strong>Output Specifications (O-Spec)</strong> (Lines 0107–0141):</p>
+<p><strong>Input Specifications (I)</strong>:</p>
 <ul>
-<li>Defines output formats for printing two 1099 forms per page (controlled by indicators 31 and 32 for top and bottom forms, respectively).</li>
-<li>Outputs fields like headings, amounts, vendor/payee names, addresses, and totals, with specific positioning on the form.</li>
+<li>Lines <code>0012-0025</code>: Define fields in the <code>AP766</code> file (format <code>NS 01</code>):</li>
+<li><code>VNDEL</code> (1 char, position 1): Delete code.</li>
+<li><code>VN1099</code> (1 char, position 2): A/P 1099 code (e.g., <code>M</code> for Miscellaneous, <code>N</code> for Non-Employee Compensation).</li>
+<li><code>VNVEND</code> (5 chars, positions 3-7): Vendor number.</li>
+<li><code>VNNAME</code> (30 chars, positions 8-37): Vendor name.</li>
+<li><code>VNADD1-4</code> (30 chars each, positions 38-157): Address lines 1-4.</li>
+<li><code>L1AMT1</code> (9,2 numeric, positions 158-166): First box amount.</li>
+<li><code>L1AMT2</code> (9,2 numeric, positions 167-175): Second box amount.</li>
+<li><code>BOX1</code> (2 numeric, positions 176-177): First box number.</li>
+<li><code>BOX2</code> (2 numeric, positions 178-179): Second box number.</li>
+<li><code>VNID#</code> (11 chars, positions 180-190): 1099 ID number (e.g., Tax ID).</li>
+<li><code>VNPYN1</code> (40 chars, positions 191-230, added by <code>JB01</code>): Payee name 1.</li>
+<li><code>VNPYN2</code> (40 chars, positions 231-270, added by <code>JB01</code>): Payee name 2.</li>
+<li><code>VNNOVF</code> (1 char, position 271, added by <code>JB02</code>): Name overflow indicator.</li>
+<li><code>STATID</code> (8 chars, positions 272-279): State ID.</li>
+<li><code>STATED</code> (9,2 numeric, positions 280-288): State amount.</li>
+<li>Lines <code>0026-0032</code>: Define fields in the User Data Structure (<code>UDS</code>):</li>
+<li><code>HEAD1</code> (30 chars, positions 1-30): First heading (e.g., company name).</li>
+<li><code>HEAD2</code> (30 chars, positions 31-60): Second heading (e.g., address line 1).</li>
+<li><code>HEAD3</code> (30 chars, positions 61-90): Third heading (e.g., address line 2).</li>
+<li><code>ID#</code> (10 chars, positions 91-100): Company Tax ID.</li>
+<li><code>ENTAMT</code> (8,2 numeric, positions 101-108): Threshold amount for printing.</li>
+<li><code>CURLST</code> (1 char, position 109): Current/Last indicator (<code>C</code> or <code>L</code>).</li>
+<li><code>CNYEAR</code> (4 numeric, positions 201-204): Current year.</li>
+<li><code>YEAR</code> (4 numeric, positions 203-204): Year (overlaps with <code>CNYEAR</code>, possibly a typo or legacy field).</li>
 </ul>
 </li>
 <li>
-<p><strong>Calculation Specifications (C-Spec)</strong>:</p>
+<p><strong>Initial Vendor Processing</strong>:</p>
 </li>
-<li><strong>Initial Vendor Checks</strong>:<ul>
-<li>If <code>VNVEND</code> equals 9384, set <code>YES</code> to 'YES' (Line 0033).</li>
-<li>If <code>VN1099</code> is 'M' (Miscellaneous), set indicator 33; if 'N' (Nonemployee Compensation), set indicator 34 (Lines 0033).</li>
-</ul>
-</li>
-<li><strong>Amount Validation</strong>:<ul>
-<li>Line 0034: Add <code>L1AMT1</code> and <code>L1AMT2</code> to <code>TOTAMT</code>.</li>
-<li>Line 0035: Compare <code>TOTAMT</code> with <code>ENTAMT</code>. If they don’t match, set indicator 30 and branch to <code>END</code> (Line 0036).</li>
-</ul>
-</li>
-<li><strong>Form Counter Logic</strong>:<ul>
-<li>Lines 0037–0037: <code>COUNTP</code> tracks whether to print the top (31) or bottom (32) form. If <code>COUNTP</code> is zero, set it to 1 and turn on indicator 31. Otherwise, increment <code>COUNTP</code> and toggle between indicators 31 and 32.</li>
-</ul>
-</li>
-<li><strong>Clear Work Fields</strong>:<ul>
-<li>Lines JB01: For each form (31 or 32), clear fields like <code>PYN11</code>, <code>PYN12</code>, <code>PYN21</code>, <code>PYN22</code>, <code>VNID#1</code>, <code>VNID#2</code>, <code>STATE1</code>, <code>STATE2</code>, <code>STATI1</code>, <code>STATI2</code>, <code>VNVEN1</code>, <code>VNVEN2</code>, and amount fields (<code>AMT11</code>, <code>AMT31</code>, <code>AMT61</code>, <code>AMT71</code>, etc.).</li>
-</ul>
-</li>
-<li><strong>Payee and Address Processing for Form 1 (Indicator 31)</strong>:<ul>
-<li>Lines 0038–0069: If <code>VNPYN1</code> is blank, use <code>VNNAME</code> for <code>PYN11</code>. If <code>VNNOVF</code> is 'Y', set indicators 35 and 71 for name overflow.</li>
-<li>Address lines (<code>VNADD1–VNADD4</code>) are checked in descending order. The highest non-blank address line is moved to <code>CTSTZ1</code>, with lower lines shifted to <code>VNAD11</code>, <code>VNAD21</code>, or <code>PYN21</code> as needed.</li>
-<li>If <code>VNPYN1</code> is not blank, use <code>VNPYN1</code> and <code>VNPYN2</code> for <code>PYN11</code> and <code>PYN21</code>, respectively, and set indicator 71.</li>
-</ul>
-</li>
-<li><strong>Payee and Address Processing for Form 2 (Indicator 32)</strong>:<ul>
-<li>Similar logic as above, but for fields like <code>PYN12</code>, <code>PYN22</code>, <code>CTSTZ2</code>, <code>VNAD12</code>, and <code>VNAD22</code>, with indicators 36 and 72.</li>
-</ul>
-</li>
-<li><strong>Additional Address Processing</strong>:<ul>
-<li>Lines 0045–0069 (for 31 and 32): Additional checks for non-overflow cases (<code>N35</code> or <code>N36</code>) to format addresses correctly into <code>CTSTZ1</code>, <code>VNAD11</code>, <code>VNAD21</code>, etc.</li>
-</ul>
-</li>
-<li><strong>Amount Assignment</strong>:<ul>
-<li>Lines 0071–0094: Assign <code>L1AMT1</code> and <code>L1AMT2</code> to specific amount fields (<code>AMT11</code>, <code>AMT31</code>, <code>AMT61</code>, <code>AMT71</code> for Form 1; <code>AMT12</code>, <code>AMT32</code>, <code>AMT62</code>, <code>AMT72</code> for Form 2) based on <code>BOX1</code> and <code>BOX2</code> values (1, 3, 6, or 7).</li>
-</ul>
-</li>
-<li><strong>Accumulate Totals</strong>:<ul>
-<li>Lines 0095–0098: For each form, increment <code>COUNT</code> and add amounts to running totals (<code>LRAMT1</code>, <code>LRAMT3</code>, <code>LRAMT6</code>, <code>LRAMT7</code>).</li>
-</ul>
-</li>
-<li><strong>Print Logic</strong>:<ul>
-<li>Line 0100: If <code>COUNTP</code> equals 2, reset <code>COUNTP</code>, set indicator 31, and execute the <code>EXCPT</code> operation to print both forms.</li>
-</ul>
-</li>
-<li><strong>End-of-File Handling</strong>:<ul>
-<li>If the end of file is reached (<code>LR</code> on), check if indicator 31 is on (data for top form). If so, clear fields, accumulate final totals into <code>LRAMT</code>, and print the last form with indicator 30.</li>
+<li><strong>Vendor Number Check</strong>:<ul>
+<li>Lines <code>C*</code>: If <code>VNVEND</code> equals <code>9384</code>, set <code>YES</code> to <code>'YES'</code> (3 chars). This likely flags a specific vendor for special handling, though its purpose is unclear.</li>
 </ul>
 </li>
 <li>
-<p><strong>Output Execution</strong>:</p>
+<p><strong>1099 Type Check</strong>:</p>
 <ul>
-<li>The <code>EXCPT</code> operation triggers printing of the forms based on indicators 31 and 32, outputting fields to the printer file.</li>
+<li>If <code>VN1099</code> is <code>M</code> (Miscellaneous), set indicator <code>33</code> on.</li>
+<li>If <code>VN1099</code> is <code>N</code> (Non-Employee Compensation), set indicator <code>34</code> on.</li>
+<li>These indicators control which box amounts are printed (e.g., <code>AMT11</code> for 1099-MISC or 1099-NEC).</li>
 </ul>
 </li>
 <li>
-<p><strong>Output Processing</strong>:</p>
+<p><strong>Amount Validation</strong>:</p>
 </li>
-<li><strong>Form 1 (Indicator 31)</strong>:<ul>
-<li>Outputs headings (<code>HEAD1</code>, <code>HEAD2</code>, <code>HEAD3</code>), year (<code>CNYEAR</code>), amounts (<code>AMT11</code>, <code>AMT31</code>, <code>AMT61</code>, <code>AMT71</code>), IDs (<code>ID#</code>, <code>VNID#1</code>), payee names (<code>PYN11</code>, <code>PYN21</code>), addresses (<code>VNAD11</code>, <code>VNAD21</code>, <code>CTSTZ1</code>), and vendor number (<code>VNVEN1</code>).</li>
+<li>Line <code>0034</code>: Add <code>L1AMT1</code> and <code>L1AMT2</code> to compute <code>TOTAMT</code> (9,2 numeric), the total vendor payment.</li>
+<li>Line <code>0035</code>: Compare <code>TOTAMT</code> with <code>ENTAMT</code> (threshold amount from <code>UDS</code>). Set indicator <code>30</code> if <code>TOTAMT</code> is greater than or equal to <code>ENTAMT</code>.</li>
+<li>
+<p>Line <code>0036</code>: If indicator <code>30</code> is off (<code>N30</code>), skip to the <code>END</code> tag, bypassing the vendor (i.e., only vendors meeting the threshold are printed).</p>
+</li>
+<li>
+<p><strong>Form Counter Logic</strong>:</p>
+</li>
+<li>
+<p>Lines <code>C*</code>: Manage the <code>COUNTP</code> (2 numeric) field to track whether the first (<code>31</code>) or second (<code>32</code>) form on the page is being processed:</p>
+<ul>
+<li>If <code>COUNTP</code> is zero, set it to <code>1</code>, set indicator <code>31</code> on (first form), and set <code>32</code> off.</li>
+<li>Otherwise, increment <code>COUNTP</code>, set <code>31</code> off, and set <code>32</code> on (second form).</li>
+<li>This supports printing two forms per page (revision <code>MG03</code>).</li>
 </ul>
 </li>
-<li><strong>Form 2 (Indicator 32)</strong>:<ul>
-<li>Similar to Form 1 but uses fields like <code>AMT12</code>, <code>AMT32</code>, <code>AMT62</code>, <code>AMT72</code>, <code>VNID#2</code>, <code>PYN12</code>, <code>PYN22</code>, <code>VNAD12</code>, <code>VNAD22</code>, <code>CTSTZ2</code>, and <code>VNVEN2</code>.</li>
+<li>
+<p><strong>Clear Work Fields</strong>:</p>
+</li>
+<li>
+<p>Lines <code>JB01</code>: For each form (indicators <code>31</code> or <code>32</code>):</p>
+<ul>
+<li>Clear fields for payee names (<code>PYN11</code>, <code>PYN12</code>, <code>PYN21</code>, <code>PYN22</code>), tax IDs (<code>VNID#1</code>, <code>VNID#2</code>), state amounts (<code>STATE1</code>, <code>STATE2</code>), state IDs (<code>STATI1</code>, <code>STATI2</code>), vendor numbers (<code>VNVEN1</code>, <code>VNVEN2</code>), addresses (<code>ADDR11</code>, <code>ADDR12</code>, <code>ADDR21</code>, <code>ADDR22</code>, <code>CTSTZ1</code>, <code>CTSTZ2</code>), and amounts (<code>AMT11</code>, <code>AMT12</code>, <code>AMT31</code>, <code>AMT32</code>, <code>AMT61</code>, <code>AMT62</code>, <code>AMT71</code>, <code>AMT72</code>).</li>
+<li>Reset indicators <code>71</code>, <code>72</code>, <code>35</code>, <code>36</code> to control name and address printing.</li>
 </ul>
 </li>
-<li><strong>Totals (LR Indicator)</strong>:<ul>
-<li>Prints totals (<code>LRAMT1</code>, <code>LRAMT3</code>, <code>LRAMT6</code>, <code>LRAMT7</code>, <code>LRAMT</code>, <code>COUNT</code>) and headings at the end of the job.</li>
+<li>
+<p><strong>Payee and Address Processing (First Form, Indicator <code>31</code>)</strong>:</p>
+</li>
+<li>Lines <code>JB01</code>: Determine whether to use vendor name or payee names:<ul>
+<li>If <code>VNPYN1</code> is blank, use <code>VNNAME</code> for <code>PYN11</code> (vendor name).</li>
+<li>If <code>VNNOVF</code> is <code>Y</code> (name overflow, revision <code>JB02</code>), set indicators <code>35</code> and <code>71</code> on.</li>
+<li>If <code>VNPYN1</code> is not blank, use <code>VNPYN1</code> for <code>PYN11</code> and set <code>71</code> on. If <code>VNPYN2</code> is not blank, use <code>VNPYN2</code> for <code>PYN21</code> and set <code>71</code> on.</li>
+</ul>
+</li>
+<li>Lines <code>0045-0069</code>: Assign address fields based on non-blank values:<ul>
+<li>If <code>VNADD4</code> is not blank, set <code>CTSTZ1</code> (city/state/ZIP) to <code>VNADD4</code>, <code>VNAD21</code> to <code>VNADD3</code>, <code>VNAD11</code> to <code>VNADD2</code>, and <code>PYN21</code> to <code>VNADD1</code>.</li>
+<li>Else if <code>VNADD3</code> is not blank, set <code>CTSTZ1</code> to <code>VNADD3</code>, <code>VNAD21</code> to <code>VNADD2</code>, <code>PYN21</code> to <code>VNADD1</code>.</li>
+<li>Else if <code>VNADD2</code> is not blank, set <code>CTSTZ1</code> to <code>VNADD2</code>, <code>PYN21</code> to <code>VNADD1</code>.</li>
+<li>Else if <code>VNADD1</code> is not blank, set <code>CTSTZ1</code> to <code>VNADD1</code>.</li>
+<li>If none are non-blank, set indicator <code>73</code> on (likely to skip address printing).</li>
+<li>Jump to <code>CONT1</code> tag after address assignment.</li>
+</ul>
+</li>
+<li>
+<p>Lines <code>0045-0069</code> (non-overflow case, <code>N35</code>): Similar address assignment without overflow logic.</p>
+</li>
+<li>
+<p><strong>Payee and Address Processing (Second Form, Indicator <code>32</code>)</strong>:</p>
+</li>
+<li>
+<p>Identical logic to the first form, but for fields <code>PYN12</code>, <code>PYN22</code>, <code>VNAD12</code>, <code>CTSTZ2</code>, with indicators <code>36</code> and <code>72</code>, jumping to <code>CONT2</code> tag.</p>
+</li>
+<li>
+<p><strong>Address Processing (Non-Overflow, <code>CONT3</code> and <code>CONT4</code>)</strong>:</p>
+</li>
+<li>
+<p>Lines <code>0045-0069</code>: For both forms (<code>31N35</code> and <code>32N36</code>), assign address fields similarly to ensure proper formatting when no name overflow occurs.</p>
+</li>
+<li>
+<p><strong>Amount Assignment for Printing</strong>:</p>
+</li>
+<li>
+<p>Lines <code>0071-0094</code>: Assign amounts to specific 1099 box fields based on <code>BOX1</code> and <code>BOX2</code>:</p>
+<ul>
+<li>For <code>BOX1</code> (indicators <code>31</code> and <code>32</code>):</li>
+<li>If <code>1</code>, set <code>AMT11</code>/<code>AMT12</code> to <code>L1AMT1</code> (e.g., box 1 for 1099-MISC).</li>
+<li>If <code>3</code>, set <code>AMT31</code>/<code>AMT32</code> to <code>L1AMT1</code> (e.g., box 3 for 1099-MISC).</li>
+<li>If <code>6</code>, set <code>AMT61</code>/<code>AMT62</code> to <code>L1AMT1</code> (e.g., box 6 for 1099-MISC).</li>
+<li>If <code>7</code>, set <code>AMT71</code>/<code>AMT72</code> to <code>L1AMT1</code> (e.g., box 7 for 1099-NEC).</li>
+<li>For <code>BOX2</code> (indicators <code>31</code> and <code>32</code>):</li>
+<li>If <code>1</code>, set <code>AMT11</code>/<code>AMT12</code> to <code>L1AMT2</code>.</li>
+<li>If <code>3</code>, set <code>AMT31</code>/<code>AMT32</code> to <code>L1AMT2</code>.</li>
+<li>If <code>6</code>, set <code>AMT61</code>/<code>AMT62</code> to <code>L1AMT2</code>.</li>
+<li>If <code>7</code>, set <code>AMT71</code>/<code>AMT72</code> to <code>L1AMT2</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Accumulate Totals</strong>:</p>
+<ul>
+<li>Lines <code>0095-0098</code>: For each form:</li>
+<li>Increment <code>COUNT</code> (6 numeric, total vendors printed).</li>
+<li>Add <code>AMT11</code>/<code>AMT12</code> to <code>LRAMT1</code> (10,2 numeric, total for box 1).</li>
+<li>Add <code>AMT31</code>/<code>AMT32</code> to <code>LRAMT3</code> (total for box 3).</li>
+<li>Add <code>AMT61</code>/<code>AMT62</code> to <code>LRAMT6</code> (total for box 6).</li>
+<li>Add <code>AMT71</code>/<code>AMT72</code> to <code>LRAMT7</code> (total for box 7).</li>
+</ul>
+</li>
+<li>
+<p><strong>Page Break Logic</strong>:</p>
+<ul>
+<li>Lines <code>C*</code>: If <code>COUNTP</code> equals <code>2</code> (both forms on the page filled):</li>
+<li>Reset <code>COUNTP</code> to zero, set <code>31</code> on, and execute an <code>EXCPT</code> to print the page.</li>
+<li>At end of file (<code>LR</code> on):</li>
+<li>If data remains for the first form (<code>31</code> on, not <code>32</code>), print a final page with one vendor.</li>
+<li>Compute total amount <code>LRAMT</code> (11,2 numeric) by summing <code>LRAMT1</code>, <code>LRAMT3</code>, <code>LRAMT6</code>, <code>LRAMT7</code>.</li>
+<li>Set indicator <code>30</code> and execute <code>EXCPT</code> to print totals.</li>
+</ul>
+</li>
+<li>
+<p><strong>Output to Printer</strong>:</p>
+<ul>
+<li>Lines <code>0107-0140</code>: Define the output format for <code>AP1099</code>:</li>
+<li><strong>First Form (Indicator <code>31</code>)</strong>:<ul>
+<li>Lines 5-23: Print company headers (<code>HEAD1-3</code>), year (<code>CNYEAR</code>), tax IDs (<code>ID#</code>, <code>VNID#1</code>), payee names (<code>PYN11</code>, <code>PYN21</code>), addresses (<code>VNAD11</code>, <code>VNAD21</code>, <code>CTSTZ1</code>), and amounts (<code>AMT11</code>, <code>AMT31</code>, <code>AMT61</code>, <code>AMT71</code>).</li>
+<li>Conditional on <code>33</code> (1099-MISC) or <code>34</code> (1099-NEC) for amount fields.</li>
+</ul>
+</li>
+<li><strong>Second Form (Indicator <code>32</code>)</strong>:<ul>
+<li>Similar fields for the second form, using <code>PYN12</code>, <code>PYN22</code>, <code>VNAD12</code>, <code>CTSTZ2</code>, <code>AMT12</code>, <code>AMT32</code>, <code>AMT62</code>, <code>AMT72</code>, <code>VNID#2</code>.</li>
+</ul>
+</li>
+<li><strong>Totals (LR)</strong>:<ul>
+<li>Print <code>HEAD1-3</code>, <code>ID#</code>, totals (<code>LRAMT1</code>, <code>LRAMT3</code>, <code>LRAMT6</code>, <code>LRAMT7</code>, <code>LRAMT</code>), and vendor count (<code>COUNT</code>).</li>
+</ul>
+</li>
+<li><strong>Vendor Number (Revision <code>JB02</code>)</strong>:<ul>
+<li>Print <code>VNVEN1</code>/<code>VNVEN2</code> as the account number for each form.</li>
+</ul>
+</li>
 </ul>
 </li>
 </ol>
+<hr />
 <h3 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>Amount Validation</strong>:</li>
-<li>The sum of <code>L1AMT1</code> and <code>L1AMT2</code> must equal <code>ENTAMT</code>. If not, the program skips to the <code>END</code> tag, bypassing further processing for that record.</li>
-<li><strong>Form Layout</strong>:</li>
-<li>Two forms are printed per page (top and bottom), controlled by indicators 31 and 32, respectively. <code>COUNTP</code> toggles between 1 (top) and 2 (bottom).</li>
-<li>If only one form remains at the end of the file, it is printed with indicator 30.</li>
-<li><strong>Payee Name Handling</strong> (JB01, 2013):</li>
-<li>If <code>VNPYN1</code> is blank, use <code>VNNAME</code>. If <code>VNPYN1</code> and <code>VNPYN2</code> are provided, use them for printing payee names.</li>
-<li><strong>Name Overflow</strong> (JB02, 2014):</li>
-<li>If <code>VNNOVF</code> is 'Y', set indicators 35/71 (Form 1) or 36/72 (Form 2) to handle name continuation on the second line.</li>
-<li><strong>Address Formatting</strong>:</li>
-<li>Address lines are processed from <code>VNADD4</code> to <code>VNADD1</code>, using the highest non-blank line for <code>CTSTZ1</code>/<code>CTSTZ2</code> and shifting lower lines to <code>VNAD11</code>/<code>VNAD21</code> or <code>VNAD12</code>/<code>VNAD22</code>.</li>
-<li><strong>Amount Mapping</strong>:</li>
-<li>Amounts (<code>L1AMT1</code>, <code>L1AMT2</code>) are assigned to specific boxes (1, 3, 6, or 7) based on <code>BOX1</code> and <code>BOX2</code> values, corresponding to IRS 1099 form fields.</li>
-<li><strong>Vendor Number as Account</strong> (JB02, 2014):</li>
-<li>Vendor number (<code>VNVEND</code>) is printed as the account number (<code>VNVEN1</code>, <code>VNVEN2</code>).</li>
-<li><strong>Laser Paper Printing</strong> (MG03, 2016):</li>
-<li>Designed to print on laser paper with two forms per page.</li>
-<li><strong>Two Different Forms</strong> (MG04, 2021):</li>
-<li>Supports printing two distinct 1099 forms per page, with separate fields for each.</li>
-<li><strong>1099 Code Handling</strong>:<ul>
-<li>If <code>VN1099</code> is 'M', set indicator 33 (Miscellaneous Income).</li>
-<li>If <code>VN1099</code> is 'N', set indicator 34 (Nonemployee Compensation).</li>
-</ul>
+<li><strong>Threshold Check</strong>:</li>
+<li>
+<p>Only vendors with a total amount (<code>TOTAMT</code> = <code>L1AMT1</code> + <code>L1AMT2</code>) greater than or equal to <code>ENTAMT</code> are printed.</p>
 </li>
+<li>
+<p><strong>Two Forms per Page</strong>:</p>
+</li>
+<li>The program prints two 1099 forms per page on laser paper (revision <code>MG03</code>), managed by <code>COUNTP</code> and indicators <code>31</code>/<code>32</code>.</li>
+<li>
+<p>If only one vendor remains at the end of the file, a final page with one form is printed.</p>
+</li>
+<li>
+<p><strong>Payee Name Handling</strong>:</p>
+</li>
+<li>If <code>VNPYN1</code> is blank, use <code>VNNAME</code> (vendor name). Otherwise, use <code>VNPYN1</code> and <code>VNPYN2</code> (payee names, revision <code>JB01</code>).</li>
+<li>
+<p>If <code>VNNOVF</code> is <code>Y</code>, use address fields to continue the name on the second line (revision <code>JB02</code>).</p>
+</li>
+<li>
+<p><strong>Address Formatting</strong>:</p>
+</li>
+<li>
+<p>Use the highest non-blank address field (<code>VNADD4</code> to <code>VNADD1</code>) for city/state/ZIP (<code>CTSTZ1</code>/<code>CTSTZ2</code>) and shift other fields accordingly to ensure proper formatting.</p>
+</li>
+<li>
+<p><strong>Box Amount Assignment</strong>:</p>
+</li>
+<li>
+<p>Amounts are assigned to boxes 1, 3, 6, or 7 based on <code>BOX1</code> and <code>BOX2</code> values, supporting both 1099-MISC and 1099-NEC forms (revision <code>MG04</code>).</p>
+</li>
+<li>
+<p><strong>1099 Type</strong>:</p>
+</li>
+<li>
+<p>Indicator <code>33</code> for 1099-MISC (<code>VN1099 = 'M'</code>) and <code>34</code> for 1099-NEC (<code>VN1099 = 'N'</code>) control amount field printing.</p>
+</li>
+<li>
+<p><strong>Totals</strong>:</p>
+</li>
+<li>
+<p>Accumulate totals for each box (<code>LRAMT1</code>, <code>LRAMT3</code>, <code>LRAMT6</code>, <code>LRAMT7</code>) and vendor count (<code>COUNT</code>) for the final summary.</p>
+</li>
+<li>
+<p><strong>Vendor Number as Account Number</strong>:</p>
+</li>
+<li>Print <code>VNVEND</code> as the account number (revision <code>JB02</code>).</li>
 </ol>
-<h3 id="tables-used">Tables Used<a class="headerlink" href="#tables-used" title="Permanent link">&para;</a></h3>
-<ul>
+<hr />
+<h3 id="tablesfiles-used">Tables/Files Used<a class="headerlink" href="#tablesfiles-used" title="Permanent link">&para;</a></h3>
+<ol>
 <li><strong>AP766</strong>:</li>
-<li>Input disk file containing vendor data: <code>VNDEL</code>, <code>VN1099</code>, <code>VNVEND</code>, <code>VNNAME</code>, <code>VNADD1–VNADD4</code>, <code>L1AMT1</code>, <code>L1AMT2</code>, <code>BOX1</code>, <code>BOX2</code>, <code>VNID#</code>, <code>VNPYN1</code>, <code>VNPYN2</code>, <code>VNNOVF</code>, <code>STATID</code>, <code>STATED</code>.</li>
-<li><strong>No explicit arrays</strong> are defined, but work fields like <code>AMT11</code>, <code>AMT31</code>, <code>LRAMT1</code>, etc., act as temporary storage for calculations and printing.</li>
-</ul>
+<li>Input file (300 bytes, labeled <code>?9?AP766</code> in the OCL, e.g., <code>XXAP766</code>).</li>
+<li>
+<p>Contains preprocessed vendor data from <code>AP766.rpg36.txt</code>, including vendor details, amounts, box numbers, and payee names.</p>
+</li>
+<li>
+<p><strong>AP1099</strong>:</p>
+</li>
+<li>Output printer file (80 bytes, labeled <code>AP1099</code> in the OCL).</li>
+<li>
+<p>Configured to print 1099 forms with form type <code>1099</code>, 10 CPI, 6 LPI, two forms per page.</p>
+</li>
+<li>
+<p><strong>PA1099X</strong> (Implied):</p>
+</li>
+<li>Referenced in the OCL (<code>?9?PA1099X</code>), likely a cross-reference file, but not used directly in this program.</li>
+</ol>
+<hr />
 <h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>None</strong>:</li>
-<li>The program does not explicitly call any external programs (no <code>CALL</code> statements).</li>
-<li>It is invoked from a main OCL script, but no details about the OCL or other programs are provided.</li>
+<li>None are explicitly called within <code>AP765</code>. It is invoked by <code>AP765.ocl36.txt</code> and processes data from <code>AP766.rpg36.txt</code>, with input prepared by <code>#GSORT</code> and <code>AP766</code>.</li>
 </ul>
+<hr />
+<h3 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>AP1099 Printer File</strong>:</li>
+<li>Prints 1099 forms (two per page, revision <code>MG03</code>) with:<ul>
+<li>Company headers (<code>HEAD1</code>, <code>HEAD2</code>, <code>HEAD3</code>).</li>
+<li>Year (<code>CNYEAR</code>).</li>
+<li>Company Tax ID (<code>ID#</code>) and vendor Tax ID (<code>VNID#1</code>/<code>VNID#2</code>).</li>
+<li>Payee names (<code>PYN11</code>/<code>PYN12</code>, <code>PYN21</code>/<code>PYN22</code>) or vendor name (<code>VNNAME</code>).</li>
+<li>Addresses (<code>VNAD11</code>/<code>VNAD12</code>, <code>VNAD21</code>/<code>VNAD22</code>, <code>CTSTZ1</code>/<code>CTSTZ2</code>).</li>
+<li>Amounts for boxes 1, 3, 6, or 7 (<code>AMT11</code>/<code>AMT12</code>, <code>AMT31</code>/<code>AMT32</code>, <code>AMT61</code>/<code>AMT62</code>, <code>AMT71</code>/<code>AMT72</code>).</li>
+<li>Vendor number as account number (<code>VNVEN1</code>/<code>VNVEN2</code>, revision <code>JB02</code>).</li>
+</ul>
+</li>
+<li>Final page includes totals (<code>LRAMT1</code>, <code>LRAMT3</code>, <code>LRAMT6</code>, <code>LRAMT7</code>, <code>LRAMT</code>) and vendor count (<code>COUNT</code>).</li>
+</ol>
+<hr />
 <h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
-<p>The <code>AP765</code> program:
-- Reads vendor data from the <code>AP766</code> file and prints 1099 forms to the <code>AP1099</code> printer file, formatted for laser paper with two forms per page.
-- Validates that the sum of <code>L1AMT1</code> and <code>L1AMT2</code> matches <code>ENTAMT</code>.
-- Formats payee names, using <code>VNPYN1</code> and <code>VNPYN2</code> if provided, or <code>VNNAME</code> otherwise, with overflow handling.
-- Processes addresses by selecting the highest non-blank line and shifting others accordingly.
-- Maps amounts to specific 1099 form boxes (1, 3, 6, 7) based on <code>BOX1</code> and <code>BOX2</code>.
-- Accumulates totals and prints a summary at the end.
-- Uses indicators to control printing of top (31) and bottom (32) forms, with special handling for the last form.
-- Does not call external programs but is part of a larger OCL-driven process.</p>
+<ul>
+<li><strong>Purpose</strong>: The RPG program <code>AP765</code> prints 1099 forms (MISC and NEC) using preprocessed vendor data, formatting two forms per page on laser paper.</li>
+<li><strong>Process</strong>:</li>
+<li>Reads <code>AP766</code> and validates vendor amounts against a threshold (<code>ENTAMT</code>).</li>
+<li>Manages two forms per page with <code>COUNTP</code> and indicators <code>31</code>/<code>32</code>.</li>
+<li>Assigns payee names, addresses, and amounts to appropriate fields.</li>
+<li>Prints forms with company and vendor details, amounts, and totals.</li>
+<li><strong>Business Rules</strong>:</li>
+<li>Prints only vendors meeting the amount threshold.</li>
+<li>Supports two forms per page and different 1099 types (MISC, NEC).</li>
+<li>Handles payee names, name overflow, and vendor number as account number.</li>
+<li>Accumulates totals for reporting.</li>
+<li><strong>Files Used</strong>:</li>
+<li>Input: <code>AP766</code> (preprocessed vendor data).</li>
+<li>Output: <code>AP1099</code> (printer file for 1099 forms).</li>
+<li><strong>External Programs</strong>: None called directly; part of a workflow with <code>#GSORT</code>, <code>AP766</code>, and <code>AP765P</code>.</li>
+</ul>
+<p>This program finalizes the 1099 form printing process, producing IRS-compliant output for vendors.</p>
 
 
 
