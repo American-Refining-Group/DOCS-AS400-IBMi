@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#process-steps-of-the-ap780p-rpg36-program" class="md-skip">
+        <a href="#process-steps-of-the-ap780p-rpg-program" class="md-skip">
           Skip to content
         </a>
       
@@ -3256,9 +3256,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-ap780p-rpg36-program" class="md-nav__link">
+  <a href="#process-steps-of-the-ap780p-rpg-program" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the AP780P RPG/36 Program
+      Process Steps of the AP780P RPG Program
     </span>
   </a>
   
@@ -3292,9 +3292,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
+  <a href="#outputs" class="md-nav__link">
     <span class="md-ellipsis">
-      Summary
+      Outputs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Notes
     </span>
   </a>
   
@@ -7356,9 +7365,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-ap780p-rpg36-program" class="md-nav__link">
+  <a href="#process-steps-of-the-ap780p-rpg-program" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the AP780P RPG/36 Program
+      Process Steps of the AP780P RPG Program
     </span>
   </a>
   
@@ -7392,9 +7401,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
+  <a href="#outputs" class="md-nav__link">
     <span class="md-ellipsis">
-      Summary
+      Outputs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Notes
     </span>
   </a>
   
@@ -7421,136 +7439,218 @@
 
   <h1>AP780P RPG36</h1>
 
-<p>The provided document is an RPG/36 program, <code>AP780P.rpg36.txt</code>, which is called from the main OCL program (<code>AP780.ocl36.txt</code>) to perform preprocessing tasks for creating an IRS 1099 file for Accounts Payable (A/P) processing. Below, I’ll explain the process steps, business rules, tables used, and any external programs called.</p>
-<h3 id="process-steps-of-the-ap780p-rpg36-program">Process Steps of the AP780P RPG/36 Program<a class="headerlink" href="#process-steps-of-the-ap780p-rpg36-program" title="Permanent link">&para;</a></h3>
-<p>The <code>AP780P</code> program is designed to validate user input for the 1099 file creation process, ensuring that key fields such as company information, year, and form type are valid before proceeding. It interacts with a display screen and a table file to perform these validations. Here are the detailed steps:</p>
+<p>The provided document, <code>AP780P.rpg36.txt</code>, is an RPG (Report Program Generator) program for an IBM System/3x or AS/400 system, called by the main OCL program (<code>AP780.ocl36.txt</code>) to perform initial validation and processing for creating an IRS 1099 file. Below is a detailed explanation of the process steps, business rules, tables used, external programs called, and outputs of the <code>AP780P</code> RPG program.</p>
+<h3 id="process-steps-of-the-ap780p-rpg-program">Process Steps of the AP780P RPG Program<a class="headerlink" href="#process-steps-of-the-ap780p-rpg-program" title="Permanent link">&para;</a></h3>
+<p>The <code>AP780P</code> program validates user input for creating an IRS 1099 file, specifically focusing on company and vendor data used in the 1099-MISC file generation process. It uses a display file (<code>SCREEN</code>) for user interaction and a table file (<code>GSTABL</code>) for validation. Here’s a step-by-step breakdown of the process:</p>
 <ol>
-<li><strong>File and Data Structure Definitions</strong>:</li>
-<li><strong>Files</strong>:<ul>
-<li><code>SCREEN</code>: A workstation file (display screen) with a record length of 200 characters, used for user input/output.</li>
-<li><code>GSTABL</code>: An indexed file (256 bytes, 12-byte key, alternate index) opened for input, containing table data.</li>
-</ul>
+<li><strong>Program Initialization</strong>:</li>
+<li><strong>Set Indicators Off</strong>: The program begins by resetting indicators 81, 90, 91, 92, 93, 94, 95, 96, and 97 (<code>SETOF 819091</code>, <code>SETOF 929394</code>, <code>SETOF 959697</code>) to ensure a clean state.</li>
+<li>
+<p><strong>Clear Error Message</strong>: The message field <code>MSGE</code> (40 characters) is cleared to blanks (<code>MOVEL*BLANKS MSGE</code>).</p>
 </li>
-<li><strong>Data Structures</strong>:<ul>
-<li><code>SCREEN</code> (format <code>AP780PS1</code>): Defines fields for user input:</li>
-<li><code>HEAD1</code> (positions 3–32): First heading (company name).</li>
-<li><code>HEAD2</code> (positions 33–62): Second heading (address).</li>
-<li><code>CITY</code> (positions 63–91): City.</li>
-<li><code>STATE</code> (positions 92–93): State.</li>
-<li><code>ZIP</code> (positions 94–102): ZIP code.</li>
-<li><code>ID#</code> (positions 103–112): Tax ID number.</li>
-<li><code>ENTAMT</code> (positions 113–120, zoned decimal): Entered amount.</li>
-<li><code>YEAR</code> (positions 121–124, zoned decimal): Year of the 1099.</li>
-<li><code>CURLST</code> (position 125): Current or last year indicator (<code>C</code> or <code>L</code>).</li>
-<li><code>FORM</code> (position 126): Form type.</li>
-<li><code>GSTABL</code>: Defines table fields:</li>
-<li><code>TBDEL</code> (position 1): Delete flag.</li>
-<li><code>TBTYPE</code> (positions 2–7): Table type.</li>
-<li><code>TBCODE</code> (positions 8–13): Table code.</li>
-<li><code>TBDESC</code> (positions 14–43): Table description.</li>
-<li><code>UDS</code> (User Data Structure): Mirrors the <code>SCREEN</code> fields for internal processing, with <code>FORM</code> at position 160.</li>
+<li>
+<p><strong>Check for Test Environment (KG Indicator)</strong>:</p>
+</li>
+<li>If the <code>KG</code> indicator is on (likely set by the OCL program when <code>?9?</code> indicates a test environment, e.g., <code>?9?=TEST</code>):<ul>
+<li>Indicator 81 is turned off (<code>SETOF 81</code>).</li>
+<li>Indicator <code>U1</code> (user indicator) and <code>LR</code> (last record) are turned on (<code>SETON U1LR</code>).</li>
+<li>The program jumps to the <code>END</code> tag, bypassing further processing and effectively terminating early.</li>
 </ul>
 </li>
 <li>
-<p><strong>Error Messages</strong>: An array <code>MSG</code> with six 40-character messages for validation errors (e.g., "FIRST HEADING CANNOT BE BLANK").</p>
+<p>This ensures no validation or screen interaction occurs in a test environment, possibly to avoid unintended changes.</p>
 </li>
 <li>
-<p><strong>Initialization</strong>:</p>
-</li>
-<li>Clears indicators 81, 90, 91, 92, 93, 94, 95, 96, and 97 using <code>SETOF</code>.</li>
-<li>
-<p>Clears the error message field <code>MSGE</code> to blanks.</p>
+<p><strong>Set Indicator 60</strong>:</p>
 </li>
 <li>
-<p><strong>Key Press Handling (Indicator KG)</strong>:</p>
+<p>Indicator 60 is turned on (<code>SETON 60</code>), likely used to control display file behavior or program flow, though its specific purpose is not detailed in the code.</p>
 </li>
 <li>
-<p>If the <code>KG</code> indicator is on (likely a function key press, e.g., cancel):</p>
+<p><strong>Check for Screen Input (Indicator 09)</strong>:</p>
+</li>
+<li>If indicator 09 is on (indicating input from the <code>SCREEN</code> file, format <code>AP780PS1</code>):<ul>
+<li>Sets indicator 81 and 94 (<code>SETON 8194</code>).</li>
+<li>Sets the <code>CURLST</code> field to <code>'C'</code> (indicating "current" list).</li>
+<li>Jumps to the <code>END</code> tag, skipping further processing.</li>
+</ul>
+</li>
+<li>
+<p>This suggests that if the screen has already been processed, the program assumes default values or skips validation.</p>
+</li>
+<li>
+<p><strong>Execute Validation Subroutine (SUBSC1)</strong>:</p>
+</li>
+<li>
+<p>If indicator 09 is not on, the program calls the <code>SUBSC1</code> subroutine (<code>EXSR SUBSC1</code>) to validate input fields from the <code>SCREEN</code> file or user data structure (<code>UDS</code>).</p>
+</li>
+<li>
+<p><strong>SUBSC1 Subroutine (Validation Logic)</strong>:
+   The <code>SUBSC1</code> subroutine validates key fields required for the 1099 file. Each validation step checks for specific conditions, sets error indicators, and assigns error messages if validation fails. If any validation fails, the program jumps to <code>ENDSC1</code> to exit the subroutine.</p>
+</li>
+<li>
+<p><strong>Validate HEAD1 (Company Name)</strong>:</p>
 <ul>
-<li>Clears indicator 81.</li>
-<li>Sets indicators <code>U1</code> and <code>LR</code> (last record).</li>
-<li>Jumps to the <code>END</code> tag, terminating the program.</li>
+<li>Checks if <code>HEAD1</code> (positions 3-32, company name) is blank (<code>COMP *BLANKS</code>).</li>
+<li>If blank, sets indicators 81 and 91 (<code>SETON 8191</code>), moves message "FIRST HEADING CANNOT BE BLANK" to <code>MSGE</code>, and jumps to <code>ENDSC1</code>.</li>
 </ul>
 </li>
 <li>
-<p><strong>Screen Input Processing (Indicator 09)</strong>:</p>
-</li>
-<li>
-<p>If indicator <code>09</code> is on (indicating a screen input event):</p>
+<p><strong>Validate HEAD2 (Address Line)</strong>:</p>
 <ul>
-<li>Sets indicators 81 and 94.</li>
-<li>Sets <code>CURLST</code> to <code>C</code> (current).</li>
-<li>Jumps to the <code>END</code> tag, bypassing further validation.</li>
+<li>Checks if <code>HEAD2</code> (positions 33-62, address line) is blank.</li>
+<li>If blank, sets indicators 81 and 92 (<code>SETON 8192</code>), moves message "SECOND HEADING CANNOT BE BLANK" to <code>MSGE</code>, and jumps to <code>ENDSC1</code>.</li>
 </ul>
 </li>
 <li>
-<p><strong>Validation Subroutine (SUBSC1)</strong>:</p>
-</li>
-<li>If indicator <code>01</code> is on (initial screen display), executes the <code>SUBSC1</code> subroutine:<ul>
-<li><strong>Validation Checks</strong>:</li>
-<li><strong>HEAD1</strong>: Compares <code>HEAD1</code> to blanks. If blank, sets indicators 81 and 91 lambdas, moves "FIRST HEADING CANNOT BE BLANK" to <code>MSGE</code>, and jumps to <code>ENDSC1</code>.</li>
-<li><strong>HEAD2</strong>: Compares <code>HEAD2</code> to blanks. If blank, sets indicators 81 and 92, moves "SECOND HEADING CANNOT BE BLANK" to <code>MSGE</code>, and jumps to <code>ENDSC1</code>.</li>
-<li><strong>ID#</strong>: Compares <code>ID#</code> to blanks. If blank, sets indicators 81 and 93, moves "ID# CANNOT BE BLANK - TRY AGAIN!" to <code>MSGE</code>, and jumps to <code>ENDSC1</code>.</li>
-<li><strong>YEAR</strong>: Compares <code>YEAR</code> to 0. If zero, sets indicators 81 and 95, moves "ENTER VALID YEAR" to <code>MSGE</code>, and jumps to <code>ENDSC1</code>.</li>
-<li><strong>CURLST</strong>: Checks if <code>CURLST</code> is <code>C</code> or <code>L</code>. If neither, sets indicators 81 and 96, moves "ENTER 'C'-CURR OR 'L'-LAST" to <code>MSGE</code>, and jumps to <code>ENDSC1</code>.</li>
-<li><strong>FORM</strong>: Constructs <code>TBLKEY</code> by concatenating "AP1099" and <code>FORM</code>, then chains to <code>GSTABL</code>. If the record is not found, sets indicators 81 and 97, moves "INVALID FORM TYPE" to <code>MSGE</code>, and jumps to <code>ENDSC1</code>.</li>
-<li>If any validation fails, the program jumps to <code>ENDSC1</code>, which outputs the screen with the error message.</li>
+<p><strong>Validate ID# (Tax ID)</strong>:</p>
+<ul>
+<li>Checks if <code>ID#</code> (positions 103-112, tax ID) is blank.</li>
+<li>If blank, sets indicators 81 and 93 (<code>SETON 8193</code>), moves message "ID# CANNOT BE BLANK - TRY AGAIN!" to <code>MSGE</code>, and jumps to <code>ENDSC1</code>.</li>
 </ul>
 </li>
 <li>
-<p>If all validations pass, the program proceeds to the <code>END</code> tag.</p>
-</li>
-<li>
-<p><strong>Screen Output</strong>:</p>
-</li>
-<li>If indicator 81 is on (validation error or first-time display):<ul>
-<li>Outputs the <code>SCREEN</code> file with format <code>AP780PS1</code>, displaying:</li>
-<li><code>HEAD1</code>, <code>HEAD2</code>, <code>CITY</code>, <code>STATE</code>, <code>ZIP</code>, <code>ID#</code>, <code>ENTAMT</code>, <code>YEAR</code>, <code>CURLST</code>, <code>MSGE</code>, and <code>FORM</code>.</li>
+<p><strong>Validate YEAR</strong>:</p>
+<ul>
+<li>Checks if <code>YEAR</code> (positions 121-124, four-digit year) is zero (<code>COMP 0</code>).</li>
+<li>If zero, sets indicators 81 and 95 (<code>SETON 8195</code>), moves message "ENTER VALID YEAR" to <code>MSGE</code>, and jumps to <code>ENDSC1</code>.</li>
 </ul>
 </li>
 <li>
-<p>The program loops back to accept further input if validations fail.</p>
+<p><strong>Validate CURLST (Current/Last List Indicator)</strong>:</p>
+<ul>
+<li>Checks if <code>CURLST</code> (position 125, current/last list flag) is neither <code>'C'</code> nor <code>'L'</code> (<code>COMP 'C'</code> and <code>COMP 'L'</code>).</li>
+<li>If invalid, sets indicators 81 and 96 (<code>SETON 8196</code>), moves message "ENTER 'C'-CURR OR 'L'-LAST" to <code>MSGE</code>, and jumps to <code>ENDSC1</code>.</li>
+</ul>
 </li>
 <li>
-<p><strong>Program Termination</strong>:</p>
+<p><strong>Validate FORM (1099 Form Type)</strong>:</p>
+<ul>
+<li>Constructs a key <code>TBLKEY</code> (12 characters) by combining the literal <code>'AP1099'</code> with the <code>FORM</code> field (position 160, e.g., <code>'C'</code> for 1099-MISC).</li>
+<li>Performs a <code>CHAIN</code> operation on the <code>GSTABL</code> file using <code>TBLKEY</code> to check if the form type exists in the table.</li>
+<li>If the record is not found (indicator 90 on), sets indicators 81 and 97 (<code>SETON 8197</code>), moves message "INVALID FORM TYPE" to <code>MSGE</code>, and jumps to <code>ENDSC1</code>.</li>
+</ul>
 </li>
-<li>Reaches the <code>END</code> tag.</li>
-<li>If validations are successful, the program ends with indicator 60 set (likely indicating successful completion).</li>
+<li>
+<p><strong>End Subroutine (ENDSC1)</strong>:</p>
+</li>
+<li>
+<p>The <code>ENDSC1</code> tag marks the end of the <code>SUBSC1</code> subroutine. If any validation fails, the program exits the subroutine and proceeds to output the screen with the error message.</p>
+</li>
+<li>
+<p><strong>Output to SCREEN</strong>:</p>
+</li>
+<li>If indicator 81 is on (indicating a validation error or first-time display), the program writes to the <code>SCREEN</code> file using format <code>AP780PS1</code>.</li>
+<li>Outputs the following fields:<ul>
+<li><code>HEAD1</code> (company name, positions 1-30).</li>
+<li><code>HEAD2</code> (address line, positions 31-60).</li>
+<li><code>CITY</code> (city, positions 61-89).</li>
+<li><code>STATE</code> (state, positions 90-91).</li>
+<li><code>ZIP</code> (zip code, positions 92-100).</li>
+<li><code>ID#</code> (tax ID, positions 101-110).</li>
+<li><code>ENTAMT</code> (entered amount, positions 113-118, zoned decimal).</li>
+<li><code>YEAR</code> (year, positions 119-122).</li>
+<li><code>CURLST</code> (current/last flag, position 123).</li>
+<li><code>MSGE</code> (error message, positions 124-163).</li>
+<li><code>FORM</code> (form type, position 164).</li>
+</ul>
+</li>
+<li>
+<p>The screen displays these fields for user input or correction, along with any error message from validation failures.</p>
+</li>
+<li>
+<p><strong>Program Termination (END Tag)</strong>:</p>
+</li>
+<li>The program reaches the <code>END</code> tag, either after validation, screen output, or early termination (e.g., test environment or indicator 09).</li>
+<li>If <code>U1</code> and <code>LR</code> are on (set in the test environment case), the program terminates, potentially signaling an error to the calling OCL program via <code>SWITCH1-1</code>.</li>
 </ol>
 <h3 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
-<p>The program enforces the following business rules for the 1099 file creation:
+<p>The <code>AP780P</code> program enforces the following business rules for 1099 file creation:
 1. <strong>Mandatory Fields</strong>:
-   - The first heading (<code>HEAD1</code>), second heading (<code>HEAD2</code>), and tax ID (<code>ID#</code>) must not be blank.
-   - The year (<code>YEAR</code>) must be a non-zero value.
-   - The current/last indicator (<code>CURLST</code>) must be either <code>C</code> (current) or <code>L</code> (last).
-   - The form type (<code>FORM</code>) must exist in the <code>GSTABL</code> table under the key <code>AP1099</code> + <code>FORM</code>.
-2. <strong>Error Handling</strong>:
-   - If any validation fails, an appropriate error message is displayed, and the user is prompted to correct the input.
-   - The program allows the user to cancel the operation (via the <code>KG</code> indicator).
-3. <strong>Default Behavior</strong>:
-   - If indicator <code>09</code> is triggered (specific input event), <code>CURLST</code> defaults to <code>C</code>.
-4. <strong>Data Integrity</strong>:
-   - The program ensures that only valid data is passed to subsequent processes by checking against the <code>GSTABL</code> table and enforcing field requirements.</p>
+   - The company name (<code>HEAD1</code>), address line (<code>HEAD2</code>), and tax ID (<code>ID#</code>) must not be blank, as they are critical for IRS 1099 reporting.
+   - The year (<code>YEAR</code>) must be a valid non-zero value (e.g., 2025).
+   - The current/last list flag (<code>CURLST</code>) must be either <code>'C'</code> (current) or <code>'L'</code> (last), indicating the type of vendor list to process.
+   - The form type (<code>FORM</code>) must exist in the <code>GSTABL</code> table, ensuring only valid 1099 form types (e.g., <code>'C'</code> for 1099-MISC) are processed.</p>
+<ol>
+<li><strong>Error Handling</strong>:</li>
+<li>If any validation fails, an appropriate error message is displayed on the screen, and indicators 81 and a specific error indicator (91-97) are set to highlight the issue.</li>
+<li>
+<p>The program prevents further processing until all validations pass, ensuring data integrity for the 1099 file.</p>
+</li>
+<li>
+<p><strong>Test Environment Handling</strong>:</p>
+</li>
+<li>
+<p>In a test environment (indicated by <code>KG</code>), the program skips validation and screen interaction, setting <code>U1</code> and <code>LR</code> to signal early termination, likely to avoid modifying production data.</p>
+</li>
+<li>
+<p><strong>Screen Interaction</strong>:</p>
+</li>
+<li>The program uses the <code>SCREEN</code> file (format <code>AP780PS1</code>) to interact with the user, displaying input fields and error messages.</li>
+<li>If the screen has already been processed (indicator 09), it defaults <code>CURLST</code> to <code>'C'</code> and skips further validation, assuming prior input is valid.</li>
+</ol>
 <h3 id="tables-used">Tables Used<a class="headerlink" href="#tables-used" title="Permanent link">&para;</a></h3>
-<p>The program uses the following table/file:
-1. <strong>GSTABL</strong>:
-   - An indexed disk file (256 bytes, 12-byte key, alternate index).
-   - Fields:
-     - <code>TBDEL</code> (1 byte): Delete flag.
-     - <code>TBTYPE</code> (6 bytes): Table type.
-     - <code>TBCODE</code> (6 bytes): Table code.
-     - <code>TBDESC</code> (30 bytes): Table description.
-   - Used to validate the <code>FORM</code> field by checking if the key <code>AP1099</code> + <code>FORM</code> exists.</p>
+<ul>
+<li><strong><code>GSTABL</code></strong>:</li>
+<li><strong>Type</strong>: Input file (<code>IF</code>), fixed format, 256 bytes per record, 256 records, with an alternate index (<code>AI</code>) on 12 bytes.</li>
+<li><strong>Fields</strong>:<ul>
+<li><code>TBDEL</code> (position 1): Delete flag ('D' for deleted records).</li>
+<li><code>TBTYPE</code> (positions 2-7): Table type.</li>
+<li><code>TBCODE</code> (positions 8-13): Table code.</li>
+<li><code>TBDESC</code> (positions 14-43): Table description.</li>
+</ul>
+</li>
+<li><strong>Usage</strong>: The program uses <code>GSTABL</code> to validate the <code>FORM</code> field by constructing a key (<code>TBLKEY</code>) combining <code>'AP1099'</code> and <code>FORM</code> (e.g., <code>'AP1099C'</code> for 1099-MISC). The <code>CHAIN</code> operation checks if the form type exists in the table.</li>
+<li><strong>Access</strong>: Accessed via a <code>CHAIN</code> operation with a 12-byte key.</li>
+</ul>
 <h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
-<p>The <code>AP780P</code> program does not explicitly call any external programs. It is a standalone preprocessing program invoked by the main OCL program (<code>AP780.ocl36.txt</code>) to validate user input before further processing.</p>
-<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
-<p>The <code>AP780P</code> RPG/36 program is a preprocessing step for the IRS 1099 file creation process. It:
-- Displays a screen to collect and validate user input for fields like company name, address, tax ID, year, current/last indicator, and form type.
-- Enforces strict business rules to ensure all required fields are non-blank, the year is valid, <code>CURLST</code> is <code>C</code> or <code>L</code>, and the form type exists in <code>GSTABL</code>.
-- Outputs error messages and prompts for correction if validations fail.
-- Uses the <code>GSTABL</code> file for form type validation and the <code>SCREEN</code> file for user interaction.
-- Sets indicators (e.g., 60 for success) to control the flow back to the calling OCL program.</p>
-<p>This program ensures that only valid data is passed to subsequent steps in the 1099 file creation process, maintaining data integrity for IRS compliance.</p>
+<ul>
+<li><strong>None</strong>: The <code>AP780P</code> program does not explicitly call any external RPG or OCL programs. It is invoked by the main OCL program (<code>AP780.ocl36.txt</code>) and performs its tasks independently, relying on file I/O and user interaction via the <code>SCREEN</code> file.</li>
+</ul>
+<h3 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>SCREEN File (AP780PS1 Format)</strong>:</li>
+<li><strong>Purpose</strong>: Displays input fields and error messages to the user for validation or correction.</li>
+<li><strong>Fields Output</strong>:<ul>
+<li><code>HEAD1</code>: Company name (30 characters).</li>
+<li><code>HEAD2</code>: Address line (30 characters).</li>
+<li><code>CITY</code>: City (29 characters).</li>
+<li><code>STATE</code>: State (2 characters).</li>
+<li><code>ZIP</code>: Zip code (9 characters).</li>
+<li><code>ID#</code>: Tax ID (10 characters).</li>
+<li><code>ENTAMT</code>: Entered amount (8 bytes, zoned decimal, 2 decimal places).</li>
+<li><code>YEAR</code>: Four-digit year (4 bytes, zoned decimal).</li>
+<li><code>CURLST</code>: Current/last flag (1 character, 'C' or 'L').</li>
+<li><code>MSGE</code>: Error message (40 characters).</li>
+<li><code>FORM</code>: 1099 form type (1 character, e.g., 'C' for 1099-MISC).</li>
+</ul>
+</li>
+<li>
+<p><strong>Conditions</strong>: Written when indicator 81 is on (first-time display or validation error).</p>
+</li>
+<li>
+<p><strong>Indicators</strong>:</p>
+</li>
+<li><strong>Indicator 81</strong>: Set on for screen output or validation errors, signaling the calling OCL program (<code>AP780.ocl36.txt</code>) to display the screen.</li>
+<li><strong>Indicators 91-97</strong>: Set to indicate specific validation errors (e.g., 91 for blank <code>HEAD1</code>, 93 for blank <code>ID#</code>, etc.).</li>
+<li>
+<p><strong>U1 and LR</strong>: Set in test environment (<code>KG</code> on) to indicate early termination, potentially setting <code>SWITCH1-1</code> in the OCL program to signal an error or bypass condition.</p>
+</li>
+<li>
+<p><strong>No Direct File Output</strong>:</p>
+</li>
+<li>The program does not directly create or update any data files (e.g., <code>AP1099</code> or <code>APVNYYYY</code>). Its primary role is to validate input data, which is then used by subsequent programs (<code>AP781</code>, <code>AP780</code>) in the OCL process to generate the 1099 file.</li>
+<li>The validated data is likely stored in the <code>SCREEN</code> file or user data structure (<code>UDS</code>) and passed back to the OCL program for further processing.</li>
+</ol>
+<h3 id="additional-notes">Additional Notes<a class="headerlink" href="#additional-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Purpose in the OCL Workflow</strong>: <code>AP780P</code> serves as the initial validation step in the 1099 file creation process, ensuring that critical fields (company name, address, tax ID, year, list type, and form type) are valid before subsequent programs (<code>#GSORT</code>, <code>AP781</code>, <code>AP780</code>) process the vendor data.</li>
+<li><strong>Form Type Limitation</strong>: The program is designed for 1099-MISC (likely indicated by <code>FORM='C'</code>), as noted in the OCL program. Other 1099 types would require modifications to the validation logic and <code>GSTABL</code> table.</li>
+<li><strong>Table Dependency</strong>: The <code>GSTABL</code> table is critical for validating the <code>FORM</code> field, and its absence or incorrect data could cause validation failures.</li>
+<li><strong>Error Handling</strong>: The program provides clear, user-friendly error messages via the <code>SCREEN</code> file, ensuring users can correct invalid inputs.</li>
+<li><strong>Test Environment</strong>: The <code>KG</code> indicator allows the program to bypass processing in a test environment, preventing unintended data changes, which is a common practice in legacy systems to separate test and production workflows.</li>
+</ul>
+<p>This RPG program is a critical front-end component of the 1099 creation process, ensuring data integrity through rigorous input validation before the main file processing occurs in the OCL-driven workflow.</p>
 
 
 

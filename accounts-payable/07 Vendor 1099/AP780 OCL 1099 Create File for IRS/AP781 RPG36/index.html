@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#process-steps-of-the-ap781-rpg36-program" class="md-skip">
+        <a href="#process-steps-of-the-ap781-rpg-program" class="md-skip">
           Skip to content
         </a>
       
@@ -3279,9 +3279,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-ap781-rpg36-program" class="md-nav__link">
+  <a href="#process-steps-of-the-ap781-rpg-program" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the AP781 RPG/36 Program
+      Process Steps of the AP781 RPG Program
     </span>
   </a>
   
@@ -7356,9 +7356,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-ap781-rpg36-program" class="md-nav__link">
+  <a href="#process-steps-of-the-ap781-rpg-program" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the AP781 RPG/36 Program
+      Process Steps of the AP781 RPG Program
     </span>
   </a>
   
@@ -7422,17 +7422,20 @@
   <h1>AP781 RPG36</h1>
 
 <p>The <code>AP781.rpg36.txt</code> is an RPG/36 program invoked by the main OCL program (<code>AP780.ocl36.txt</code>) to preprocess Accounts Payable (A/P) vendor data for IRS 1099 file creation. It consolidates vendor data from the <code>APVEND</code> file, using the sorted <code>AP780S</code> file to ensure one record per vendor, and produces the <code>AP781</code> output file for further processing by <code>AP780</code>. Below, I’ll detail the process steps, business rules, tables used, and external programs called.</p>
-<h3 id="process-steps-of-the-ap781-rpg36-program">Process Steps of the AP781 RPG/36 Program<a class="headerlink" href="#process-steps-of-the-ap781-rpg36-program" title="Permanent link">&para;</a></h3>
-<p>The program reads vendor data from <code>APVEND</code> and a sorted control file <code>AP780S</code>, processes it to consolidate amounts and extract city/state information, and writes a single record per vendor to <code>AP781</code>. Here are the detailed steps:</p>
+<h3 id="process-steps-of-the-ap781-rpg-program">Process Steps of the AP781 RPG Program<a class="headerlink" href="#process-steps-of-the-ap781-rpg-program" title="Permanent link">&para;</a></h3>
+<p>The <code>AP781</code> program processes sorted vendor data from the <code>AP780S</code> file and the original vendor file <code>APVEND</code> to create a consolidated output file <code>AP781</code>, which is used in subsequent steps to generate the IRS 1099 file. Here’s a step-by-step breakdown of the process:</p>
 <ol>
-<li><strong>File and Data Structure Definitions</strong>:</li>
-<li><strong>Files</strong>:<ul>
+<li><strong>Program Initialization</strong>:</li>
+<li>The program defines input files <code>APVEND</code> (primary vendor file) and <code>AP780S</code> (sorted input file), and an output file <code>AP781</code>.</li>
+<li>It uses level-break logic (<code>L1</code>) to process records grouped by vendor, ensuring one output record per vendor.</li>
+<li>
+<p>Initializes working fields (<code>L1AMT1</code>, <code>L1AMT2</code>, <code>BOX1</code>, <code>BOX2</code>) to zero at the start of each vendor group (<code>L1</code> level) using <code>Z-ADD*ZEROS</code>.</p>
+<ul>
+<li><strong>Files</strong>:</li>
 <li><code>APVEND</code>: Primary input file (579 bytes, indexed), containing vendor data.</li>
 <li><code>AP780S</code>: Secondary input file (30 bytes, indexed by 3-byte key), used to identify vendors for processing.</li>
 <li><code>AP781</code>: Output file (320 bytes), storing consolidated vendor data.</li>
-</ul>
-</li>
-<li><strong>Input Record (APVEND)</strong>:<ul>
+<li><strong>Input Record (APVEND)</strong>:</li>
 <li><code>VNDEL</code> (1): Delete code.</li>
 <li><code>VNCO</code> (2–3): Company number.</li>
 <li><code>VNVENDL1</code> (4–8): Vendor number.</li>
@@ -7458,105 +7461,150 @@
 <li><code>VNMNAM</code> (438–457): Middle name.</li>
 <li><code>VNLNAM</code> (458–487): Business/last name.</li>
 <li><code>VNSUFF</code> (488–491): Name suffix.</li>
-</ul>
-</li>
-<li><strong>Data Structures</strong>:<ul>
+<li><strong>Data Structures</strong>:</li>
 <li><code>ADD2</code> (30): Temporary field for address processing.</li>
 <li><code>CITY</code> (1–20): Extracted city name.</li>
 <li><code>CTY</code> (1–20): Temporary city field.</li>
 <li><code>STATE</code> (2): Extracted state code.</li>
-</ul>
-</li>
-<li><strong>User Data Structure (UDS)</strong>:<ul>
+<li><strong>User Data Structure (UDS)</strong>:</li>
 <li><code>ENTAMT</code> (111–118, zoned): Entered amount threshold.</li>
 <li><code>CURLST</code> (123): Current (<code>C</code>) or last (<code>L</code>) year indicator.</li>
 <li><code>TOTB</code> (201–208, zoned): Total count of records written.</li>
-</ul>
-</li>
-<li>
-<p><strong>External Description</strong>:</p>
-<ul>
+<li><strong>External Description</strong>:</li>
 <li><code>AP780S</code> links to <code>APVEND</code> for matching vendor records.</li>
 </ul>
 </li>
 <li>
-<p><strong>Main Processing Loop (Level 1, L1)</strong>:</p>
+<p><strong>Extract State and City (GETSTA Subroutine)</strong>:</p>
+</li>
+<li>For each vendor record (<code>L1</code> level), the program calls the <code>GETSTA</code> subroutine to parse the city and state from the vendor’s address fields (<code>VNADD2</code>, <code>VNADD3</code>, or <code>VNADD4</code>).</li>
+<li><strong>Logic</strong>:<ul>
+<li>Clears <code>STATE</code>, <code>CITY</code>, and <code>ADD2</code> fields to blanks.</li>
+<li>Checks address fields in reverse priority (<code>VNADD4</code>, <code>VNADD3</code>, <code>VNADD2</code>) for non-blank values, copying the first non-blank field to <code>ADD2</code>.</li>
+<li>If no address fields are found, skips to <code>ENDSTA</code>.</li>
+<li>Parses <code>ADD2</code> to extract the state:</li>
+<li>Reads backward from position 30 to find the first letter (A-Z), which is assumed to be the start of the state code (e.g., "PA").</li>
+<li>Extracts the state (2 characters) into <code>STATE</code>.</li>
+<li>Parses <code>ADD2</code> to extract the city:</li>
+<li>Reads backward from the state’s position to find a space or comma, marking the end of the city.</li>
+<li>Copies characters from the start of <code>ADD2</code> to the delimiter into <code>CTY</code> (city field).</li>
+</ul>
 </li>
 <li>
-<p>For each level 1 break (group by vendor, driven by <code>AP780S</code>):</p>
+<p><strong>Output</strong>: Populates <code>STATE</code> (2 characters) and <code>CITY</code> (20 characters) for use in the output record.</p>
+</li>
+<li>
+<p><strong>Determine Payment Amount Based on CURLST</strong>:</p>
+</li>
+<li>Checks the <code>CURLST</code> field (from the user data structure <code>UDS</code>, set by <code>AP780P</code> as <code>'C'</code> or <code>'L'</code>):<ul>
+<li>If <code>CURLST = 'C'</code> (current year), adds <code>VNYTDP</code> (this year’s year-to-date paid, positions 242-247) to <code>L1AMT1</code>.</li>
+<li>If <code>CURLST = 'L'</code> (last year), adds <code>VNLYDP</code> (last year’s year-to-date paid, positions 248-253) to <code>L1AMT1</code>.</li>
+</ul>
+</li>
+<li>
+<p>Adds <code>VNB2AM</code> (second 1099 box amount, positions 280-285) to <code>L1AMT2</code>.</p>
+</li>
+<li>
+<p><strong>Assign 1099 Box Numbers</strong>:</p>
+</li>
+<li>If <code>BOX1</code> is zero, sets it to <code>VNBOX1</code> (first 1099 box number, positions 276-277).</li>
+<li>If <code>BOX2</code> is zero, sets it to <code>VNBOX2</code> (second 1099 box number, positions 278-279).</li>
+<li>
+<p>This ensures the box numbers from the vendor file are used unless already set.</p>
+</li>
+<li>
+<p><strong>Validate and Adjust Payment Amounts</strong>:</p>
+</li>
+<li>Compares <code>L1AMT1</code> (total payment amount) to <code>ENTAMT</code> (entered amount from <code>UDS</code>, set by <code>AP780P</code>).</li>
+<li>
+<p>If <code>L1AMT1</code> is greater than or equal to <code>ENTAMT</code> (indicator 50 on):</p>
 <ul>
-<li>Executes the <code>GETSTA</code> subroutine to extract <code>STATE</code> and <code>CITY</code>.</li>
-<li>Initializes <code>L1AMT1</code>, <code>L1AMT2</code>, <code>BOX1</code>, and <code>BOX2</code> to zeros.</li>
-<li>Accumulates payment amounts based on <code>CURLST</code>:</li>
-<li>If <code>CURLST = 'C'</code>, adds <code>VNYTDP</code> (current year YTD) to <code>L1AMT1</code>.</li>
-<li>If <code>CURLST = 'L'</code>, adds <code>VNLYDP</code> (last year YTD) to <code>L1AMT1</code>.</li>
-<li>Adds <code>VNB2AM</code> (second box amount) to <code>L1AMT2</code>.</li>
-<li>Sets <code>BOX1</code> to <code>VNBOX1</code> and <code>BOX2</code> to <code>VNBOX2</code> if not zero.</li>
-<li>If <code>L1AMT1</code> meets or exceeds <code>ENTAMT</code> (threshold):</li>
-<li>If <code>BOX1 = 0</code>, defaults to 7 (Nonemployee Compensation for 1099-MISC).</li>
-<li>If <code>L1AMT2 &gt; 0</code> and <code>BOX2 &gt; 0</code>, subtracts <code>L1AMT2</code> from <code>L1AMT1</code> to split amounts.</li>
-<li>Increments <code>TOTB</code> (record count).</li>
-<li>Writes an output record to <code>AP781</code> (<code>EXCPT L1ADD</code>).</li>
+<li>If <code>BOX1</code> is zero, sets it to 7 (default IRS box for 1099-MISC nonemployee compensation).</li>
+<li>If <code>L1AMT2</code> (second box amount) is greater than zero and <code>BOX2</code> is non-zero:</li>
+<li>Subtracts <code>L1AMT2</code> from <code>L1AMT1</code> to allocate the second box amount separately.</li>
+<li>Increments <code>TOTB</code> (total count, positions 201-208 in <code>UDS</code>) by 1 to track valid records.</li>
+<li>Writes the output record to <code>AP781</code> using the <code>L1ADD</code> exception output (<code>EXCPTL1ADD</code>).</li>
 </ul>
 </li>
 <li>
-<p><strong>GETSTA Subroutine</strong>:</p>
+<p><strong>Write Output Record to AP781</strong>:</p>
 </li>
-<li>Extracts <code>STATE</code> and <code>CITY</code> from address fields (<code>VNADD4</code>, <code>VNADD3</code>, <code>VNADD2</code>):<ul>
-<li>Checks <code>VNADD4</code>, <code>VNADD3</code>, <code>VNADD2</code> (in that order) for non-blank data, moving the first non-blank to <code>ADD2</code>.</li>
-<li>If all address fields are blank, skips to <code>ENDSTA</code>.</li>
-<li>Reads <code>ADD2</code> backwards from position 30 to find the state (first letter between <code>A</code> and <code>Z</code>).</li>
-<li>Extracts the state code (2 characters) starting at the found position.</li>
-<li>Extracts the city by reading backwards from the state position until a space or comma is found, then copies characters from position 1 to the delimiter into <code>CTY</code>.</li>
+<li>
+<p>When a valid record is processed (indicator 50 on), the program writes a record to the <code>AP781</code> file with the following fields:</p>
+<ul>
+<li>Record Identification: <code>'A'</code> (position 1, constant).</li>
+<li><code>VN1099</code> (1099 code, position 2, from <code>APVEND</code>).</li>
+<li><code>VNVEND</code> (vendor number, positions 4-8, from <code>APVEND</code>).</li>
+<li><code>VNNAME</code> (vendor name, positions 9-38, from <code>APVEND</code>).</li>
+<li><code>VNADD1</code> (address line 1, positions 39-68, from <code>APVEND</code>).</li>
+<li><code>CITY</code> (city, parsed from <code>GETSTA</code>, positions 69-88).</li>
+<li><code>STATE</code> (state, parsed from <code>GETSTA</code>, positions 89-90).</li>
+<li><code>VNZIP5</code> (zip code, positions 159-163, from <code>APVEND</code>).</li>
+<li><code>L1AMT1</code> (adjusted payment amount, positions 94-102, 9 digits, 2 decimals).</li>
+<li><code>L1AMT2</code> (second box amount, positions 103-111, 9 digits, 2 decimals).</li>
+<li><code>BOX1</code> (first 1099 box number, positions 112-113).</li>
+<li><code>BOX2</code> (second 1099 box number, positions 114-115).</li>
+<li><code>VNID#</code> (tax ID, positions 265-275, from <code>APVEND</code>).</li>
+<li><code>VNSRT4</code> (sort abbreviation, positions 168-171, from <code>APVEND</code>).</li>
+<li><code>VNPYN1</code> (payee name 1, positions 300-339, from <code>APVEND</code>, added by JB01).</li>
+<li><code>VNPYN2</code> (payee name 2, positions 340-379, from <code>APVEND</code>, added by JB01).</li>
+<li><code>VNADD2</code> (address line 2, positions 211-240, from <code>APVEND</code>, added by JB02).</li>
+<li><code>VNNOVF</code> (name overflow, position 241, from <code>APVEND</code>, added by JB02).</li>
+<li><code>VNNMCT</code> (IRS name control, positions 242-245, from <code>APVEND</code>, added by JK01).</li>
+<li><code>VNFNAM</code> (first name, positions 246-265, from <code>APVEND</code>).</li>
+<li><code>VNMNAM</code> (middle name, positions 266-285, from <code>APVEND</code>).</li>
+<li><code>VNLNAM</code> (business/last name, positions 286-315, from <code>APVEND</code>).</li>
+<li><code>VNSUFF</code> (name suffix, positions 316-320, from <code>APVEND</code>).</li>
 </ul>
 </li>
 <li>
-<p>Outputs <code>STATE</code> and <code>CITY</code> for the <code>AP781</code> record.</p>
+<p><strong>Repeat for Each Vendor</strong>:</p>
 </li>
-<li>
-<p><strong>Output Record (L1ADD)</strong>:</p>
-</li>
-<li>Writes to <code>AP781</code> with:<ul>
-<li><code>A</code> (record identifier).</li>
-<li><code>VN1099</code> (1099 code).</li>
-<li><code>VNVEND</code> (vendor number).</li>
-<li><code>VNNAME</code> (vendor name).</li>
-<li><code>VNADD1</code> (address line 1).</li>
-<li><code>CITY</code> (extracted city).</li>
-<li><code>STATE</code> (extracted state).</li>
-<li><code>VNZIP5</code> (ZIP code).</li>
-<li><code>L1AMT1</code> (primary amount).</li>
-<li><code>L1AMT2</code> (secondary amount).</li>
-<li><code>BOX1</code> (first box number).</li>
-<li><code>BOX2</code> (second box number).</li>
-<li><code>VNID#</code> (tax ID).</li>
-<li><code>VNSRT4</code> (sort abbreviation).</li>
-<li><code>VNPYN1</code>, <code>VNPYN2</code> (payee names).</li>
-<li><code>VNADD2</code> (address line 2).</li>
-<li><code>VNNOVF</code> (name overflow indicator).</li>
-<li><code>VNNMCT</code> (IRS name control).</li>
-<li><code>VNFNAM</code>, <code>VNMNAM</code>, <code>VNLNAM</code>, <code>VNSUFF</code> (name components).</li>
-</ul>
-</li>
+<li>The program processes each vendor record from <code>AP780S</code> and <code>APVEND</code>, using level-break logic (<code>L1</code>) to group records by vendor, ensuring one output record per vendor regardless of multiple company entries.</li>
 </ol>
 <h3 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
-<p>The program enforces the following business rules:
+<p>The <code>AP781</code> program enforces the following business rules for 1099 preprocessing:
 1. <strong>Single Record per Vendor</strong>:
-   - Consolidates data to produce one record per vendor, regardless of multiple company entries, using <code>AP780S</code> to identify unique vendors.
-2. <strong>Amount Threshold</strong>:
-   - Only writes records to <code>AP781</code> if <code>L1AMT1</code> (total amount) meets or exceeds <code>ENTAMT</code> (threshold from <code>UDS</code>).
-3. <strong>Amount Splitting</strong>:
-   - If a second box amount (<code>VNB2AM</code>) exists, it’s assigned to <code>L1AMT2</code>, and <code>L1AMT1</code> is reduced by <code>L1AMT2</code> to reflect the primary box amount.
-   - Example: If <code>VNYTDP = $15,000</code>, <code>VNBOX1 = 7</code> (Nonemployee Compensation), <code>VNBOX2 = 1</code> (Rents), and <code>VNB2AM = $5,000</code>, then <code>L1AMT1 = $10,000</code>, <code>L1AMT2 = $5,000</code>.
-4. <strong>Default Box Number</strong>:
-   - If <code>BOX1 = 0</code> and the amount threshold is met, defaults to box 7 (Nonemployee Compensation for 1099-MISC).
-5. <strong>Year Selection</strong>:
-   - Uses <code>CURLST</code> (<code>C</code> or <code>L</code>) to select <code>VNYTDP</code> (current year) or <code>VNLYDP</code> (last year) for <code>L1AMT1</code>.
-6. <strong>City/State Extraction</strong>:
-   - Extracts <code>STATE</code> and <code>CITY</code> from the highest non-blank address field (<code>VNADD4</code>, <code>VNADD3</code>, <code>VNADD2</code>).
-   - Assumes state is the last 2 characters before the ZIP code, and city is the text before a space or comma.
-7. <strong>Name Handling</strong>:
-   - Includes <code>VNPYN1</code>, <code>VNPYN2</code> (payee names), <code>VNNOVF</code> (name overflow), and <code>VNNMCT</code> (IRS name control) for downstream processing.</p>
+   - Consolidates multiple vendor records (potentially across different companies, as indicated by <code>VNCO</code>) into a single record per vendor, using the vendor number (<code>VNVEND</code>) as the key, as processed by the sorted <code>AP780S</code> file.</p>
+<ol>
+<li><strong>Payment Amount Allocation</strong>:</li>
+<li>Uses <code>CURLST</code> (<code>'C'</code> for current year, <code>'L'</code> for last year) to select the appropriate year-to-date payment amount (<code>VNYTDP</code> or <code>VNLYDP</code>).</li>
+<li>Allocates the total payment (<code>L1AMT1</code>) and second box amount (<code>L1AMT2</code>) separately if a second 1099 box (<code>VNBOX2</code>) is specified.</li>
+<li>
+<p>Subtracts <code>L1AMT2</code> from <code>L1AMT1</code> when both boxes are used to avoid double-counting.</p>
+</li>
+<li>
+<p><strong>Default 1099 Box</strong>:</p>
+</li>
+<li>If the first 1099 box (<code>BOX1</code>) is zero and the payment amount meets the threshold (<code>L1AMT1 &gt;= ENTAMT</code>), sets <code>BOX1</code> to 7 (IRS box for nonemployee compensation on 1099-MISC).</li>
+<li>
+<p>Retains vendor-specified box numbers (<code>VNBOX1</code>, <code>VNBOX2</code>) when non-zero.</p>
+</li>
+<li>
+<p><strong>Threshold Validation</strong>:</p>
+</li>
+<li>
+<p>Only writes output records if the total payment amount (<code>L1AMT1</code>) is greater than or equal to the entered amount (<code>ENTAMT</code>), ensuring only vendors meeting the IRS reporting threshold (e.g., $600 for 1099-MISC) are included.</p>
+</li>
+<li>
+<p><strong>Address Parsing</strong>:</p>
+</li>
+<li>Extracts state and city from the highest-priority non-blank address field (<code>VNADD4</code>, <code>VNADD3</code>, or <code>VNADD2</code>).</li>
+<li>Assumes the state is a 2-character code (e.g., "PA") located after the zip code, and the city precedes the state, separated by a space or comma.</li>
+<li>
+<p>Handles cases where address fields are blank by skipping city/state extraction.</p>
+</li>
+<li>
+<p><strong>IRS Data Inclusion</strong>:</p>
+</li>
+<li>
+<p>Includes IRS-specific fields like tax ID (<code>VNID#</code>), payee names (<code>VNPYN1</code>, <code>VNPYN2</code>), name overflow (<code>VNNOVF</code>), IRS name control (<code>VNNMCT</code>), and individual name components (<code>VNFNAM</code>, <code>VNMNAM</code>, <code>VNLNAM</code>, <code>VNSUFF</code>) to comply with IRS 1099 reporting requirements.</p>
+</li>
+<li>
+<p><strong>Record Tracking</strong>:</p>
+</li>
+<li>Increments <code>TOTB</code> for each valid vendor record written to <code>AP781</code>, likely used for reporting or validation in subsequent steps.</li>
+</ol>
 <h3 id="tables-used">Tables Used<a class="headerlink" href="#tables-used" title="Permanent link">&para;</a></h3>
 <p>The program uses the following files/tables:
 1. <strong>APVEND</strong>:

@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#process-steps-of-the-ap780-rpg36-program" class="md-skip">
+        <a href="#process-steps-of-the-ap780-rpg-program" class="md-skip">
           Skip to content
         </a>
       
@@ -3233,9 +3233,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-ap780-rpg36-program" class="md-nav__link">
+  <a href="#process-steps-of-the-ap780-rpg-program" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the AP780 RPG/36 Program
+      Process Steps of the AP780 RPG Program
     </span>
   </a>
   
@@ -3269,9 +3269,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
+  <a href="#outputs" class="md-nav__link">
     <span class="md-ellipsis">
-      Summary
+      Outputs
     </span>
   </a>
   
@@ -7356,9 +7356,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-ap780-rpg36-program" class="md-nav__link">
+  <a href="#process-steps-of-the-ap780-rpg-program" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the AP780 RPG/36 Program
+      Process Steps of the AP780 RPG Program
     </span>
   </a>
   
@@ -7392,9 +7392,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
+  <a href="#outputs" class="md-nav__link">
     <span class="md-ellipsis">
-      Summary
+      Outputs
     </span>
   </a>
   
@@ -7421,222 +7421,278 @@
 
   <h1>AP780 RPG36</h1>
 
-<p>The <code>AP780.rpg36.txt</code> is an RPG/36 program called by the main OCL program (<code>AP780.ocl36.txt</code>) to create the final IRS 1099 file (<code>AP1099</code>) for Accounts Payable (A/P) processing. It processes vendor data from the <code>AP781</code> file, generates structured IRS records (Transmitter "T", Payer "A", Payee "B", End of Payer "C", and End of Transmission "F"), and applies specific business rules for 1099-DIV, 1099-INT, 1099-MISC, and 1099-NEC forms. Below, I’ll detail the process steps, business rules, tables used, and external programs called.</p>
-<h3 id="process-steps-of-the-ap780-rpg36-program">Process Steps of the AP780 RPG/36 Program<a class="headerlink" href="#process-steps-of-the-ap780-rpg36-program" title="Permanent link">&para;</a></h3>
-<p>The program processes the input file <code>AP781</code>, generates the output file <code>AP1099</code>, and creates a structured 1099 file with records formatted according to IRS specifications. Here are the detailed steps:</p>
+<p>The provided document, <code>AP780.rpg36.txt</code>, is an RPG (Report Program Generator) program for an IBM System/3x or AS/400 system, called by the main OCL program (<code>AP780.ocl36.txt</code>) to finalize the creation of an IRS 1099 file (<code>AP1099</code>) for electronic submission. This program processes the preprocessed vendor data from the <code>AP781</code> file to generate IRS-compliant records, including Transmitter ("T"), Payer ("A"), Payee ("B"), End of Payer ("C"), and End of Transmission ("F") records. Below is a detailed explanation of the process steps, business rules, tables used, external programs called, and outputs of the <code>AP780</code> RPG program.</p>
+<h3 id="process-steps-of-the-ap780-rpg-program">Process Steps of the AP780 RPG Program<a class="headerlink" href="#process-steps-of-the-ap780-rpg-program" title="Permanent link">&para;</a></h3>
+<p>The <code>AP780</code> program reads the <code>AP781</code> file, which contains consolidated vendor records, and generates a formatted <code>AP1099</code> file with IRS-specified record types. Here’s a step-by-step breakdown of the process:</p>
 <ol>
-<li><strong>File and Data Structure Definitions</strong>:</li>
-<li><strong>Files</strong>:<ul>
-<li><code>AP781</code>: Input file (320 bytes), containing vendor data.</li>
-<li><code>AP1099</code>: Output file (750 bytes), the final 1099 file for IRS submission.</li>
-</ul>
-</li>
-<li><strong>Input Record (AP781)</strong>:<ul>
-<li><code>VNDEL</code> (1): Delete code.</li>
-<li><code>VN1099L1</code> (2): 1099 code (<code>D</code> for DIV, <code>I</code> for INT, <code>M</code> for MISC, <code>N</code> for NEC).</li>
-<li><code>VNVEND</code> (3–7): Vendor number.</li>
-<li><code>VNNAME</code> (8–37): Vendor name.</li>
-<li><code>VNADD1</code> (38–67): Address line 1.</li>
-<li><code>CITY</code> (68–87): City.</li>
-<li><code>STATE</code> (88–89): State.</li>
-<li><code>ZIP5</code> (90–94): 5-digit ZIP code.</li>
-<li><code>VNAMT1</code> (95–103, zoned): First box amount.</li>
-<li><code>VNAMT2</code> (104–112, zoned): Second box amount.</li>
-<li><code>BOX1</code> (113–114, zoned): First box number.</li>
-<li><code>BOX2</code> (115–116, zoned): Second box number.</li>
-<li><code>VNID#</code> (117–127): Tax ID number (broken into parts: <code>VNID11</code>, <code>VNID12</code>, <code>VNID13</code>, <code>VNID21</code>, <code>VNID22</code>).</li>
-<li><code>VNNAM4</code> (128–131): Name control (4 characters).</li>
-<li><code>VNPYN1</code> (132–171): Payee name 1.</li>
-<li><code>VNPYN2</code> (172–211): Payee name 2.</li>
-<li><code>VNADD2</code> (212–241): Address line 2.</li>
-<li><code>VNNOVF</code> (242): Name overflow indicator (<code>Y</code> if address line 1 continues as name part 2).</li>
-<li><code>VNNMCT</code> (243–246): IRS name control (added in revision JK01).</li>
-<li><code>VNFNAM</code>, <code>VNMNAM</code>, <code>VNLNAM</code>, <code>VNSUFF</code> (247–320): First, middle, last names, and suffix.</li>
-</ul>
-</li>
-<li><strong>User Data Structure (UDS)</strong>:<ul>
-<li><code>HEAD1</code> (1–30): Transmitter name.</li>
-<li><code>HEAD2</code> (31–60): Transmitter address.</li>
-<li><code>HDCITY</code> (61–89): Transmitter city.</li>
-<li><code>HDSTAT</code> (90–91): Transmitter state.</li>
-<li><code>HDZIP</code> (92–100): Transmitter ZIP.</li>
-<li><code>ID#</code> (101–110): Transmitter tax ID (split into <code>ID1</code>, <code>ID2</code>).</li>
-<li><code>ENTAMT</code> (111–118, zoned): Entered amount.</li>
-<li><code>YEAR</code> (119–122, zoned): 1099 year.</li>
-<li><code>CNTACT</code> (124–143): Contact name.</li>
-<li><code>CNTPH#</code> (144–153): Contact phone number.</li>
-<li><code>FORM</code> (160): Form type.</li>
-<li><code>TOTB</code> (201–208, zoned): Total amount for transmitter record.</li>
-</ul>
-</li>
-<li>
-<p><strong>Other Fields</strong>:</p>
-<ul>
-<li>Various zero-filled (<code>ZEROxx</code>) and blank-filled (<code>BLNKxx</code>) fields for IRS record padding.</li>
-<li><code>RECSEQ</code> (8, zoned): Record sequence number.</li>
-<li><code>TOTGR1</code> to <code>TOTGR7</code> (15, zoned): Control totals for payment amounts.</li>
-<li><code>COUNT</code> (8, zoned): Payee count.</li>
-<li><code>TOTA</code> (8, zoned): Payer record count.</li>
-<li><code>TYPE</code> (2): 1099 form type (<code>1</code> for DIV, <code>6</code> for INT, <code>A</code> for MISC, <code>NE</code> for NEC).</li>
-</ul>
-</li>
-<li>
-<p><strong>Initialization (ONCE)</strong>:</p>
-</li>
-<li>
-<p>If <code>ONCE</code> is zero (first iteration):</p>
-<ul>
-<li>Initializes <code>RECSEQ</code>, <code>ZERO03</code>, <code>Z1</code>, <code>ZERO04</code>, <code>ZERO06</code>, <code>ZERO12</code>, <code>ZERO15</code> to zeros.</li>
-<li>Initializes <code>BLNKxx</code> fields to blanks.</li>
-<li>Increments <code>RECSEQ</code> and writes the Transmitter "T" record (<code>EXCPT ADDT</code>).</li>
+<li><strong>Program Initialization (ONCE Block)</strong>:</li>
+<li>The program checks if the <code>ONCE</code> variable is zero (first execution):<ul>
+<li>Initializes counters and fields:</li>
+<li><code>RECSEQ</code> (record sequence number, 8 digits): Set to zero (JB02 revision).</li>
+<li><code>ZERO03</code>, <code>ZERO04</code>, <code>ZERO06</code>, <code>ZERO12</code>, <code>ZERO15</code> (zero-filled fields of various lengths): Set to zero.</li>
+<li><code>Z1</code> (1-digit zero): Set to zero.</li>
+<li><code>BLNK04</code>, <code>BLNK05</code>, <code>BLNK06</code>, <code>BLNK07</code>, <code>BLNK08</code>, <code>BLNK10</code>, <code>BLNK11</code>, <code>BLNK15</code>, <code>BLNK20</code>, <code>BLNK40</code>, <code>BLNK45</code>, <code>BLNK48</code>, <code>BLNK60</code>, <code>BLNK76</code>, <code>BLN115</code> (blank fields of various lengths): Set to blanks.</li>
+<li>Increments <code>RECSEQ</code> by 1 for the first record.</li>
+<li>Writes the <strong>Transmitter "T" Record</strong> to <code>AP1099</code> using the <code>ADDT</code> exception output (see Outputs section for details).</li>
 <li>Sets <code>ONCE</code> to 1 to prevent re-execution.</li>
 </ul>
 </li>
 <li>
-<p><strong>Main Processing Loop (Level 1, L1)</strong>:</p>
+<p>The "T" record contains transmitter information (e.g., company name, tax ID, contact details) and is written once at the start of the file.</p>
 </li>
 <li>
-<p>For each <code>AP781</code> record:</p>
+<p><strong>Process Vendor Records (L1 Level Loop)</strong>:</p>
+</li>
+<li>
+<p>For each vendor record in <code>AP781</code> (grouped by vendor using level-break <code>L1</code>):</p>
 <ul>
-<li>Increments <code>TOTA</code> (count of Payer "A" records).</li>
-<li>Resets <code>COUNT</code>, <code>TOTGR1</code>, <code>TOTGR2</code>, <code>TOTGR3</code>, <code>TOTGR6</code>, <code>TOTGR7</code> to zeros.</li>
-<li>Sets <code>TYPE</code> based on <code>VN1099</code>:</li>
-<li><code>D</code> (Dividend) → <code>TYPE = '1 '</code>, indicator 31.</li>
-<li><code>I</code> (Interest) → <code>TYPE = '6 '</code>, indicator 32.</li>
-<li><code>M</code> (Miscellaneous) → <code>TYPE = 'A '</code>, indicator 33.</li>
-<li><code>N</code> (Non-employee Compensation) → <code>TYPE = 'NE'</code>, indicator 34.</li>
-<li>Increments <code>RECSEQ</code> and writes a Payer "A" record (<code>EXCPT ADDA</code>).</li>
+<li>Initializes variables:</li>
+<li>Increments <code>TOTA</code> (count of Payer "A" records, 8 digits) by 1.</li>
+<li>Resets <code>COUNT</code> (count of Payee "B" records for the current payer, 8 digits) to zero.</li>
+<li>Resets control totals (<code>TOTGR1</code>, <code>TOTGR2</code>, <code>TOTGR3</code>, <code>TOTGR6</code>, <code>TOTGR7</code>, 15 digits, 2 decimals) to zero.</li>
+<li>Clears <code>TYPE</code> (2 characters, form type) to blanks (FL01 revision).</li>
+<li>Turns off indicators 31, 32, 33, 34 (form type indicators), and 41, 46, 47, 51, 56, 57 (box-specific indicators).</li>
+<li>Determines the 1099 form type based on <code>VN1099</code> (A/P 1099 code, position 2):</li>
+<li>If <code>VN1099 = 'D'</code> (Dividend):<ul>
+<li>Sets <code>TYPE = '1 '</code> (1099-DIV, FL01).</li>
+<li>Sets indicator 31 on.</li>
 </ul>
 </li>
-<li>
-<p><strong>Payee Name and Address Handling</strong>:</p>
+<li>If <code>VN1099 = 'I'</code> (Interest):<ul>
+<li>Sets <code>TYPE = '6 '</code> (1099-INT, FL01).</li>
+<li>Sets indicator 32 on.</li>
+</ul>
 </li>
-<li>Initializes <code>NAM4</code> (name control) to blanks, then sets to <code>VNNMCT</code> (IRS name control).</li>
-<li>Clears <code>PYN1</code> and <code>PYN2</code> to blanks, resets indicators 71 and 72.</li>
-<li>If <code>VNPYN1</code> is blank:<ul>
+<li>If <code>VN1099 = 'M'</code> (Miscellaneous):<ul>
+<li>Sets <code>TYPE = 'A '</code> (1099-MISC, FL01).</li>
+<li>Sets indicator 33 on.</li>
+</ul>
+</li>
+<li>If <code>VN1099 = 'N'</code> (Non-Employee Compensation):<ul>
+<li>Sets <code>TYPE = 'NE'</code> (1099-NEC, FL01, added by MG04).</li>
+<li>Sets indicator 34 on.</li>
+</ul>
+</li>
+<li>Increments <code>RECSEQ</code> by 1 (JB02).</li>
+<li>Writes the <strong>Payer "A" Record</strong> to <code>AP1099</code> using the <code>ADDA</code> exception output, containing payer information (e.g., company name, tax ID, form type).</li>
+<li>Processes payee data:</li>
+<li>Handles name and payee logic (JB02, JB03, JK01 revisions):<ul>
+<li>Clears <code>NAM4</code> (name control, 4 characters) and <code>PYN1</code>, <code>PYN2</code> (payee names, 40 characters each).</li>
+<li>Sets <code>NAM4</code> to <code>VNNMCT</code> (IRS name control, JK01).</li>
+<li>If <code>VNPYN1</code> (payee name 1) is blank:</li>
+<li>If <code>NAM4</code> is blank, sets <code>NAM4</code> to <code>VNNAM4</code> (sort abbreviation).</li>
+<li>Sets <code>PYN1</code> to <code>VNNAME</code> (vendor name).</li>
+<li>If <code>VNNOVF = 'Y'</code> (name overflow, JB03):<ul>
+<li>Sets <code>PYN2</code> to <code>VNADD1</code> (address line 1 as name continuation).</li>
+<li>Moves <code>VNADD2</code> to <code>VNADD1</code>, clears <code>VNADD2</code>.</li>
+<li>Sets indicator 72 on.</li>
+</ul>
+</li>
+<li>If <code>VNPYN1</code> is not blank:</li>
 <li>If <code>NAM4</code> is blank, sets <code>NAM4</code> to <code>VNNAM4</code>.</li>
-<li>Sets <code>PYN1</code> to <code>VNNAME</code>.</li>
-<li>If <code>VNNOVF = 'Y'</code>, sets <code>PYN2</code> to <code>VNADD1</code>, moves <code>VNADD2</code> to <code>VNADD1</code>, clears <code>VNADD2</code>, sets indicator 72.</li>
+<li>Sets <code>PYN1</code> to <code>VNPYN1</code>, sets indicator 71 on.</li>
+<li>If <code>VNPYN2</code> is not blank, sets <code>PYN2</code> to <code>VNPYN2</code>, sets indicator 72 on.</li>
 </ul>
 </li>
-<li>If <code>VNPYN1</code> is not blank:<ul>
-<li>If <code>NAM4</code> is blank, sets <code>NAM4</code> to <code>VNNAM4</code>.</li>
-<li>Sets <code>PYN1</code> to <code>VNPYN1</code>, sets indicator 71.</li>
-<li>If <code>VNPYN2</code> is not blank, sets <code>PYN2</code> to <code>VNPYN2</code>, sets indicator 72.</li>
+<li>Checks tax ID type (<code>VNDASH</code>, position 119):<ul>
+<li>If <code>VNDASH = '-'</code> (indicator 20 on), indicates a business EIN; otherwise, assumes an individual SSN.</li>
 </ul>
 </li>
-<li>
-<p>This ensures payee names (<code>VNPYN1</code>, <code>VNPYN2</code>) are used if provided; otherwise, vendor name (<code>VNNAME</code>) is used, with address overflow handling.</p>
-</li>
-<li>
-<p><strong>Payment Amount Processing</strong>:</p>
-</li>
-<li>Resets indicators 41, 46, 47, 51, 56, 57.</li>
-<li>Increments <code>COUNT</code> (payee count).</li>
-<li>Checks if <code>VNDASH = '-'</code> to determine EIN (<code>20</code>) or SSN (<code>N20</code>) for tax ID.</li>
-<li>Accumulates totals based on form type:<ul>
-<li>For 1099-DIV (indicator 31): Adds <code>VNAMT1</code> to <code>TOTGR1</code> and <code>TOTGR2</code>.</li>
-<li>For 1099-INT (indicator 32): Adds <code>VNAMT1</code> to <code>TOTGR1</code>.</li>
+<li>Accumulates control totals based on form type and box numbers:<ul>
+<li>For 1099-DIV (indicator 31):</li>
+<li>Adds <code>VNAMT1</code> (first box amount) to <code>TOTGR1</code> and <code>TOTGR2</code>.</li>
+<li>For 1099-INT (indicator 32):</li>
+<li>Adds <code>VNAMT1</code> to <code>TOTGR1</code>.</li>
 <li>For 1099-MISC (indicator 33):</li>
 <li>If <code>BOX1 = 1</code> (Rents), sets indicator 41, adds <code>VNAMT1</code> to <code>TOTGR1</code>.</li>
 <li>If <code>BOX1 = 3</code> (Other Income), sets indicator 43, adds <code>VNAMT1</code> to <code>TOTGR3</code>.</li>
-<li>If <code>BOX1 = 6</code> (Medical), sets indicator 46, adds <code>VNAMT1</code> to <code>TOTGR6</code>.</li>
-<li>If <code>BOX2 = 1</code>, sets indicator 51, adds <code>VNAMT2</code> to <code>TOTGR1</code>.</li>
-<li>If <code>BOX2 = 3</code>, sets indicator 53, adds <code>VNAMT2</code> to <code>TOTGR3</code>.</li>
-<li>If <code>BOX2 = 6</code>, sets indicator 56, adds <code>VNAMT2</code> to <code>TOTGR6</code>.</li>
+<li>If <code>BOX1 = 6</code> (Medical Payments), sets indicator 46, adds <code>VNAMT1</code> to <code>TOTGR6</code>.</li>
+<li>If <code>BOX2 = 1</code> (Rents), sets indicator 51, adds <code>VNAMT2</code> to <code>TOTGR1</code>.</li>
+<li>If <code>BOX2 = 3</code> (Other Income), sets indicator 53, adds <code>VNAMT2</code> to <code>TOTGR3</code>.</li>
+<li>If <code>BOX2 = 6</code> (Medical Payments), sets indicator 56, adds <code>VNAMT2</code> to <code>TOTGR6</code>.</li>
 <li>For 1099-NEC (indicator 34):</li>
-<li>If <code>BOX1 = 1</code>, sets indicator 47, adds <code>VNAMT1</code> to <code>TOTGR1</code>.</li>
+<li>If <code>BOX1 = 1</code> (Nonemployee Compensation), sets indicator 47, adds <code>VNAMT1</code> to <code>TOTGR1</code>.</li>
 <li>If <code>BOX2 = 1</code>, sets indicator 57, adds <code>VNAMT2</code> to <code>TOTGR1</code>.</li>
 </ul>
 </li>
-<li>Moves <code>VNAMT1</code> to <code>VXAMT1</code> and <code>VNAMT2</code> to <code>VXAMT2</code> for output.</li>
-<li>
-<p>Increments <code>RECSEQ</code> and writes a Payee "B" record (<code>EXCPT ADDB</code>).</p>
-</li>
-<li>
-<p><strong>End of Payer Processing (L1 Indicator)</strong>:</p>
-</li>
-<li>
-<p>At level 1 break, increments <code>RECSEQ</code> and writes an End of Payer "C" record (<code>EXCPT ADDL1</code>) with payee count (<code>COUNT</code>) and control totals (<code>TOTGR1</code>, <code>TOTGR2</code>, <code>TOTGR3</code>, <code>TOTGR6</code>, <code>TOTGR7</code>).</p>
+<li>Copies <code>VNAMT1</code> and <code>VNAMT2</code> to <code>VXAMT1</code> and <code>VXAMT2</code> (12 digits, 2 decimals) for output.</li>
+<li>Increments <code>RECSEQ</code> by 1 (JB02).</li>
+<li>Writes the <strong>Payee "B" Record</strong> to <code>AP1099</code> using the <code>ADDB</code> exception output, containing vendor details (e.g., tax ID, name, address, payment amounts).</li>
+<li>Increments <code>RECSEQ</code> by 1 (JB02).</li>
+<li>Writes the <strong>End of Payer "C" Record</strong> to <code>AP1099</code> using the <code>ADDL1</code> exception output, summarizing the number of payees (<code>COUNT</code>) and control totals (<code>TOTGR1</code>, <code>TOTGR3</code>, <code>TOTGR6</code>, <code>TOTGR7</code>).</li>
+</ul>
 </li>
 <li>
 <p><strong>End of Transmission (LR Indicator)</strong>:</p>
 </li>
-<li>
-<p>At last record, increments <code>RECSEQ</code> and writes an End of Transmission "F" record (<code>EXCPT ADDLR</code>) with the count of Payer "A" records (<code>TOTA</code>).</p>
-</li>
-<li>
-<p><strong>Output Records</strong>:</p>
-</li>
-<li><strong>Transmitter "T" Record</strong> (<code>ADDT</code>):<ul>
-<li>Includes <code>YEAR</code>, <code>ID1</code>, <code>ID2</code>, <code>HEAD1</code>, <code>HEAD2</code>, <code>HDCITY</code>, <code>HDSTAT</code>, <code>HDZIP</code>, <code>CNTACT</code>, <code>CNTPH#</code>, <code>TOTB</code>, <code>RECSEQ</code>, and fixed codes (e.g., <code>28Q01</code>, <code>I</code> for in-house software).</li>
-</ul>
-</li>
-<li><strong>Payer "A" Record</strong> (<code>ADDA</code>):<ul>
-<li>Includes <code>YEAR</code>, <code>ID1</code>, <code>ID2</code>, <code>TYPE</code>, <code>HEAD1</code>, <code>HEAD2</code>, <code>HDCITY</code>, <code>HDSTAT</code>, <code>HDZIP</code>, <code>CNTPH#</code>, <code>RECSEQ</code>, and form-specific codes (e.g., <code>12</code> for DIV, <code>1</code> for INT, <code>13</code> for MISC, <code>1</code> for NEC).</li>
-</ul>
-</li>
-<li><strong>Payee "B" Record</strong> (<code>ADDB</code>):<ul>
-<li>Includes <code>YEAR</code>, <code>NAM4</code>, tax ID (<code>VNID11</code>, <code>VNID12</code>, <code>VNID13</code> or <code>VNID21</code>, <code>VNID22</code>), <code>VNVEND</code>, <code>PYN1</code>, <code>PYN2</code>, <code>VNADD1</code>, <code>CITY</code>, <code>STATE</code>, <code>ZIP5</code>, payment amounts (<code>VXAMT1</code>, <code>VXAMT2</code>), and <code>RECSEQ</code>.</li>
-</ul>
-</li>
-<li><strong>End of Payer "C" Record</strong> (<code>ADDL1</code>):<ul>
-<li>Includes <code>COUNT</code> and control totals (<code>TOTGR1</code>, <code>TOTGR2</code>, <code>TOTGR3</code>, <code>TOTGR6</code>, <code>TOTGR7</code>).</li>
-</ul>
-</li>
-<li><strong>End of Transmission "F" Record</strong> (<code>ADDLR</code>):<ul>
-<li>Includes <code>TOTA</code> and <code>RECSEQ</code>.</li>
+<li>When the last record is processed (<code>LR</code> indicator on):<ul>
+<li>Increments <code>RECSEQ</code> by 1 (JB02).</li>
+<li>Writes the <strong>End of Transmission "F" Record</strong> to <code>AP1099</code> using the <code>ADDLR</code> exception output, indicating the total number of Payer "A" records (<code>TOTA</code>) and closing the file.</li>
 </ul>
 </li>
 </ol>
 <h3 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
-<p>The program enforces the following business rules for IRS 1099 file creation:
-1. <strong>Form Type Mapping</strong>:
-   - <code>VN1099 = 'D'</code> → 1099-DIV (<code>TYPE = '1 '</code>), amounts in <code>TOTGR1</code> (Ordinary Dividends) and <code>TOTGR2</code> (Capital Gains).
-   - <code>VN1099 = 'I'</code> → 1099-INT (<code>TYPE = '6 '</code>), amounts in <code>TOTGR1</code> (Interest Income).
-   - <code>VN1099 = 'M'</code> → 1099-MISC (<code>TYPE = 'A '</code>), amounts in:
-     - <code>TOTGR1</code> for <code>BOX1 = 1</code> (Rents) or <code>BOX2 = 1</code>.
-     - <code>TOTGR3</code> for <code>BOX1 = 3</code> (Other Income) or <code>BOX2 = 3</code>.
-     - <code>TOTGR6</code> for <code>BOX1 = 6</code> (Medical) or <code>BOX2 = 6</code>.
-   - <code>VN1099 = 'N'</code> → 1099-NEC (<code>TYPE = 'NE'</code>), amounts in <code>TOTGR1</code> for <code>BOX1 = 1</code> or <code>BOX2 = 1</code>.
-2. <strong>Name Handling</strong>:
-   - Uses <code>VNPYN1</code> and <code>VNPYN2</code> if provided; otherwise, uses <code>VNNAME</code>.
-   - If <code>VNNOVF = 'Y'</code>, <code>VNADD1</code> becomes <code>PYN2</code>, and <code>VNADD2</code> shifts to <code>VNADD1</code>.
-   - <code>NAM4</code> (name control) uses <code>VNNMCT</code> if available, else <code>VNNAM4</code>, or blanks if payee names are used.
-3. <strong>Tax ID Handling</strong>:
-   - If <code>VNDASH = '-'</code>, uses EIN (<code>VNID21</code>, <code>VNID22</code>); otherwise, uses SSN (<code>VNID11</code>, <code>VNID12</code>, <code>VNID13</code>).
-   - <code>VNVEND</code> is used as the account number (revision JB03).
-4. <strong>Amount Splitting</strong>:
-   - <code>VNAMT1</code> is assigned to the primary box (<code>BOX1</code>) on the 1099 form.
-   - If <code>VNAMT2</code> exists, it’s assigned to the secondary box (<code>BOX2</code>) for 1099-MISC or 1099-NEC.
-   - Example: If a vendor has $15,000 total, with $10,000 for MISC (<code>BOX1 = 7</code>) and $5,000 for Rents (<code>BOX2 = 1</code>), <code>VNAMT1 = 15,000</code>, <code>VNAMT2 = 5,000</code>, and the program calculates $10,000 for MISC.
-5. <strong>Record Sequencing</strong>:
-   - Each record (<code>T</code>, <code>A</code>, <code>B</code>, <code>C</code>, <code>F</code>) includes a unique <code>RECSEQ</code> incremented for IRS tracking.
-6. <strong>IRS Format Compliance</strong>:
-   - Records are padded with zeros or blanks as per IRS specifications (e.g., positions 376–748 for <code>T</code> and <code>A</code>, 663–750 for <code>B</code>).
-   - Fixed codes (e.g., <code>28Q01</code> for <code>T</code>, <code>AMER</code> for <code>A</code>) ensure IRS compatibility.
-7. <strong>Zero-Filled Fields</strong>:
-   - Numeric fields (e.g., payment amounts, control totals) are zero-filled if unused (revision JB02).
-8. <strong>Form Support</strong>:
-   - Supports 1099-DIV, 1099-INT, 1099-MISC, and 1099-NEC (added in revision MG04).</p>
+<p>The <code>AP780</code> program enforces the following business rules for IRS 1099 file creation:
+1. <strong>IRS Record Structure</strong>:
+   - Generates a file with five record types per IRS specifications:
+     - <strong>T Record</strong>: One per file, containing transmitter information (company name, tax ID, contact, etc.).
+     - <strong>A Record</strong>: One per 1099 form type (DIV, INT, MISC, NEC), containing payer information.
+     - <strong>B Record</strong>: One per vendor, containing payee details (tax ID, name, address, payment amounts).
+     - <strong>C Record</strong>: One per Payer "A" record, summarizing payee count and control totals.
+     - <strong>F Record</strong>: One per file, marking the end of transmission.
+   - Each record is 750 bytes, padded with blanks or zeros as required.</p>
+<ol>
+<li><strong>Form Type Mapping</strong>:</li>
+<li>Maps <code>VN1099</code> codes to IRS form types:<ul>
+<li><code>'D'</code> → 1099-DIV (<code>TYPE = '1 '</code>, indicator 31).</li>
+<li><code>'I'</code> → 1099-INT (<code>TYPE = '6 '</code>, indicator 32).</li>
+<li><code>'M'</code> → 1099-MISC (<code>TYPE = 'A '</code>, indicator 33).</li>
+<li><code>'N'</code> → 1099-NEC (<code>TYPE = 'NE'</code>, indicator 34, added by MG04).</li>
+</ul>
+</li>
+<li>
+<p>Supports multiple form types in a single file, with separate "A" and "C" records for each.</p>
+</li>
+<li>
+<p><strong>Payment Amount Allocation</strong>:</p>
+</li>
+<li>Allocates payment amounts (<code>VNAMT1</code>, <code>VNAMT2</code>) to IRS-specified boxes based on <code>BOX1</code> and <code>BOX2</code>:<ul>
+<li>1099-MISC: Box 1 (Rents), Box 3 (Other Income), Box 6 (Medical Payments), Box 7 (Nonemployee Compensation).</li>
+<li>1099-NEC: Box 1 (Nonemployee Compensation).</li>
+<li>1099-DIV: Box 1 (Ordinary Dividends), Box 2 (Capital Gains).</li>
+<li>1099-INT: Box 1 (Interest Income).</li>
+</ul>
+</li>
+<li>
+<p>Accumulates control totals (<code>TOTGR1</code>, <code>TOTGR3</code>, <code>TOTGR6</code>) for specific boxes in the "C" record.</p>
+</li>
+<li>
+<p><strong>Tax ID Handling</strong>:</p>
+</li>
+<li>Identifies tax ID type based on <code>VNDASH</code> (<code>'-'</code> for EIN, otherwise SSN).</li>
+<li>Formats tax ID (<code>VNID11</code>, <code>VNID12</code>, <code>VNID13</code> for SSN; <code>VNID21</code>, <code>VNID22</code> for EIN) in the "B" record.</li>
+<li>
+<p>Uses transmitter and payer tax IDs (<code>ID1</code>, <code>ID2</code>) from <code>UDS</code> for "T" and "A" records.</p>
+</li>
+<li>
+<p><strong>Name and Payee Logic</strong>:</p>
+</li>
+<li>Prefers payee names (<code>VNPYN1</code>, <code>VNPYN2</code>) over vendor name (<code>VNNAME</code>) if provided (JB02).</li>
+<li>Uses name overflow (<code>VNNOVF = 'Y'</code>) to continue vendor name with address line 1 (<code>VNADD1</code>) in <code>PYN2</code>, shifting <code>VNADD2</code> to <code>VNADD1</code> (JB03).</li>
+<li>
+<p>Uses IRS name control (<code>VNNMCT</code>, JK01) or sort abbreviation (<code>VNNAM4</code>) in <code>NAM4</code> for "B" records, ensuring IRS compliance.</p>
+</li>
+<li>
+<p><strong>Sequence Numbering</strong>:</p>
+</li>
+<li>
+<p>Assigns a unique sequence number (<code>RECSEQ</code>) to each record ("T", "A", "B", "C", "F"), incremented sequentially (JB02).</p>
+</li>
+<li>
+<p><strong>Zero and Blank Padding</strong>:</p>
+</li>
+<li>Fills unused numeric fields with zeros (e.g., <code>ZERO12</code> for payment amounts) and unused character fields with blanks (e.g., <code>BLNK40</code>) per IRS requirements (JB02).</li>
+<li>
+<p>Ensures fixed-length records (750 bytes) with proper padding.</p>
+</li>
+<li>
+<p><strong>IRS Compliance</strong>:</p>
+</li>
+<li>Includes fields like name control, foreign entity indicators, and contact information to meet IRS electronic filing standards.</li>
+<li>Supports 1099-NEC (added by MG04 in 2021) alongside 1099-MISC, 1099-DIV, and 1099-INT.</li>
+</ol>
 <h3 id="tables-used">Tables Used<a class="headerlink" href="#tables-used" title="Permanent link">&para;</a></h3>
-<p>The program uses the following files/tables:
-1. <strong>AP781</strong>:
-   - Input file (320 bytes).
-   - Contains vendor data including 1099 code, vendor number, name, address, tax ID, and payment amounts.
-2. <strong>AP1099</strong>:
-   - Output file (750 bytes).
-   - Stores the IRS 1099 file with <code>T</code>, <code>A</code>, <code>B</code>, <code>C</code>, and <code>F</code> records.</p>
+<ul>
+<li><strong>None</strong>: The <code>AP780</code> program does not use any table files (e.g., <code>GSTABL</code> as used in <code>AP780P</code>). It relies entirely on the input file <code>AP781</code> and user data structure (<code>UDS</code>) for processing.</li>
+</ul>
 <h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
-<p>The <code>AP780</code> program does not explicitly call any external programs. It is invoked by the main OCL program (<code>AP780.ocl36.txt</code>) and processes data from <code>AP781</code> to produce <code>AP1099</code>.</p>
-<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
-<p>The <code>AP780</code> RPG/36 program generates an IRS-compliant 1099 file by:
-- Creating a Transmitter "T" record with company and contact details.
-- Processing vendor records from <code>AP781</code> to create Payer "A" and Payee "B" records, handling form types (DIV, INT, MISC, NEC) and payment amounts.
-- Managing payee names, address overflow, and tax IDs (EIN/SSN).
-- Accumulating control totals and writing End of Payer "C" and End of Transmission "F" records.
-- Ensuring IRS format compliance with zero-filled and blank-filled fields, record sequencing, and specific codes.</p>
-<p>The program uses <code>AP781</code> as input and <code>AP1099</code> as output, with no external program calls, and enforces strict business rules for IRS 1099 compliance.</p>
+<ul>
+<li><strong>None</strong>: The <code>AP780</code> program does not call any external RPG or OCL programs. It is invoked by the main OCL program (<code>AP780.ocl36.txt</code>) and performs its tasks independently, reading from <code>AP781</code> and writing to <code>AP1099</code>.</li>
+</ul>
+<h3 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>AP1099 File</strong>:</li>
+<li><strong>Purpose</strong>: The final IRS 1099 file for electronic submission, containing formatted records per IRS specifications.</li>
+<li><strong>Record Length</strong>: 750 bytes per record, padded with blanks or zeros.</li>
+<li>
+<p><strong>Record Types</strong>:</p>
+<ul>
+<li><strong>Transmitter "T" Record</strong> (<code>ADDT</code>, written once):</li>
+<li>Position 1: <code>'T'</code>.</li>
+<li>Positions 2-5: <code>YEAR</code> (four-digit year, e.g., 2025).</li>
+<li>Position 6: Blank (no prior year indicator).</li>
+<li>Positions 7-8: <code>ID1</code> (transmitter tax ID part 1).</li>
+<li>Positions 9-15: <code>ID2</code> (transmitter tax ID part 2).</li>
+<li>Positions 16-20: <code>'28Q01'</code> (transmitter code).</li>
+<li>Positions 21-27: Blanks (replacement file code, test file indicator).</li>
+<li>Position 28: Blank (foreign entity indicator).</li>
+<li>Positions 29-58: <code>HEAD1</code> (transmitter name).</li>
+<li>Positions 59-258: Blanks, <code>HEAD1</code>, <code>HEAD2</code>, <code>HDCITY</code>, <code>HDSTAT</code>, <code>HDZIP</code> (address fields).</li>
+<li>Positions 259-303: <code>TOTB</code> (total payees, from <code>UDS</code>).</li>
+<li>Positions 304-323: <code>CNTACT</code> (contact name).</li>
+<li>Positions 324-353: <code>CNTPH#</code> (contact phone).</li>
+<li>Positions 354-507: Blanks, <code>RECSEQ</code> (sequence number, JB02).</li>
+<li>Position 518: <code>'I'</code> (inhouse software indicator, JB02).</li>
+<li>Positions 519-750: Blanks.</li>
+<li><strong>Payer "A" Record</strong> (<code>ADDA</code>, one per form type):</li>
+<li>Position 1: <code>'A'</code>.</li>
+<li>Positions 2-5: <code>YEAR</code>.</li>
+<li>Position 6: Blank (combined federal/state indicator, FL01).</li>
+<li>Positions 7-11: Blanks.</li>
+<li>Positions 12-13: <code>ID1</code> (payer tax ID part 1).</li>
+<li>Positions 14-20: <code>ID2</code> (payer tax ID part 2).</li>
+<li>Positions 21-24: <code>'AMER'</code> (payer name control).</li>
+<li>Position 25: Blank (last filing indicator).</li>
+<li>Positions 26-27: <code>TYPE</code> (form type: <code>'1 '</code>, <code>'6 '</code>, <code>'A '</code>, <code>'NE'</code>).</li>
+<li>Positions 28-43: Form-specific code (e.g., <code>'12 '</code> for 1099-DIV, <code>'13 '</code> for 1099-MISC, <code>'1 '</code> for 1099-NEC).</li>
+<li>Positions 44-51: Blanks, foreign entity indicator.</li>
+<li>Positions 52-224: <code>HEAD1</code>, <code>HEAD2</code>, <code>HDCITY</code>, <code>HDSTAT</code>, <code>HDZIP</code>, <code>CNTPH#</code> (payer details).</li>
+<li>Positions 225-507: Blanks, <code>RECSEQ</code>.</li>
+<li>Positions 508-750: Blanks.</li>
+<li><strong>Payee "B" Record</strong> (<code>ADDB</code>, one per vendor):</li>
+<li>Position 1: <code>'B'</code>.</li>
+<li>Positions 2-5: <code>YEAR</code>.</li>
+<li>Position 6: Blank (no corrections).</li>
+<li>Positions 7-10: <code>NAM4</code> (name control, <code>VNNMCT</code> or <code>VNNAM4</code>).</li>
+<li>Position 11: <code>'1'</code> (EIN) or <code>'2'</code> (SSN) based on <code>VNDASH</code>.</li>
+<li>Positions 12-20: <code>VNID11</code>, <code>VNID12</code>, <code>VNID13</code> (SSN) or <code>VNID21</code>, <code>VNID22</code> (EIN).</li>
+<li>Positions 21-25: <code>VNVEND</code> (vendor number, JB03).</li>
+<li>Positions 26-54: Blanks.</li>
+<li>Positions 55-66: <code>VXAMT1</code> (payment amount 1, based on form/box).</li>
+<li>Positions 67-78: <code>VXAMT1</code> or <code>VXAMT2</code> (payment amount 2, if applicable).</li>
+<li>Positions 79-258: Zero-filled payment amounts (3 to J), populated based on <code>BOX1</code>, <code>BOX2</code>.</li>
+<li>Position 287: Blank (foreign entity indicator).</li>
+<li>Positions 288-327: <code>PYN1</code> (payee name 1 or vendor name).</li>
+<li>Positions 328-367: <code>PYN2</code> (payee name 2 or name continuation).</li>
+<li>Positions 368-494: <code>VNADD1</code>, <code>CITY</code>, <code>STATE</code>, <code>ZIP5</code> (payee address).</li>
+<li>Positions 495-507: Blanks, <code>RECSEQ</code>.</li>
+<li>Positions 508-750: Form-specific fields (e.g., direct sales indicator for 1099-MISC/NEC), blanks.</li>
+<li><strong>End of Payer "C" Record</strong> (<code>ADDL1</code>, one per "A" record):</li>
+<li>Position 1: <code>'C'</code>.</li>
+<li>Positions 2-9: <code>COUNT</code> (number of "B" records for this payer).</li>
+<li>Positions 10-15: Blanks.</li>
+<li>Positions 16-33: <code>TOTGR1</code> (control total 1, e.g., Rents, Nonemployee Compensation).</li>
+<li>Positions 34-51: <code>TOTGR2</code> (control total 2, e.g., Dividends).</li>
+<li>Positions 52-69: <code>TOTGR3</code> (control total 3, e.g., Other Income).</li>
+<li>Positions 70-123: Zeroes, <code>TOTGR6</code> (control total 6, e.g., Medical Payments).</li>
+<li>Positions 124-339: Zeroes, <code>TOTGR7</code> (control total 7, if applicable).</li>
+<li>Positions 340-507: Blanks, <code>RECSEQ</code>.</li>
+<li>Positions 508-750: Blanks.</li>
+<li><strong>End of Transmission "F" Record</strong> (<code>ADDLR</code>, written once):</li>
+<li>Position 1: <code>'F'</code>.</li>
+<li>Positions 2-9: <code>TOTA</code> (number of "A" records).</li>
+<li>Positions 10-30: Zeroes.</li>
+<li>Positions 31-507: Blanks, <code>RECSEQ</code>.</li>
+<li>Positions 508-750: Blanks.</li>
+</ul>
+</li>
+<li>
+<p><strong>TOTB Field (in UDS)</strong>:</p>
+</li>
+<li><strong>Purpose</strong>: Tracks the total number of payees, used in the "T" record.</li>
+<li><strong>Location</strong>: Positions 201-208 in the user data structure (<code>UDS</code>), 8 digits, no decimals.</li>
+<li><strong>Source</strong>: Set by <code>AP781</code> and passed through <code>UDS</code>.</li>
+</ol>
 
 
 
