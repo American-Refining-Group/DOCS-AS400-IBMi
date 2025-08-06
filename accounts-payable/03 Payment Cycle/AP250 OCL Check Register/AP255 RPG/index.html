@@ -18,7 +18,7 @@
         <link rel="prev" href="../AP251%20RPG/">
       
       
-        <link rel="next" href="../AP256%20RPG/">
+        <link rel="next" href="../AP256%20OCL/">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#process-steps" class="md-skip">
+        <a href="#process-steps-of-the-ap255-rpg-program" class="md-skip">
           Skip to content
         </a>
       
@@ -1856,6 +1856,52 @@
   
   
     <li class="md-nav__item">
+      <a href="../AP250%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP250 OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AP250%20RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP250 RPG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../AP250%20Summary%20Check%20Register/" class="md-nav__link">
         
   
@@ -1879,35 +1925,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../AP250OCL%20GROK/" class="md-nav__link">
+      <a href="../AP251%20OCL/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    AP250OCL GROK
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../AP250RPG%20GROK/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    AP250RPG GROK
+    AP251 OCL
     
   </span>
   
@@ -1994,9 +2017,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps" class="md-nav__link">
+  <a href="#process-steps-of-the-ap255-rpg-program" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps
+      Process Steps of the AP255 RPG Program
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#business-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Business Rules
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tables-files-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tables (Files) Used
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-programs-called" class="md-nav__link">
+    <span class="md-ellipsis">
+      External Programs Called
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
     </span>
   </a>
   
@@ -2006,6 +2065,29 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AP256%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP256 OCL
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -2041,12 +2123,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../AP256A/" class="md-nav__link">
+      <a href="../AP256A%20RPG/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    AP256A
+    AP256A RPG
     
   </span>
   
@@ -7834,9 +7916,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps" class="md-nav__link">
+  <a href="#process-steps-of-the-ap255-rpg-program" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps
+      Process Steps of the AP255 RPG Program
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#business-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Business Rules
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tables-files-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tables (Files) Used
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-programs-called" class="md-nav__link">
+    <span class="md-ellipsis">
+      External Programs Called
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
     </span>
   </a>
   
@@ -7863,90 +7981,351 @@
 
   <h1>AP255 RPG</h1>
 
-<p>The RPG program <code>AP255.RPG36</code> is invoked by the OCL procedure <code>AP250.OCL36</code> as part of the Accounts Payable (A/P) Check Register process, specifically to generate the Cash Disbursements Journal and summarize A/P transactions. Below is a detailed explanation of the <strong>process steps</strong>, <strong>business rules</strong>, <strong>tables/files used</strong>, and <strong>external programs called</strong>, as requested.</p>
+<p>The provided RPG program, <code>AP255.rpg36.txt</code>, is executed by the main OCL program (<code>AP250.ocl36.txt</code>) within an IBM System/36 or AS/400 Accounts Payable (A/P) system. Its primary purpose is to generate a Cash Disbursements Journal and summarize A/P transactions, producing a report and updating a general ledger file. Below, I will explain the <strong>process steps</strong>, <strong>business rules</strong>, <strong>tables (files) used</strong>, and <strong>external programs called</strong> based on the RPG code.</p>
 <hr />
-<h3 id="process-steps">Process Steps<a class="headerlink" href="#process-steps" title="Permanent link">&para;</a></h3>
-<p>The <code>AP255.RPG36</code> program processes sorted records from the cash disbursements journal file (<code>APCDJR</code>) to produce a summarized journal report and update a general ledger file (<code>TEMGEN</code>). The processing is structured around a main program flow and a single subroutine (<code>JRNL</code>). The steps are as follows:</p>
+<h3 id="process-steps-of-the-ap255-rpg-program"><strong>Process Steps of the AP255 RPG Program</strong><a class="headerlink" href="#process-steps-of-the-ap255-rpg-program" title="Permanent link">&para;</a></h3>
+<p>The <code>AP255</code> RPG program processes sorted cash disbursements journal records from <code>APCDJR</code>, summarizes A/P transactions, and generates a formatted report (<code>APPRINT</code>) while updating a temporary general ledger file (<code>TEMGEN</code>). Here is a detailed breakdown of the process steps:</p>
 <ol>
-<li><strong>Initialization (Level 4 Break - L4)</strong>:</li>
-<li>Executes at the start of the program (triggered by level break <code>L4</code>).</li>
-<li>Retrieves the current system time and date using the <code>TIME</code> operation, storing them in <code>TIMDAT</code> (12 digits).</li>
-<li>Splits <code>TIMDAT</code> into <code>TIME</code> (6 digits, time) and <code>DATE</code> (6 digits, date).</li>
-<li>Converts the date to a year-month-day format (<code>DATYMD</code>) by multiplying <code>DATE</code> by 10000.01.</li>
-<li>Formats the date into an 8-digit format (<code>DATE8</code>) by prefixing the century (<code>20</code>) and appending <code>DATYMD</code>.</li>
-<li>Initializes the page counter (<code>PAGE</code>) to 0.</li>
-<li>Sets a separator field (<code>SEP</code>) to <code>'* '</code>.</li>
-<li>Chains to the <code>APCONT</code> file using the company number (<code>CDCONO</code>) to retrieve the company name (<code>ACNAME</code>).</li>
+<li><strong>Initialization (Level 4 - Company/Bank G/L Break)</strong>:</li>
 <li>
-<p>Initializes debit and credit accumulators (<code>L4DR</code>, <code>L4CR</code>) to 0.</p>
-</li>
-<li>
-<p><strong>Check Year/Period for Printing</strong>:</p>
-</li>
-<li>Compares the year/period field (<code>CDYYPD</code>, positions 116–119) to 0.</li>
-<li>
-<p>If <code>CDYYPD</code> is non-zero (<code>N99</code>), sets indicator <code>98</code> to print the period and year on the journal report; otherwise, sets indicator <code>99</code>.</p>
-</li>
-<li>
-<p><strong>Process Each Journal Record</strong>:</p>
-</li>
-<li>Reads records from <code>APCDJR</code> (primary input file, indicator <code>01</code>).</li>
-<li>Checks the credit/debit code (<code>CDCORD</code>, position 12) to identify debit entries (<code>'D'</code>, sets indicator <code>30</code>).</li>
-<li>Checks the transaction type (<code>CDTYPE</code>, positions 106–115) to identify A/P transactions (<code>'AP      '</code>, sets indicator <code>20</code> for summarization).</li>
-<li>Accumulates the transaction amount (<code>CDAMT</code>) into <code>L1AMT</code> (level 1 accumulator).</li>
-<li>Converts the check date (<code>CDCKDT</code>, positions 51–56) to a year-month-day format (<code>YMD</code>) by multiplying by 10000.01.</li>
-<li>
-<p>Handles Y2K compliance for the check date:</p>
+<p>At the company or bank G/L level (<code>L4</code> indicator), the program initializes key variables:</p>
 <ul>
-<li>Extracts the year (<code>YY</code>) from <code>YMD</code>.</li>
-<li>If <code>YY</code> is greater than or equal to <code>Y2KCMP</code> (80), sets the century (<code>CN</code>) to <code>Y2KCEN</code> (19); otherwise, increments <code>Y2KCEN</code> by 1.</li>
-<li>Formats the date into an 8-digit format (<code>CYMD</code>) by combining <code>CN</code> and <code>YMD</code>.</li>
+<li>Retrieves the current system date and time using the <code>TIME</code> operation, storing it in <code>TIMDAT</code> (12 digits).</li>
+<li>Extracts the time portion into <code>TIME</code> (6 digits) and the date portion into <code>DATE</code> (6 digits).</li>
+<li>Converts the date to a year-month-day format (<code>DATYMD</code>) by multiplying <code>DATE</code> by <code>10000.01</code> to adjust for century handling.</li>
+<li>Sets the century prefix (<code>20</code> for 2000s) into <code>DATE8</code> (8-digit date field, e.g., <code>20YYMMDD</code>) and moves <code>DATYMD</code> into <code>DATE8</code>.</li>
+<li>Initializes the page number (<code>PAGE</code>) to 0.</li>
+<li>Sets a separator line (<code>SEP</code>) to <code>'* '</code> for report formatting.</li>
+<li>Chains to the <code>APCONT</code> file using the company number (<code>CDCONO</code>) to retrieve company details (e.g., <code>ACNAME</code> for company name).</li>
+<li>Initializes debit (<code>L4DR</code>) and credit (<code>L4CR</code>) totals to 0 for journal balancing.</li>
 </ul>
 </li>
 <li>
-<p><strong>Write Journal Entries (JRNL Subroutine)</strong>:</p>
+<p><strong>Period/Year Validation</strong>:</p>
 </li>
-<li>Executes for non-summarized records (<code>N20</code>) or summarized A/P records at level 1 break (<code>L1</code> and <code>20</code>).</li>
-<li>Increments the journal reference number (<code>JRREF#</code>) by 1.</li>
-<li>Determines the credit/debit code (<code>CORD</code>):<ul>
-<li>Copies <code>CDCORD</code> to <code>CORD</code>.</li>
-<li>If <code>L1AMT</code> is negative (indicator <code>10</code>):</li>
-<li>Switches the sign of <code>L1AMT</code> using <code>Z-SUB</code>.</li>
-<li>Sets <code>CORD</code> to <code>'C'</code> if <code>CDCORD</code> is <code>'D'</code> (indicator <code>30</code>), or <code>'D'</code> otherwise.</li>
-</ul>
-</li>
-<li>Accumulates amounts:<ul>
-<li>If <code>CORD</code> is <code>'D'</code> (indicator <code>11</code>), adds <code>L1AMT</code> to <code>L4DR</code> (debit total).</li>
-<li>Otherwise, adds <code>L1AMT</code> to <code>L4CR</code> (credit total).</li>
-</ul>
-</li>
-<li>Sets <code>JRAMT</code> to <code>L1AMT</code> and resets <code>L1AMT</code> to 0.</li>
 <li>
-<p>Writes to the general ledger file (<code>TEMGEN</code>):</p>
+<p>Checks if the year/period field (<code>CDYYPD</code>) is non-zero (<code>N99</code>).</p>
 <ul>
-<li>For non-summarized records (<code>01</code>, <code>N20</code>):</li>
-<li>Writes a detail record with fields like <code>CDCONO</code>, <code>CDGLNO</code>, <code>CDJRNL</code>, <code>JRREF#</code>, <code>CORD</code>, <code>CDCHEK</code>, <code>CDDESC</code>, <code>YMD</code>, <code>JRAMT</code>, <code>CDNAME</code>, <code>CYMD</code>.</li>
-<li>For summarized A/P records (<code>L1</code>, <code>20</code>):</li>
-<li>Writes a summarized record with a fixed description (<code>'-SUMMARIZED A/P         '</code>), using <code>CDCKDT</code> instead of <code>CDCHEK</code>.</li>
+<li>If non-zero, sets indicators <code>98</code> and <code>99</code> to enable printing of the period/year (<code>CDPD</code>, <code>CDPDYY</code>) in the report header.</li>
 </ul>
 </li>
 <li>
-<p><strong>Generate Cash Disbursements Journal Report (APPRINT)</strong>:</p>
+<p><strong>Record Processing Loop</strong>:</p>
 </li>
-<li>Outputs a report to the printer file (<code>APPRINT</code>) with headers, detail lines, and totals:<ul>
-<li><strong>Headers</strong> (level 4 break, <code>L4</code> or <code>OFNL4</code>):</li>
-<li>Company name (<code>ACNAME</code>), page number (<code>PAGE</code>), date (<code>DATE</code>, formatted as <code>Y</code>), time (<code>TIME</code>), wire transfer description (<code>WIREDS</code>), and journal title.</li>
-<li>Includes period/year (<code>CDPD</code>, <code>CDPDYY</code>) if <code>CDYYPD</code> is non-zero (indicator <code>98</code>).</li>
-<li>Column headers for journal reference, paycheck, description, vendor name, G/L number, debit amount, and credit amount.</li>
-<li><strong>Detail Lines</strong> (non-summarized, <code>01</code>, <code>N20</code>):</li>
-<li>Outputs <code>CDJRNL</code>, <code>JRREF#</code>, check number (<code>CDCHEK</code>), description (<code>CDDESC</code>), vendor name (<code>CDNAME</code>), G/L number (<code>CDGLNO</code>), and amount (<code>JRAMT</code>) as debit (<code>11</code>) or credit (<code>N11</code>).</li>
-<li><strong>Summarized Lines</strong> (level 1 break, <code>L1</code>, <code>20</code>):</li>
-<li>Outputs <code>CDJRNL</code>, <code>JRREF#</code>, check date (<code>CDCKDTY</code>), fixed description (<code>'-SUMMARIZED A/P         '</code>), G/L number (<code>CDGLNO</code>), and amount (<code>JRAMT</code>) as debit or credit.</li>
-<li><strong>Totals</strong> (level 4 break, <code>T 2</code>, <code>L4</code>):</li>
-<li>Outputs journal totals with debit (<code>L4DR</code>) and credit (`L audition for free, but I need to log in to view this.</li>
+<li>
+<p>Processes each record in the <code>APCDJR</code> file (primary input, indicator <code>01</code>):</p>
+<ul>
+<li>Identifies the transaction type (<code>CDCORD</code>):</li>
+<li>If <code>CDCORD = 'D'</code>, sets indicator <code>30</code> (debit transaction).</li>
+<li>Identifies the journal entry type (<code>CDTYPE</code>):</li>
+<li>If <code>CDTYPE = 'AP      '</code>, sets indicator <code>20</code> to indicate an A/P transaction that requires summarization.</li>
+<li>Converts the check date (<code>CDCKDT</code>) to an 8-digit format (<code>CYMD</code>, e.g., <code>20YYMMDD</code>):</li>
+<li>Multiplies <code>CDCKDT</code> by <code>10000.01</code> to get <code>YMD</code> (6 digits).</li>
+<li>Extracts the year (<code>YY</code>) and compares it to <code>Y2KCMP</code> (company century threshold, e.g., <code>80</code>).</li>
+<li>If <code>YY &gt;= Y2KCMP</code>, uses <code>Y2KCEN</code> (e.g., <code>19</code> or <code>20</code>) as the century (<code>CN</code>).</li>
+<li>If <code>YY &lt; Y2KCMP</code>, increments <code>Y2KCEN</code> by 1 (e.g., <code>20</code> becomes <code>21</code>).</li>
+<li>Combines <code>CN</code> and <code>YMD</code> into <code>CYMD</code> for reporting.</li>
+<li>Accumulates the transaction amount (<code>CDAMT</code>) into <code>L1AMT</code> (level 1 amount) for summarization.</li>
+</ul>
+</li>
+<li>
+<p><strong>Journal Entry Processing (JRNL Subroutine)</strong>:</p>
+</li>
+<li>
+<p>The <code>JRNL</code> subroutine is called for each non-summarized record (<code>N20</code>) and for summarized A/P records at the level 1 break (<code>L1</code> and <code>20</code>):</p>
+<ul>
+<li>Increments a journal reference number (<code>JRREF#</code>) for each entry.</li>
+<li>Sets the credit/debit code (<code>CORD</code>) based on <code>CDCORD</code>:</li>
+<li>If <code>L1AMT</code> is negative (<code>10</code> set), reverses the sign of <code>L1AMT</code> and adjusts <code>CORD</code>:<ul>
+<li>If <code>30</code> (debit), sets <code>CORD = 'C'</code> (credit).</li>
+<li>If not <code>30</code>, sets <code>CORD = 'D'</code> (debit).</li>
+</ul>
+</li>
+<li>Accumulates amounts:</li>
+<li>If <code>CORD = 'D'</code> (debit, <code>11</code> set), adds <code>L1AMT</code> to <code>L4DR</code> (debit total).</li>
+<li>If <code>CORD ≠ 'D'</code> (credit, <code>N11</code>), adds <code>L1AMT</code> to <code>L4CR</code> (credit total).</li>
+<li>Moves <code>L1AMT</code> to <code>JRAMT</code> (journal amount) and resets <code>L1AMT</code> to 0.</li>
+</ul>
+</li>
+<li>
+<p><strong>Output to TEMGEN (General Ledger File)</strong>:</p>
+</li>
+<li>For non-summarized records (<code>N20</code>):<ul>
+<li>Writes a detailed journal entry to <code>TEMGEN</code> with:</li>
+<li>Record type <code>'A'</code> (active).</li>
+<li>Company number (<code>CDCONO</code>).</li>
+<li>G/L number (<code>CDGLNO</code>).</li>
+<li>Journal number (<code>CDJRNL</code>).</li>
+<li>Reference number (<code>JRREF#</code>).</li>
+<li>Credit/debit code (<code>CORD</code>).</li>
+<li>Check number (<code>CDCHEK</code>).</li>
+<li>Description (<code>CDDESC</code>).</li>
+<li>Date (<code>YMD</code>).</li>
+<li>Amount (<code>JRAMT</code>, packed).</li>
+<li>Vendor name (<code>CDNAME</code>).</li>
+<li>Century-adjusted date (<code>CYMD</code>).</li>
+</ul>
+</li>
+<li>
+<p>For summarized A/P records (<code>L1</code> and <code>20</code>):</p>
+<ul>
+<li>Writes a summarized journal entry to <code>TEMGEN</code> with:</li>
+<li>Record type <code>'A'</code>.</li>
+<li>Company number (<code>CDCONO</code>).</li>
+<li>G/L number (<code>CDGLNO</code>).</li>
+<li>Journal number (<code>CDJRNL</code>).</li>
+<li>Reference number (<code>JRREF#</code>).</li>
+<li>Credit/debit code (<code>CORD</code>).</li>
+<li>Check date (<code>CDCKDT</code>).</li>
+<li>Fixed description <code>'-SUMMARIZED A/P         '</code>.</li>
+<li>Date (<code>YMD</code>).</li>
+<li>Amount (<code>JRAMT</code>, packed).</li>
+<li>Century-adjusted date (<code>CYMD</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Output to Cash Disbursements Journal Report (APPRINT)</strong>:</p>
+</li>
+<li>At the company level (<code>L4</code>):<ul>
+<li>Prints report headers with:</li>
+<li>Company name (<code>ACNAME</code>).</li>
+<li>Page number (<code>PAGE</code>).</li>
+<li>Date (<code>DATE</code>, formatted as <code>MMDDYY</code>).</li>
+<li>Wire transfer description (<code>WIREDS</code>, e.g., <code>'WT*** WIRE TRANSFER ***'</code>).</li>
+<li>Title <code>'CASH DISBURSEMENTS JOURNAL'</code>.</li>
+<li>Time (<code>TIME</code>, formatted as <code>HH.MM.SS</code>).</li>
+<li>Journal number (<code>CDJRNL</code>).</li>
+<li>Check date (<code>CDCKDTY</code>).</li>
+<li>Period/year (<code>CDPD</code>, <code>CDPDYY</code>) if <code>98</code> is set.</li>
+<li>Column headings for journal reference, check number, description, vendor name, and debit/credit amounts with G/L numbers.</li>
+</ul>
+</li>
+<li>For each non-summarized record (<code>01</code> and <code>N20</code>):<ul>
+<li>Prints detail lines with:</li>
+<li>Journal number (<code>CDJRNL</code>).</li>
+<li>Reference number (<code>JRREF#</code>).</li>
+<li>Check number (<code>CDCHEK</code>).</li>
+<li>Description (<code>CDDESC</code>).</li>
+<li>Vendor name (<code>CDNAME</code>).</li>
+<li>G/L number (<code>CDGLNO</code>) and amount (<code>JRAMT</code>) in debit (<code>11</code>) or credit (<code>N11</code>) columns.</li>
+</ul>
+</li>
+<li>For summarized A/P records (<code>L1</code> and <code>20</code>):<ul>
+<li>Prints summarized lines with:</li>
+<li>Journal number (<code>CDJRNL</code>).</li>
+<li>Reference number (<code>JRREF#</code>).</li>
+<li>Check date (<code>CDCKDTY</code>).</li>
+<li>Fixed description <code>'-SUMMARIZED A/P         '</code>.</li>
+<li>G/L number (<code>CDGLNO</code>) and amount (<code>JRAMT</code>) in debit (<code>11</code>) or credit (<code>N11</code>) columns.</li>
+</ul>
+</li>
+<li>
+<p>At the end of the company level (<code>L4</code>, total time <code>T 2</code>):</p>
+<ul>
+<li>Prints journal totals with:</li>
+<li><code>'JOURNAL TOTALS'</code>.</li>
+<li>Total debits (<code>L4DR</code>) and credits (<code>L4CR</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Completion</strong>:</p>
+</li>
+<li>Processes all <code>APCDJR</code> records, writing to <code>TEMGEN</code> and <code>APPRINT</code> as needed.</li>
+<li>Terminates, returning control to the main OCL program (<code>AP250.ocl36.txt</code>).</li>
+</ol>
+<hr />
+<h3 id="business-rules"><strong>Business Rules</strong><a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
+<p>The program enforces the following business rules based on its logic and context within the A/P system:</p>
+<ol>
+<li><strong>Transaction Type Handling</strong>:</li>
+<li>Processes journal entries based on <code>CDCORD</code>:<ul>
+<li><code>'D'</code>: Debit transaction (<code>30</code> set).</li>
+<li>Other values (e.g., <code>'C'</code>): Credit transaction.</li>
+</ul>
+</li>
+<li>
+<p>Adjusts negative amounts by reversing the sign and switching the credit/debit code (<code>CORD</code>):</p>
+<ul>
+<li>Negative debit becomes credit (<code>CORD = 'C'</code>).</li>
+<li>Negative credit becomes debit (<code>CORD = 'D'</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>A/P Summarization</strong>:</p>
+</li>
+<li>
+<p>Summarizes A/P transactions (<code>CDTYPE = 'AP      '</code>, <code>20</code> set) at the level 1 break (<code>L1</code>), consolidating multiple A/P entries into a single journal entry with the description <code>'-SUMMARIZED A/P         '</code>.</p>
+</li>
+<li>
+<p><strong>Journal Balancing</strong>:</p>
+</li>
+<li>Accumulates debit (<code>L4DR</code>) and credit (<code>L4CR</code>) totals at the company level (<code>L4</code>) to ensure journal entries balance.</li>
+<li>
+<p>Prints totals in the report to verify debit and credit amounts.</p>
+</li>
+<li>
+<p><strong>Date Handling</strong>:</p>
+</li>
+<li>Uses century-aware date processing:<ul>
+<li>Compares the year (<code>YY</code>) from <code>CDCKDT</code> to <code>Y2KCMP</code> (company century threshold).</li>
+<li>Assigns the century (<code>Y2KCEN</code> or <code>Y2KCEN + 1</code>) to create <code>CYMD</code> (e.g., <code>20YYMMDD</code>).</li>
+</ul>
+</li>
+<li>
+<p>Includes both raw (<code>YMD</code>) and century-adjusted (<code>CYMD</code>) dates in <code>TEMGEN</code> output.</p>
+</li>
+<li>
+<p><strong>Period/Year Reporting</strong>:</p>
+</li>
+<li>
+<p>If the year/period (<code>CDYYPD</code>) is non-zero, includes the period (<code>CDPD</code>) and year (<code>CDPDYY</code>) in the report header (e.g., <code>'PERIOD XX-XX'</code>).</p>
+</li>
+<li>
+<p><strong>General Ledger Integration</strong>:</p>
+</li>
+<li>Writes journal entries to <code>TEMGEN</code> for integration with the general ledger system, including both detailed and summarized entries.</li>
+<li>
+<p>Uses a consistent format with record type <code>'A'</code> (active), company number, G/L number, journal number, reference number, and amount.</p>
+</li>
+<li>
+<p><strong>Report Formatting</strong>:</p>
+</li>
+<li>Generates a formatted Cash Disbursements Journal (<code>APPRINT</code>) with headers, detail lines, and totals.</li>
+<li>Includes debit and credit columns with G/L numbers for clarity.</li>
+<li>
+<p>Supports wire transfer descriptions (<code>WIREDS</code>) for context.</p>
+</li>
+<li>
+<p><strong>File Access</strong>:</p>
+</li>
+<li><code>APCDJR</code> is processed sequentially as the primary input file (<code>IP</code>).</li>
+<li><code>APCONT</code> is accessed randomly (<code>IC</code>, keyed) for company details.</li>
+<li><code>TEMGEN</code> is an output file for general ledger entries.</li>
+<li><code>AP255S</code> is a table file, likely used for temporary storage or control data.</li>
+</ol>
+<hr />
+<h3 id="tables-files-used"><strong>Tables (Files) Used</strong><a class="headerlink" href="#tables-files-used" title="Permanent link">&para;</a></h3>
+<p>The program uses the following files, as defined in the File Specification (F-spec) section:</p>
+<ol>
+<li><strong>APCDJR</strong> (IP, 128 bytes, keyed, <code>DISK</code>):</li>
+<li>Primary input file, contains sorted cash disbursements journal entries from the main OCL process (sorted by <code>#GSORT</code> in <code>AP250.ocl36.txt</code>).</li>
+<li>
+<p>Fields include:</p>
+<ul>
+<li><code>CDDEL</code>: Deletion flag (position 1, <code>'D'</code> for delete).</li>
+<li><code>CDCONO</code>: Company number (positions 2-3, <code>L4</code>).</li>
+<li><code>CDJRNL</code>: Journal number (positions 4-7).</li>
+<li><code>CDCORD</code>: Credit/debit code (position 12, <code>L3</code>, e.g., <code>'C'</code>, <code>'D'</code>).</li>
+<li><code>CDGLNO</code>: G/L number (positions 13-20, <code>L1</code>).</li>
+<li><code>CDCHEK</code>: Check number (positions 21-26).</li>
+<li><code>CDDESC</code>: Description (positions 27-50).</li>
+<li><code>CDCKDT</code>: Check date (positions 51-56).</li>
+<li><code>CDAMT</code>: Amount (packed, positions 57-62).</li>
+<li><code>CDNAME</code>: Vendor name (positions 63-92).</li>
+<li><code>CDSEQ#</code>: Sequence number (positions 97-105).</li>
+<li><code>CDTYPE</code>: Transaction type (positions 106-115, <code>L2</code>, e.g., <code>'AP      '</code>, <code>'CASH      '</code>, <code>'DISC      '</code>).</li>
+<li><code>CDYYPD</code>: Year/period (positions 116-119).</li>
+<li><code>CDPDYY</code>: Year (positions 116-117).</li>
+<li><code>CDPD</code>: Period (positions 118-119).</li>
+</ul>
+</li>
+<li>
+<p><strong>AP255S</strong> (IR, 3 bytes, keyed, <code>EDISK</code>):</p>
+</li>
+<li>Internal table file, likely used for temporary storage or control data during processing.</li>
+<li>
+<p>Associated with <code>APCDJR</code> via the <code>E</code> specification (<code>E AP255S APCDJR</code>).</p>
+</li>
+<li>
+<p><strong>APCONT</strong> (IC, 256 bytes, keyed, <code>DISK</code>):</p>
+</li>
+<li>Control file, accessed randomly to retrieve company details.</li>
+<li>
+<p>Fields include:</p>
+<ul>
+<li><code>ACNAME</code>: Company name (positions 4-33).</li>
+</ul>
+</li>
+<li>
+<p><strong>TEMGEN</strong> (O, 128 bytes, <code>DISK</code>):</p>
+</li>
+<li>Output file for general ledger entries.</li>
+<li>
+<p>Fields include:</p>
+<ul>
+<li>Record type (<code>'A'</code>, position 1).</li>
+<li>Company number (<code>CDCONO</code>, positions 2-3).</li>
+<li>G/L number (<code>CDGLNO</code>, positions 4-11).</li>
+<li>Journal number (<code>CDJRNL</code>, positions 12-15).</li>
+<li>Reference number (<code>JRREF#</code>, positions 16-19).</li>
+<li>Credit/debit code (<code>CORD</code>, position 20).</li>
+<li>Check number (<code>CDCHEK</code>) or check date (<code>CDCKDT</code>) for summarized entries.</li>
+<li>Description (<code>CDDESC</code> or <code>'-SUMMARIZED A/P         '</code>, positions 27-50).</li>
+<li>Date (<code>YMD</code>, positions 51-56).</li>
+<li>Amount (<code>JRAMT</code>, packed, positions 57-62).</li>
+<li>Vendor name (<code>CDNAME</code>, positions 63-92).</li>
+<li>Century-adjusted date (<code>CYMD</code>, positions 93-100).</li>
+</ul>
+</li>
+<li>
+<p><strong>APPRINT</strong> (O, 132 bytes, <code>PRINTER</code>):</p>
+</li>
+<li>Output file for the Cash Disbursements Journal report.</li>
+<li>
+<p>Includes headers, detail lines, summarized A/P entries, and journal totals.</p>
+</li>
+<li>
+<p><strong>UDS (User Data Structure)</strong>:</p>
+</li>
+<li>Provides additional fields:<ul>
+<li><code>WIREDS</code>: Wire transfer description (positions 200-220, e.g., <code>'WT*** WIRE TRANSFER ***'</code>).</li>
+<li><code>Y2KCEN</code>: Century indicator (positions 509-510, e.g., <code>19</code> or <code>20</code>).</li>
+<li><code>Y2KCMP</code>: Company century threshold (positions 511-512, e.g., <code>80</code>).</li>
 </ul>
 </li>
 </ol>
+<hr />
+<h3 id="external-programs-called"><strong>External Programs Called</strong><a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
+<p>The <code>AP255</code> RPG program <strong>does not call any external programs</strong>. It is self-contained, using the <code>JRNL</code> subroutine to handle journal entry processing. The program is invoked by the main OCL program (<code>AP250.ocl36.txt</code>) after sorting data with <code>#GSORT</code>.</p>
+<hr />
+<h3 id="summary"><strong>Summary</strong><a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
+<p>The <code>AP255</code> RPG program is a critical component of the A/P system, responsible for generating the Cash Disbursements Journal and preparing general ledger entries. Its key functions are:</p>
+<ul>
+<li><strong>Process Steps</strong>:</li>
+<li>Initializes company-level data and report headers (<code>L4</code> break).</li>
+<li>Processes <code>APCDJR</code> records, handling debit/credit codes and summarizing A/P transactions.</li>
+<li>Converts dates to century-aware format.</li>
+<li>Writes detailed and summarized journal entries to <code>TEMGEN</code>.</li>
+<li>
+<p>Generates a formatted Cash Disbursements Journal report (<code>APPRINT</code>) with headers, details, and totals.</p>
+</li>
+<li>
+<p><strong>Business Rules</strong>:</p>
+</li>
+<li>Handles debit (<code>'D'</code>) and credit (<code>'C'</code>) transactions, adjusting negative amounts.</li>
+<li>Summarizes A/P transactions (<code>CDTYPE = 'AP      '</code>) into a single entry.</li>
+<li>Maintains journal balance with debit (<code>L4DR</code>) and credit (<code>L4CR</code>) totals.</li>
+<li>Supports century-aware date processing.</li>
+<li>Includes period/year in the report if applicable.</li>
+<li>
+<p>Writes standardized general ledger entries to <code>TEMGEN</code>.</p>
+</li>
+<li>
+<p><strong>Tables Used</strong>:</p>
+</li>
+<li><code>APCDJR</code>: Primary input, cash disbursements journal entries.</li>
+<li><code>AP255S</code>: Internal table file.</li>
+<li><code>APCONT</code>: Company control file.</li>
+<li><code>TEMGEN</code>: General ledger output file.</li>
+<li><code>APPRINT</code>: Cash Disbursements Journal report.</li>
+<li>
+<p><code>UDS</code>: User Data Structure for additional fields.</p>
+</li>
+<li>
+<p><strong>External Programs Called</strong>: None.</p>
+</li>
+</ul>
+<p>The program integrates with the broader A/P process by processing sorted journal entries from <code>AP250</code> and preparing data for general ledger integration. If you need further details or analysis (e.g., specific report formats or <code>TEMGEN</code> integration), please let me know!</p>
 
 
 

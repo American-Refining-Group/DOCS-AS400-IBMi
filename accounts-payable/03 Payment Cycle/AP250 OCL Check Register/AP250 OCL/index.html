@@ -12,13 +12,13 @@
         <meta name="author" content="American Refining Group">
       
       
-        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-payable/03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP250RPG%20GROK/">
+        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-payable/03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP250%20OCL/">
       
       
-        <link rel="prev" href="../AP250OCL%20GROK/">
+        <link rel="prev" href="../../AP160%20OCL%20Print%20Checks/AP160RPG/">
       
       
-        <link rel="next" href="../AP251%20RPG/">
+        <link rel="next" href="../AP250%20RPG/">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>AP250RPG GROK - ARG AS400 IBMi Documentation</title>
+        <title>AP250 OCL - ARG AS400 IBMi Documentation</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#process-steps" class="md-skip">
+        <a href="#process-steps-of-the-ap250-ocl-program" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AP250RPG GROK
+              AP250 OCL
             
           </span>
         </div>
@@ -1853,6 +1853,126 @@
                 
   
   
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    AP250 OCL
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP250 OCL
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#process-steps-of-the-ap250-ocl-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Steps of the AP250 OCL Program
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-programs-called" class="md-nav__link">
+    <span class="md-ellipsis">
+      External Programs Called
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tables-files-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tables (Files) Used
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AP250%20RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP250 RPG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
   
   
     <li class="md-nav__item">
@@ -1879,123 +1999,17 @@
   
   
     <li class="md-nav__item">
-      <a href="../AP250OCL%20GROK/" class="md-nav__link">
+      <a href="../AP251%20OCL/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    AP250OCL GROK
+    AP251 OCL
     
   </span>
   
 
       </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    AP250RPG GROK
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    AP250RPG GROK
-    
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#process-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      Process Steps
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#business-rules" class="md-nav__link">
-    <span class="md-ellipsis">
-      Business Rules
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tablesfiles-used" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tables/Files Used
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#external-programs-called" class="md-nav__link">
-    <span class="md-ellipsis">
-      External Programs Called
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Notes
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2054,6 +2068,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../AP256%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP256 OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../AP256%20RPG/" class="md-nav__link">
         
   
@@ -2077,12 +2114,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../AP256A/" class="md-nav__link">
+      <a href="../AP256A%20RPG/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    AP256A
+    AP256A RPG
     
   </span>
   
@@ -7870,27 +7907,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps" class="md-nav__link">
+  <a href="#process-steps-of-the-ap250-ocl-program" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#business-rules" class="md-nav__link">
-    <span class="md-ellipsis">
-      Business Rules
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tablesfiles-used" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tables/Files Used
+      Process Steps of the AP250 OCL Program
     </span>
   </a>
   
@@ -7906,9 +7925,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
+  <a href="#tables-files-used" class="md-nav__link">
     <span class="md-ellipsis">
-      Notes
+      Tables (Files) Used
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
     </span>
   </a>
   
@@ -7933,399 +7961,165 @@
   
 
 
-  <h1>AP250RPG GROK</h1>
+  <h1>AP250 OCL</h1>
 
-<p>The RPG program <code>AP250.RPG36</code> is a core component of the Accounts Payable (A/P) Check Register process, invoked by the OCL procedure <code>AP250.OCL36</code>. It handles the generation of the check register, updates master files, and processes payment-related data, including support for ACH, wire transfers, and employee expenses. Below is a detailed breakdown of the <strong>process steps</strong>, <strong>business rules</strong>, <strong>tables/files used</strong>, and <strong>external programs called</strong> as requested.</p>
+<p>The provided document is an Operations Control Language (OCL) program, specifically <code>AP250.ocl36.txt</code>, which appears to be part of an IBM System/36 or AS/400 environment for processing an Accounts Payable (A/P) Check Register, Journal, and file updates. Below is an explanation of the process steps, the external programs called, and the tables (files) used in the program.</p>
 <hr />
-<h3 id="process-steps">Process Steps<a class="headerlink" href="#process-steps" title="Permanent link">&para;</a></h3>
-<p>The <code>AP250.RPG36</code> program is structured around a series of subroutines that process input records, update files, and generate output for the check register and related journals. The steps are derived from the RPG source code and are organized by the main processing flow and subroutine execution:</p>
+<h3 id="process-steps-of-the-ap250-ocl-program"><strong>Process Steps of the AP250 OCL Program</strong><a class="headerlink" href="#process-steps-of-the-ap250-ocl-program" title="Permanent link">&para;</a></h3>
+<p>The OCL program orchestrates a sequence of operations to generate an A/P Check Register, update related files, and produce a Cash Disbursements Journal. Here’s a breakdown of the steps based on the program’s structure:</p>
 <ol>
-<li><strong>Initialization (L4DET Subroutine)</strong>:</li>
-<li>Retrieves the current system time and date, formatting them for output (e.g., <code>TIMDAT</code>, <code>DATYMD</code>, <code>DATE8</code>).</li>
-<li>Initializes counters and accumulators (e.g., <code>PAGE</code>, <code>ZERO6</code>, <code>ZERO9</code>).</li>
-<li>Sets a separator field (<code>SEP</code>) to <code>'* '</code>.</li>
-<li>Retrieves the check date from <code>APPYTR</code> (chain to <code>PTCKDT</code>, convert to <code>CDYMD8</code> with century adjustment using <code>Y2KCEN</code> and <code>Y2KCMP</code>).</li>
-<li>Chains to <code>APCONT</code> to retrieve company details (e.g., <code>ACNAME</code>, <code>ACDSGL</code>, <code>ACCDJR</code>, <code>ACCKNO</code>).</li>
-<li>Determines the journal ID (<code>JRNID</code>) based on whether a wire transfer is indicated (<code>WIRE = 'WT'</code> sets <code>JRNID</code> to <code>'WD'</code>, otherwise <code>'CD'</code>; additional logic for ACH, wire transfer, or employee expenses sets <code>JRNID</code> to <code>'AD'</code>, <code>'WD'</code>, or <code>'ED'</code> respectively).</li>
-<li>
-<p>Sets indicator <code>50</code> for wire transfers, ACH, or employee expenses to skip writing to <code>APCHKR</code>.</p>
-</li>
-<li>
-<p><strong>Process Each Check Record (EACH01 Subroutine)</strong>:</p>
-</li>
-<li>Processes records from <code>APPYCK</code> (check file).</li>
-<li>Converts the check date (<code>AXCKDT</code>) to a formatted date (<code>AXYMD8</code>).</li>
-<li>Copies the check number (<code>AXCHEK</code>) to the PNC check number field (<code>PNCCHK</code>) for positive pay format.</li>
-<li>Evaluates the record code (<code>AXRECD</code>):<ul>
-<li><code>'C'</code>: Credit/no pay, skip processing (indicator <code>19</code>).</li>
-<li><code>'F'</code>: Full stub, void check, continue to next stub with same check number (indicator <code>12</code>).</li>
-<li><code>'V'</code>: Full stub, void check, use next check number (indicator <code>13</code>).</li>
-<li><code>'P'</code>, <code>'A'</code>, <code>'W'</code>, <code>'E'</code>: Prepaid check, ACH, wire transfer, or employee expense, respectively (indicators <code>25</code>, <code>26</code>, <code>27</code>, <code>28</code> set indicator <code>11</code>).</li>
-</ul>
-</li>
-<li>Updates the A/P check reconciliation file (<code>APCHKR</code>):<ul>
-<li>Chains to <code>APCHKR</code> using a key constructed from <code>CONO</code>, <code>BKGL</code>, and <code>AXCHEK</code>.</li>
-<li>If not found (<code>90</code> on), initializes fields (<code>AMCODE</code>, <code>AMCKAM</code>, <code>AMCLDT</code>, <code>AMOCAM</code>).</li>
-<li>For voided checks (<code>13</code> on), sets <code>AMCKAM</code> to 0 and <code>AMCODE</code> to <code>'V'</code>, updates clear date (<code>AMCLDT</code>, <code>CLDT8</code>).</li>
-<li>For non-voided checks, sets <code>AMCODE</code> to <code>'O'</code> and updates <code>AMCKAM</code> with <code>AXAMT</code>.</li>
-<li>Formats the date for PNC positive pay (<code>PNCDT8</code>) and sets <code>PNCCOD</code> to <code>'V'</code> for voided checks or <code>'I'</code> otherwise.</li>
-</ul>
-</li>
-<li>Updates counters and accumulators:<ul>
-<li>Increments <code>C3CNT</code> and adds <code>AXAMT</code> to <code>C3AMT</code> for computer checks (non-prepaid, non-void).</li>
-<li>Increments <code>P3CNT</code>, <code>A3CNT</code>, <code>W3CNT</code>, or <code>E3CNT</code> and adds <code>AXAMT</code> to respective accumulators (<code>P3AMT</code>, <code>A3AMT</code>, <code>W3AMT</code>, <code>E3AMT</code>) for prepaid, ACH, wire transfer, or employee expense records.</li>
-<li>Increments <code>L3CNT</code> and adds <code>AXAMT</code> to <code>L3AMT</code> and <code>L2PAID</code> for non-voided checks.</li>
+<li><strong>Initialization and Setup</strong>:</li>
+<li><strong>Procedure Call</strong>: The program starts by calling <code>STRPCOCLP</code>, likely a system procedure to initialize the environment or set up processing parameters.</li>
+<li><strong>Conditional Wire Transfer Check</strong>:<ul>
+<li>Checks if parameter <code>?3?</code> equals 'WT' (Wire Transfer).</li>
+<li>If true, sets a local variable at offset 198 with the text <code>'WT*** WIRE TRANSFER ***'</code>.</li>
+<li>If false, clears the local variable (sets it to blanks).</li>
 </ul>
 </li>
 <li>
-<p>Stores the check number (<code>AXCHEK</code>) in <code>L4CHEK</code> for updating <code>APCONT</code>.</p>
-</li>
-<li>
-<p><strong>Process Payment Records (EACH02 Subroutine)</strong>:</p>
-</li>
-<li>Processes records from <code>APPAY</code> (payment file).</li>
-<li>Accumulates discount taken (<code>OPDISC</code>) into <code>OPDSTK</code> and <code>CDDISC</code>.</li>
-<li>Updates vendor totals for <code>APVEND</code>:<ul>
-<li>Adds <code>OPGRAM</code> to <code>L2GRAM</code> (gross amount).</li>
-<li>Adds <code>OPDISC</code> to <code>L2DISC</code> (discount).</li>
-<li>Adds <code>OPPPTD</code> to <code>L2PPTD</code> (partial paid to date).</li>
-<li>Adds <code>OPLPAM</code> to <code>L2AMT</code> (payment amount).</li>
-</ul>
-</li>
-<li>Calculates the A/P reduction (<code>OPPAY = OPDISC + OPLPAM</code>) and open amount (<code>OPOPEN = OPGRAM - OPPPTD - OPPAY</code>).</li>
-<li>If <code>OPOPEN = 0</code>, marks the record as fully paid (indicator <code>20</code>).</li>
-<li>Updates <code>OPPPTD</code> by adding <code>OPLPAM</code>.</li>
-<li>Processes <code>APOPEN</code> records:<ul>
-<li>Sets the lower limit (<code>SETLL</code>) on <code>APOPEN</code> using <code>OPKEY</code>.</li>
-<li>Reads <code>APOPEN</code> records, comparing <code>OPKY1</code> with <code>COVNVO</code> to ensure matching vouchers.</li>
-<li>Chains to <code>APOPENH</code>, <code>APOPEND</code>, or <code>APOPENV</code> based on record type (indicators <code>04</code>, <code>05</code>, <code>06</code>).</li>
-</ul>
-</li>
-<li>Updates freight-related files (<code>FRCFBH</code>, <code>FRCINH</code>):<ul>
-<li>Constructs a key (<code>FRCKEY</code>, <code>FRCK39</code>) using <code>CONO</code>, <code>OPCAID</code>, <code>OPINVN</code>, and <code>OPSORN</code>.</li>
-<li>Chains to <code>FRCFBH</code> (freight bill header) first; if found and <code>FRAPST = 'Y'</code>, writes an exception record (<code>APFBST</code>).</li>
-<li>If not found, chains to <code>FRCINH</code> (invoice header) and writes an exception record (<code>APINST</code>).</li>
-</ul>
-</li>
-<li>
-<p>Updates the discount missed table (<code>APPYDS</code>):</p>
+<p><strong>Auto-Run Check</strong>:</p>
 <ul>
-<li>Chains to <code>APPYDS</code> using <code>OPKY1</code>.</li>
-<li>Writes an exception record to <code>APPYDS</code> (indicator <code>70</code>).</li>
+<li>If parameter <code>?2?</code> equals 'AUTO', the program jumps to the <code>AP250</code> tag, indicating it’s running as part of an automated process (likely triggered by another program, <code>AP200</code>).</li>
 </ul>
 </li>
 <li>
-<p><strong>Vendor Totals Update (L2TOT Subroutine)</strong>:</p>
+<p><strong>Workstation Lockout Check</strong>:</p>
 </li>
-<li>Chains to <code>APVEND</code> using a key (<code>VNKEY</code>) constructed from <code>CONO</code> and <code>VEND</code>.</li>
+<li>Checks if the data field <code>DATAF1-?9?APPO?WS?</code> exists (indicating checks are pending printing at the workstation).</li>
+<li>If true, displays a warning message indicating that checks cannot be posted until printed (via Option 11 of <code>APMENU</code>).</li>
 <li>
-<p>If found (<code>92</code> off):</p>
+<p>Prompts the user to press <code>0,ENTER</code> to cancel the job, then jumps to the <code>END</code> tag to terminate.</p>
+</li>
+<li>
+<p><strong>User Interaction</strong>:</p>
+</li>
+<li>If not in auto mode and no workstation lockout, displays a message: <code>'A/P CHECK REGISTER, JOURNAL, AND UPDATE FILES'</code>.</li>
+<li>Prompts the user to either cancel (press <code>ATTN,2,ENTER</code>) or continue (press <code>0,ENTER</code>).</li>
+<li>
+<p>Sets an attribute <code>INQUIRY-YES,CANCEL-NO</code> to handle user input.</p>
+</li>
+<li>
+<p><strong>File Preparation</strong>:</p>
+</li>
+<li>Deletes any existing temporary file <code>APCD?WS?</code> using <code>GSDELETE</code>.</li>
+<li>
+<p>Builds a new sequential file <code>?9?APCD?WS?</code> with a capacity of 999,000 records and a record length of 128 bytes.</p>
+</li>
+<li>
+<p><strong>Check Register and File Update Execution</strong>:</p>
+</li>
+<li>Displays a message: <code>'CHECK REGISTER, UPDATE FILES EXECUTING'</code>.</li>
+<li>Loads the program <code>AP250</code> and associates it with multiple files (see <strong>Tables Used</strong> below for details).</li>
+<li>Overrides printer output files (<code>APPNCF</code> and <code>APPRINT</code>) to specific output queues (<code>QUSRSYS/PRTPNC</code>, <code>QUSRSYS/APPOST</code>, or <code>QUSRSYS/TESTOUTQ</code>) based on the condition <code>?9?/G</code>.</li>
+<li>
+<p>Runs the <code>AP250</code> program to process the check register and update related files.</p>
+</li>
+<li>
+<p><strong>Commission Table Update</strong>:</p>
+</li>
+<li>Loads the program <code>AP251</code>.</li>
+<li>Uses files <code>APPAY</code> and <code>APTORCY</code> to update a commission table with payment information.</li>
+<li>
+<p>Runs the <code>AP251</code> program.</p>
+</li>
+<li>
+<p><strong>Sorting Cash Disbursements Data</strong>:</p>
+</li>
+<li>Displays a message: <code>'CASH DISBURSMENTS JOURNAL EXECUTING'</code>.</li>
+<li>Loads the <code>#GSORT</code> program to sort data.</li>
+<li>Input file: <code>?9?APCD?WS?</code>.</li>
+<li>Output file: <code>?9?APCS?WS?</code> (capacity of 999,000 records, extendable).</li>
+<li>Sorting parameters:<ul>
+<li>Sorts in ascending order (<code>HSORTA 30A 3X N</code>).</li>
+<li>Conditions and fields for sorting:</li>
+<li><code>I C 1 1NECD</code>: Likely a conditional check on a specific field.</li>
+<li>Fields sorted: Company (positions 2-3), C/D flag (position 12), AP/Cash/Discount (positions 106-115), G/L number (positions 13-20), and Sequence number (positions 97-105).</li>
+</ul>
+</li>
+<li>
+<p>Runs the sort operation.</p>
+</li>
+<li>
+<p><strong>Cash Disbursements Journal Generation</strong>:</p>
+</li>
+<li>Loads the program <code>AP255</code>.</li>
+<li>Uses sorted data (<code>APCDJR</code> and <code>AP255S</code>) and control files (<code>APCONT</code>, <code>TEMGEN</code>).</li>
+<li>Overrides printer output file <code>APPRINT</code> to <code>QUSRSYS/APPOST</code> or <code>QUSRSYS/TESTOUTQ</code> based on <code>?9?/G</code>.</li>
+<li>
+<p>Runs <code>AP255</code> to generate the Cash Disbursements Journal.</p>
+</li>
+<li>
+<p><strong>Optional File Processing (APDT?WS?)</strong>:</p>
+</li>
+<li>Checks if the file <code>?9?APDT?WS?</code> exists and has a non-zero size.</li>
+<li>
+<p>If it exists:</p>
 <ul>
-<li>Updates <code>VNLPAY</code> with <code>L2AMT</code> (last payment amount).</li>
-<li>Updates <code>VNLPDT</code> and <code>VNLPD8</code> with <code>AXCKDT</code> (last payment date).</li>
-<li>Adds <code>L2DISC</code> to <code>VNDMTD</code> and <code>VNDYTD</code> (month-to-date and year-to-date discounts).</li>
-<li>Adds <code>L2AMT</code> and <code>L2DISC</code> to <code>VNPAY</code> (month-to-date payments).</li>
-<li>Subtracts <code>L2AMT</code> and <code>L2DISC</code> from <code>VNCBAL</code> (current balance).</li>
-<li>Adds <code>L2PAID</code> to <code>VNTYDP</code> (year-to-date paid).</li>
+<li>Builds a new indexed file <code>?9?APDT?WS?C</code> with 500 records, record length of 10 bytes, and specific key fields.</li>
+<li>Loads <code>AP256A</code> to process this file with <code>APVNFMX</code> (vendor master file).</li>
+<li>Runs <code>AP256A</code>.</li>
+<li>Loads <code>AP256</code> to further process <code>APDTWS</code>, <code>APDTWSC</code>, <code>APVEND</code>, <code>APCONT</code>, and <code>APVNFMX</code>.</li>
+<li>Overrides multiple report files (<code>REPORT1</code>, <code>REPORT2</code>, <code>REPORT3</code>, <code>REPORT4</code>) to output queues <code>QUSRSYS/APACHOUTQ</code> or <code>QUSRSYS/TESTOUTQ</code> based on <code>?9?/G</code>.</li>
+<li>Runs <code>AP256</code>.</li>
 </ul>
 </li>
 <li>
-<p><strong>Final Totals and Updates (L4TOT Subroutine)</strong>:</p>
-</li>
-<li>Checks if <code>L4CHEK</code> is non-zero and compares it with <code>ACCKNO</code> (next check number).</li>
-<li>If equal, increments <code>ACCKNO</code> and <code>ACCDJR</code> (next cash disbursements journal number).</li>
-<li>
-<p>Updates <code>APCONT</code> with the new <code>ACCKNO</code> and <code>ACCDJR</code>.</p>
-</li>
-<li>
-<p><strong>Output Generation</strong>:</p>
-</li>
-<li>Writes to <code>APCHKR</code> (check reconciliation) for non-prepaid, non-voided records (<code>01</code>, <code>N90</code>, <code>N50</code>, <code>N12</code>, <code>N19</code>):<ul>
-<li>Updates or adds records with fields like <code>AMCODE</code>, <code>AMCKAM</code>, <code>AMCLDT</code>, <code>CLDT8</code>, <code>AMOCAM</code>.</li>
-</ul>
-</li>
-<li>Writes to <code>APOPENH</code>, <code>APOPEND</code>, <code>APOPENV</code> (header, detail, one-time vendor) for fully paid records (<code>70</code>, <code>04</code>/<code>05</code>/<code>06</code>, <code>20</code>):<ul>
-<li>Marks records as deleted (<code>'D'</code>) and updates fields like <code>OPPPTD</code>, <code>OPCKNO</code>, <code>AXYMD</code>, <code>CDYMD</code>, <code>OPLPAM</code>, <code>OPDSTK</code>.</li>
-</ul>
-</li>
-<li>Writes to <code>APHISTH</code>, <code>APHISTD</code>, <code>APHISTV</code> (history files) for fully paid records:<ul>
-<li>Adds records with payment details, including <code>OPDISC</code>, <code>OPLPAM</code>, <code>AXYMD</code>, <code>CKDT8</code>, <code>OPCAID</code>, <code>OPINVN</code>.</li>
-</ul>
-</li>
-<li>Writes to <code>APPYDS</code> (discount missed table) for header records (<code>70</code>, <code>04</code>, <code>N97</code>):<ul>
-<li>Includes fields like <code>DSDEL</code>, <code>DSREC1</code>, <code>DSREC2</code>, <code>OPCKNO</code>, <code>OPPAID</code>, <code>OPLPAM</code>, <code>OPDISC</code>, <code>DSINVN</code>, <code>VNNAME</code>.</li>
-</ul>
-</li>
-<li>Writes to <code>FRCINH</code> and <code>FRCFBH</code> (freight-related files) for applicable vouchers:<ul>
-<li>Updates with payment status (<code>'P'</code>), vendor, check number, and amount.</li>
-</ul>
-</li>
-<li>Writes to <code>APCDJR</code> (cash disbursements journal) for payment records (<code>02</code>, <code>N19</code>):<ul>
-<li>Outputs cash (<code>'C'</code>), discount (<code>'D'</code>), and A/P (<code>'AP'</code>) entries with fields like <code>CONO</code>, <code>JRNID</code>, <code>BKGL</code>, <code>AXCHEK</code>, <code>OPLPAM</code>, <code>CDDISC</code>, <code>OPPAY</code>.</li>
-</ul>
-</li>
-<li>Writes to <code>APPNCF</code> (PNC positive pay file) for non-prepaid, non-voided records (<code>01</code>, <code>N19</code>, <code>N12</code>, <code>N28</code>):<ul>
-<li>Outputs bank account, check number, date, amount, vendor name, and status code.</li>
-</ul>
-</li>
-<li>Writes to <code>APPRINT</code> (printer file) for the check register report:<ul>
-<li>Outputs headers with company name, bank G/L, wire transfer indicator, date, time, and journal ID.</li>
-<li>Outputs detail lines with check number, vendor number, name, date, and amount.</li>
-<li>Outputs totals for computer checks, prepaid checks, ACH payments, wire transfers, employee expenses, and overall totals.</li>
+<p><strong>Cleanup and Termination</strong>:</p>
+<ul>
+<li>Deletes temporary files (<code>APPT?WS?</code>, <code>APPY?WS?</code>, <code>APPS?WS?</code>, <code>APPC?WS?</code>, <code>APDS?WS?</code>, <code>APPO?WS?</code>, <code>APCD?WS?</code>, <code>APCS?WS?</code>, <code>APDT?WS?</code>, <code>APDT?WS?C</code>) using <code>GSDELETE</code>.</li>
+<li>If in auto mode (<code>?2?/AUTO</code>), clears all local variables (<code>LOCAL BLANK-*ALL</code>).</li>
+<li>Ends the program.</li>
 </ul>
 </li>
 </ol>
 <hr />
-<h3 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
-<p>The program enforces several business rules, primarily related to payment processing, file updates, and reporting:</p>
-<ol>
-<li><strong>Check Record Processing</strong>:</li>
-<li>Skips processing for credit/no-pay records (<code>AXRECD = 'C'</code>).</li>
-<li>Handles voided checks differently based on <code>AXRECD</code> (<code>'F'</code> for same check number, <code>'V'</code> for next check number).</li>
-<li>
-<p>Supports multiple payment types: prepaid checks (<code>'P'</code>), ACH (<code>'A'</code>), wire transfers (<code>'W'</code>), and employee expenses (<code>'E'</code>).</p>
-</li>
-<li>
-<p><strong>Date Handling</strong>:</p>
-</li>
-<li>Adjusts check dates for century (<code>Y2KCEN</code>, <code>Y2KCMP</code>) to handle Y2K compliance (e.g., <code>PTCKYY &gt;= Y2KCMP</code> uses <code>Y2KCEN</code>, otherwise adds 1 to century).</li>
-<li>
-<p>Formats dates for PNC positive pay (<code>PNCDT8</code>) in MMDDYYYY format.</p>
-</li>
-<li>
-<p><strong>Journal and Check Number Management</strong>:</p>
-</li>
-<li>Assigns journal ID (<code>JRNID</code>) as <code>'CD'</code> (check), <code>'WD'</code> (wire transfer), <code>'AD'</code> (ACH), or <code>'ED'</code> (employee expenses).</li>
-<li>
-<p>Increments <code>ACCKNO</code> (next check number) and <code>ACCDJR</code> (next journal number) only if a valid check number is processed.</p>
-</li>
-<li>
-<p><strong>Vendor and Payment Updates</strong>:</p>
-</li>
-<li>Accumulates gross amount, discount, and payment amounts for each vendor (<code>L2GRAM</code>, <code>L2DISC</code>, <code>L2AMT</code>, <code>L2PAID</code>).</li>
-<li>Updates vendor balances (<code>VNCBAL</code>), payments (<code>VNPAY</code>, <code>VNTYDP</code>), and discounts (<code>VNDMTD</code>, <code>VNDYTD</code>) in <code>APVEND</code>.</li>
-<li>
-<p>Marks fully paid vouchers as deleted (<code>'D'</code>) in <code>APOPENH</code>, <code>APOPEND</code>, <code>APOPENV</code>.</p>
-</li>
-<li>
-<p><strong>Freight Invoice Processing</strong>:</p>
-</li>
-<li>Checks <code>FRCFBH</code> (freight bill header) before <code>FRCINH</code> (invoice header) for vouchers with a carrier ID (<code>OPCAID</code>).</li>
-<li>
-<p>Updates payment status (<code>FRAPST = 'P'</code>) in the appropriate freight file.</p>
-</li>
-<li>
-<p><strong>Discount Missed Tracking</strong>:</p>
-</li>
-<li>
-<p>Writes to <code>APPYDS</code> for header records to track missed discounts, including invoice and vendor details.</p>
-</li>
-<li>
-<p><strong>Check Reconciliation</strong>:</p>
-</li>
-<li>Updates <code>APCHKR</code> only for non-wire transfer, non-ACH, non-employee expense records (<code>N50</code>).</li>
-<li>
-<p>Sets <code>AMCODE</code> to <code>'O'</code> (open) or <code>'V'</code> (voided) and updates amounts and dates accordingly.</p>
-</li>
-<li>
-<p><strong>Reporting</strong>:</p>
-</li>
-<li>Generates a detailed check register (<code>APPRINT</code>) with headers, detail lines, and totals by payment type.</li>
-<li>Produces a PNC positive pay file (<code>APPNCF</code>) for bank reconciliation, including void status.</li>
-</ol>
+<h3 id="external-programs-called"><strong>External Programs Called</strong><a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
+<p>The OCL program calls the following external programs:
+1. <strong>STRPCOCLP</strong>: Initializes the environment or sets up processing parameters.
+2. <strong>AP250</strong>: Main program for generating the A/P Check Register and updating files.
+3. <strong>AP251</strong>: Updates the commission table with payment data.
+4. <strong>#GSORT</strong>: Sorts data for the Cash Disbursements Journal.
+5. <strong>AP255</strong>: Generates the Cash Disbursements Journal.
+6. <strong>AP256A</strong>: Processes temporary data files (if <code>APDT?WS?</code> exists).
+7. <strong>AP256</strong>: Further processes temporary data and generates reports.</p>
 <hr />
-<h3 id="tablesfiles-used">Tables/Files Used<a class="headerlink" href="#tablesfiles-used" title="Permanent link">&para;</a></h3>
-<p>The program interacts with multiple files for input, update, and output. The files are listed below with their logical names, labels, usage, and disposition:</p>
-<table>
-<thead>
-<tr>
-<th><strong>Logical Name</strong></th>
-<th><strong>Label</strong></th>
-<th><strong>Usage</strong></th>
-<th><strong>Disposition</strong></th>
-<th><strong>Record Length</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>APPYCK</td>
-<td>?9?APPC?WS?</td>
-<td>Input: Check data (check number, amount, date, vendor).</td>
-<td>Input (IP)</td>
-<td>96</td>
-</tr>
-<tr>
-<td>APPAY</td>
-<td>?9?APPY?WS?</td>
-<td>Input/Update: Payment data (voucher, gross amount, discount, check number).</td>
-<td>Input/Update (IS)</td>
-<td>384</td>
-</tr>
-<tr>
-<td>AP250S</td>
-<td>?9?APPS?WS?</td>
-<td>Input: Supporting data (used for array <code>SEP</code>).</td>
-<td>Input (IR)</td>
-<td>3</td>
-</tr>
-<tr>
-<td>APPYTR</td>
-<td>?9?APPT?WS?</td>
-<td>Input: Transaction data (check date, year/period).</td>
-<td>Input (IC)</td>
-<td>128</td>
-</tr>
-<tr>
-<td>APCONT</td>
-<td>?9?APCONT</td>
-<td>Update: A/P control (company name, next check/journal numbers).</td>
-<td>Update (UC)</td>
-<td>256</td>
-</tr>
-<tr>
-<td>APVEND</td>
-<td>?9?APVEND</td>
-<td>Update: Vendor master (name, balance, payments, discounts).</td>
-<td>Update (UC)</td>
-<td>579</td>
-</tr>
-<tr>
-<td>APVEND2</td>
-<td>?9?APVEND</td>
-<td>Input: Vendor master (address, name overflow).</td>
-<td>Input (IC)</td>
-<td>579</td>
-</tr>
-<tr>
-<td>APCHKR</td>
-<td>?9?APCHKR</td>
-<td>Update: Check reconciliation (check amount, clear date, status).</td>
-<td>Update (UC)</td>
-<td>128</td>
-</tr>
-<tr>
-<td>APOPEN</td>
-<td>?9?APOPEN</td>
-<td>Input: Open A/P file (voucher data).</td>
-<td>Input (ID)</td>
-<td>384</td>
-</tr>
-<tr>
-<td>APOPENH</td>
-<td>?9?APOPNH</td>
-<td>Update: Open A/P header (voucher header data).</td>
-<td>Update (UC)</td>
-<td>384</td>
-</tr>
-<tr>
-<td>APOPEND</td>
-<td>?9?APOPND</td>
-<td>Update: Open A/P detail (voucher detail data).</td>
-<td>Update (UC)</td>
-<td>384</td>
-</tr>
-<tr>
-<td>APOPENV</td>
-<td>?9?APOPNV</td>
-<td>Update: Open A/P one-time vendor data.</td>
-<td>Update (UC)</td>
-<td>384</td>
-</tr>
-<tr>
-<td>FRCINH</td>
-<td>?9?FRCINH</td>
-<td>Update: Freight invoice header (carrier, payment status).</td>
-<td>Update (UF)</td>
-<td>206</td>
-</tr>
-<tr>
-<td>FRCFBH</td>
-<td>?9?FRCFBH</td>
-<td>Update: Freight bill header (similar to FRCINH).</td>
-<td>Update (UF)</td>
-<td>206</td>
-</tr>
-<tr>
-<td>APPYDS</td>
-<td>?9?APDS?WS?</td>
-<td>Input: Discount missed table (voucher, discount data).</td>
-<td>Input (IF)</td>
-<td>384</td>
-</tr>
-<tr>
-<td>APHISTH</td>
-<td>?9?APHSTH</td>
-<td>Output: A/P history header (payment history).</td>
-<td>Output (O)</td>
-<td>384</td>
-</tr>
-<tr>
-<td>APHISTD</td>
-<td>?9?APHSTD</td>
-<td>Output: A/P history detail (payment details).</td>
-<td>Output (O)</td>
-<td>384</td>
-</tr>
-<tr>
-<td>APHISTV</td>
-<td>?9?APHSTV</td>
-<td>Output: A/P history one-time vendor (payment history).</td>
-<td>Output (O)</td>
-<td>384</td>
-</tr>
-<tr>
-<td>APCDJR</td>
-<td>?9?APCD?WS?</td>
-<td>Output: Cash disbursements journal (cash, discount, A/P entries).</td>
-<td>Output (O)</td>
-<td>128</td>
-</tr>
-<tr>
-<td>APPRINT</td>
-<td>?9?APPRINT</td>
-<td>Output: Check register report (printer file).</td>
-<td>Output (O)</td>
-<td>132</td>
-</tr>
-<tr>
-<td>APPNCF</td>
-<td>?9?APPNCF</td>
-<td>Output: PNC positive pay file (bank reconciliation).</td>
-<td>Output (O)</td>
-<td>155</td>
-</tr>
-<tr>
-<td>APDSMS</td>
-<td>?9?APDSMS</td>
-<td>Output: Discount missed table (missed discount records).</td>
-<td>Output (O)</td>
-<td>384</td>
-</tr>
-</tbody>
-</table>
+<h3 id="tables-files-used"><strong>Tables (Files) Used</strong><a class="headerlink" href="#tables-files-used" title="Permanent link">&para;</a></h3>
+<p>The program references the following files, which serve as input, output, or shared data tables:
+1. <strong>APPYCK</strong> (<code>?9?APPC?WS?</code>): Likely contains check data.
+2. <strong>APPAY</strong> (<code>?9?APPY?WS?</code>): Payment data file, used in <code>AP250</code> and <code>AP251</code>.
+3. <strong>AP250S</strong> (<code>?9?APPS?WS?</code>): Temporary file for <code>AP250</code> processing.
+4. <strong>APPYTR</strong> (<code>?9?APPT?WS?</code>): Transaction-related file.
+5. <strong>APCONT</strong> (<code>?9?APCONT</code>, DISP-SHR): Control file for A/P processing, shared across programs.
+6. <strong>APVEND</strong> (<code>?9?APVEND</code>, DISP-SHR): Vendor master file, used in multiple programs.
+7. <strong>APVEND2</strong> (<code>?9?APVEND</code>, DISP-SHR): Likely an alias for <code>APVEND</code>.
+8. <strong>APCHKR</strong> (<code>?9?APCHKR</code>, DISP-SHR): Check register file.
+9. <strong>APPYDS</strong> (<code>?9?APDS?WS?</code>, DISP-SHR): Payment distribution file.
+10. <strong>APOPEN</strong> (<code>?9?APOPEN</code>, DISP-SHR): Open A/P transactions.
+11. <strong>APOPENH</strong> (<code>?9?APOPNH</code>, DISP-SHR): Historical A/P open transactions header.
+12. <strong>APOPEND</strong> (<code>?9?APOPND</code>, DISP-SHR): Detailed A/P open transactions.
+13. <strong>APOPENV</strong> (<code>?9?APOPNV</code>, DISP-SHR): Vendor-specific A/P open transactions.
+14. <strong>APHISTH</strong> (<code>?9?APHSTH</code>, DISP-SHR): A/P history header.
+15. <strong>APHISTD</strong> (<code>?9?APHSTD</code>, DISP-SHR): A/P history details.
+16. <strong>APHISTV</strong> (<code>?9?APHSTV</code>, DISP-SHR): Vendor-specific A/P history.
+17. <strong>FRCINH</strong> (<code>?9?FRCINH</code>, DISP-SHR): Possibly a financial control file.
+18. <strong>FRCFBH</strong> (<code>?9?FRCFBH</code>, DISP-SHR): Another financial control file.
+19. <strong>APCDJR</strong> (<code>?9?APCD?WS?</code>, EXTEND-100): Cash disbursements journal file.
+20. <strong>APDSMS</strong> (<code>?9?APDSMS</code>, DISP-SHR): Summary data for disbursements.
+21. <strong>AP255S</strong> (<code>?9?APCS?WS?</code>): Sorted output for the Cash Disbursements Journal.
+22. <strong>TEMGEN</strong> (<code>?9?TEMGEN</code>, DISP-SHR): Temporary general file.
+23. <strong>APDTWS</strong> (<code>?9?APDT?WS?</code>): Temporary data file for additional processing.
+24. <strong>APDTWSC</strong> (<code>?9?APDT?WS?C</code>, RETAIN-T, RECORDS-50): Indexed temporary file for <code>AP256A</code> and <code>AP256</code>.
+25. <strong>APVNFMX</strong> (<code>?9?APVNFMX</code>, DISP-SHR): Vendor master extension file.</p>
 <hr />
-<h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
-<p>The <code>AP250.RPG36</code> program does not explicitly call any external programs. All processing is handled within the program through its subroutines (<code>L4DET</code>, <code>EACH01</code>, <code>EACH02</code>, <code>L2TOT</code>, <code>L4TOT</code>). The program is self-contained and relies on file operations and internal logic to complete its tasks.</p>
-<hr />
-<h3 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>File Dispositions</strong>:</li>
-<li><code>IP</code> (Primary Input): <code>APPYCK</code> for check records.</li>
-<li><code>IS</code> (Secondary Input/Update): <code>APPAY</code> for payment processing.</li>
-<li><code>IR</code>/<code>IC</code> (Input): Temporary or control files (<code>AP250S</code>, <code>APPYTR</code>, <code>APVEND2</code>).</li>
-<li><code>UC</code>/<code>UF</code> (Update): Master files (<code>APCONT</code>, <code>APVEND</code>, <code>APCHKR</code>, <code>APOPEN*</code>, <code>FRC*</code>).</li>
-<li><code>ID</code> (Input for Deletion): <code>APOPEN</code> for reading vouchers.</li>
-<li><code>O</code> (Output): History, journal, and report files (<code>APHIST*</code>, <code>APCDJR</code>, <code>APPRINT</code>, <code>APPNCF</code>, <code>APDSMS</code>).</li>
-<li><strong>Modifications</strong>:</li>
-<li><code>JB01</code> (2012): Added support for ACH (<code>A</code>), wire transfers (<code>W</code>), and employee expenses (<code>E</code>) in <code>PTHOLD</code> and <code>AXRECD</code>.</li>
-<li><code>JB02</code> (2018): Added <code>FRCFBH</code> processing before <code>FRCINH</code> and increased <code>APPAY</code> record length to 384 to match <code>APOPEN</code>.</li>
-<li><code>MG03</code> (2022): Added <code>APPYDS</code> and <code>APDSMS</code> for tracking missed discounts.</li>
-<li><strong>Y2K Compliance</strong>: The program handles century adjustments for dates to ensure correct processing of check and payment dates.</li>
-<li><strong>Output Formats</strong>:</li>
-<li>The check register (<code>APPRINT</code>) includes detailed headers and totals by payment type.</li>
-<li>The PNC positive pay file (<code>APPNCF</code>) is formatted for bank reconciliation, including void status.</li>
-</ul>
-<p>This summary provides a comprehensive overview of the <code>AP250.RPG36</code> program's functionality, business logic, file interactions, and lack of external program calls. Let me know if you need further clarification or additional analysis!</p>
+<h3 id="summary"><strong>Summary</strong><a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
+<p>The <code>AP250</code> OCL program is a comprehensive A/P processing routine that:
+- Validates workstation status and user input.
+- Generates an A/P Check Register and updates related files (<code>AP250</code>).
+- Updates commission tables (<code>AP251</code>).
+- Sorts data and produces a Cash Disbursements Journal (<code>#GSORT</code>, <code>AP255</code>).
+- Optionally processes additional temporary files (<code>AP256A</code>, <code>AP256</code>).
+- Cleans up temporary files and terminates.</p>
+<p>It integrates with multiple external programs and a large set of files to manage A/P transactions, vendor data, and financial reporting. The program supports both interactive and automated execution, with conditional logic for handling wire transfers and output queue assignments.</p>
 
 
 

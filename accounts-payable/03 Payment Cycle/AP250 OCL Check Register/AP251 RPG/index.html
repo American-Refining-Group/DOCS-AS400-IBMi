@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-payable/03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP251%20RPG/">
       
       
-        <link rel="prev" href="../AP250RPG%20GROK/">
+        <link rel="prev" href="../AP251%20OCL/">
       
       
         <link rel="next" href="../AP255%20RPG/">
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#process-steps" class="md-skip">
+        <a href="#process-steps-of-the-ap251-rpg-program" class="md-skip">
           Skip to content
         </a>
       
@@ -1856,6 +1856,52 @@
   
   
     <li class="md-nav__item">
+      <a href="../AP250%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP250 OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AP250%20RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP250 RPG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../AP250%20Summary%20Check%20Register/" class="md-nav__link">
         
   
@@ -1879,35 +1925,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../AP250OCL%20GROK/" class="md-nav__link">
+      <a href="../AP251%20OCL/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    AP250OCL GROK
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../AP250RPG%20GROK/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    AP250RPG GROK
+    AP251 OCL
     
   </span>
   
@@ -1971,9 +1994,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps" class="md-nav__link">
+  <a href="#process-steps-of-the-ap251-rpg-program" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps
+      Process Steps of the AP251 RPG Program
     </span>
   </a>
   
@@ -1989,9 +2012,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tablesfiles-used" class="md-nav__link">
+  <a href="#tables-files-used" class="md-nav__link">
     <span class="md-ellipsis">
-      Tables/Files Used
+      Tables (Files) Used
     </span>
   </a>
   
@@ -2007,9 +2030,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
+  <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Notes
+      Summary
     </span>
   </a>
   
@@ -2054,6 +2077,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../AP256%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP256 OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../AP256%20RPG/" class="md-nav__link">
         
   
@@ -2077,12 +2123,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../AP256A/" class="md-nav__link">
+      <a href="../AP256A%20RPG/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    AP256A
+    AP256A RPG
     
   </span>
   
@@ -7870,9 +7916,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps" class="md-nav__link">
+  <a href="#process-steps-of-the-ap251-rpg-program" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps
+      Process Steps of the AP251 RPG Program
     </span>
   </a>
   
@@ -7888,9 +7934,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tablesfiles-used" class="md-nav__link">
+  <a href="#tables-files-used" class="md-nav__link">
     <span class="md-ellipsis">
-      Tables/Files Used
+      Tables (Files) Used
     </span>
   </a>
   
@@ -7906,9 +7952,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
+  <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Notes
+      Summary
     </span>
   </a>
   
@@ -7935,154 +7981,206 @@
 
   <h1>AP251 RPG</h1>
 
-<p>The RPG program <code>AP251.RPG36</code> is invoked by the OCL procedure <code>AP251.OCL36</code> as part of the Accounts Payable (A/P) Check Register process, specifically to update the commission table (<code>APTORCY</code>) with payment information from the payment file (<code>APPAY</code>). Below is a detailed explanation of the <strong>process steps</strong>, <strong>business rules</strong>, <strong>tables/files used</strong>, and <strong>external programs called</strong>, as requested.</p>
+<p>The provided RPG program, <code>AP251.rpg36.txt</code>, is executed by the OCL program <code>AP251.ocl36.txt</code>, which itself is called from the main OCL program <code>AP250.ocl36.txt</code> within an IBM System/36 or AS/400 Accounts Payable (A/P) system. The purpose of <code>AP251</code> is to update a commission table (<code>APTORCY</code>) with payment information from the payment file (<code>APPAY</code>). Below, I will explain the <strong>process steps</strong>, <strong>business rules</strong>, <strong>tables (files) used</strong>, and <strong>external programs called</strong> based on the RPG code.</p>
 <hr />
-<h3 id="process-steps">Process Steps<a class="headerlink" href="#process-steps" title="Permanent link">&para;</a></h3>
-<p>The <code>AP251.RPG36</code> program is a straightforward RPG program designed to update the commission table (<code>APTORCY</code>) based on payment records from the <code>APPAY</code> file. The processing is structured around two subroutines: <code>ONETIM</code> for initialization and <code>EACH01</code> for processing each payment record. The steps are as follows:</p>
+<h3 id="process-steps-of-the-ap251-rpg-program"><strong>Process Steps of the AP251 RPG Program</strong><a class="headerlink" href="#process-steps-of-the-ap251-rpg-program" title="Permanent link">&para;</a></h3>
+<p>The <code>AP251</code> RPG program processes payment records from the <code>APPAY</code> file and updates corresponding records in the <code>APTORCY</code> commission table. Here is a detailed breakdown of the process steps:</p>
 <ol>
 <li><strong>Initialization (ONETIM Subroutine)</strong>:</li>
-<li>Executes once at the start of the program (<code>N09</code> condition ensures it runs only if indicator <code>09</code> is off).</li>
-<li>Retrieves the current system time and date using the <code>TIME</code> operation, storing them in <code>TIMDAT</code> (12 digits).</li>
-<li>Splits <code>TIMDAT</code> into <code>TIME</code> (6 digits, time) and <code>DATE</code> (6 digits, date).</li>
-<li>Converts the date to a year-month-day format (<code>DATYMD</code>) by multiplying <code>DATE</code> by 10000.01.</li>
-<li>Formats the date into an 8-digit format (<code>DATE8</code>) by prefixing the century (<code>20</code>) and appending <code>DATYMD</code>.</li>
 <li>
-<p>Sets indicator <code>09</code> to prevent re-execution of the subroutine.</p>
-</li>
-<li>
-<p><strong>Process Each Payment Record (EACH01 Subroutine)</strong>:</p>
-</li>
-<li>Executes for each record in the <code>APPAY</code> file (triggered by record indicator <code>01</code>).</li>
-<li>Constructs a key (<code>KEY27</code>, 27 bytes) for chaining to the <code>APTORCY</code> file:<ul>
-<li>Copies the company number (<code>CONO</code>) to <code>KEY27</code>.</li>
-<li>Copies the vendor number (<code>VEND</code>) to a temporary key (<code>KEY25</code>).</li>
-<li>Copies the invoice description (<code>OPIN20</code>, positions 35–54) to a temporary key (<code>KEY20</code>).</li>
-<li>Combines <code>KEY20</code> into <code>KEY25</code> and then into <code>KEY27</code> to form the full key.</li>
-</ul>
-</li>
-<li>Chains to the <code>APTORCY</code> file using <code>KEY27</code> to locate the corresponding commission record (sets indicator <code>99</code> if not found).</li>
-<li>
-<p>If the record is found (<code>N99</code>):</p>
+<p>The program starts by checking indicator <code>09</code>. If <code>09</code> is off (<code>N09</code>), it executes the <code>ONETIM</code> subroutine:</p>
 <ul>
-<li>Converts the check date (<code>AXCKDT</code>) to a year-month-day format (<code>AXYMD</code>) by multiplying by 10000.01.</li>
-<li>Formats the check date into an 8-digit format (<code>AXYMD8</code>) by prefixing the century (<code>20</code>) and appending <code>AXYMD</code>.</li>
-<li>Sets the amount field (<code>AMT92</code>) to the gross amount (<code>OPGRAM</code>) from the <code>APPAY</code> record.</li>
-<li>Writes an exception record to <code>APTORCY</code> via the <code>UPDATE</code> output specification.</li>
+<li>Retrieves the current system date and time using the <code>TIME</code> operation, storing it in <code>TIMDAT</code> (12 digits).</li>
+<li>Extracts the time portion into <code>TIME</code> (6 digits) and the date portion into <code>DATE</code> (6 digits).</li>
+<li>Converts the date to a year-month-day format (<code>DATYMD</code>) by multiplying <code>DATE</code> by <code>10000.01</code> to adjust for century handling.</li>
+<li>Sets the century prefix (<code>20</code> for 2000s) into <code>DATE8</code> (8-digit date field, e.g., <code>20YYMMDD</code>).</li>
+<li>Moves <code>DATYMD</code> into <code>DATE8</code> for consistent date formatting.</li>
+<li>Sets indicator <code>09</code> on to prevent re-execution of <code>ONETIM</code>.</li>
 </ul>
 </li>
 <li>
-<p><strong>Update Commission Table (APTORCY)</strong>:</p>
+<p><strong>Main Processing Loop (EACH01 Subroutine)</strong>:</p>
 </li>
-<li>For each matching record in <code>APTORCY</code>, updates the following fields:<ul>
-<li><code>OPINV#</code> (A/P invoice number, positions 207–226 from <code>APPAY</code>) to <code>ATINV</code> (positions 84–103).</li>
-<li><code>AMT92</code> (gross amount from <code>OPGRAM</code>) to <code>ATAPMT</code> (positions 104–108, packed).</li>
-<li>Sets <code>ATSTAT</code> (position 109) to <code>'P'</code> to indicate the payment status.</li>
-<li><code>ATCHK#</code> (check number, positions 91–96 from <code>APPAY</code> as <code>OPCKNO</code>) to <code>ATCHK#</code> (positions 110–115).</li>
+<li>
+<p>For each record in the <code>APPAY</code> file (processed with indicator <code>01</code>), the <code>EACH01</code> subroutine is executed:</p>
+<ul>
+<li>Builds a key (<code>KEY27</code>, 27 characters) for chaining to the <code>APTORCY</code> file:</li>
+<li>Copies the company number (<code>CONO</code>, positions 2-3) into the first part of <code>KEY27</code>.</li>
+<li>Copies the vendor number (<code>VEND</code>, positions 4-8) into <code>KEY25</code>.</li>
+<li>Copies the invoice description (<code>OPIN20</code>, positions 35-54) into <code>KEY20</code>.</li>
+<li>Combines <code>KEY20</code> and <code>KEY25</code> into <code>KEY27</code> for the full key.</li>
+<li>Chains to the <code>APTORCY</code> file using <code>KEY27</code> to locate the corresponding commission record.</li>
+<li>If a matching record is found (<code>N99</code>, i.e., not indicator <code>99</code> set):</li>
+<li>Converts the check date (<code>AXCKDT</code>) to an 8-digit format (<code>AXYMD8</code>, e.g., <code>20YYMMDD</code>) by multiplying by <code>10000.01</code> and prefixing with the century (<code>20</code>).</li>
+<li>Stores the gross amount (<code>OPGRAM</code>) in a temporary field (<code>AMT92</code>, 9.2 format).</li>
+<li>Writes an exception record to <code>APTORCY</code> using the <code>UPDATE</code> exception (see <strong>Output Specification</strong> below).</li>
+<li>If no matching record is found (<code>99</code> set), the record is skipped.</li>
 </ul>
 </li>
+<li>
+<p><strong>Update Commission Table</strong>:</p>
+</li>
+<li>
+<p>The <code>UPDATE</code> exception in the Output Specification (<code>OAPTORCY E UPDATE</code>) updates the <code>APTORCY</code> file with:</p>
+<ul>
+<li>Invoice number (<code>OPINV#</code>, positions 207-226 from <code>APPAY</code>) to <code>ATINV</code> (positions 84-103).</li>
+<li>Gross amount (<code>AMT92</code>, derived from <code>OPGRAM</code>) to <code>ATAPMT</code> (positions 104-108, packed).</li>
+<li>Status (<code>ATSTAT</code>) set to <code>'P'</code> (paid, position 109).</li>
+<li>Check number (<code>ATCHK#</code>, positions 110-115, likely populated from <code>OPCKNO</code> in <code>APPAY</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Completion</strong>:</p>
+</li>
+<li>The program processes all <code>APPAY</code> records sequentially, updating matching <code>APTORCY</code> records.</li>
+<li>Once all records are processed, the program terminates, and control returns to the calling OCL program (<code>AP251.ocl36.txt</code>).</li>
 </ol>
 <hr />
-<h3 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
-<p>The program enforces the following business rules, which govern the updating of the commission table:</p>
+<h3 id="business-rules"><strong>Business Rules</strong><a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
+<p>The RPG program enforces the following business rules based on its logic and context within the A/P system:</p>
 <ol>
-<li><strong>Key Matching for Commission Records</strong>:</li>
-<li>The program matches <code>APPAY</code> records to <code>APTORCY</code> records using a composite key (<code>KEY27</code>) built from:<ul>
-<li>Company number (<code>CONO</code>, positions 2–3 in <code>APPAY</code>, <code>ATCO</code> in <code>APTORCY</code>).</li>
-<li>Vendor number (<code>VEND</code>, positions 4–8 in <code>APPAY</code>, <code>ATVEND</code> in <code>APTORCY</code>).</li>
-<li>Invoice description (<code>OPIN20</code>, positions 35–54 in <code>APPAY</code>, corresponding to <code>ATINV</code> in <code>APTORCY</code>).</li>
+<li><strong>Commission Record Matching</strong>:</li>
+<li>Matches payment records from <code>APPAY</code> to commission records in <code>APTORCY</code> using a composite key (<code>KEY27</code>) built from:<ul>
+<li>Company number (<code>CONO</code>).</li>
+<li>Vendor number (<code>VEND</code>).</li>
+<li>Invoice description (<code>OPIN20</code>, likely a truncated or formatted invoice number).</li>
 </ul>
 </li>
 <li>
-<p>If no matching record is found in <code>APTORCY</code> (indicator <code>99</code> on), the program skips the update for that payment record.</p>
+<p>Only updates <code>APTORCY</code> records that match the key; unmatched records are skipped.</p>
 </li>
 <li>
 <p><strong>Payment Status Update</strong>:</p>
 </li>
-<li>Updates the commission table only when a matching record is found.</li>
-<li>Sets the payment status (<code>ATSTAT</code>) to <code>'P'</code> (paid) for matched records.</li>
+<li>Sets the commission record status (<code>ATSTAT</code>) to <code>'P'</code> (paid) when a payment is applied.</li>
+<li>Records the payment amount (<code>OPGRAM</code> from <code>APPAY</code>) in <code>ATAPMT</code> and the check number (<code>OPCKNO</code>) in <code>ATCHK#</code>.</li>
 <li>
-<p>Records the gross amount (<code>OPGRAM</code>) as the payment amount (<code>ATAPMT</code>) and the check number (<code>OPCKNO</code>) in <code>ATCHK#</code>.</p>
+<p>Includes the invoice number (<code>OPINV#</code>) to link the payment to the commission record.</p>
 </li>
 <li>
 <p><strong>Date Handling</strong>:</p>
 </li>
-<li>Uses the check date (<code>AXCKDT</code>, positions 434–439 in the User Data Structure) and formats it into an 8-digit year-month-day format (<code>AXYMD8</code>) with a century prefix (<code>20</code>).</li>
+<li>Uses century-aware date processing (prefixes <code>20</code> for 2000s) to format the check date (<code>AXCKDT</code>) into <code>AXYMD8</code> for consistency.</li>
 <li>
-<p>Includes Y2K compliance fields (<code>Y2KCEN = 19</code>, <code>Y2KCMP = 80</code>) in the User Data Structure (UDS), though they are not explicitly used in date calculations in this program (likely inherited from a standard template).</p>
+<p>Relies on <code>Y2KCEN</code> (century field, set to <code>19</code> or <code>20</code>) from the User Data Structure (UDS) for date calculations.</p>
 </li>
 <li>
-<p><strong>No Output Reports</strong>:</p>
+<p><strong>File Access</strong>:</p>
+</li>
+<li><code>APPAY</code> is processed sequentially as the primary input file (<code>IP</code>), ensuring all payment records are read.</li>
+<li>
+<p><code>APTORCY</code> is a keyed update file (<code>UF</code>, <code>EXTK</code> for external key), allowing random access and updates based on the composite key.</p>
 </li>
 <li>
-<p>The program does not generate printed reports or additional output files; it solely updates the <code>APTORCY</code> file.</p>
+<p><strong>No Error Output</strong>:</p>
 </li>
 <li>
-<p><strong>Single-Pass Processing</strong>:</p>
+<p>The program does not generate error reports or logs for unmatched records (<code>99</code> set). It silently skips them, assuming they are not relevant to the commission table.</p>
 </li>
-<li>Processes each <code>APPAY</code> record once, with no accumulation or totaling across records.</li>
-<li>Updates are performed immediately for each matched record via exception output (<code>EXCPTUPDATE</code>).</li>
+<li>
+<p><strong>Integration with A/P Process</strong>:</p>
+</li>
+<li>The program assumes <code>APPAY</code> contains valid payment data from the A/P check register process (<code>AP250</code>).</li>
+<li>Updates to <code>APTORCY</code> are part of the broader A/P workflow, ensuring commission records reflect payments made to vendors or agents.</li>
 </ol>
 <hr />
-<h3 id="tablesfiles-used">Tables/Files Used<a class="headerlink" href="#tablesfiles-used" title="Permanent link">&para;</a></h3>
-<p>The program interacts with two files, as defined in the OCL and RPG source:</p>
-<table>
-<thead>
-<tr>
-<th><strong>Logical Name</strong></th>
-<th><strong>Label</strong></th>
-<th><strong>Usage</strong></th>
-<th><strong>Disposition</strong></th>
-<th><strong>Record Length</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>APPAY</td>
-<td>?9?APPY?WS?</td>
-<td>Input: Payment data (company, vendor, invoice, gross amount, check number).</td>
-<td>Input (IP)</td>
-<td>384</td>
-</tr>
-<tr>
-<td>APTORCY</td>
-<td>?9?APTORCY</td>
-<td>Update: Commission table (vendor, invoice, payment amount, status).</td>
-<td>Update (UF)</td>
-<td>211</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Key Fields in APPAY</strong>:
-- <code>CONO</code> (Company Number, positions 2–3)
-- <code>VEND</code> (Vendor Number, positions 4–8)
-- <code>OPIN20</code> (Invoice Description, positions 35–54)
-- <code>OPGRAM</code> (Gross Amount, packed, positions 18–23)
-- <code>OPCKNO</code> (Check Number for Prepay, positions 91–96)
-- <code>AXCKDT</code> (Check Date, positions 434–439 in UDS)</p>
-<p><strong>Key Fields in APTORCY</strong>:
-- <code>ATCO</code> (Company Number, positions 2–3)
-- <code>ATVEND</code> (Vendor Number, positions 59–63)
-- <code>ATINV</code> (Invoice Number, positions 84–103)
-- <code>ATAPMT</code> (A/P Payment Amount, packed, positions 104–108)
-- <code>ATSTAT</code> (Payment Status, position 109)
-- <code>ATCHK#</code> (Check Number, positions 110–115)</p>
-<hr />
-<h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
-<p>The <code>AP251.RPG36</code> program does not explicitly call any external programs. All processing is handled within the program through its subroutines (<code>ONETIM</code> and <code>EACH01</code>). The program is self-contained, relying solely on file operations and internal logic to update the commission table.</p>
-<hr />
-<h3 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h3>
+<h3 id="tables-files-used"><strong>Tables (Files) Used</strong><a class="headerlink" href="#tables-files-used" title="Permanent link">&para;</a></h3>
+<p>The program uses the following files, as defined in the File Specification (F-spec) section:</p>
+<ol>
+<li><strong>APPAY</strong> (IP, 384 bytes, keyed, <code>DISK</code>):</li>
+<li>Primary input file, temporary payment file created by the main OCL program (<code>AP250.ocl36.txt</code>).</li>
+<li>
+<p>Contains payment details, including:</p>
 <ul>
-<li><strong>File Dispositions</strong>:</li>
-<li><code>APPAY</code> is the primary input file (<code>IP</code>), read sequentially to process payment records.</li>
-<li><code>APTORCY</code> is an update file (<code>UF</code>) with an external key (<code>EXTK</code>), allowing updates to specific records based on the constructed key (<code>KEY27</code>).</li>
-<li><strong>Modifications</strong>:</li>
-<li><code>JB01</code>: Added support for prepaid vouchers (<code>OPPAID</code>, position 97).</li>
-<li><code>JB02</code>: Added sales order number (<code>OPSORN</code>, positions 281–286) and modified invoice handling to use <code>OPIN20</code> instead of <code>HANDTK</code> for key construction.</li>
-<li><strong>Y2K Compliance</strong>: The program includes fields for century handling (<code>Y2KCEN</code>, <code>Y2KCMP</code>) in the User Data Structure, but they are not used in this specific logic, suggesting a standard template inclusion.</li>
-<li><strong>Error Handling</strong>: If a matching <code>APTORCY</code> record is not found (<code>99</code> on), the program skips the update without logging errors or generating output, ensuring silent continuation.</li>
-<li><strong>Purpose</strong>: The program is narrowly focused on updating the commission table with payment details, likely used to track commissions owed or paid to vendors based on invoice payments.</li>
+<li><code>CONO</code>: Company number (positions 2-3).</li>
+<li><code>VEND</code>: Vendor number (positions 4-8).</li>
+<li><code>OPGRAM</code>: Gross amount (packed, positions 18-23).</li>
+<li><code>OPDISC</code>: Discount (packed, positions 24-28).</li>
+<li><code>OPPPTD</code>: Partial paid to date (packed, positions 29-34).</li>
+<li><code>OPCKNO</code>: Check number (positions 91-96).</li>
+<li><code>OPPAID</code>: Payment status (position 97, e.g., <code>'P'</code> for prepaid).</li>
+<li><code>OPLPAM</code>: This payment amount (packed, positions 161-166).</li>
+<li><code>OPDSTK</code>: Discount already taken (packed, positions 167-171).</li>
+<li><code>OPSORN</code>: Sales order number (positions 281-286).</li>
+<li><code>OPINV#</code>: Invoice number (positions 207-226).</li>
+<li><code>OPIN20</code>: Invoice description (positions 35-54).</li>
+<li><code>AXCKDT</code>: Check date (positions 434-439, from UDS).</li>
 </ul>
-<p>This summary provides a comprehensive overview of the <code>AP251.RPG36</code> program's functionality, business logic, file interactions, and lack of external program calls. Let me know if you need further clarification or additional analysis!</p>
+</li>
+<li>
+<p><strong>APTORCY</strong> (UF, 211 bytes, keyed, <code>EXTK</code>, <code>DISK</code>):</p>
+</li>
+<li>Update file, commission master file.</li>
+<li>
+<p>Contains commission-related data, including:</p>
+<ul>
+<li><code>ATDEL</code>: Deletion flag (position 1).</li>
+<li><code>ATCO</code>: Company number (positions 2-3).</li>
+<li><code>ATCUST</code>: Customer number (positions 4-9).</li>
+<li><code>ATORD#</code>: Order number (positions 10-15).</li>
+<li><code>ATSRN#</code>: Serial number (positions 16-18).</li>
+<li><code>ATINV#</code>: Invoice number (positions 19-25).</li>
+<li><code>ATIVAM</code>: Invoice amount (packed, positions 26-30).</li>
+<li><code>ATINV8</code>: Invoice date (positions 31-38).</li>
+<li><code>ATSHD8</code>: Shipping date (positions 39-46).</li>
+<li><code>ATPROD</code>: Product code (positions 47-50).</li>
+<li><code>ATUM</code>: Unit of measure (positions 51-53).</li>
+<li><code>ATAMT</code>: Amount (packed, positions 54-56).</li>
+<li><code>ATPCT</code>: Percentage (packed, positions 57-58).</li>
+<li><code>ATVEND</code>: Vendor number (positions 59-63).</li>
+<li><code>ATHAND</code>: Handling code (positions 64-83).</li>
+<li><code>ATINV</code>: Invoice number (positions 84-103, updated).</li>
+<li><code>ATAPMT</code>: Payment amount (packed, positions 104-108, updated).</li>
+<li><code>ATSTAT</code>: Status (position 109, updated to <code>'P'</code>).</li>
+<li><code>ATCHK#</code>: Check number (positions 110-115, updated).</li>
+</ul>
+</li>
+<li>
+<p><strong>UDS (User Data Structure)</strong>:</p>
+</li>
+<li>Provides additional fields, including:<ul>
+<li><code>AXCKDT</code>: Check date (positions 434-439).</li>
+<li><code>Y2KCEN</code>: Century indicator (positions 509-510, e.g., <code>19</code> or <code>20</code>).</li>
+<li><code>Y2KCMP</code>: Company-related century field (positions 511-512).</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3 id="external-programs-called"><strong>External Programs Called</strong><a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
+<p>The <code>AP251</code> RPG program <strong>does not call any external programs</strong>. It is self-contained, using two subroutines (<code>ONETIM</code> for initialization and <code>EACH01</code> for processing) to handle all logic. The program is invoked by the <code>AP251.ocl36.txt</code> OCL script, which loads and runs it as part of the A/P process.</p>
+<hr />
+<h3 id="summary"><strong>Summary</strong><a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
+<p>The <code>AP251</code> RPG program is a focused component of the A/P system, designed to update the commission table (<code>APTORCY</code>) with payment data from the <code>APPAY</code> file. Its key functions are:</p>
+<ul>
+<li><strong>Process Steps</strong>:</li>
+<li>Initializes date and time fields (<code>ONETIM</code> subroutine).</li>
+<li>Processes each <code>APPAY</code> record, matches it to <code>APTORCY</code> using a composite key (company, vendor, invoice description), and updates commission records with payment details (invoice number, amount, status, check number).</li>
+<li>
+<p>Writes updated records to <code>APTORCY</code>.</p>
+</li>
+<li>
+<p><strong>Business Rules</strong>:</p>
+</li>
+<li>Matches payments to commission records using company number, vendor number, and invoice description.</li>
+<li>Updates commission records with payment status (<code>'P'</code>), amount, and check number.</li>
+<li>Handles century-aware date formatting for check dates.</li>
+<li>Skips unmatched records without generating errors.</li>
+<li>
+<p>Operates in a shared access environment for concurrent processing.</p>
+</li>
+<li>
+<p><strong>Tables Used</strong>:</p>
+</li>
+<li><code>APPAY</code>: Temporary payment file (input).</li>
+<li><code>APTORCY</code>: Commission master file (update).</li>
+<li>
+<p><code>UDS</code>: User Data Structure for date and century fields.</p>
+</li>
+<li>
+<p><strong>External Programs Called</strong>: None.</p>
+</li>
+</ul>
+<p>The program integrates with the broader A/P process by processing payment data generated by <code>AP250</code> and updating the commission table to reflect payments made to vendors or agents. If you have additional details (e.g., the structure of <code>APTORCY</code> or specific commission logic), I can provide further analysis. Please let me know if you need clarification or more details!</p>
 
 
 

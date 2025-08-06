@@ -12,7 +12,7 @@
         <meta name="author" content="American Refining Group">
       
       
-        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-payable/03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP256A/">
+        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-payable/03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP256A%20RPG/">
       
       
         <link rel="prev" href="../AP256%20RPG/">
@@ -26,7 +26,7 @@
     
     
       
-        <title>AP256A - ARG AS400 IBMi Documentation</title>
+        <title>AP256A RPG - ARG AS400 IBMi Documentation</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#process-steps" class="md-skip">
+        <a href="#process-steps-of-the-ap256a-rpg-program" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AP256A
+              AP256A RPG
             
           </span>
         </div>
@@ -1856,6 +1856,52 @@
   
   
     <li class="md-nav__item">
+      <a href="../AP250%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP250 OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AP250%20RPG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP250 RPG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../AP250%20Summary%20Check%20Register/" class="md-nav__link">
         
   
@@ -1879,35 +1925,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../AP250OCL%20GROK/" class="md-nav__link">
+      <a href="../AP251%20OCL/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    AP250OCL GROK
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../AP250RPG%20GROK/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    AP250RPG GROK
+    AP251 OCL
     
   </span>
   
@@ -1971,6 +1994,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../AP256%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AP256 OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../AP256%20RPG/" class="md-nav__link">
         
   
@@ -2006,7 +2052,7 @@
   
   
   <span class="md-ellipsis">
-    AP256A
+    AP256A RPG
     
   </span>
   
@@ -2019,7 +2065,7 @@
   
   
   <span class="md-ellipsis">
-    AP256A
+    AP256A RPG
     
   </span>
   
@@ -2040,9 +2086,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps" class="md-nav__link">
+  <a href="#process-steps-of-the-ap256a-rpg-program" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps
+      Process Steps of the AP256A RPG Program
     </span>
   </a>
   
@@ -2058,9 +2104,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tablesfiles-used" class="md-nav__link">
+  <a href="#tables-files-used" class="md-nav__link">
     <span class="md-ellipsis">
-      Tables/Files Used
+      Tables (Files) Used
     </span>
   </a>
   
@@ -2076,9 +2122,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
+  <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Notes
+      Summary
     </span>
   </a>
   
@@ -7870,9 +7916,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps" class="md-nav__link">
+  <a href="#process-steps-of-the-ap256a-rpg-program" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps
+      Process Steps of the AP256A RPG Program
     </span>
   </a>
   
@@ -7888,9 +7934,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tablesfiles-used" class="md-nav__link">
+  <a href="#tables-files-used" class="md-nav__link">
     <span class="md-ellipsis">
-      Tables/Files Used
+      Tables (Files) Used
     </span>
   </a>
   
@@ -7906,9 +7952,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
+  <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Notes
+      Summary
     </span>
   </a>
   
@@ -7933,158 +7979,205 @@
   
 
 
-  <h1>AP256A</h1>
+  <h1>AP256A RPG</h1>
 
-<p>The RPG program <code>AP256A.RPG</code> is invoked by the OCL procedure <code>AP256A</code> as a preprocessing step before <code>AP256.RPG36</code> in the Accounts Payable (A/P) Check Register process. Its primary purpose is to create or update the <code>APDTWSC</code> file, which stores the count of email addresses for ACH vendors based on records in the <code>APVNFMX</code> file. This information is used by <code>AP256.RPG36</code> to generate vendor payment detail reports. Below is a detailed explanation of the <strong>process steps</strong>, <strong>business rules</strong>, <strong>tables/files used</strong>, and <strong>external programs called</strong>, as requested.</p>
+<p>The provided RPG program, <code>AP256A.rpg.txt</code>, is executed by the OCL program <code>AP256.ocl36.txt</code>, which is itself called from the main OCL program (<code>AP250.ocl36.txt</code>) within an IBM System/36 or AS/400 Accounts Payable (A/P) system. The purpose of <code>AP256A</code> is to process a temporary A/P transaction file (<code>APDTWS</code>) and update an indexed temporary file (<code>APDTWSC</code>) with counts of ACH (Automated Clearing House) transactions for each vendor, using the vendor master extension file (<code>APVNFMX</code>) for validation. Below, I will explain the <strong>process steps</strong>, <strong>business rules</strong>, <strong>tables (files) used</strong>, and <strong>external programs called</strong> based on the RPG code.</p>
 <hr />
-<h3 id="process-steps">Process Steps<a class="headerlink" href="#process-steps" title="Permanent link">&para;</a></h3>
-<p>The <code>AP256A.RPG</code> program processes payment records from the <code>APDTWS</code> file, retrieves email information from the <code>APVNFMX</code> file, and writes or updates records in the <code>APDTWSC</code> file with the count of valid ACH email addresses for each vendor. The program is structured around a single main processing loop without explicit subroutines. The steps are as follows:</p>
+<h3 id="process-steps-of-the-ap256a-rpg-program"><strong>Process Steps of the AP256A RPG Program</strong><a class="headerlink" href="#process-steps-of-the-ap256a-rpg-program" title="Permanent link">&para;</a></h3>
+<p>The <code>AP256A</code> RPG program reads records from <code>APDTWS</code>, checks vendor information in <code>APVNFMX</code>, and updates <code>APDTWSC</code> with counts of ACH transactions. Here is a detailed breakdown of the process steps:</p>
 <ol>
-<li><strong>Process Each Payment Record</strong>:</li>
-<li>Reads records from the primary input file <code>APDTWS</code> (indicator <code>01</code>).</li>
-<li>For each record, constructs a key (<code>KEY20</code>, 20 bytes) to access the <code>APVNFMX</code> file:<ul>
-<li>Copies the company/vendor key (<code>ADCOVN</code>, positions 2–8) to <code>KEY20</code>.</li>
-<li>Appends the form type <code>'ACHE'</code> (ACH email) to a temporary key (<code>KEY13</code>) and combines it into <code>KEY20</code>.</li>
-</ul>
-</li>
+<li><strong>Initialization</strong>:</li>
 <li>
-<p>Sets the lower limit (<code>SETLL</code>) on <code>APVNFMX</code> using <code>KEY20</code> to position the file pointer.</p>
-</li>
-<li>
-<p><strong>Count Valid Email Addresses</strong>:</p>
-</li>
-<li>Initializes a counter (<code>COUNT</code>) to zero.</li>
-<li>
-<p>Reads <code>APVNFMX</code> records sequentially, looping until end-of-file (indicator <code>10</code>) or a mismatch occurs:</p>
+<p>The program initializes variables for processing:</p>
 <ul>
-<li>Skips records where the company/vendor key (<code>ADCOVN</code>) does not match <code>AMCOVN</code> (from <code>APVNFMX</code>).</li>
-<li>Skips records where the form type (<code>AMFMTY</code>) is not <code>'ACHE'</code>.</li>
-<li>Increments <code>COUNT</code> for each valid record (matching <code>ADCOVN</code> and <code>AMFMTY = 'ACHE'</code>).</li>
-<li>Continues looping (<code>GOTO AGAIN</code>) until all relevant records are processed or a mismatch/end is reached.</li>
+<li>Sets <code>COUNT</code> to zero (used to track the number of ACH transactions for a vendor).</li>
+<li>Clears <code>KEY20</code> and <code>KEY13</code> (used to build a key for accessing <code>APVNFMX</code>).</li>
 </ul>
 </li>
 <li>
-<p><strong>Update or Add APDTWSC Record</strong>:</p>
+<p><strong>Main Processing Loop (Indicator 01)</strong>:</p>
 </li>
-<li>Chains to the <code>APDTWSC</code> file using <code>ADCOVN</code> to check for an existing record (sets indicator <code>98</code> if not found).</li>
-<li>Writes or updates a record in <code>APDTWSC</code>:<ul>
-<li>If no record exists (<code>98</code> on), writes a new record (<code>DADD</code>) with:</li>
-<li><code>ADCOVN</code> (company/vendor key, positions 2–8).</li>
-<li><code>COUNT</code> (number of valid email addresses, packed, positions 9–10).</li>
-<li>If a record exists (<code>N98</code>), updates the existing record with the new <code>COUNT</code> value.</li>
+<li>
+<p>For each record in the primary input file <code>APDTWS</code> (processed with indicator <code>01</code>), the program performs the following:</p>
+<ul>
+<li>Builds a key (<code>KEY20</code>, 20 characters) for accessing <code>APVNFMX</code>:</li>
+<li>Copies the company/vendor number (<code>ADCOVN</code>, positions 2-8) from <code>APDTWS</code> into <code>KEY20</code>.</li>
+<li>Sets <code>KEY13</code> to <code>'ACHE'</code> (indicating ACH transaction type).</li>
+<li>Combines <code>KEY13</code> into <code>KEY20</code> to form the full key.</li>
+<li>Positions the file pointer in <code>APVNFMX</code> using <code>SETLL</code> with <code>KEY20</code> to locate records matching the company/vendor and ACH type.</li>
+</ul>
+</li>
+<li>
+<p><strong>Read Vendor Master Extension (<code>APVNFMX</code>)</strong>:</p>
+</li>
+<li>
+<p>Enters a loop (<code>AGAIN</code> tag) to read <code>APVNFMX</code> records:</p>
+<ul>
+<li>Reads the next record in <code>APVNFMX</code> (indicator <code>10</code> set on end-of-file).</li>
+<li>If end-of-file is reached (<code>10</code> set), jumps to the <code>END</code> tag to exit the loop.</li>
+<li>Compares the company/vendor number (<code>ADCOVN</code> from <code>APDTWS</code>) with <code>AMCOVN</code> from <code>APVNFMX</code>:</li>
+<li>If they do not match, jumps to <code>END</code> to skip the record.</li>
+<li>Checks if the form type (<code>AMFMTY</code>) in <code>APVNFMX</code> is <code>'ACHE'</code>:</li>
+<li>If not <code>'ACHE'</code>, jumps to <code>END</code> to skip the record.</li>
+<li>Increments the <code>COUNT</code> variable by 1 for each matching ACH record.</li>
+<li>Loops back to <code>AGAIN</code> to read the next <code>APVNFMX</code> record.</li>
+</ul>
+</li>
+<li>
+<p><strong>Update Temporary File (<code>APDTWSC</code>)</strong>:</p>
+</li>
+<li>Chains to <code>APDTWSC</code> using <code>ADCOVN</code> as the key to check if a record exists for the company/vendor (indicator <code>98</code> set if not found).</li>
+<li>
+<p>Writes or updates a record in <code>APDTWSC</code>:</p>
+<ul>
+<li>For new records (<code>98</code> set, no existing record):</li>
+<li>Writes a new record with:<ul>
+<li><code>ADCOVN</code> (company/vendor number, positions 2-8).</li>
+<li><code>COUNT</code> (number of ACH transactions, binary, position 10).</li>
+</ul>
+</li>
+<li>For existing records (<code>N98</code>, record found):</li>
+<li>Updates the existing record with the new <code>COUNT</code> value (binary, position 10).</li>
+</ul>
+</li>
+<li>
+<p><strong>Completion</strong>:</p>
+</li>
+<li>Processes all <code>APDTWS</code> records, updating <code>APDTWSC</code> with ACH transaction counts for each vendor.</li>
+<li>Terminates, returning control to the calling OCL program (<code>AP256.ocl36.txt</code>).</li>
+</ol>
+<hr />
+<h3 id="business-rules"><strong>Business Rules</strong><a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
+<p>The program enforces the following business rules based on its logic and context within the A/P system:</p>
+<ol>
+<li><strong>ACH Transaction Counting</strong>:</li>
+<li>Counts the number of ACH transactions (<code>AMFMTY = 'ACHE'</code>) for each vendor in <code>APVNFMX</code> that matches the company/vendor number (<code>ADCOVN</code>) from <code>APDTWS</code>.</li>
+<li>
+<p>Only records with <code>AMFMTY = 'ACHE'</code> are counted, ensuring the program focuses on ACH-specific transactions.</p>
+</li>
+<li>
+<p><strong>Vendor Matching</strong>:</p>
+</li>
+<li>Matches <code>APDTWS</code> records to <code>APVNFMX</code> using the company/vendor number (<code>ADCOVN</code> vs. <code>AMCOVN</code>).</li>
+<li>
+<p>Skips non-matching records to ensure accurate vendor association.</p>
+</li>
+<li>
+<p><strong>Temporary File Updates</strong>:</p>
+</li>
+<li>Updates <code>APDTWSC</code> with the count of ACH transactions (<code>COUNT</code>) for each vendor.</li>
+<li>Creates new records if no existing record is found (<code>98</code> set) or updates existing records (<code>N98</code>).</li>
+<li>
+<p>Stores only the company/vendor number (<code>ADCOVN</code>) and count (<code>COUNT</code>) in <code>APDTWSC</code>, reflecting the compact 10-byte record structure.</p>
+</li>
+<li>
+<p><strong>File Access</strong>:</p>
+</li>
+<li><code>APDTWS</code> is processed sequentially as the primary input file (<code>IP</code>).</li>
+<li><code>APVNFMX</code> is accessed randomly (<code>IF</code>, keyed) to retrieve vendor data.</li>
+<li>
+<p><code>APDTWSC</code> is an update file (<code>UF</code>, keyed), allowing both read and write operations.</p>
+</li>
+<li>
+<p><strong>No Error Reporting</strong>:</p>
+</li>
+<li>
+<p>The program does not generate error reports for unmatched records or invalid data, silently skipping non-matching <code>APVNFMX</code> records or handling missing <code>APDTWSC</code> records by creating new ones.</p>
+</li>
+<li>
+<p><strong>Integration with A/P Process</strong>:</p>
+</li>
+<li>Relies on <code>APDTWS</code> being populated by prior steps in the main OCL program (<code>AP250.ocl36.txt</code>).</li>
+<li>Prepares <code>APDTWSC</code> for use by the subsequent <code>AP256</code> program, which generates reports based on this data.</li>
+</ol>
+<hr />
+<h3 id="tables-files-used"><strong>Tables (Files) Used</strong><a class="headerlink" href="#tables-files-used" title="Permanent link">&para;</a></h3>
+<p>The program uses the following files, as defined in the File Specification (F-spec) section:</p>
+<ol>
+<li><strong>APDTWS</strong> (IP, 256 bytes, keyed, <code>DISK</code>):</li>
+<li>Primary input file, temporary A/P transaction file created by the main OCL program.</li>
+<li>
+<p>Fields include:</p>
+<ul>
+<li><code>ADDEL</code>: Deletion flag (position 1).</li>
+<li><code>ADCO</code>: Company number (positions 2-3).</li>
+<li><code>ADVEND</code>: Vendor number (positions 4-8).</li>
+<li><code>ADCOVN</code>: Company/vendor number (positions 2-8).</li>
+<li><code>ADINVN</code>: Invoice number (positions 9-18).</li>
+<li><code>ADIDSC</code>: Invoice description (positions 19-43).</li>
+<li><code>ADINV$</code>: Invoice amount (packed, positions 44-49).</li>
+<li><code>ADDISC</code>: Discount amount (packed, positions 50-54).</li>
+<li><code>ADLPAM</code>: Last payment amount (packed, positions 55-60).</li>
+<li><code>ADDATE</code>: Date (positions 61-66).</li>
+<li><code>ADVCH#</code>: Voucher/check number (positions 67-71).</li>
+</ul>
+</li>
+<li>
+<p><strong>APVNFMX</strong> (IF, 266 bytes, keyed, <code>DISK</code>):</p>
+</li>
+<li>Vendor master extension file, accessed randomly for vendor data.</li>
+<li>
+<p>Fields include:</p>
+<ul>
+<li><code>AMDEL</code>: Deletion code (position 1, e.g., <code>'D'</code> for delete).</li>
+<li><code>AMCONO</code>: Company number (positions 2-3).</li>
+<li><code>AMCVEN</code>: Vendor number (positions 4-8).</li>
+<li><code>AMCOVN</code>: Company/vendor number (positions 2-8).</li>
+<li><code>AMFMTY</code>: Form type (positions 9-12, e.g., <code>'ACHE'</code> for ACH).</li>
+<li><code>AMSEQ#</code>: Sequence number (positions 13-21).</li>
+<li><code>AMCNTC</code>: Contact name (positions 22-71).</li>
+<li><code>AMEMLA</code>: Email address (positions 72-131).</li>
+<li><code>AMFAX#</code>: Fax number (positions 132-151).</li>
+<li><code>AMFMYN</code>: Send original flag (position 152).</li>
+</ul>
+</li>
+<li>
+<p><strong>APDTWSC</strong> (UF, 10 bytes, keyed, <code>DISK</code>):</p>
+</li>
+<li>Indexed temporary file, created by the OCL program with a key in positions 2-7.</li>
+<li>Fields include:<ul>
+<li><code>ADCOVN</code>: Company/vendor number (positions 2-8).</li>
+<li><code>COUNT</code>: Number of ACH transactions (binary, position 10).</li>
 </ul>
 </li>
 </ol>
 <hr />
-<h3 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
-<p>The program enforces the following business rules:</p>
-<ol>
-<li><strong>Email Address Counting</strong>:</li>
-<li>Counts only <code>APVNFMX</code> records where:<ul>
-<li>The company/vendor key matches (<code>ADCOVN = AMCOVN</code>).</li>
-<li>The form type is <code>'ACHE'</code> (indicating ACH email notifications).</li>
-</ul>
-</li>
-<li>
-<p>The count (<code>COUNT</code>) represents the number of valid email addresses for the vendor, which will be used by <code>AP256.RPG36</code> to determine how many reports to generate (up to four).</p>
-</li>
-<li>
-<p><strong>Record Matching</strong>:</p>
-</li>
-<li>Uses <code>ADCOVN</code> (company number + vendor number) as the key to match records between <code>APDTWS</code>, <code>APVNFMX</code>, and <code>APDTWSC</code>.</li>
-<li>
-<p>Skips non-matching or irrelevant records in <code>APVNFMX</code> to ensure only ACH-related email addresses are counted.</p>
-</li>
-<li>
-<p><strong>APDTWSC File Maintenance</strong>:</p>
-</li>
-<li>Creates a new record in <code>APDTWSC</code> if no matching record exists for the company/vendor key (<code>98</code> on).</li>
-<li>Updates the existing record if found (<code>N98</code>), overwriting the email count (<code>COUNT</code>).</li>
-<li>
-<p>Ensures the <code>APDTWSC</code> file contains one record per company/vendor with the correct email address count.</p>
-</li>
-<li>
-<p><strong>No Error Logging</strong>:</p>
-</li>
-<li>
-<p>The program does not log errors or generate output reports if records are not found or skipped; it silently continues processing.</p>
-</li>
-<li>
-<p><strong>Single-Pass Processing</strong>:</p>
-</li>
-<li>Processes each <code>APDTWS</code> record once, calculating the email count and updating <code>APDTWSC</code> immediately.</li>
-</ol>
+<h3 id="external-programs-called"><strong>External Programs Called</strong><a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
+<p>The <code>AP256A</code> RPG program <strong>does not call any external programs</strong>. It is self-contained, performing all processing within the main logic and a single <code>DO</code> loop. It is invoked by the <code>AP256.ocl36.txt</code> OCL program as part of the A/P workflow.</p>
 <hr />
-<h3 id="tablesfiles-used">Tables/Files Used<a class="headerlink" href="#tablesfiles-used" title="Permanent link">&para;</a></h3>
-<p>The program interacts with the following files, as defined in the OCL and RPG source:</p>
-<table>
-<thead>
-<tr>
-<th><strong>Logical Name</strong></th>
-<th><strong>Label</strong></th>
-<th><strong>Usage</strong></th>
-<th><strong>Disposition</strong></th>
-<th><strong>Record Length</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>APDTWS</td>
-<td>?9?APDT?WS?</td>
-<td>Input: ACH payment data (company, vendor, invoice, amounts, check date).</td>
-<td>Input (IP)</td>
-<td>256</td>
-</tr>
-<tr>
-<td>APVNFMX</td>
-<td>?9?APVNFMX</td>
-<td>Input: Vendor email/fax details (email addresses, form type).</td>
-<td>Input (IF)</td>
-<td>266</td>
-</tr>
-<tr>
-<td>APDTWSC</td>
-<td>?9?APDT?WS?C</td>
-<td>Output/Update: ACH vendor control (company/vendor key, email count).</td>
-<td>Update (UF)</td>
-<td>10</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Key Fields</strong>:
-- <strong>APDTWS</strong>:
-  - <code>ADCO</code> (company number, positions 2–3)
-  - <code>ADVEND</code> (vendor number, positions 4–8)
-  - <code>ADCOVN</code> (company/vendor key, positions 2–8)
-- <strong>APVNFMX</strong>:
-  - <code>AMCONO</code> (company number, positions 2–3)
-  - <code>AMCVEN</code> (vendor number, positions 4–8)
-  - <code>AMCOVN</code> (company/vendor key, positions 2–8)
-  - <code>AMFMTY</code> (form type, positions 9–12, must be <code>'ACHE'</code>)
-- <strong>APDTWSC</strong>:
-  - <code>ADCOVN</code> (company/vendor key, positions 2–8)
-  - <code>COUNT</code> (email address count, packed, positions 9–10)</p>
-<hr />
-<h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
-<p>The <code>AP256A.RPG</code> program does not explicitly call any external programs. All processing is handled internally within the main loop. The program is a preprocessing step for <code>AP256.RPG36</code>, which relies on the <code>APDTWSC</code> file being populated with the correct email address counts.</p>
-<hr />
-<h3 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h3>
+<h3 id="summary"><strong>Summary</strong><a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
+<p>The <code>AP256A</code> RPG program is a specialized component of the A/P system, designed to count ACH transactions for vendors and store the results in an indexed temporary file. Its key functions are:</p>
 <ul>
-<li><strong>OCL Context</strong>:</li>
-<li>The OCL procedure <code>AP256A</code> creates the <code>APDTWSC</code> file with a capacity of 50 records and a record length of 10 bytes, using the <code>BLDFILE</code> command.</li>
-<li>The <code>RETAIN-T</code> parameter ensures the file is temporary, and <code>DISP-SHR</code> allows shared access for <code>APVNFMX</code>.</li>
-<li><strong>Purpose</strong>:</li>
-<li>The program prepares the <code>APDTWSC</code> file by counting valid ACH email addresses per vendor, enabling <code>AP256.RPG36</code> to generate the appropriate number of payment detail reports (up to four per vendor).</li>
-<li><strong>Error Handling</strong>:</li>
-<li>Skips non-matching or non-ACH records in <code>APVNFMX</code> without logging errors.</li>
-<li>Handles missing <code>APDTWSC</code> records by creating new ones (<code>DADD</code>) when necessary.</li>
-<li><strong>Modifications</strong>:</li>
-<li>No explicit modification history is noted in the provided code, but the program aligns with the <code>AP256.RPG36</code> enhancements (e.g., supporting up to four email addresses, added 5-13-19).</li>
-<li><strong>Efficiency</strong>:</li>
-<li>Uses <code>SETLL</code> and sequential reads to efficiently count email addresses, minimizing file access overhead.</li>
-<li>Writes or updates <code>APDTWSC</code> records only once per vendor, reducing I/O operations.</li>
+<li><strong>Process Steps</strong>:</li>
+<li>Reads <code>APDTWS</code> records sequentially.</li>
+<li>Matches each record to <code>APVNFMX</code> using a company/vendor key and checks for ACH form type (<code>'ACHE'</code>).</li>
+<li>Counts matching ACH transactions and updates <code>APDTWSC</code> with the count for each vendor.</li>
+<li>
+<p>Creates or updates <code>APDTWSC</code> records with the company/vendor number and ACH count.</p>
+</li>
+<li>
+<p><strong>Business Rules</strong>:</p>
+</li>
+<li>Counts only ACH transactions (<code>AMFMTY = 'ACHE'</code>) for matching vendors.</li>
+<li>Matches records using the company/vendor number (<code>ADCOVN</code> vs. <code>AMCOVN</code>).</li>
+<li>Updates <code>APDTWSC</code> with compact records containing only the company/vendor number and ACH count.</li>
+<li>Operates in a read/write environment with no error reporting for unmatched records.</li>
+<li>
+<p>Prepares data for subsequent reporting by <code>AP256</code>.</p>
+</li>
+<li>
+<p><strong>Tables Used</strong>:</p>
+</li>
+<li><code>APDTWS</code>: Temporary A/P transaction file (input).</li>
+<li><code>APVNFMX</code>: Vendor master extension file (input, reference).</li>
+<li>
+<p><code>APDTWSC</code>: Indexed temporary file (update, output).</p>
+</li>
+<li>
+<p><strong>External Programs Called</strong>: None.</p>
+</li>
 </ul>
-<p>This summary provides a comprehensive overview of the <code>AP256A.RPG</code> program's functionality, business logic, file interactions, and lack of external program calls. Let me know if you need further clarification or additional analysis!</p>
+<p>The program integrates with the A/P process by preparing summarized ACH transaction data for use by the <code>AP256</code> program, which generates reports. If you have the RPG source code for <code>AP256</code> or additional details about <code>APDTWS</code> or the reports, I can provide further analysis. Please let me know if you need clarification or more details!</p>
 
 
 
