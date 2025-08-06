@@ -12,13 +12,13 @@
         <meta name="author" content="American Refining Group">
       
       
-        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-payable/03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/AP250%20Summary%20Check%20Register/">
+        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-payable/03%20Payment%20Cycle/AP250%20OCL%20Check%20Register/Summary%20AP250%20Check%20Register/">
       
       
-        <link rel="prev" href="../AP250%20RPG/">
+        <link rel="prev" href="../AP256A%20RPG/">
       
       
-        <link rel="next" href="../AP251%20OCL/">
+        <link rel="next" href="../../AP991P%20OCL%20Overide%20Authorization/AP991P%20OCL/">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>AP250 Summary Check Register - ARG AS400 IBMi Documentation</title>
+        <title>Summary AP250 Check Register - ARG AS400 IBMi Documentation</title>
       
     
     
@@ -75,6 +75,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#list-of-use-cases-implemented-by-the-ap250-call-stack" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -107,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AP250 Summary Check Register
+              Summary AP250 Check Register
             
           </span>
         </div>
@@ -1894,37 +1899,6 @@
                 
   
   
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    AP250 Summary Check Register
-    
-  </span>
-  
-
-      </a>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
   
   
     <li class="md-nav__item">
@@ -2054,6 +2028,163 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Summary AP250 Check Register
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Summary AP250 Check Register
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#list-of-use-cases-implemented-by-the-ap250-call-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      List of Use Cases Implemented by the AP250 Call Stack
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-requirement-document-generate-and-process-ap-check-register" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Requirement Document: Generate and Process A/P Check Register
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-requirement-generate-and-process-ap-check-register" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Requirement: Generate and Process A/P Check Register
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Function Requirement: Generate and Process A/P Check Register">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inputs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Outputs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Steps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#business-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Business Rules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Calculations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assumptions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -7829,6 +7960,110 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#list-of-use-cases-implemented-by-the-ap250-call-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      List of Use Cases Implemented by the AP250 Call Stack
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-requirement-document-generate-and-process-ap-check-register" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Requirement Document: Generate and Process A/P Check Register
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-requirement-generate-and-process-ap-check-register" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Requirement: Generate and Process A/P Check Register
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Function Requirement: Generate and Process A/P Check Register">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inputs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Outputs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Steps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#business-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Business Rules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Calculations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assumptions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -7846,95 +8081,181 @@
   
 
 
-  <h1>AP250 Summary Check Register</h1>
-
-<p>Function Requirement: Generate and Process A/P Check Register
-Overview
-This function processes Accounts Payable (A/P) transactions to generate a Check Register, update master files (vendor, open invoices, history, reconciliation, commission), produce a Cash Disbursements Journal, and generate vendor payment detail reports for ACH transactions. It handles checks, ACH, wire transfers, and employee expenses, ensuring accurate financial tracking and reporting.
-Inputs</p>
-<p>Payment File (APPAY): Contains payment details (company number, vendor number, invoice number, gross amount, discount, payment amount, sales order number, check number, payment date).
-Check File (APPYCK): Contains check details (check number, amount, date, vendor, payment type: check, ACH, wire, expense).
-Transaction File (APPYTR): Contains check date and hold code (e.g., ACH, wire).
-Vendor Files (APVEND, APVEND2, APVNFMX): Vendor details (name, address, balance, email addresses, ACH form type).
-Control File (APCONT): Company details (name, next check/journal numbers).
-Open Invoice Files (APOPEN, APOPENH, APOPEND, APOPENV): Invoice details (gross amount, partial paid, open amount).
-Freight Files (FRCFBH, FRCINH): Freight invoice details (carrier ID, invoice number).
-Commission File (APTORCY): Commission details (order number, invoice number, payment status).
-System Date/Time: For report headers and date calculations.</p>
-<p>Outputs</p>
-<p>Check Register (APPRINT): Report listing checks with totals by payment type.
-Positive Pay File (APPNCF): Bank reconciliation file with check details.
-Cash Disbursements Journal (APCDJR, TEMGEN): Journal entries for cash, discounts, and A/P, including summarized A/P entries.
-Updated Files: APVEND, APOPEN<em>, APHIST</em>, APCHKR, FRCFBH, FRCINH, APPYDS, APTORCY with updated payment data.
-ACH Vendor Reports (REPORT1 to REPORT4): Payment detail reports emailed to up to four vendor email addresses, with vendor-specific messages.</p>
-<p>Process Steps</p>
-<p>Initialize Data:</p>
-<p>Retrieve system date/time for reporting.
-Fetch company details from APCONT (e.g., name, next check/journal numbers).</p>
-<p>Process Payments and Checks:</p>
-<p>Read APPYCK, APPAY, and APPYTR to process payments by company and vendor.
-Identify payment type (check, ACH, wire, expense, void) using AXRECD and PTHOLD.
-Format check dates (e.g., 20YYMMDD) using century-aware logic (Y2KCEN).</p>
-<p>Update Master Files:</p>
-<p>Vendor (APVEND): Update last payment amount/date, discounts, balance, year-to-date paid.
-Open Invoices (APOPEN*): Update partial payments; mark fully paid invoices for deletion.
-History (APHISTH, APHISTD, APHISTV): Record payment history.
-Reconciliation (APCHKR): Update check status (open/void), amount, and clear date.
-Freight (FRCFBH, FRCINH): Update freight invoices if carrier ID exists.
-Discounts (APPYDS): Record missed discounts.
-Commission (APTORCY): Update with payment amount, status ('P'), and check number.</p>
-<p>Generate Check Register:</p>
-<p>Produce APPRINT with company name, payment method, check details (number, date, amount, vendor), and totals by payment type (check, ACH, wire, expense).</p>
-<p>Generate Positive Pay File:</p>
-<p>Output APPNCF with check number, date, amount, vendor name, and status (issued/void) for bank reconciliation.</p>
-<p>Generate Cash Disbursements Journal:</p>
-<p>Process APCDJR to produce TEMGEN with detailed and summarized A/P journal entries (company, G/L number, amount, debit/credit).
-Output APPRINT with journal headers, detail lines, and totals (debits/credits).</p>
-<p>Generate ACH Vendor Reports:</p>
-<p>Process APDTWS and APDTWSC to count ACH transactions per vendor.
-Retrieve vendor details (APVEND) and up to four email addresses (APVNFMX, AMFMTY = 'ACHE').
-Produce REPORT1 to REPORT4 with vendor details, payment details (invoice number, amount, discount, payment), totals, and messages (standard or crude-specific).
-Direct reports to spool files for emailing.</p>
-<p>Clean Up:</p>
-<p>Delete temporary files (APDTWS, APDTWSC) via main OCL program.</p>
-<p>Business Rules</p>
-<p>Payment Types:</p>
-<p>Handle checks ('C'), ACH ('A'), wire transfers ('W'), employee expenses ('E'), and void checks ('F', 'V').
-Skip credit/no-pay records ('C' in AXRECD).
-ACH, wire, and expenses skip APCHKR updates.</p>
-<p>Vendor Updates:</p>
-<p>Update APVEND with last payment amount/date, month/year-to-date discounts/payments, and current balance (VNCBAL -= payment + discount).</p>
-<p>Invoice Management:</p>
-<p>Calculate open amount (OPOPEN = OPGRAM - OPPPTD - payment).
-Mark fully paid invoices (OPOPEN = 0) for deletion in APOPEN*.</p>
-<p>Freight Processing:</p>
-<p>Update FRCFBH or FRCINH for freight invoices with valid carrier IDs, setting status to 'P' (posted).</p>
-<p>Commission Updates:</p>
-<p>Match payments to APTORCY using company, vendor, and invoice description.
-Update with payment amount, status ('P'), and check number.</p>
-<p>Journal Entries:</p>
-<p>Generate detailed entries for non-A/P transactions and summarized entries for A/P (CDTYPE = 'AP      ') in TEMGEN.
-Adjust negative amounts by reversing sign and switching debit/credit code.</p>
-<p>ACH Reporting:</p>
-<p>Count ACH transactions (AMFMTY = 'ACHE') per vendor in APDTWSC.
-Generate up to four reports per vendor, emailed to AMEMLA addresses.
-Use standard messages for non-crude vendors, crude-specific messages for VNCAID = 'CRUDE'.</p>
-<p>Date Handling:</p>
-<p>Use century-aware formatting (Y2KCEN) for all dates (e.g., check date, payment date).</p>
-<p>File Access:</p>
-<p>Support shared access (DISP-SHR) for concurrent processing.
-Delete temporary files after processing.</p>
-<p>Calculations</p>
-<p>Vendor Balance: VNCBAL = VNCBAL - (OPLPAM + OPDISC) (payment + discount).
-Open Invoice Amount: OPOPEN = OPGRAM - OPPPTD - (OPLPAM + OPDISC).
-Journal Amount: For negative amounts, reverse sign and switch debit ('D') to credit ('C') or vice versa.
-ACH Count: Increment COUNT for each APVNFMX record where AMFMTY = 'ACHE' and AMCOVN matches ADCOVN.
-Report Totals: Sum invoice (ADINV$), discount (ADDISC), and payment (ADLPAM) amounts at vendor level (L1INV$M, L1DIS$M, L1PYM$M).</p>
-<p>Assumptions</p>
-<p>Input files (APPAY, APPYCK, APPYTR, etc.) are populated by prior steps.
-Vendor and control files (APVEND, APCONT, APVNFMX) contain valid data.
-Reports are emailed via spool files using an external system (not handled by RPG).
-No user interaction; process runs automatically.</p>
+<h3 id="list-of-use-cases-implemented-by-the-ap250-call-stack"><strong>List of Use Cases Implemented by the AP250 Call Stack</strong><a class="headerlink" href="#list-of-use-cases-implemented-by-the-ap250-call-stack" title="Permanent link">&para;</a></h3>
+<p>The AP250 call stack, comprising the OCL programs (<code>AP250.ocl36.txt</code>, <code>AP251.ocl36.txt</code>, <code>AP256.ocl36.txt</code>) and RPG programs (<code>AP250.rpg36.txt</code>, <code>AP251.rpg36.txt</code>, <code>AP255.rpg36.txt</code>, <code>AP256A.rpg.txt</code>, <code>AP256.rpg36.txt</code>), implements a single comprehensive use case within the IBM System/36 or AS/400 Accounts Payable (A/P) system. This use case is:</p>
+<ol>
+<li><strong>Generate and Process A/P Check Register with Associated Updates and Reports</strong>:</li>
+<li><strong>Description</strong>: This use case processes A/P transactions to generate a Check Register, update master files (vendor, open invoices, history, reconciliation), produce a Cash Disbursements Journal, and generate vendor payment detail reports for ACH transactions. It handles multiple payment types (checks, ACH, wire transfers, employee expenses) and ensures accurate financial tracking and reporting.</li>
+<li><strong>Components</strong>:<ul>
+<li><code>AP250.ocl36.txt</code>: Orchestrates the overall process, calling other programs and managing temporary files.</li>
+<li><code>AP250.rpg36.txt</code>: Generates the Check Register, updates master files, and produces Positive Pay and journal entries.</li>
+<li><code>AP251.ocl36.txt</code> and <code>AP251.rpg36.txt</code>: Updates the commission table (<code>APTORCY</code>) with payment data.</li>
+<li><code>AP255.rpg36.txt</code>: Produces the Cash Disbursements Journal and general ledger entries.</li>
+<li><code>AP256.ocl36.txt</code>, <code>AP256A.rpg.txt</code>, <code>AP256.rpg36.txt</code>: Generates vendor payment detail reports for ACH vendors, emailed to up to four recipients per vendor.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3 id="function-requirement-document-generate-and-process-ap-check-register"><strong>Function Requirement Document: Generate and Process A/P Check Register</strong><a class="headerlink" href="#function-requirement-document-generate-and-process-ap-check-register" title="Permanent link">&para;</a></h3>
+<h1 id="function-requirement-generate-and-process-ap-check-register">Function Requirement: Generate and Process A/P Check Register<a class="headerlink" href="#function-requirement-generate-and-process-ap-check-register" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>This function processes Accounts Payable (A/P) transactions to generate a Check Register, update master files (vendor, open invoices, history, reconciliation, commission), produce a Cash Disbursements Journal, and generate vendor payment detail reports for ACH transactions. It handles checks, ACH, wire transfers, and employee expenses, ensuring accurate financial tracking and reporting.</p>
+<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Payment File (<code>APPAY</code>)</strong>: Contains payment details (company number, vendor number, invoice number, gross amount, discount, payment amount, sales order number, check number, payment date).</li>
+<li><strong>Check File (<code>APPYCK</code>)</strong>: Contains check details (check number, amount, date, vendor, payment type: check, ACH, wire, expense).</li>
+<li><strong>Transaction File (<code>APPYTR</code>)</strong>: Contains check date and hold code (e.g., ACH, wire).</li>
+<li><strong>Vendor Files (<code>APVEND</code>, <code>APVEND2</code>, <code>APVNFMX</code>)</strong>: Vendor details (name, address, balance, email addresses, ACH form type).</li>
+<li><strong>Control File (<code>APCONT</code>)</strong>: Company details (name, next check/journal numbers).</li>
+<li><strong>Open Invoice Files (<code>APOPEN</code>, <code>APOPENH</code>, <code>APOPEND</code>, <code>APOPENV</code>)</strong>: Invoice details (gross amount, partial paid, open amount).</li>
+<li><strong>Freight Files (<code>FRCFBH</code>, <code>FRCINH</code>)</strong>: Freight invoice details (carrier ID, invoice number).</li>
+<li><strong>Commission File (<code>APTORCY</code>)</strong>: Commission details (order number, invoice number, payment status).</li>
+<li><strong>System Date/Time</strong>: For report headers and date calculations.</li>
+</ul>
+<h2 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Check Register (<code>APPRINT</code>)</strong>: Report listing checks with totals by payment type.</li>
+<li><strong>Positive Pay File (<code>APPNCF</code>)</strong>: Bank reconciliation file with check details.</li>
+<li><strong>Cash Disbursements Journal (<code>APCDJR</code>, <code>TEMGEN</code>)</strong>: Journal entries for cash, discounts, and A/P, including summarized A/P entries.</li>
+<li><strong>Updated Files</strong>: <code>APVEND</code>, <code>APOPEN*</code>, <code>APHIST*</code>, <code>APCHKR</code>, <code>FRCFBH</code>, <code>FRCINH</code>, <code>APPYDS</code>, <code>APTORCY</code> with updated payment data.</li>
+<li><strong>ACH Vendor Reports (<code>REPORT1</code> to <code>REPORT4</code>)</strong>: Payment detail reports emailed to up to four vendor email addresses, with vendor-specific messages.</li>
+</ul>
+<h2 id="process-steps">Process Steps<a class="headerlink" href="#process-steps" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Initialize Data</strong>:</li>
+<li>Retrieve system date/time for reporting.</li>
+<li>
+<p>Fetch company details from <code>APCONT</code> (e.g., name, next check/journal numbers).</p>
+</li>
+<li>
+<p><strong>Process Payments and Checks</strong>:</p>
+</li>
+<li>Read <code>APPYCK</code>, <code>APPAY</code>, and <code>APPYTR</code> to process payments by company and vendor.</li>
+<li>Identify payment type (check, ACH, wire, expense, void) using <code>AXRECD</code> and <code>PTHOLD</code>.</li>
+<li>
+<p>Format check dates (e.g., <code>20YYMMDD</code>) using century-aware logic (<code>Y2KCEN</code>).</p>
+</li>
+<li>
+<p><strong>Update Master Files</strong>:</p>
+</li>
+<li><strong>Vendor (<code>APVEND</code>)</strong>: Update last payment amount/date, discounts, balance, year-to-date paid.</li>
+<li><strong>Open Invoices (<code>APOPEN*</code>)</strong>: Update partial payments; mark fully paid invoices for deletion.</li>
+<li><strong>History (<code>APHISTH</code>, <code>APHISTD</code>, <code>APHISTV</code>)</strong>: Record payment history.</li>
+<li><strong>Reconciliation (<code>APCHKR</code>)</strong>: Update check status (open/void), amount, and clear date.</li>
+<li><strong>Freight (<code>FRCFBH</code>, <code>FRCINH</code>)</strong>: Update freight invoices if carrier ID exists.</li>
+<li><strong>Discounts (<code>APPYDS</code>)</strong>: Record missed discounts.</li>
+<li>
+<p><strong>Commission (<code>APTORCY</code>)</strong>: Update with payment amount, status (<code>'P'</code>), and check number.</p>
+</li>
+<li>
+<p><strong>Generate Check Register</strong>:</p>
+</li>
+<li>
+<p>Produce <code>APPRINT</code> with company name, payment method, check details (number, date, amount, vendor), and totals by payment type (check, ACH, wire, expense).</p>
+</li>
+<li>
+<p><strong>Generate Positive Pay File</strong>:</p>
+</li>
+<li>
+<p>Output <code>APPNCF</code> with check number, date, amount, vendor name, and status (issued/void) for bank reconciliation.</p>
+</li>
+<li>
+<p><strong>Generate Cash Disbursements Journal</strong>:</p>
+</li>
+<li>Process <code>APCDJR</code> to produce <code>TEMGEN</code> with detailed and summarized A/P journal entries (company, G/L number, amount, debit/credit).</li>
+<li>
+<p>Output <code>APPRINT</code> with journal headers, detail lines, and totals (debits/credits).</p>
+</li>
+<li>
+<p><strong>Generate ACH Vendor Reports</strong>:</p>
+</li>
+<li>Process <code>APDTWS</code> and <code>APDTWSC</code> to count ACH transactions per vendor.</li>
+<li>Retrieve vendor details (<code>APVEND</code>) and up to four email addresses (<code>APVNFMX</code>, <code>AMFMTY = 'ACHE'</code>).</li>
+<li>Produce <code>REPORT1</code> to <code>REPORT4</code> with vendor details, payment details (invoice number, amount, discount, payment), totals, and messages (standard or crude-specific).</li>
+<li>
+<p>Direct reports to spool files for emailing.</p>
+</li>
+<li>
+<p><strong>Clean Up</strong>:</p>
+</li>
+<li>Delete temporary files (<code>APDTWS</code>, <code>APDTWSC</code>) via main OCL program.</li>
+</ol>
+<h2 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Payment Types</strong>:</li>
+<li>Handle checks (<code>'C'</code>), ACH (<code>'A'</code>), wire transfers (<code>'W'</code>), employee expenses (<code>'E'</code>), and void checks (<code>'F'</code>, <code>'V'</code>).</li>
+<li>Skip credit/no-pay records (<code>'C'</code> in <code>AXRECD</code>).</li>
+<li>
+<p>ACH, wire, and expenses skip <code>APCHKR</code> updates.</p>
+</li>
+<li>
+<p><strong>Vendor Updates</strong>:</p>
+</li>
+<li>
+<p>Update <code>APVEND</code> with last payment amount/date, month/year-to-date discounts/payments, and current balance (<code>VNCBAL -= payment + discount</code>).</p>
+</li>
+<li>
+<p><strong>Invoice Management</strong>:</p>
+</li>
+<li>Calculate open amount (<code>OPOPEN = OPGRAM - OPPPTD - payment</code>).</li>
+<li>
+<p>Mark fully paid invoices (<code>OPOPEN = 0</code>) for deletion in <code>APOPEN*</code>.</p>
+</li>
+<li>
+<p><strong>Freight Processing</strong>:</p>
+</li>
+<li>
+<p>Update <code>FRCFBH</code> or <code>FRCINH</code> for freight invoices with valid carrier IDs, setting status to <code>'P'</code> (posted).</p>
+</li>
+<li>
+<p><strong>Commission Updates</strong>:</p>
+</li>
+<li>Match payments to <code>APTORCY</code> using company, vendor, and invoice description.</li>
+<li>
+<p>Update with payment amount, status (<code>'P'</code>), and check number.</p>
+</li>
+<li>
+<p><strong>Journal Entries</strong>:</p>
+</li>
+<li>Generate detailed entries for non-A/P transactions and summarized entries for A/P (<code>CDTYPE = 'AP      '</code>) in <code>TEMGEN</code>.</li>
+<li>
+<p>Adjust negative amounts by reversing sign and switching debit/credit code.</p>
+</li>
+<li>
+<p><strong>ACH Reporting</strong>:</p>
+</li>
+<li>Count ACH transactions (<code>AMFMTY = 'ACHE'</code>) per vendor in <code>APDTWSC</code>.</li>
+<li>Generate up to four reports per vendor, emailed to <code>AMEMLA</code> addresses.</li>
+<li>
+<p>Use standard messages for non-crude vendors, crude-specific messages for <code>VNCAID = 'CRUDE'</code>.</p>
+</li>
+<li>
+<p><strong>Date Handling</strong>:</p>
+</li>
+<li>
+<p>Use century-aware formatting (<code>Y2KCEN</code>) for all dates (e.g., check date, payment date).</p>
+</li>
+<li>
+<p><strong>File Access</strong>:</p>
+</li>
+<li>Support shared access (<code>DISP-SHR</code>) for concurrent processing.</li>
+<li>Delete temporary files after processing.</li>
+</ol>
+<h2 id="calculations">Calculations<a class="headerlink" href="#calculations" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Vendor Balance</strong>: <code>VNCBAL = VNCBAL - (OPLPAM + OPDISC)</code> (payment + discount).</li>
+<li><strong>Open Invoice Amount</strong>: <code>OPOPEN = OPGRAM - OPPPTD - (OPLPAM + OPDISC)</code>.</li>
+<li><strong>Journal Amount</strong>: For negative amounts, reverse sign and switch debit (<code>'D'</code>) to credit (<code>'C'</code>) or vice versa.</li>
+<li><strong>ACH Count</strong>: Increment <code>COUNT</code> for each <code>APVNFMX</code> record where <code>AMFMTY = 'ACHE'</code> and <code>AMCOVN</code> matches <code>ADCOVN</code>.</li>
+<li><strong>Report Totals</strong>: Sum invoice (<code>ADINV$</code>), discount (<code>ADDISC</code>), and payment (<code>ADLPAM</code>) amounts at vendor level (<code>L1INV$M</code>, <code>L1DIS$M</code>, <code>L1PYM$M</code>).</li>
+</ul>
+<h2 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Input files (<code>APPAY</code>, <code>APPYCK</code>, <code>APPYTR</code>, etc.) are populated by prior steps.</li>
+<li>Vendor and control files (<code>APVEND</code>, <code>APCONT</code>, <code>APVNFMX</code>) contain valid data.</li>
+<li>Reports are emailed via spool files using an external system (not handled by RPG).</li>
+<li>No user interaction; process runs automatically.</li>
+</ul>
 
 
 
