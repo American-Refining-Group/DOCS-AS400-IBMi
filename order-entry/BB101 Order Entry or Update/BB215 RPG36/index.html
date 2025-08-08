@@ -15,10 +15,10 @@
         <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB101%20Order%20Entry%20or%20Update/BB215%20RPG36/">
       
       
-        <link rel="prev" href="../BB101%20RPGLE/">
+        <link rel="prev" href="../BB115%20RPGLE/">
       
       
-        <link rel="next" href="../IN805BC%20CLP/">
+        <link rel="next" href="../BB811%20RPGLE/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -7563,6 +7563,190 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB1011%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB1011 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB1014%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB1014 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB1015%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB1015 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB1018%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB1018 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB1033%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB1033 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB104A%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB104A RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB106%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB106 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB115%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB115 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -7672,12 +7856,81 @@
   
   
     <li class="md-nav__item">
+      <a href="../BB811%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB811 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IN805%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IN805 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../IN805BC%20CLP/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     IN805BC CLP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MBBQTY%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MBBQTY RPGLE
     
   </span>
   
@@ -8234,74 +8487,103 @@
 
   <h1>BB215 RPG36</h1>
 
-<p>The RPG program <code>BB215.rpg36.txt</code> is a utility program for an IBM System/38 or AS/400 (iSeries) system, called from the <code>BB101.ocl36.txt</code> OCL program when <code>SWITCH1-1</code> is set (indicating batch deletion). Its primary function is to remove lockout conditions from order header records in the <code>BBORDRH</code> file by clearing lock-related fields for a specified company and order number. Below, I will explain the process steps, business rules, tables (files) used, and external programs called, based on the provided RPG source.</p>
+<p>The <code>BB215.rpg36.txt</code> document is an RPG III (System/36 style) program called from the <code>BB101.ocl36.txt</code> OCL program in an IBM System/36 or AS/400 (now IBM i) environment. Its primary function is to remove lockout conditions from order header records in the <code>BBORDRH</code> file by clearing the lock status and workstation ID fields. Below is a detailed explanation of the process steps, business rules, tables (files) used, and any external programs called.</p>
+<hr />
 <h3 id="process-steps-of-the-rpg-program">Process Steps of the RPG Program<a class="headerlink" href="#process-steps-of-the-rpg-program" title="Permanent link">&para;</a></h3>
-<p>The program is a concise backend utility that processes order transaction records to clear lockout fields. The steps are as follows:</p>
+<p>The <code>BB215</code> RPG program processes records from the <code>BBORTR</code> file to identify order headers and updates the corresponding records in the <code>BBORDRH</code> file to clear lock-related fields. The steps are as follows:</p>
 <ol>
-<li><strong>Initialization (ONCE Logic)</strong>:</li>
-<li>Checks if the <code>ONCE</code> variable (a 1-digit field initialized to 0) is zero.</li>
-<li>If true (<code>ONCE=*ZERO</code>):<ul>
-<li>Clears the <code>LOCK</code> field (1 byte) to blanks.</li>
-<li>Clears the <code>WSID</code> field (2 bytes) to blanks.</li>
-<li>Sets <code>ONCE</code> to 1 to prevent re-execution of this block.</li>
+<li><strong>Program Initialization</strong>:</li>
+<li>The program is defined with a header specification (<code>H P064</code>) and identified as <code>BB215</code>.</li>
+<li>It defines two files:<ul>
+<li><code>BBORTR</code>: Input primary file (512 bytes, disk, no indexing specified) for reading order transaction records.</li>
+<li><code>BBORDRH</code>: Update-capable file (512 bytes, record length 512, indexed, key length 11, access mode 2) for order header records.</li>
+</ul>
+</li>
+<li>Input specifications:<ul>
+<li>For <code>BBORTR</code> (name specification 01, indicators 10, 11, 12): Defines <code>BOCOS</code> (company/order/sequence, positions 2-12).</li>
+<li>For <code>BBORDRH</code> (name specification 09): No specific fields defined in the provided code, but implied to use <code>BOCOS</code> as the key.</li>
 </ul>
 </li>
 <li>
-<p>This ensures that initialization occurs only once during program execution.</p>
-</li>
-<li>
-<p><strong>Processing Order Transaction Records</strong>:</p>
-</li>
-<li>Reads records from the primary input file <code>BBORTR</code> (order transaction file) using indicator 01.</li>
-<li>For each record, extracts the company/order number key (<code>BOCOS</code>, positions 2–12).</li>
-<li>Chains to the <code>BBORDRH</code> file (order header file) using <code>BOCOS</code> to locate the corresponding header record.</li>
-<li>
-<p>If the header record is found (<code>N90</code>, indicator 90 off), updates the record by writing to the <code>BBORDRH</code> file with:</p>
+<p>Variables:</p>
 <ul>
+<li><code>LOCK</code> (1 character): Lock status field.</li>
+<li><code>WSID</code> (2 characters): Workstation ID field.</li>
+<li><code>ONCE</code> (1 digit): Control variable to ensure one-time initialization.</li>
+</ul>
+</li>
+<li>
+<p><strong>Main Processing Logic</strong>:</p>
+</li>
+<li><strong>One-Time Initialization</strong> (lines 0015-0019):<ul>
+<li>Checks if <code>ONCE</code> is zero (<code>IFEQ *ZERO</code>, indicator B1).</li>
+<li>If true, clears <code>LOCK</code> and <code>WSID</code> to blanks and sets <code>ONCE</code> to 1.</li>
+<li>Ensures this initialization occurs only once per program execution.</li>
+</ul>
+</li>
+<li>
+<p><strong>Record Processing</strong> (lines 0022-0027):</p>
+<ul>
+<li>For each <code>BBORTR</code> record (indicator 01), chains to <code>BBORDRH</code> using <code>BOCOS</code> (company/order/sequence, line 0022).</li>
+<li>If a matching <code>BBORDRH</code> record is found (<code>N90</code>), updates the record with:</li>
 <li><code>LOCK</code> (position 155) set to blanks.</li>
-<li><code>WSID</code> (position 157) set to blanks.</li>
+<li><code>WSID</code> (positions 156-157) set to blanks.</li>
+<li>The update is performed via the <code>D</code> (detail) output specification (line 0025), conditional on indicators <code>01</code> and <code>N90</code>.</li>
 </ul>
 </li>
 <li>
-<p><strong>Output Operation</strong>:</p>
+<p><strong>Output Operations</strong>:</p>
 </li>
-<li>The <code>D</code> (detail) output specification conditionally updates <code>BBORDRH</code> when indicator 01 is on (record read from <code>BBORTR</code>) and indicator 90 is off (record found in <code>BBORDRH</code>).</li>
-<li>Updates only the <code>LOCK</code> and <code>WSID</code> fields to clear lockout conditions.</li>
+<li>The output specification for <code>BBORDRH</code> (lines 0025-0027) updates the record:<ul>
+<li>Writes <code>LOCK</code> to position 155.</li>
+<li>Writes <code>WSID</code> to positions 156-157.</li>
+<li>Only executed for matched records (<code>01N90</code>).</li>
+</ul>
+</li>
 </ol>
+<hr />
 <h3 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
-<p>The program enforces the following business rules:</p>
-<ul>
+<p>The program enforces the following business rules for lockout removal:</p>
+<ol>
 <li><strong>Lock Removal</strong>:</li>
-<li>Clears the lock status (<code>LOCK</code>) and workstation ID (<code>WSID</code>) fields in the <code>BBORDRH</code> file for the specified company and order number (<code>BOCOS</code>) derived from <code>BBORTR</code>.</li>
+<li>For each order transaction record in <code>BBORTR</code>, the corresponding order header record in <code>BBORDRH</code> is updated to clear the lock status (<code>LOCK</code>) and workstation ID (<code>WSID</code>).</li>
 <li>
-<p>This action removes any lockout conditions that prevent the order from being processed further, typically as part of batch deletion.</p>
+<p>This effectively removes any lockout conditions, making the order header available for further processing.</p>
 </li>
 <li>
-<p><strong>Conditional Update</strong>:</p>
+<p><strong>Key Matching</strong>:</p>
 </li>
-<li>Updates only records that exist in <code>BBORDRH</code> (<code>N90</code>).</li>
+<li>The program uses the <code>BOCOS</code> field (company/order/sequence, positions 2-12) from <code>BBORTR</code> to locate the corresponding <code>BBORDRH</code> record.</li>
 <li>
-<p>Processes only records read from <code>BBORTR</code> (indicator 01), ensuring that only relevant orders are affected.</p>
-</li>
-<li>
-<p><strong>Single Execution of Initialization</strong>:</p>
+<p>Updates occur only if a matching record is found (<code>N90</code>).</p>
 </li>
 <li>
-<p>The <code>ONCE</code> flag ensures that initialization (clearing <code>LOCK</code> and <code>WSID</code> variables) occurs only once, preventing redundant processing.</p>
+<p><strong>One-Time Initialization</strong>:</p>
 </li>
 <li>
-<p><strong>No User Interaction</strong>:</p>
+<p>The <code>ONCE</code> variable ensures that the initialization of <code>LOCK</code> and <code>WSID</code> to blanks occurs only once, preventing redundant clearing during program execution.</p>
 </li>
-<li>The program operates as a backend utility without user input or screen displays, relying on the <code>BBORTR</code> file to provide the records to process.</li>
-</ul>
+<li>
+<p><strong>No Validation or Error Messaging</strong>:</p>
+</li>
+<li>The program assumes the calling OCL program (<code>BB101.ocl36.txt</code>) has validated the batch deletion context (e.g., <code>SWITCH1-1</code>).</li>
+<li>No error messages are defined or displayed, and updates are unconditional for matched records.</li>
+</ol>
+<hr />
 <h3 id="tables-files-used">Tables (Files) Used<a class="headerlink" href="#tables-files-used" title="Permanent link">&para;</a></h3>
-<p>The program uses the following files:
-1. <code>BBORTR</code>: Primary input file (512 bytes, sequential access) containing order transaction records with company and order number (<code>BOCOS</code>).
-2. <code>BBORDRH</code>: Update file (512 bytes, random access with 2 access paths) containing order header records, updated to clear lock status (<code>LOCK</code>) and workstation ID (<code>WSID</code>).</p>
+<p>The program interacts with the following files:</p>
+<ol>
+<li><strong>BBORTR</strong>: Input primary file for order transactions (512 bytes, disk).</li>
+<li>Field: <code>BOCOS</code> (company/order/sequence, positions 2-12).</li>
+<li><strong>BBORDRH</strong>: Update-capable file for order header records (512 bytes, indexed, key length 11).</li>
+<li>Fields updated: <code>LOCK</code> (position 155, 1 character), <code>WSID</code> (positions 156-157, 2 characters).</li>
+</ol>
+<hr />
 <h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
-<p>No external programs are called in <code>BB215.rpg36.txt</code>. All processing is handled internally through file I/O and output operations.</p>
+<p>The <code>BB215</code> RPG program does not call any external programs. All processing is handled internally through file operations and updates.</p>
+<hr />
 <h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
-<p>The <code>BB215.rpg36.txt</code> program is a lightweight utility called from the <code>BB101.ocl36.txt</code> OCL program to remove lockout conditions from order header records in <code>BBORDRH</code> during batch deletion. It reads order transaction records from <code>BBORTR</code>, locates corresponding header records using the company/order number key (<code>BOCOS</code>), and clears the <code>LOCK</code> and <code>WSID</code> fields to release the orders. The program enforces strict rules to update only existing records and performs initialization once to ensure efficiency. It uses two files (<code>BBORTR</code>, <code>BBORDRH</code>) and does not call external programs, making it a focused component of the batch deletion process in the order entry system.</p>
+<p>The <code>BB215</code> RPG program, called from the <code>BB101.ocl36.txt</code> OCL program, removes lockout conditions from order header records in the <code>BBORDRH</code> file by clearing the <code>LOCK</code> and <code>WSID</code> fields. It reads order transaction records from <code>BBORTR</code>, chains to matching <code>BBORDRH</code> records using the <code>BOCOS</code> key, and updates the lock-related fields. Business rules ensure lock removal only for matched records, with a one-time initialization to set variables. The program interacts with the <code>BBORTR</code> and <code>BBORDRH</code> files and does not call external programs, relying on internal logic for all operations.</p>
 
 
 

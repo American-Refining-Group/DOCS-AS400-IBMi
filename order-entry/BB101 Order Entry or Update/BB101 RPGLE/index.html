@@ -18,7 +18,7 @@
         <link rel="prev" href="../BB101%20OCL36/">
       
       
-        <link rel="next" href="../BB215%20RPG36/">
+        <link rel="next" href="../BB1011%20RPGLE/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -7649,6 +7649,190 @@
   
   
     <li class="md-nav__item">
+      <a href="../BB1011%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB1011 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB1014%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB1014 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB1015%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB1015 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB1018%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB1018 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB1033%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB1033 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB104A%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB104A RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB106%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB106 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB115%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB115 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../BB215%20RPG36/" class="md-nav__link">
         
   
@@ -7672,12 +7856,81 @@
   
   
     <li class="md-nav__item">
+      <a href="../BB811%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB811 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IN805%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IN805 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../IN805BC%20CLP/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     IN805BC CLP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MBBQTY%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MBBQTY RPGLE
     
   </span>
   
@@ -8234,221 +8487,267 @@
 
   <h1>BB101 RPGLE</h1>
 
-<p>The RPGLE program <code>BB101.rpgle.txt</code> is a complex order entry and management program for an IBM AS/400 (iSeries) system, called from the <code>BB101.ocl36.txt</code> OCL program. It handles the entry, validation, and updating of orders, including header, detail, and miscellaneous line items, with extensive validation and integration with various files and external programs. Below, I will explain the process steps, business rules, tables (files) used, and external programs called, based on the provided RPGLE source and its revision history.</p>
+<p>The <code>BB101.rpgle.txt</code> document is an RPGLE (RPG IV) program used in conjunction with the <code>BB101.ocl36.txt</code> OCL program in an IBM System/38 or AS/400 (now IBM i) environment. This program handles the entry and update of open orders in the <code>BBORDR</code> file, supporting order entry, validation, and maintenance processes. Below is a detailed explanation of the process steps, business rules, tables (files) used, and external programs called.</p>
+<hr />
 <h3 id="process-steps-of-the-rpgle-program">Process Steps of the RPGLE Program<a class="headerlink" href="#process-steps-of-the-rpgle-program" title="Permanent link">&para;</a></h3>
-<p>The program is structured around multiple input/output screens and subroutines to manage order entry, validation, and updates. The process steps are organized by the screens and their associated logic:</p>
+<p>The <code>BB101</code> RPGLE program manages the interactive entry and updating of order data through multiple screens, performing validations, calculations, and updates to various files. The process steps are organized around screen interactions, data validation, and file updates, as outlined below:</p>
 <ol>
-<li><strong>Initialization and Setup</strong>:</li>
-<li>The program initializes by setting up the workstation file (<code>BB101D</code>) and other necessary files for order processing.</li>
-<li>It uses the <code>H</code> specification (<code>fixnbr(*zoned:*inputpacked)</code>) to handle numeric data formats, ensuring compatibility with zoned and packed decimal fields.</li>
+<li><strong>Program Initialization</strong>:</li>
+<li>The program is initialized with the <code>H</code> specification (<code>fixnbr(*zoned:*inputpacked)</code>) to handle zoned decimal and packed decimal data formats.</li>
+<li>It defines the workstation file <code>bb101d</code> (previously <code>SCREEN</code>) for interactive screen processing, using <code>infds(statrk)</code> for status tracking and <code>infsr(rollky)</code> for handling roll keys.</li>
 <li>
-<p>The program sets up data structures and parameters for interacting with external programs and files.</p>
+<p>Comments indicate that the program is a converted version from an earlier system (TARGET/400 conversion on 11/25/19), with added, deleted, and modified source lines.</p>
 </li>
 <li>
-<p><strong>Screen 1: Selection Prompt (BB101S1)</strong>:</p>
+<p><strong>Screen Processing</strong>:
+   The program uses multiple screens for data entry and display, each with specific purposes:</p>
 </li>
-<li>Displays a selection screen for entering company number, order number, and batch number.</li>
-<li>Validates the company number and order type (e.g., blank, 'M', 'R', 'P', 'J', 'T' for invoice types).</li>
+<li><strong>Screen 1 (BB101S1, Output: 21)</strong>: Selection prompt for entering company number, order number, batch number, and other initial data.</li>
+<li><strong>Screen 2 (BB101S2, Output: 22)</strong>: Captures header data, including customer, ship-to, order dates, freight codes, and other order-level details.</li>
+<li><strong>Screen 3 (BB101S3, Output: 23)</strong>: Handles line item data, including product, quantity, price, and container details. Header fields were added to this screen in revision JB87 to address overlay issues in Profound Genie.</li>
+<li><strong>Screen 4 (BB101S4, Output: 24)</strong>: Manages miscellaneous line items (e.g., non-product charges).</li>
+<li><strong>Screen 5 (BB101S5, Output: 25)</strong>: Supports description and product search.</li>
+<li><strong>Screen 6 (BB101S6, Output: 26)</strong>: Facilitates customer alpha search.</li>
+<li><strong>Screen 7 (BB101S7, Output: 27)</strong>: Captures remarks for orders, invoices, and bills of lading (BOL).</li>
+<li><strong>Screen 8 (BB101S8, Output: 28)</strong>: Allows overriding tax fields.</li>
+<li><strong>Screen 9 (BB101S9, Output: 29)</strong>: Lists orders in a batch.</li>
+<li><strong>Screen Z (BB101SZ, Output: 38)</strong>: Displays a remarks review screen.</li>
+<li><strong>Screen A (BB101SA, Output: 43)</strong>: Shows credit limit error messages.</li>
 <li>
-<p>Outputs fields like <code>co</code> (company), <code>ordr</code> (order number), <code>batch#</code>, and <code>msg</code> (message) to guide the user.</p>
-</li>
-<li>
-<p><strong>Screen 2: Header Data Entry (BB101S2)</strong>:</p>
-</li>
-<li>Collects header information such as customer number, ship-to number, order date, purchase order date, requested delivery date, freight codes, and Incoterms.</li>
-<li>Validates fields like customer number, ship-to number, order date, sales tax code, salesman, terms code, and carrier ID.</li>
-<li>Performs checks for credit limits, duplicate orders, and valid Incoterms for export orders.</li>
-<li>
-<p>Outputs header fields like <code>head1</code>, <code>head2</code>, <code>head3</code>, <code>head4</code>, <code>bcus</code> (bill-to customer), <code>fpcd</code> (freight processor code), and <code>inct</code> (Incoterms).</p>
-</li>
-<li>
-<p><strong>Screen 3: Line Item Data Entry (BB101S3)</strong>:</p>
-</li>
-<li>Allows entry of order detail lines, including product code, quantity, price, container type, and unit of measure.</li>
-<li>Validates product codes, quantities, prices, and container types against files like <code>GSPROD</code>, <code>BBCAID</code>, and <code>GSCTWT</code>.</li>
-<li>Ensures consistency in freight codes across detail lines and checks for inactive or deleted records.</li>
-<li>Calculates gross gallons (<code>d@ggal</code>), net gallons (<code>d@ngal</code>), shipping weight (<code>d@gwt</code>), quantity in unit of measure (<code>d@qtum</code>), and product weight (<code>d@prwt</code>).</li>
-<li>
-<p>Outputs detail fields like <code>detx</code>, <code>det</code>, <code>msg</code>, and header fields (added in JB87 to address overlay issues).</p>
+<p><strong>Screen B (BB101SB, Output: 94)</strong>: Blank overlay for the line item screen.</p>
 </li>
 <li>
-<p><strong>Screen 4: Miscellaneous Line Item Data (BB101S4)</strong>:</p>
+<p><strong>Data Validation and Business Logic</strong>:</p>
 </li>
-<li>Handles miscellaneous line items (e.g., freight surcharges, service fees).</li>
-<li>Validates miscellaneous G/L numbers and ensures quantities and amounts are zero for specific cases (e.g., customer-owned product).</li>
-<li>Suppresses display of certain sequence numbers (e.g., ≥940 for freight service charges, per JB90).</li>
-<li>
-<p>Outputs fields like <code>mscx</code>, <code>msc</code>, and <code>msg</code>.</p>
+<li>The program performs extensive validations on input fields, using error messages (COM and COM1 comments) to enforce business rules. Examples include:<ul>
+<li>Validating company number, customer number, ship-to number, order dates, sales tax code, salesman number, terms code, and general ledger (G/L) numbers.</li>
+<li>Checking product codes, quantities, prices, unit of measure, and container codes.</li>
+<li>Ensuring freight codes are valid (e.g., "C", "P", "A" for collect, prepaid, or PPD&amp;ADD).</li>
+<li>Validating multi-load orders and railcar restrictions.</li>
+</ul>
 </li>
-<li>
-<p><strong>Screen 5: Description and Product Search (BB101S5)</strong>:</p>
-</li>
-<li>Facilitates product and description lookups using function keys (F5 for product, F10 for description, F4 for container code per JK05).</li>
-<li>Validates product codes and cross-references using <code>BBPRXR</code>.</li>
-<li>
-<p>Outputs fields like product code and description.</p>
-</li>
-<li>
-<p><strong>Screen 6: Customer Alpha Search (BB101S6)</strong>:</p>
-</li>
-<li>Allows searching for customers by name or other criteria.</li>
-<li>Calls external program <code>LCSTSHP</code> for customer/ship-to lookup.</li>
-<li>
-<p>Outputs search results for customer and ship-to data.</p>
-</li>
-<li>
-<p><strong>Screen 7: Remarks Entry (BB101S7)</strong>:</p>
-</li>
-<li>Captures order, invoice, and bill of lading remarks, as well as freight-related fields.</li>
-<li>Displays carrier preferences and freight totals (per JB63, JB64).</li>
-<li>Validates freight processor codes and carrier IDs.</li>
-<li>
-<p>Outputs fields like <code>omk1</code>, <code>omk2</code> (order remarks), <code>imk1</code>, <code>imk2</code> (invoice remarks), <code>bmk1</code>, <code>bmk2</code> (BOL remarks), and <code>frcd</code> (freight code).</p>
-</li>
-<li>
-<p><strong>Screen 8: Override Taxes (BB101S8)</strong>:</p>
-</li>
-<li>Allows overriding tax codes, exemptions, and amounts for up to 10 tax fields.</li>
-<li>Validates tax codes and amounts against predefined rules.</li>
-<li>
-<p>Outputs tax-related fields like <code>txc</code>, <code>txe</code>, <code>txa</code>, <code>ftc</code>, <code>ofe</code>, and <code>ofa</code>.</p>
-</li>
-<li>
-<p><strong>Screen 9: List Orders in Batch (BB101S9)</strong>:</p>
-<ul>
-<li>Displays a list of orders within a batch for review.</li>
-<li>Outputs fields like <code>co</code>, <code>s9o</code>, <code>s9n</code>, <code>s9s</code>, and <code>s9r</code>.</li>
+<li>Specific validations include:<ul>
+<li><strong>JB01</strong>: Forces a valid carrier ID on Screen 2.</li>
+<li><strong>JB06</strong>: Adds 'S' order locking code for orders being shipped in IMS.</li>
+<li><strong>JB11</strong>: Forces 'Y' no-charge code for customer-owned product orders and restricts quantity/amount on miscellaneous lines.</li>
+<li><strong>JB12</strong>: Validates group-by field as 'S' (size) or 'C' (category), defaulting to 'S'.</li>
+<li><strong>JB19</strong>: Restricts EDI orders to specific plants by comparing LDA RACD to order RACD and ensures COON='Y'.</li>
+<li><strong>JB31</strong>: Prohibits 'CC' or 'CT' carrier codes.</li>
+<li><strong>JB32</strong>: Prevents 'SCO' freight processor for new orders.</li>
+<li><strong>JB48</strong>: Validates order process status (blank, 'C', or 'S').</li>
+<li><strong>JB52</strong>: Makes bill-to PO# a required field.</li>
+<li><strong>JB55</strong>: Makes responsible area/major location a required field.</li>
+<li><strong>JB93</strong>: Bypasses credit checking for customer-owned product orders (COON='Y').</li>
 </ul>
 </li>
 <li>
-<p><strong>Screen SA: Credit Limit Error (BB101SA)</strong>:</p>
-<ul>
-<li>Displays credit limit error messages when an account is on hold due to overdue invoices, exceeding credit limits, or zero credit limit.</li>
-<li>Outputs messages <code>msga</code> and <code>msgb</code>.</li>
+<p>The program uses command keys (e.g., KA for bypass, KG to end job, F1 to F12 for specific functions like lookups and overrides).</p>
+</li>
+<li>
+<p><strong>File Operations</strong>:</p>
+</li>
+<li><strong>Add/Update Records</strong>:<ul>
+<li>Adds or updates header records (<code>OUTHDR</code>, indicators 80/N80).</li>
+<li>Adds or updates transaction line items (<code>OUTDTL</code>, indicators 81/N81).</li>
+<li>Adds or updates miscellaneous transaction lines (<code>OUTMSC</code>, indicators 82/N82).</li>
+<li>Updates freight processor (<code>upfpcd</code>), calculated quantities/weights (<code>updd@</code>, <code>updd@s</code>), and tax fields (<code>addtax</code>, <code>updtax</code>, <code>addmtx</code>, <code>deldtx</code>).</li>
+</ul>
+</li>
+<li><strong>Delete Records</strong>:<ul>
+<li>Flags records for deletion rather than physically deleting them (<code>deldtx</code>, revision DC16).</li>
+</ul>
+</li>
+<li><strong>Release Records</strong>:<ul>
+<li>Releases records in files like <code>BBORTR</code>, <code>BBOTHS1</code>, and <code>BBOTDS1</code> (<code>nulbbortr</code>, <code>nulbboths1</code>, <code>nulbbotds1</code>).</li>
 </ul>
 </li>
 <li>
-<p><strong>End of Order Processing</strong>:</p>
+<p><strong>File Updates</strong>:</p>
 <ul>
-<li>Performs final calculations for quantities, freight, and order totals (moved to before marks review screen per JB63).</li>
-<li>Calls <code>BB106</code> for freight calculations and <code>BB115</code> for duplicate order checks.</li>
-<li>Conducts credit limit checks (bypassed for customer-owned product per JB93).</li>
-<li>Updates files like <code>BBORTR</code>, <code>BBOTHS1</code>, <code>BBOTDS1</code>, and <code>BBTRTX</code> with calculated values and tax information.</li>
-<li>Releases records and clears locks.</li>
+<li>Updates files like <code>BICONT</code> (indicator 87) and <code>SHIPTO</code> (indicator 79).</li>
+<li>Writes specific fields to <code>BBORHS1</code> and <code>BBOTHS1</code> individually instead of as 256-byte fields (revision JB85).</li>
 </ul>
 </li>
 <li>
-<p><strong>Error Handling and Validation</strong>:</p>
-<ul>
-<li>Uses a comprehensive set of error messages (COM and COM1 comments) to handle invalid inputs, such as company number, customer number, dates, tax codes, and freight codes.</li>
-<li>Implements command key functions (e.g., KA to bypass, KG to end job) and roll keys for navigation (e.g., indicators 75, 76 for roll forward/backward).</li>
-<li>Handles special cases like inactive records, holiday date warnings, and duplicate hand ticket checks.</li>
+<p><strong>Freight and Quantity Calculations</strong>:</p>
+</li>
+<li>Calculates quantities and weights (e.g., gross gallons, net gallons, shipping weight) using subroutine <code>getslb</code> when KA is pressed (revision JB92).</li>
+<li>Performs freight calculations by calling <code>BB101F</code> (JB30) and <code>BB106</code> (JB64), with logic to auto-populate carrier ID from top 5 preferences if blank (JB71).</li>
+<li>
+<p>Displays estimated carrier freight for product moves (JB82).</p>
+</li>
+<li>
+<p><strong>End-of-Order Processing</strong>:</p>
+</li>
+<li>Moved to before the remarks review screen (JB63), including:<ul>
+<li>Quantity calculations for all order details.</li>
+<li>Freight calculations.</li>
+<li>Order total calculations.</li>
+<li>Credit limit checks (bypassed for customer-owned products, JB93).</li>
 </ul>
 </li>
+<li>
+<p>Displays top 5 logistic carrier ID preferences and allows carrier ID updates on Screen 7 and Z.</p>
+</li>
+<li>
+<p><strong>Error Handling and Messages</strong>:</p>
+</li>
+<li>Uses a comprehensive set of error messages (COM and COM1) to notify users of invalid inputs or conditions (e.g., invalid company, customer, dates, or freight codes).</li>
+<li>Issues warnings for specific conditions, such as missing container weight records (JB18, upgraded to error in JB21) or holiday pickup/delivery dates (MG, 02/01/16).</li>
+<li>
+<p>Displays credit hold messages (COM1) for accounts exceeding limits or with overdue invoices.</p>
+</li>
+<li>
+<p><strong>Screen Navigation and Command Keys</strong>:</p>
+</li>
+<li>Supports roll keys for navigating detail and miscellaneous screens (indicators 75, 76, 83, 84, 85, 86).</li>
+<li>
+<p>Uses function keys for specific actions:</p>
+<ul>
+<li><strong>F1</strong>: Jumps to header screen or cancels new orders not yet in the transaction file (JB60).</li>
+<li><strong>F4</strong>: Container code lookup (JK05).</li>
+<li><strong>F5</strong>: Product lookup (JK05).</li>
+<li><strong>F6</strong>: Overrides product restrictions (JB61).</li>
+<li><strong>F7/F9</strong>: Inventory inquiry via <code>IN805</code> (DC24, JB58).</li>
+<li><strong>F8</strong>: Pricing lookup via <code>AR822R</code> (DC19).</li>
+<li><strong>F10</strong>: Product description lookup (JK05) or allows holiday dates (MG, 02/01/16).</li>
+<li><strong>F11</strong>: Accepts inactive rack price warnings (JB45).</li>
+<li><strong>F12</strong>: Overrides specific errors (e.g., freight code mismatches).</li>
+</ul>
+</li>
+<li>
+<p><strong>Special Processing</strong>:</p>
+</li>
+<li>Handles customer-owned product orders by bypassing certain validations (e.g., <code>INTANK</code> existence, JB15).</li>
+<li>Supports EDI orders with specific restrictions (JB19).</li>
+<li>Validates in-transit and destination locations/tanks (JB72).</li>
+<li>Checks for duplicate hand tickets (MG09, JB88) and ensures hand ticket format (HT# prefix, JK07).</li>
+<li>Bypasses product restriction tests for carrier codes 'PT' or 'XS' (MG11).</li>
+<li>Ensures delivery and pickup dates are not more than 30 days past (MG12).</li>
 </ol>
+<hr />
 <h3 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
-<p>The program enforces numerous business rules, as detailed in the revision history and error messages. Key rules include:</p>
-<ul>
-<li><strong>Validation Rules</strong>:</li>
-<li>Company number, customer number, ship-to number, order date, purchase order date, and delivery date must be valid (COM 01–07).</li>
-<li>Freight codes must be 'C' (collect), 'P' (prepaid), or 'A' (PPD&amp;ADD), with specific constraints (e.g., railcar orders require 'C' or 'L') (COM 26–27, 57–67).</li>
-<li>Product codes, container types, and units of measure must exist in <code>GSPROD</code>, <code>BBCAID</code>, or <code>GSCTWT</code> and not be inactive or deleted (COM 12, 15, 29, 30, 52).</li>
-<li>Bill-to PO number is mandatory (JB52, COM 89).</li>
-<li>Group by must be 'S' (size) or 'C' (category), defaulting to 'S' (JB12, COM 76).</li>
-<li>Incoterms are required for export orders and validated against <code>GSTABL</code> (DC02, COM 78–80).</li>
-<li>Delivery and pickup dates must not be holidays (MG 020116, COM 92–93) or more than 30 days past (MG12, COM 107–108).</li>
-<li>Inactive records (e.g., <code>GLMAST</code>, <code>GSCTUM</code>, <code>GSCTWT</code>, <code>GSUMCV</code>, <code>SHIPTO</code>) are treated as deleted (JB65, JB68, JB69).</li>
+<p>The program enforces numerous business rules, primarily through validations and error messages. Key rules include:</p>
+<ol>
+<li><strong>Order Validation</strong>:</li>
+<li>Company, customer, ship-to, and order numbers must be valid (errors 01, 03, 04, 46).</li>
+<li>Order types must be valid (blank, 'M', or specific invoice types like 'R', 'P', 'J', 'T') (error 02).</li>
+<li>Dates (order, P/O, pickup, delivery) must be valid and not on holidays unless overridden (errors 05, 06, 07, 68, 92, 93, 107, 108).</li>
+<li>Sales tax codes, salesman numbers, terms codes, and G/L numbers must exist in respective tables (errors 08, 09, 10, 11, 65).</li>
+<li>Bill-to PO# is required (JB52, error 89).</li>
 <li>
-<p>Carrier ID must be valid and not inactive (JB50, COM 25, 72).</p>
+<p>Responsible area/major location is required (JB55, error 74).</p>
 </li>
 <li>
-<p><strong>Freight and Pricing Rules</strong>:</p>
+<p><strong>Product and Inventory</strong>:</p>
 </li>
-<li>Freight processor code ('SCO' not allowed for new orders, JB32) and freight arranged by must be valid (COM 73).</li>
-<li>Freight collect requires blank delivery, while prepaid and PPD&amp;ADD require delivery 'Y' (COM 57–59).</li>
-<li>Separate freight and calculate freight must align with freight code (COM 60–67).</li>
-<li>Customer price fields reflect freight collect (1.00), prepaid with rack price (1.00), prepaid with sales agreement (0.75), or PPD&amp;ADD (1.00 with 0.25 freight) (JB80).</li>
-<li>Freight service fee for 'CYY' freight collect orders (JB90).</li>
+<li>Products must have valid codes, containers, and units of measure (errors 12, 15, 22, 29, 30, 52).</li>
+<li>Inactive or deleted products/tanks trigger errors or warnings (JB45, JB65, JB68, errors 87, 88).</li>
+<li>Customer-owned products bypass certain validations (e.g., <code>INTANK</code>, credit checks) (JB11, JB15, JB93).</li>
 <li>
-<p>Warns if freight calculation is requested but not performed (JB70, COM 94, 98).</p>
+<p>Product moves require specific validations (errors 96, 97, 99, 100).</p>
 </li>
 <li>
-<p><strong>Order Processing Rules</strong>:</p>
+<p><strong>Freight Rules</strong>:</p>
 </li>
-<li>Multi-load orders are not allowed for railcars (JB43, COM 86).</li>
-<li>Customer-owned product orders (COON='Y') bypass credit checks (JB93), force no-charge on detail lines, and prohibit quantity/amount on miscellaneous lines (JB11).</li>
-<li>Duplicate order checks are performed via <code>BB115</code> (DC18, COM 85).</li>
-<li>Hand ticket numbers must start with 'HT# ' and be unique per customer (MG09, COM 102–105).</li>
-<li>Order numbers reset to 100001 when reaching 899999 to maintain 6-digit length (JB49).</li>
+<li>Freight codes must be 'C' (collect), 'P' (prepaid), or 'A' (PPD&amp;ADD) (error 26).</li>
+<li>Railcar orders restrict freight codes to 'C' or 'L' and prohibit multi-loads (JB43, error 27).</li>
+<li>Freight collect requires blank delivery and no separate freight (errors 57, 61, 65).</li>
+<li>Prepaid and PPD&amp;ADD require delivery='Y' and specific separate freight settings (errors 58, 59, 62, 63, 66, 67).</li>
+<li>Carrier ID must be valid and not inactive (JB50, error 72).</li>
+<li>'SCO' freight processor is not allowed for new orders (JB32, error 84).</li>
+<li>Freight calculations must be enabled ('Y') or disabled ('N') appropriately (errors 64, 94, 98).</li>
 <li>
-<p>EDI orders with errors have 'E' in header delete code, which is cleared on the marks screen (JB19).</p>
-</li>
-<li>
-<p><strong>Screen and Navigation Rules</strong>:</p>
-</li>
-<li>Cursor positioning is adjusted for lookups (DC04, JB47) and uses <code>RTNCSRLOC</code> for field prompting (DC07).</li>
-<li>Header fields are displayed on the detail screen to resolve overlay issues in Profound Genie (JB87).</li>
-<li>Function keys (e.g., F1 to cancel new orders, F4 for container lookup, F5 for product, F9 for inventory inquiry, F10 for description) enhance user interaction (JB60, JK05, JB58).</li>
-<li>
-<p>Marks review screen displays customer, ship-to, and freight arranged by details (JB17).</p>
+<p>Default carrier ID to 'BPRR' for railcar orders (JB81).</p>
 </li>
 <li>
-<p><strong>Data Handling Rules</strong>:</p>
+<p><strong>Quantity and Pricing</strong>:</p>
 </li>
-<li>Descriptions are aligned correctly (27 bytes on screen, 30 bytes in file, adjusted by JB02).</li>
-<li>Inactive rack prices trigger errors or warnings based on status (JB45, COM 87–88).</li>
-<li>Sales agreement pricing uses billed PO number and allows zero end date (JB44).</li>
-<li>Tax fields support up to 10 entries (LT38) and include percentage fields (LT39).</li>
-<li>Ship-to addresses are reformatted to include city, state, zip, and country (DC06, DC08).</li>
-<li>Calculated quantities (gross/net gallons, weights) are updated before marks review (JB63, JB92).</li>
-</ul>
+<li>Quantities must be valid and non-zero unless multi-load settings allow it (errors 13, 42, 43, 44).</li>
+<li>Prices must be valid, with special handling for rack prices and sales agreements (JB45, JB80).</li>
+<li>Customer-owned product orders force no-charge codes and restrict miscellaneous line quantities/amounts (JB11, error 75).</li>
+<li>
+<p>Calculated quantities (e.g., gross/net gallons, weights) are updated at key points (JB59, JB92).</p>
+</li>
+<li>
+<p><strong>Credit and Duplicates</strong>:</p>
+</li>
+<li>Credit checks are bypassed for customer-owned product orders (JB93).</li>
+<li>Duplicate order checking is performed via <code>BB115</code> (DC18, error 85).</li>
+<li>
+<p>Hand ticket numbers must be unique per customer and start with "HT# " (MG09, JB88, errors 102, 103, 104, 105).</p>
+</li>
+<li>
+<p><strong>EDI and Special Orders</strong>:</p>
+</li>
+<li>EDI orders require plant-specific access (JB19).</li>
+<li>Multi-load orders have specific quantity and freight code restrictions (errors 40, 41, 42, 43, 44, 45, 51).</li>
+<li>
+<p>Railcar orders prohibit multi-loads (JB43, error 86).</p>
+</li>
+<li>
+<p><strong>Screen and Data Handling</strong>:</p>
+</li>
+<li>Protects certain fields for EDI orders (JB14).</li>
+<li>Ensures proper cursor positioning after lookups (JB47).</li>
+<li>Handles one-time ship-to deletions correctly (JB67).</li>
+<li>Displays top 5 carrier preferences and allows updates on specific screens (JB63).</li>
+<li>Bypasses certain validations temporarily (e.g., responsible area/major location, JB86).</li>
+</ol>
+<hr />
 <h3 id="tables-files-used">Tables (Files) Used<a class="headerlink" href="#tables-files-used" title="Permanent link">&para;</a></h3>
-<p>The program uses the following files, as referenced in the RPGLE source and aligned with the OCL program:</p>
+<p>The program interacts with numerous files for data storage, retrieval, and validation. Based on the RPGLE source and cross-referencing with the OCL program, the following files are used:</p>
 <ol>
-<li><code>BB101D</code> (workstation file for display screens)</li>
-<li><code>BBORTR</code> (order transaction file)</li>
-<li><code>BBOTHS1</code> (order header supplemental)</li>
-<li><code>BBOTDS1</code> (order detail supplemental)</li>
-<li><code>BBTRTX</code> (tax transaction file)</li>
-<li><code>BBORDR</code> (open order file)</li>
-<li><code>GSPROD</code> (product master, replaces <code>GSTABL</code> type <code>PRODCD</code>, JK09)</li>
-<li><code>BBCAID</code> (carrier ID, replaces <code>GSTABL</code> type <code>BBCAID</code>, JK10)</li>
-<li><code>BBPRXR</code> (product cross-reference)</li>
-<li><code>ARCUST</code> (customer master)</li>
-<li><code>SHIPTO</code> (ship-to master)</li>
-<li><code>GSTABL</code> (general table, used for various lookups like Incoterms, order process status)</li>
-<li><code>GSCTWT</code> (container weight table)</li>
-<li><code>GSCTUM</code> (unit of measure table)</li>
-<li><code>GSUMCV</code> (unit conversion table)</li>
-<li><code>GLMAST</code> (general ledger master)</li>
-<li><code>BICONT</code> (billing control file)</li>
-<li><code>BBSHSA</code> (shipping instructions/accessorials)</li>
-<li><code>ARCUPR</code> (customer pricing)</li>
-<li><code>GSCNTR1</code> (container master, replaces <code>GSTABL</code> type <code>CNTRCD</code>, 04/13/16)</li>
-<li><code>GSMLCD</code> (miscellaneous code table)</li>
-<li><code>BICUAX</code> (sales agreement file)</li>
+<li><strong>BB101D</strong>: Workstation display file for interactive screens (replaces <code>SCREEN</code>).</li>
+<li><strong>BBORTR</strong>: Order transaction file (update, add, release records).</li>
+<li><strong>BBOTHS1</strong>: Order transaction history supplemental file.</li>
+<li><strong>BBOTDS1</strong>: Order detail supplemental file.</li>
+<li><strong>BBTRTX</strong>: Tax transaction file.</li>
+<li><strong>BBORDR</strong>: Open order detail file (primary file for order entry/update).</li>
+<li><strong>BICONT</strong>: Customer contract file.</li>
+<li><strong>SHIPTO</strong>: Ship-to address file.</li>
+<li><strong>GSPREX</strong>: Product exception file (validation removed in JK08, moved to <code>BB116</code>).</li>
+<li><strong>INLOC</strong>: Inventory location file.</li>
+<li><strong>INTANK</strong>: Inventory tank file.</li>
+<li><strong>GSCTWT</strong>: Contract weight table for non-fluid validation.</li>
+<li><strong>BBORDD</strong>: Order detail file.</li>
+<li><strong>GSTABL</strong>: General system table (replaced for <code>PRODCD</code> and <code>BBCAID</code> in JK09, JK10).</li>
+<li><strong>GSPROD</strong>: Product file (replaces <code>GSTABL</code> for <code>PRODCD</code>, JK09).</li>
+<li><strong>BBCAID</strong>: Carrier ID file (replaces <code>GSTABL</code> for <code>BBCAID</code>, JK10).</li>
+<li><strong>GSMLCD</strong>: System calendar file (length changed in JB53).</li>
+<li><strong>GSCTUM</strong>: Customer master file.</li>
+<li><strong>GSUMCV</strong>: Customer summary file.</li>
+<li><strong>ARCUST</strong>: Customer master file.</li>
+<li><strong>ARCUPR</strong>: Customer pricing file (key includes container type in JB62).</li>
+<li><strong>BBSHSA</strong>: Shipment file (used for accessorials/marks in JB13).</li>
+<li><strong>BBPRXR</strong>: Product cross-reference file.</li>
+<li><strong>GLMAST</strong>: General ledger master file.</li>
+<li><strong>SHPADR</strong>: Shipping address file.</li>
 </ol>
+<hr />
 <h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
-<p>The program calls the following external programs for specific functions:</p>
+<p>The program calls several external programs for specific functions, as noted in the revision history and comments:</p>
 <ol>
-<li><code>BB1011</code>: Retrieves common data (e.g., fluid code, IMS unit of measure, customer-owned product fields).</li>
-<li><code>BB1014</code>: Retrieves <code>INLOC</code> information (used by BB495, BB500, and BB101).</li>
-<li><code>BB1015</code>: Retrieves accessorials/marks from <code>BBSHSA</code>.</li>
-<li><code>BB1018</code>: Validates fields via data structure (JB83).</li>
-<li><code>BB1033</code>: Validates responsible area/major location (JK07, bypassed temporarily per JB86).</li>
-<li><code>BB104A</code>: Handles open order cancellation or reactivation (DC23).</li>
-<li><code>BB106</code>: Performs freight calculations (JB64).</li>
-<li><code>BB115</code>: Checks for duplicate orders (DC18).</li>
-<li><code>BB811</code>: Customer transaction batch order inquiry (DC21).</li>
-<li><code>AR822R</code>: Pricing lookup for CSR via F8 (DC19).</li>
-<li><code>LCSTSHP</code>: Customer/ship-to lookup (DC14, DC17).</li>
-<li><code>MBBQTY</code>: Accumulates total shipping weight for display on screen 7 (DC20).</li>
-<li><code>MGSTABL</code>: Looks up country codes (DC10).</li>
-<li><code>MSHIPTO</code>: Customer ship-to lookup (DC11).</li>
-<li><code>IN805</code>: Inventory inquiry, called via F9 (DC24, JB58), with modes for display, auto-check, and messaging (JB78).</li>
+<li><strong>BB1011</strong>: Retrieves product, pricing, and customer data (common data structure, JB74, JK04).</li>
+<li><strong>BB1014</strong>: Retrieves inventory location (<code>INLOC</code>) information (used by BB495, BB500, and BB101).</li>
+<li><strong>BB1015</strong>: Retrieves accessorials/marks from <code>BBSHSA</code> (JB13).</li>
+<li><strong>BB101F</strong>: Performs freight calculations (JB30).</li>
+<li><strong>BB106</strong>: Performs advanced freight calculations (JB64).</li>
+<li><strong>BB115</strong>: Checks for duplicate customer orders (DC18).</li>
+<li><strong>BB811</strong>: Customer transaction batch order inquiry (DC21).</li>
+<li><strong>BB104A</strong>: Handles open order cancellation or reactivation (DC23).</li>
+<li><strong>BB1033</strong>: Validates responsible area/major location (JK07, temporarily bypassed in JB86).</li>
+<li><strong>BB1018</strong>: Handles accessorials/marks with data structure parameters (JB83).</li>
+<li><strong>AR822R</strong>: Pricing lookup for CSR (called via F8, DC19).</li>
+<li><strong>IN805</strong>: Inventory inquiry (called via F9, DC24, JB58, JK02, JK03, JB78).</li>
+<li><strong>LCSTSHP</strong>: Customer ship-to lookup (replaces internal search, DC14, DC17).</li>
+<li><strong>MSHIPTO</strong>: Customer ship-to lookup (replaces <code>SHIPS1R</code>, DC11).</li>
+<li><strong>MGSTABL</strong>: Country code lookup (DC10).</li>
+<li><strong>MBBQTY</strong>: Accumulates total shipping weight for display on Screen 7 (DC20).</li>
 </ol>
+<hr />
 <h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
-<p>The <code>BB101.rpgle.txt</code> program is a comprehensive order entry system that manages order headers, detail lines, miscellaneous lines, taxes, and remarks through multiple interactive screens. It enforces strict validation rules for data integrity, handles freight and pricing logic, and integrates with numerous files and external programs to support business processes like order validation, credit checks, and inventory inquiries. The extensive revision history reflects ongoing enhancements to support new requirements, such as freight calculations, customer-owned product handling, and modernized user interfaces. The program’s complexity and integration with external systems make it a critical component of the order management process, likely in a manufacturing or distribution environment.</p>
+<p>The <code>BB101</code> RPGLE program, called from the <code>BB101.ocl36.txt</code> OCL program, manages the entry and update of open orders in the <code>BBORDR</code> file. It uses multiple screens for order header, line items, miscellaneous items, remarks, and tax overrides, with extensive validations to enforce business rules. Key processes include order entry, product and freight validation, quantity and weight calculations, credit checks, and file updates. The program interacts with numerous files for order, customer, inventory, and pricing data and calls external programs for specialized functions like freight calculations, inventory inquiries, and duplicate order checks. Business rules ensure data integrity, proper freight handling, and compliance with customer and system requirements, with specific accommodations for EDI, railcar, and customer-owned product orders.</p>
 
 
 

@@ -7649,6 +7649,190 @@
   
   
     <li class="md-nav__item">
+      <a href="../BB1011%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB1011 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB1014%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB1014 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB1015%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB1015 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB1018%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB1018 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB1033%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB1033 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB104A%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB104A RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB106%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB106 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB115%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB115 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../BB215%20RPG36/" class="md-nav__link">
         
   
@@ -7672,12 +7856,81 @@
   
   
     <li class="md-nav__item">
+      <a href="../BB811%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB811 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IN805%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IN805 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../IN805BC%20CLP/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     IN805BC CLP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MBBQTY%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MBBQTY RPGLE
     
   </span>
   
@@ -8234,100 +8487,116 @@
 
   <h1>BB003 RPG36</h1>
 
-<p>The RPG program <code>BB003.rpg36.txt</code> is a utility program for an IBM System/38 or AS/400 (iSeries) system, called from the <code>BB101.ocl36.txt</code> OCL program. Its primary function is to delete records from specific order transaction files when a batch is deleted. The program targets records associated with a given company and order number, ensuring that all related data is removed from multiple files. Below, I will explain the process steps, business rules, tables (files) used, and external programs called, based on the provided RPG source and its annotations.</p>
+<p>The <code>BB003.rpg36.txt</code> document is an RPG III (System/36 style) program called from the <code>BB101.ocl36.txt</code> OCL program in an IBM System/36 or AS/400 (now IBM i) environment. Its primary function is to delete records from order transaction files when a batch is deleted. The program was enhanced in revision <code>DC01</code> (03/10/10 by Dave Capo) to include additional files for deletion. Below is a detailed explanation of the process steps, business rules, tables (files) used, and any external programs called.</p>
+<hr />
 <h3 id="process-steps-of-the-rpg-program">Process Steps of the RPG Program<a class="headerlink" href="#process-steps-of-the-rpg-program" title="Permanent link">&para;</a></h3>
-<p>The program is designed to process records in a loop, identifying and deleting records from four transaction files based on a key (<code>TCOORD</code>, company/order number). The steps are as follows:</p>
+<p>The <code>BB003</code> RPG program deletes records from specific order transaction files (<code>BBORCL</code>, <code>BBOTHS1</code>, <code>BBOTDS1</code>, <code>BBOTA1</code>) based on a company and order number key. The process is straightforward and focuses on identifying and removing records associated with a deleted batch. The steps are as follows:</p>
 <ol>
-<li><strong>Initialization</strong>:</li>
-<li>The program initializes by defining the input and update files (<code>BBORTR</code>, <code>BBORCL</code>, <code>BBOTHS1</code>, <code>BBOTDS1</code>, <code>BBOTA1</code>) and setting up a data structure (<code>BBKEY</code>) to hold the company (<code>TDCO</code>), customer (<code>TDCUST</code>), and order number (<code>TDORD#</code>).</li>
-<li>
-<p>The key <code>Tcoord</code> (company/order number) is extracted from the input file <code>BBORTR</code> to drive the deletion process.</p>
+<li><strong>Program Initialization</strong>:</li>
+<li>The program is defined with a header specification (<code>H P064</code>) and identified as <code>BB003</code>.</li>
+<li>It defines the following files:<ul>
+<li><code>BBORTR</code>: Input primary file (512 bytes, indexed, key length 11, access mode 2) for reading order transaction records.</li>
+<li><code>BBORCL</code>: Update-capable file (256 bytes, record length 256, indexed, key length 14, access mode 2) for order close records.</li>
+<li><code>BBOTHS1</code>: Update-capable file (512 bytes, indexed, key length 8, external key) for order transaction history supplemental records (added in DC01).</li>
+<li><code>BBOTDS1</code>: Update-capable file (512 bytes, indexed, key length 11, external key) for order detail supplemental records (added in DC01).</li>
+<li><code>BBOTA1</code>: Update-capable file (512 bytes, indexed, key length 13, external key) for order transaction alternate records (added in DC01).</li>
+</ul>
 </li>
-<li>
-<p><strong>Main Processing Loop (Indicator 11)</strong>:</p>
-</li>
-<li>The program enters a <code>DO</code> loop (controlled by indicator 11) to process records from the <code>BBORTR</code> file, which contains order transaction data.</li>
-<li>For each record, the program performs deletion operations across four files:<ul>
-<li><strong>BBORCL (Order Transaction File)</strong>:</li>
-<li>Chains to <code>BBORCL</code> using the key <code>BBKEY</code> (company/customer/order number).</li>
-<li>If a record is found (<code>N99</code>), it executes the <code>DELETE</code> exception output to delete the record.</li>
-<li><strong>BBOTHS1 (Order Header Supplemental File)</strong>:</li>
-<li>Sets the file pointer to the first record matching <code>Tcoord</code> using <code>SETLL</code>.</li>
-<li>Reads records in a loop (<code>RDAGN1</code>).</li>
-<li>Compares the record’s company/order number (<code>BOCOOR</code>) with <code>Tcoord</code>.</li>
-<li>If matched (<code>N99</code>), executes the <code>DELOTS</code> exception output to delete the record and continues reading until no more matching records are found.</li>
-<li><strong>BBOTDS1 (Order Detail Supplemental File)</strong>:</li>
-<li>Moves <code>Tcoord</code> to a key field (<code>KL11</code>) and sets the file pointer using <code>SETLL</code>.</li>
-<li>Reads records in a loop (<code>RDAGN2</code>).</li>
-<li>Compares the record’s company/order number (<code>BDCOOR</code>) with <code>Tcoord</code>.</li>
-<li>If matched (<code>N99</code>), executes the <code>DELOTD</code> exception output to delete the record and continues reading.</li>
-<li><strong>BBOTA1 (Order Accessorial/Marks File)</strong>:</li>
-<li>Moves <code>Tcoord</code> to a key field (<code>KL13</code>) and sets the file pointer using <code>SETLL</code>.</li>
-<li>Reads records in a loop (<code>RDAGN3</code>).</li>
-<li>Compares the record’s company/order number (<code>BACOOR</code>) with <code>Tcoord</code>.</li>
-<li>If matched (<code>N99</code>), executes the <code>DELOTA</code> exception output to delete the record and continues reading.</li>
+<li>Input specifications define fields for <code>BBORTR</code>, <code>BBORCL</code>, <code>BBOTHS1</code>, <code>BBOTDS1</code>, and <code>BBOTA1</code>:<ul>
+<li><code>BBORTR</code>: Fields include <code>TCOORD</code> (company/order#, positions 2-9), <code>TKEY</code> (key, positions 2-12), <code>TSEQ</code> (sequence, positions 10-12), <code>TDDEL</code> (delete code, position 1), <code>TDCO</code> (company#, positions 2-3), <code>TDORD#</code> (order#, positions 4-9), <code>TDCUST</code> (customer#, positions 13-18).</li>
+<li><code>BBORCL</code>, <code>BBOTHS1</code>, <code>BBOTDS1</code>, <code>BBOTA1</code>: Key fields for company/order# (<code>TCOORD</code>, <code>BOCOOR</code>, <code>BDCOOR</code>, <code>BACOOR</code>, positions 2-9).</li>
 </ul>
 </li>
 <li>
-<p>The loop ends after processing all relevant records for the given <code>Tcoord</code>.</p>
+<p>A data structure (<code>BBKEY</code>) is defined to hold the key fields: <code>TDCO</code> (company#, positions 1-2), <code>TDCUST</code> (customer#, positions 3-8), <code>TDORD#</code> (order#, positions 9-14).</p>
 </li>
 <li>
-<p><strong>Output Exceptions</strong>:</p>
+<p><strong>Main Processing Logic</strong>:</p>
 </li>
-<li>The program uses exception outputs to perform deletions:<ul>
-<li><code>DELETE</code>: Deletes records from <code>BBORCL</code>.</li>
-<li><code>DELOTS</code>: Deletes records from <code>BBOTHS1</code>.</li>
-<li><code>DELOTD</code>: Deletes records from <code>BBOTDS1</code>.</li>
-<li><code>DELOTA</code>: Deletes records from <code>BBOTA1</code>.</li>
+<li>The program operates under indicator 11 (likely set by the calling OCL program when <code>SWITCH1-1</code> is active for batch deletion).</li>
+<li>A <code>DO</code> loop (<code>B1</code> to <code>E1</code>, lines DC01) processes the deletion of records:<ul>
+<li><strong>BBORCL Deletion</strong>:</li>
+<li>Chains to <code>BBORCL</code> using <code>BBKEY</code> (company/order#, line C* BBORCL).</li>
+<li>If a record is found (<code>N99</code>), executes the <code>DELETE</code> exception output to delete the record.</li>
+<li><strong>BBOTHS1 Deletion</strong> (DC01):</li>
+<li>Sets the file pointer to the start of <code>BBOTHS1</code> using <code>TCOORD</code> (<code>SETLL</code>, line DC01).</li>
+<li>Reads records in a loop (<code>RDAGN1</code>, lines DC01).</li>
+<li>Compares <code>TCOORD</code> with <code>BOCOOR</code> (company/order#); if matching (<code>N99</code>), deletes the record (<code>EXCPTDELOTS</code>) and continues reading until no more matching records are found.</li>
+<li><strong>BBOTDS1 Deletion</strong> (DC01):</li>
+<li>Moves <code>Tcoord</code> to <code>KL11</code> (11-byte key) and sets the file pointer to <code>BBOTDS1</code> (<code>SETLL</code>, line DC01).</li>
+<li>Reads records in a loop (<code>RDAGN2</code>, lines DC01).</li>
+<li>Compares <code>Tcoord</code> with <code>BDCOOR</code>; if matching (<code>N99</code>), deletes the record (<code>EXCPTDELOTD</code>) and continues reading.</li>
+<li><strong>BBOTA1 Deletion</strong> (DC01):</li>
+<li>Moves <code>Tcoord</code> to <code>KL13</code> (13-byte key) and sets the file pointer to <code>BBOTA1</code> (<code>SETLL</code>, line DC01).</li>
+<li>Reads records in a loop (<code>RDAGN3</code>, lines DC01).</li>
+<li>Compares <code>Tcoord</code> with <code>BACOOR</code>; if matching (<code>N99</code>), deletes the record (<code>EXCPTDELOTA</code>) and continues reading.</li>
+</ul>
+</li>
+<li>
+<p>The loop ends after processing all relevant files (<code>END</code>, line DC01).</p>
+</li>
+<li>
+<p><strong>Output Operations</strong>:</p>
+</li>
+<li>Exception outputs are defined for deletion:<ul>
+<li><code>DELETE</code> (for <code>BBORCL</code>): Deletes the matched record.</li>
+<li><code>DELOTS</code> (for <code>BBOTHS1</code>): Deletes the matched supplemental history record.</li>
+<li><code>DELOTD</code> (for <code>BBOTDS1</code>): Deletes the matched supplemental detail record.</li>
+<li><code>DELOTA</code> (for <code>BBOTA1</code>): Deletes the matched alternate transaction record.</li>
 </ul>
 </li>
 </ol>
+<hr />
 <h3 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
-<p>The program enforces the following business rules:</p>
-<ul>
-<li><strong>Targeted Deletion</strong>:</li>
-<li>Deletes records only for the specified company and order number (<code>Tcoord</code>) from the <code>BBORTR</code> input file.</li>
+<p>The program enforces the following business rules related to batch deletion:</p>
+<ol>
+<li><strong>Batch Deletion Scope</strong>:</li>
+<li>When a batch is deleted (indicated by <code>SWITCH1-1</code> in the OCL program), all associated records in the transaction files (<code>BBORCL</code>, <code>BBOTHS1</code>, <code>BBOTDS1</code>, <code>BBOTA1</code>) for the specified company and order number (<code>TCOORD</code>) must be deleted.</li>
 <li>
-<p>Ensures that all related records in <code>BBORCL</code>, <code>BBOTHS1</code>, <code>BBOTDS1</code>, and <code>BBOTA1</code> are deleted when a batch is marked for deletion, maintaining data consistency across transaction files.</p>
+<p>The program processes only records matching the company/order# key (<code>TCOORD</code>, <code>BOCOOR</code>, <code>BDCOOR</code>, <code>BACOOR</code>).</p>
 </li>
 <li>
-<p><strong>Key-Based Deletion</strong>:</p>
+<p><strong>File Access and Deletion</strong>:</p>
 </li>
-<li>Uses the composite key <code>Tcoord</code> (company/order number) to identify records in <code>BBOTHS1</code>, <code>BBOTDS1</code>, and <code>BBOTA1</code>.</li>
+<li>The <code>BBORTR</code> file is read to obtain the company/order# (<code>Tcoord</code>) for identifying records to delete.</li>
+<li>The <code>BBORCL</code>, <code>BBOTHS1</code>, <code>BBOTDS1</code>, and <code>BBOTA1</code> files are update-capable, allowing records to be deleted.</li>
 <li>
-<p>For <code>BBORCL</code>, uses <code>BBKEY</code> (company/customer/order number) to ensure precise deletion.</p>
-</li>
-<li>
-<p><strong>File Integrity</strong>:</p>
-</li>
-<li>Checks for the existence of records before deletion (<code>N99</code> indicator) to avoid processing non-existent records.</li>
-<li>
-<p>Reads all matching records in supplemental files (<code>BBOTHS1</code>, <code>BBOTDS1</code>, <code>BBOTA1</code>) to ensure complete removal of related data.</p>
+<p>Deletion is performed only if records are found (<code>N99</code> condition).</p>
 </li>
 <li>
-<p><strong>Update Control</strong>:</p>
+<p><strong>Sequential Deletion</strong>:</p>
 </li>
-<li>The <code>BBORCL</code>, <code>BBOTHS1</code>, <code>BBOTDS1</code>, and <code>BBOTA1</code> files are opened in update mode (<code>UC</code> or <code>UF</code>) to allow deletion operations.</li>
+<li>The program processes each file sequentially, ensuring all matching records are deleted before moving to the next file.</li>
 <li>
-<p>The <code>EXTK</code> attribute on supplemental files indicates extended key processing, ensuring accurate record matching.</p>
+<p>For <code>BBOTHS1</code>, <code>BBOTDS1</code>, and <code>BBOTA1</code>, all records with matching company/order# keys are deleted by reading and comparing in a loop.</p>
 </li>
 <li>
-<p><strong>No User Interaction</strong>:</p>
+<p><strong>No Validation or Error Messaging</strong>:</p>
 </li>
-<li>The program operates without user input, relying on the <code>BBORTR</code> file to provide the records to process.</li>
-<li>No error messages or user-facing outputs are defined, as the program is a backend utility triggered by batch deletion.</li>
-</ul>
+<li>The program does not perform additional validations or display error messages, assuming the calling OCL program (<code>BB101.ocl36.txt</code>) has already validated the batch deletion request.</li>
+<li>Deletion is unconditional for matched records.</li>
+</ol>
+<hr />
 <h3 id="tables-files-used">Tables (Files) Used<a class="headerlink" href="#tables-files-used" title="Permanent link">&para;</a></h3>
-<p>The program uses the following files:
-1. <code>BBORTR</code>: Input file (512 bytes, primary file) containing order transaction records with company, order number, customer, and delete code.
-2. <code>BBORCL</code>: Update file (256 bytes, random access) for order transaction details, deleted using <code>BBKEY</code>.
-3. <code>BBOTHS1</code>: Update file (512 bytes, extended key) for order header supplemental data, deleted based on <code>Tcoord</code>.
-4. <code>BBOTDS1</code>: Update file (512 bytes, extended key) for order detail supplemental data, deleted based on <code>Tcoord</code>.
-5. <code>BBOTA1</code>: Update file (512 bytes, extended key) for order accessorial/marks data, deleted based on <code>Tcoord</code>.</p>
+<p>The program interacts with the following files:</p>
+<ol>
+<li><strong>BBORTR</strong>: Input primary file for order transactions (512 bytes, indexed, key length 11).</li>
+<li>Fields: <code>TCOORD</code> (company/order#, positions 2-9), <code>TKEY</code> (key, positions 2-12), <code>TSEQ</code> (sequence, positions 10-12), <code>TDDEL</code> (delete code, position 1), <code>TDCO</code> (company#, positions 2-3), <code>TDORD#</code> (order#, positions 4-9), <code>TDCUST</code> (customer#, positions 13-18).</li>
+<li><strong>BBORCL</strong>: Update-capable file for order close records (256 bytes, indexed, key length 14).</li>
+<li>Key field: Not explicitly defined in the code, but implied to use <code>BBKEY</code> (company/order#).</li>
+<li><strong>BBOTHS1</strong>: Update-capable file for order transaction history supplemental records (512 bytes, indexed, key length 8, external key, added in DC01).</li>
+<li>Key field: <code>BOCOOR</code> (company/order#, positions 2-9).</li>
+<li><strong>BBOTDS1</strong>: Update-capable file for order detail supplemental records (512 bytes, indexed, key length 11, external key, added in DC01).</li>
+<li>Key field: <code>BDCOOR</code> (company/order#, positions 2-9).</li>
+<li><strong>BBOTA1</strong>: Update-capable file for order transaction alternate records (512 bytes, indexed, key length 13, external key, added in DC01).</li>
+<li>Key field: <code>BACOOR</code> (company/order#, positions 2-9).</li>
+</ol>
+<hr />
 <h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
-<p>No external programs are called in <code>BB003.rpg36.txt</code>. The program performs all operations internally using file I/O and exception outputs.</p>
+<p>The <code>BB003</code> RPG program does not call any external programs. All processing is handled internally through file operations and deletion logic.</p>
+<hr />
 <h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
-<p>The <code>BB003.rpg36.txt</code> program is a focused utility that deletes records from order transaction files (<code>BBORCL</code>, <code>BBOTHS1</code>, <code>BBOTDS1</code>, <code>BBOTA1</code>) when a batch is deleted, as triggered by the <code>BB101.ocl36.txt</code> OCL program (specifically when <code>SWITCH1-1</code> is set). It processes records from the <code>BBORTR</code> input file, using company and order number keys to identify and remove related records across multiple files. The program enforces strict data consistency by ensuring all associated records are deleted, with no user interaction or external program dependencies. The addition of <code>BBOTHS1</code>, <code>BBOTDS1</code>, and <code>BBOTA1</code> deletion (per DC01, 03/10/10) enhances its scope to cover supplemental order data.</p>
+<p>The <code>BB003</code> RPG program, called from the <code>BB101.ocl36.txt</code> OCL program, is responsible for deleting records from order transaction files (<code>BBORCL</code>, <code>BBOTHS1</code>, <code>BBOTDS1</code>, <code>BBOTA1</code>) when a batch is deleted. It reads the company/order# from <code>BBORTR</code> and deletes matching records in the specified files using a key-based approach. The program was enhanced in revision DC01 to include <code>BBOTHS1</code>, <code>BBOTDS1</code>, and <code>BBOTA1</code> in the deletion process. Business rules ensure that only records matching the company/order# are deleted, with no additional validations or error messaging. The program interacts with five files and does not call external programs, relying solely on internal logic for record deletion.</p>
 
 
 

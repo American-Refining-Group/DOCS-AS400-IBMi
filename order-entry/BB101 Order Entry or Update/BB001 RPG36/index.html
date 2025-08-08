@@ -7649,6 +7649,190 @@
   
   
     <li class="md-nav__item">
+      <a href="../BB1011%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB1011 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB1014%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB1014 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB1015%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB1015 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB1018%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB1018 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB1033%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB1033 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB104A%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB104A RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB106%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB106 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB115%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB115 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../BB215%20RPG36/" class="md-nav__link">
         
   
@@ -7672,12 +7856,81 @@
   
   
     <li class="md-nav__item">
+      <a href="../BB811%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB811 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IN805%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IN805 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../IN805BC%20CLP/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     IN805BC CLP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MBBQTY%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MBBQTY RPGLE
     
   </span>
   
@@ -8234,148 +8487,236 @@
 
   <h1>BB001 RPG36</h1>
 
-<p>The RPG program <code>BB001.rpg36.txt</code> is an order entry batch selection program for an IBM System/38 or AS/400 (iSeries) system, called from the <code>BB101.ocl36.txt</code> OCL program. It manages the selection, creation, updating, and deletion of batch records for order entry processing. Below, I will explain the process steps, business rules, tables (files) used, and external programs called, based on the provided RPG source and its annotations.</p>
+<p>The <code>BB001.rpg36.txt</code> document is an RPG III (System/36 style) program called from the <code>BB101.ocl36.txt</code> OCL program in an IBM System/36 or AS/400 (now IBM i) environment. It handles the selection and management of order entry batches, stored in the <code>BBBTCH</code> and <code>BBBTCHX</code> files, allowing users to create, select, update, or delete batches. Below is a detailed explanation of the process steps, business rules, tables (files) used, and any external programs called.</p>
+<hr />
 <h3 id="process-steps-of-the-rpg-program">Process Steps of the RPG Program<a class="headerlink" href="#process-steps-of-the-rpg-program" title="Permanent link">&para;</a></h3>
-<p>The program is structured around three display screens (<code>BB001S1</code>, <code>BB001S2</code>, <code>BB001S3</code>) and subroutines to handle batch selection, creation, updating, and deletion. The process steps are as follows:</p>
+<p>The <code>BB001</code> RPG program manages the batch selection process for order entry through interactive screen processing and file operations. It supports creating new batches, selecting existing ones, updating batch details, and deleting batches, with validations to ensure proper batch handling. The process steps are organized around screen interactions and subroutines, as follows:</p>
 <ol>
-<li><strong>Initialization (ONETIM Subroutine)</strong>:</li>
-<li>Clears variables (<code>CANCEL</code>, <code>BLIM</code>, <code>Z2</code>, <code>Z7</code>, <code>Z8</code>) to reset the environment.</li>
-<li>Sets the lower limit (<code>BLIM</code>) for the <code>BBBTCH</code> file to position the file pointer for reading.</li>
-<li>Calls the <code>DRLFWD</code> subroutine to load the first batch record.</li>
-<li>Checks the program mode (<code>PGM</code>): if <code>PGM='O'</code> (Order Entry), indicator 44 is turned off; otherwise, it is turned on to restrict certain actions.</li>
+<li><strong>Program Initialization</strong>:</li>
+<li>The program is defined with a header specification (<code>H P064</code>) and is identified as <code>BB001</code>.</li>
+<li>It uses the <code>SCREEN</code> workstation file for interactive display (record length 600, with <code>WSID</code>, <code>STAT</code>, and <code>ROLLKY</code> for workstation ID, status, and roll key handling).</li>
+<li>Files <code>BBBTCH</code> (input, disk, 48 bytes, indexed) and <code>BBBTCHX</code> (update-capable, disk, 48 bytes, indexed) are defined for batch data storage.</li>
 <li>
-<p>Initializes the screen for batch selection.</p>
-</li>
-<li>
-<p><strong>Screen 1: Batch Selection (S1 Subroutine)</strong>:</p>
-</li>
-<li>Displays the batch selection screen (<code>BB001S1</code>), showing batch numbers, lock status, workstation ID, print status, user, creation date, last update date, and record count.</li>
-<li>Accepts user input for a batch number (<code>BTCH#X</code>) and a delete flag (<code>DEL</code>).</li>
-<li>If the user presses the KG key (cancel), it sets <code>CANCEL='CANCEL'</code>, turns on the Last Record (<code>LR</code>) indicator, and exits.</li>
-<li>For a new batch (<code>BTCH#X=0</code>):<ul>
-<li>Checks if <code>PGM='O'</code>; if not, displays error message COM,2 ("CANNOT CREATE A BATCH NOW") and exits.</li>
-<li>Retrieves the next batch number (<code>ABNXTB</code>) from <code>BBBTCHX</code>, increments it, and updates the file (<code>UPDNXB</code> exception).</li>
-<li>Initializes fields: lock status (<code>LKDESC='AVAILABLE'</code>), print status (<code>PRTD='N'</code>), creation date (<code>DATE</code>), and record count (<code>#REC=0</code>).</li>
-<li>Adds the new batch record (<code>ADDBCH</code> exception) with <code>PAR13C</code> (batch source, per JB01).</li>
-</ul>
-</li>
-<li>
-<p>For an existing batch (<code>BTCH#X≠0</code>):</p>
+<p>Arrays and data structures are defined:</p>
 <ul>
-<li>Chains to <code>BBBTCHX</code> to retrieve the batch record.</li>
-<li>Validates the batch: if deleted (<code>ABDEL='D'</code>) or batch number is 99, displays error message COM,1 ("INVALID BATCH NO. -- PLEASE REKEY").</li>
-<li>Checks batch source compatibility (<code>PAR13C</code> vs. <code>ABSRCE</code>); if mismatched, displays error COM,1.</li>
-<li>Checks lock status (<code>ABLOCK</code>):</li>
-<li>If locked (<code>ABLOCK≠*BLANK</code>) and not owned by the current user (<code>ABUSER≠USER</code>), displays error COM,3 ("BATCH # IN USE--PLEASE CHOOSE ANOTHER") and releases the batch (<code>RELBCH</code>).</li>
-<li>If locked but owned by the user, proceeds (MG01).</li>
-<li>Updates batch fields (e.g., last update date, lock status) and displays the confirmation screen (<code>S2</code>).</li>
+<li><code>COM</code>: 15-element array for standard messages (42 bytes each).</li>
+<li><code>BTC</code>: 10-element array for batch numbers (2 digits).</li>
+<li><code>LKD</code>: 10-element array for lock descriptions (10 bytes).</li>
+<li><code>LKW</code>: 10-element array for locked workstation IDs (2 bytes).</li>
+<li><code>PRT</code>: 10-element array for BOL printed flags (1 byte).</li>
+<li><code>USR</code>: 10-element array for user IDs (8 bytes).</li>
+<li><code>DTE</code>: 10-element array for creation dates (6 digits).</li>
+<li><code>LUD</code>: 10-element array for last update dates (6 digits).</li>
+<li><code>#RC</code>: 10-element array for record counts (8 digits).</li>
+<li><code>STAT</code>: Data structure for status tracking (<code>STATUS</code> field).</li>
+<li><code>UDS</code>: User data structure for local data area fields (<code>KYHDG</code>, <code>CANCEL</code>, <code>PAR13C</code>, <code>BATCH#</code>, <code>USER</code>, <code>WSID</code>, <code>PGM</code>, <code>RECCNT</code>).</li>
 </ul>
 </li>
 <li>
-<p><strong>Screen 2: Batch Confirmation (S2 Subroutine)</strong>:</p>
+<p><strong>Main Line Processing</strong>:</p>
 </li>
-<li>Displays the batch confirmation screen (<code>BB001S2</code>) with fields like batch number (<code>BATCH#</code>), lock description (<code>LKDESC</code>), workstation ID (<code>WSID</code>), print status (<code>PRTD</code>), user (<code>USER</code>), creation date (<code>DTMDY</code>), last update date (<code>LUMDY</code>), and record count (<code>#REC</code>).</li>
-<li>Handles user actions:<ul>
-<li>KA key: Resets the file pointer (<code>SETLL BBBTCH</code>), calls <code>DRLFWD</code>, and redisplays the screen.</li>
-<li>If delete is confirmed (<code>DEL='D'</code>), displays message COM,4 ("CMD 4 - TO DELETE EXISTING BATCH"), updates the batch record (<code>UPDBCH</code>), and sets <code>LR</code> if in posting mode (<code>PGM='P'</code>).</li>
-<li>For new batch records, checks if the batch exists (<code>CHAIN BBBTCHX</code>); if not, adds it (<code>ADDBCH</code>) and sets <code>LR</code>.</li>
+<li>Initializes indicators (50, 21, 22, 23, 24, 75, 76) to off and clears the <code>MSG</code> field (<code>N75N76</code> conditions, lines 0065-0068).</li>
+<li>Executes the <code>ONETIM</code> subroutine on indicator 09 to perform one-time setup (line 0070).</li>
+<li>
+<p>Processes one of three screens based on indicators:</p>
+<ul>
+<li>Screen 1 (<code>S1</code>, indicator 01, line 0072).</li>
+<li>Screen 2 (<code>S2</code>, indicator 02, line 0073).</li>
+<li>Screen 3 (<code>S3</code>, indicator 03, line 0074).</li>
 </ul>
 </li>
 <li>
-<p>Updates the batch record with current values (<code>UPDBCH</code>).</p>
+<p><strong>Screen Processing</strong>:</p>
 </li>
-<li>
-<p><strong>Screen 3: Batch Reset (S3 Subroutine)</strong>:</p>
-</li>
-<li>Displays the batch reset screen (<code>BB001S3</code>) to confirm batch operations.</li>
-<li>If the KG key is pressed, chains to <code>BBBTCHX</code> for the selected batch, saves the lock status (<code>SAVBCH</code>), clears indicators, sets <code>CANCEL='CANCEL'</code>, and sets <code>LR</code> to exit.</li>
-<li>
-<p>Used to reset or cancel batch processing.</p>
-</li>
-<li>
-<p><strong>Detail Roll Forward (DRLFWD Subroutine)</strong>:</p>
-</li>
-<li>Reads the next batch record from <code>BBBTCH</code> starting at the lower limit (<code>BLIM</code>).</li>
-<li>Skips records with batch number 99 or delete code <code>ABDEL='D'</code>.</li>
-<li>Checks batch source compatibility (<code>ABSRCE</code> vs. <code>PAR13C</code>); skips if mismatched (per 10/20/17 update).</li>
-<li>Maps lock status (<code>ABLOCK</code>) to descriptive messages:<ul>
-<li>Blank: COM,11 ("AVAILABLE")</li>
-<li>'O': COM,12 ("ORD ENTRY")</li>
-<li>'L': COM,13 ("PICK LIST")</li>
-<li>'B': COM,15 ("BOL PRINT")</li>
-<li>'P': COM,14 ("POSTING")</li>
+<li><strong>Screen 1 (BB001S1, Output: 21, Line 0331)</strong>:<ul>
+<li>Displays batch selection data, including heading (<code>KYHDG</code>), batch numbers (<code>BTC</code>), lock descriptions (<code>LKD</code>), locked workstation IDs (<code>LKW</code>), BOL printed flags (<code>PRT</code>), user IDs (<code>USR</code>), creation dates (<code>DTE</code>), last update dates (<code>LUD</code>), record counts (<code>#RC</code>), input batch number (<code>BTCH#X</code>), delete code (<code>DEL</code>), and message (<code>MSG</code>).</li>
+<li>Accepts input for <code>BTCH#X</code> (batch number, positions 3-40) and <code>DEL</code> (delete code, position 5).</li>
 </ul>
 </li>
-<li>Populates array fields (<code>BTC</code>, <code>LKD</code>, <code>LKW</code>, <code>PRT</code>, <code>USR</code>, <code>DTE</code>, <code>LUD</code>, <code>#RC</code>) for display.</li>
-<li>
-<p>Continues reading until 10 records are loaded or the end of the file is reached.</p>
+<li><strong>Screen 2 (BB001S2, Output: 22, Line 0346)</strong>:<ul>
+<li>Displays batch details for confirmation, including batch number (<code>BATCH#</code>), lock description (<code>LKDESC</code>), workstation ID (<code>WSID</code>), BOL printed flag (<code>PRTD</code>), user ID (<code>USER</code>), creation date (<code>DTMDY</code>), last update date (<code>LUMDY</code>), record count (<code>#REC</code>), and message (<code>MSG</code>).</li>
+</ul>
 </li>
 <li>
-<p><strong>Detail Roll Backward (DRLBAK Subroutine)</strong>:</p>
-</li>
-<li>Sets indicator 21 to indicate no backward roll is implemented (placeholder logic).</li>
-<li>
-<p>Minimal functionality, as backward scrolling is not fully supported.</p>
-</li>
-<li>
-<p><strong>Detail Clear (DETCLR Subroutine)</strong>:</p>
+<p><strong>Screen 3 (BB001S3, Output: 24, Line 0359)</strong>:</p>
+<ul>
+<li>Similar to Screen 2 but used for resetting or canceling batch operations.</li>
+</ul>
 </li>
 <li>
-<p>Clears array fields (<code>BTC</code>, <code>LKD</code>, <code>LKW</code>, <code>PRT</code>, <code>USR</code>, <code>DTE</code>, <code>LUD</code>, <code>#RC</code>) to prepare for loading new batch records.</p>
+<p><strong>Subroutines</strong>:</p>
+</li>
+<li><strong>ROLLKY (Lines 0079-0098)</strong>:<ul>
+<li>Handles roll key processing for navigating batch records.</li>
+<li>Clears indicators (21, 22, 23, 24, 50) and checks <code>STATUS</code> for roll forward (01122, indicator 75) or roll backward (01123, indicator 76).</li>
+<li>Calls <code>DRLFWD</code> for forward navigation (indicator 75, 83) or <code>DRLBAK</code> for backward navigation (indicator 76, 83).</li>
+<li>Clears <code>STATUS</code> and resets indicator 09.</li>
+</ul>
+</li>
+<li><strong>ONETIM (Lines 0100-0114)</strong>:<ul>
+<li>Performs one-time initialization:</li>
+<li>Clears <code>CANCEL</code> and initializes counters (<code>BLIM</code>, <code>Z2</code>, <code>Z7</code>, <code>Z8</code>).</li>
+<li>Positions <code>BBBTCH</code> file at the beginning (<code>SETLL</code>, line 0104).</li>
+<li>Calls <code>DRLFWD</code> to load initial batch records.</li>
+<li>Sets indicators 21 and 83.</li>
+<li>Sets indicator 44 based on <code>PGM</code> value ('O' for order entry clears 44, otherwise sets 44).</li>
+</ul>
+</li>
+<li><strong>S1 (Lines 0116-0212)</strong>:<ul>
+<li>Handles Screen 1 processing:</li>
+<li>If command key KG (cancel) is pressed, sets <code>CANCEL</code> to 'CANCEL', sets last record indicator (<code>LR</code>), and exits to <code>ENDS1</code> (lines 0119-0122).</li>
+<li>For new batch creation (<code>BTCH#X=0</code>, indicator 40, lines 0124-0167):<ul>
+<li>Checks if <code>PGM</code> is not 'O' (order entry); if so, displays error message "CANNOT CREATE A BATCH NOW" (COM,2) and sets indicators 90, 21, 51.</li>
+<li>Retrieves next batch number (<code>ABNXTB</code>) from <code>BBBTCHX</code> (chain on '99', line 0136).</li>
+<li>Increments <code>ABNXTB</code> and resets to 1 if it reaches 99 (lines 0137-0141).</li>
+<li>Updates <code>BBBTCHX</code> with new batch number (<code>EXCPTUPDNXB</code>, line 0142).</li>
+<li>Initializes batch fields: lock description (<code>LKDESC</code>=COM,11), BOL printed (<code>PRTD='N'</code>), creation date (<code>DTMDY</code>, <code>DATE</code>), last update date (<code>LUMDY</code>, <code>LUDT</code>=0), record count (<code>#REC</code>=0).</li>
+<li>Checks if batch number exists (<code>CHAIN BBBTCHX</code>, line 0156); if not, adds new batch record (<code>EXCPTADDBCH</code>, line 0162) and sets <code>LR</code>.</li>
+</ul>
+</li>
+<li>For existing batch selection (<code>BTCH#X&lt;&gt;0</code>, lines 0169-0209):<ul>
+<li>Chains to <code>BBBTCHX</code> with <code>BATCH#</code> (line 0174).</li>
+<li>Validates batch: if deleted (<code>ABDEL='D'</code>) or <code>BATCH#=99</code>, displays error "INVALID BATCH NO." (COM,1) and sets indicators 90, 21, 51.</li>
+<li>For <code>PP</code> program (<code>PGM='P'</code>), checks if batch is locked for order entry (<code>ABLOCK='O'</code>); if so, displays error "BATCH # IN USE--CANNOT POST NOW" (COM,5).</li>
+<li>Validates batch source (<code>PAR13C</code> vs. <code>ABSRCE</code>, JB01, 10/27/09); if mismatched, displays error "INVALID BATCH NO." and sets indicators 51, 90, 21.</li>
+<li>Checks if batch is locked (<code>ABLOCK&lt;&gt;blank</code>); if locked by different user (<code>ABUSER&lt;&gt;USER</code>), displays error "BATCH # IN USE" (COM,3), releases batch (<code>EXCPTRELBCH</code>), and exits.</li>
+<li>If user matches (<code>ABUSER=USER</code>, MG01), bypasses lock check.</li>
+<li>Initializes fields for update: lock description, BOL printed, dates, and record count.</li>
+<li>If delete is requested (<code>DEL='D'</code>, indicator 52), displays confirmation message (COM,4) and sets indicators 90, 22.</li>
+<li>Updates batch record (<code>EXCPTUPDBCH</code>) unless <code>PGM='P'</code>, then sets indicator 24 and exits.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>S2 (Lines 0214-0240)</strong>:<ul>
+<li>Handles Screen 2 processing:</li>
+<li>On KA key press, repositions <code>BBBTCH</code> file (<code>SETLL</code>), sets indicators 83, 21, 09, and calls <code>DRLFWD</code>.</li>
+<li>On delete confirmation (<code>DEL='D'</code>, indicator 52, KD key), sets update indicator (<code>U1</code>), deletes batch (<code>EXCPTDELBCH</code>), and sets <code>LR</code>.</li>
+<li>For new batch record, checks if batch exists (<code>CHAIN BBBTCHX</code>); if not, adds it (<code>EXCPTADDBCH</code>) and sets <code>LR</code>.</li>
+</ul>
+</li>
+<li><strong>S3 (Lines 0242-0254)</strong>:<ul>
+<li>Handles Screen 3 processing:</li>
+<li>On KG key press, chains to <code>BBBTCHX</code> with <code>BATCH#</code>; if found, saves batch (<code>EXCPTSAVBCH</code>), clears indicators (01, 02, 03, 09), sets <code>CANCEL='CANCEL'</code>, and sets <code>LR</code>.</li>
+</ul>
+</li>
+<li><strong>DRLFWD (Lines 0256-0308)</strong>:<ul>
+<li>Reads forward through <code>BBBTCH</code> to populate batch arrays for display:</li>
+<li>Initializes counter (<code>X=1</code>) and clears arrays (<code>DETCLR</code>).</li>
+<li>Reads records, skipping deleted (<code>ABDEL='D'</code>) or invalid (<code>ABBTCH=99</code>) batches.</li>
+<li>Validates batch source (<code>ABSRCE</code> vs. <code>PAR13C</code>, 10/20/17); skips mismatches.</li>
+<li>Sets lock description based on <code>ABLOCK</code> value ('O', 'L', 'B', 'P', or blank, using COM messages 11-15).</li>
+<li>Populates arrays (<code>BTC</code>, <code>LKD</code>, <code>LKW</code>, <code>PRT</code>, <code>USR</code>, <code>DTE</code>, <code>LUD</code>, <code>#RC</code>) for up to 10 records.</li>
+<li>Sets indicator 68 if end-of-file is reached and repositions file if necessary.</li>
+</ul>
+</li>
+<li><strong>DRLBAK (Lines 0323-0327)</strong>:<ul>
+<li>Handles backward navigation by setting indicator 21.</li>
+</ul>
 </li>
 <li>
-<p><strong>Output Exceptions</strong>:</p>
+<p><strong>DETCLR (Lines 0310-0321)</strong>:</p>
+<ul>
+<li>Clears batch arrays (<code>BTC</code>, <code>LKD</code>, <code>LKW</code>, <code>PRT</code>, <code>USR</code>, <code>DTE</code>, <code>LUD</code>, <code>#RC</code>) to zero or blanks.</li>
+</ul>
 </li>
-<li><code>UPDNXB</code>: Updates the next batch number in <code>BBBTCHX</code>.</li>
-<li><code>ADDBCH</code>: Adds a new batch record to <code>BBBTCHX</code> with fields like <code>BATCH#</code>, <code>PGM</code>, <code>WSID</code>, <code>PRTD</code>, <code>USER</code>, <code>DATE</code>, <code>LUDT</code>,ESET</li>
+<li>
+<p><strong>File Operations</strong>:</p>
+</li>
+<li><strong>UPDNXB (Lines 0371-0377)</strong>:<ul>
+<li>Updates or adds the next batch number (<code>ABNXTB</code>) in <code>BBBTCHX</code>.</li>
+</ul>
+</li>
+<li><strong>RELBCH (Line 0379)</strong>:<ul>
+<li>Releases a locked batch.</li>
+</ul>
+</li>
+<li><strong>DELBCH (Line 0381)</strong>:<ul>
+<li>Marks a batch for deletion by setting <code>DEL</code> in <code>BBBTCHX</code>.</li>
+</ul>
+</li>
+<li><strong>ADDBCH (Lines 0384-0393)</strong>:<ul>
+<li>Adds a new batch record to <code>BBBTCHX</code> with fields: <code>BATCH#</code>, <code>PGM</code>, <code>WSID</code>, <code>PRTD</code>, <code>USER</code>, <code>DATE</code>, <code>LUDT</code>, <code>#REC</code>, <code>PAR13C</code> (JB01), and <code>Z2</code>.</li>
+</ul>
+</li>
+<li><strong>UPDBCH (Lines 0395-0399)</strong>:<ul>
+<li>Updates batch record with <code>PGM</code>, <code>WSID</code>, and <code>LUDT</code>.</li>
+</ul>
+</li>
+<li><strong>SAVBCH (Lines 0401-0402)</strong>:<ul>
+<li>Saves batch lock status (<code>SVLOCK</code>, <code>SVLKWS</code>).</li>
+</ul>
+</li>
 </ol>
+<hr />
 <h3 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
-<p>The program enforces the following business rules:</p>
+<p>The program enforces several business rules to ensure proper batch management:</p>
+<ol>
+<li><strong>Batch Number Validation</strong>:</li>
+<li>Batch numbers must be valid and not equal to 99 (error 01, "INVALID BATCH NO.").</li>
+<li>Deleted batches (<code>ABDEL='D'</code>) cannot be selected (error 01).</li>
+<li>
+<p>Batch source (<code>ABSRCE</code>) must match <code>PAR13C</code> (e.g., 'PP' for product moves or viscosity ASN entry, JB01, 10/27/09); mismatches trigger error 01.</p>
+</li>
+<li>
+<p><strong>Batch Creation</strong>:</p>
+</li>
+<li>New batches can only be created in order entry mode (<code>PGM='O'</code>); otherwise, error 02 ("CANNOT CREATE A BATCH NOW") is displayed.</li>
+<li>Next batch number is retrieved from <code>BBBTCHX</code> (key '99') and incremented, resetting to 1 if it reaches 99.</li>
+<li>
+<p>New batch records are initialized with:</p>
 <ul>
-<li><strong>Batch Creation</strong>:</li>
-<li>New batches can only be created in Order Entry mode (<code>PGM='O'</code>); otherwise, error COM,2 is displayed.</li>
-<li>Batch numbers are incremented from <code>ABNXTB</code>, resetting to 1 if reaching 99.</li>
-<li>New batch records include the batch source (<code>PAR13C</code>, added per JB01, 10/12/09).</li>
-<li>
-<p>Duplicate batch numbers are prevented; if a batch exists, error COM,3 is shown.</p>
+<li><code>PRTD='N'</code> (BOL not printed).</li>
+<li>Creation date (<code>DATE</code>) set to current date (<code>UDATE</code>).</li>
+<li>Last update date (<code>LUDT</code>) and record count (<code>#REC</code>) set to 0.</li>
+<li>Batch source (<code>PAR13C</code>) written to <code>ABSRCE</code> (JB01).</li>
+</ul>
 </li>
 <li>
-<p><strong>Batch Selection</strong>:</p>
+<p><strong>Batch Locking</strong>:</p>
 </li>
-<li>Batch numbers must be valid (not 99 or deleted, <code>ABDEL≠'D'</code>); invalid batches trigger error COM,1.</li>
-<li>Batches must match the program’s batch source (<code>PAR13C</code> vs. <code>ABSRCE</code>); mismatches trigger error COM,1 (added 10/27/09).</li>
+<li>If a batch is locked (<code>ABLOCK&lt;&gt;blank</code>) and the user (<code>ABUSER</code>) does not match the current user (<code>USER</code>), error 03 ("BATCH # IN USE") is displayed, and the batch is released.</li>
+<li>If the user matches the lock owner (<code>ABUSER=USER</code>, MG01), access is granted.</li>
 <li>
-<p>Locked batches (<code>ABLOCK≠*BLANK</code>) can only be accessed by the locking user (<code>ABUSER=USER</code>, per MG01); otherwise, error COM,3 is shown, and the batch is released.</p>
+<p>For <code>PP</code> program (<code>PGM='P'</code>), locked batches (<code>ABLOCK='O'</code>) trigger error 05 ("BATCH # IN USE--CANNOT POST NOW").</p>
 </li>
 <li>
 <p><strong>Batch Deletion</strong>:</p>
 </li>
-<li>Deletion requires confirmation via the delete flag (<code>DEL='D'</code>) and displays message COM,4.</li>
+<li>Deletion requires confirmation on Screen 2 (<code>DEL='D'</code>, message COM,4: "CMD 4 - TO DELETE EXISTING BATCH").</li>
 <li>
-<p>Deletion updates the batch record with <code>DEL='D'</code> (<code>DELBCH</code> exception).</p>
-</li>
-<li>
-<p><strong>Batch Updating</strong>:</p>
-</li>
-<li>Updates include the last update date (<code>LUDT</code>), lock status, and record count.</li>
-<li>
-<p>In posting mode (<code>PGM='P'</code>), updates may trigger specific screen transitions.</p>
+<p>Deleted batches are marked with <code>DEL</code> in <code>BBBTCHX</code>.</p>
 </li>
 <li>
 <p><strong>Navigation and Display</strong>:</p>
 </li>
-<li>The KG key cancels the operation and exits with <code>CANCEL='CANCEL'</code>.</li>
-<li>The KA key resets the batch list and redisplays the selection screen.</li>
-<li>Roll keys (status codes 01122 for forward, 01123 for backward) control batch list navigation, though backward rolling is limited.</li>
-</ul>
+<li>Only non-deleted batches with matching <code>ABSRCE</code> are displayed.</li>
+<li>Lock status is displayed using descriptions from <code>COM</code> (11: AVAILABLE, 12: ORD ENTRY, 13: PICK LIST, 14: POSTING, 15: BOL PRINT).</li>
+<li>
+<p>Up to 10 batch records are loaded into arrays for display on Screen 1.</p>
+</li>
+<li>
+<p><strong>Cancel and Reset</strong>:</p>
+</li>
+<li>Pressing KG (cancel) sets <code>CANCEL='CANCEL'</code> and exits the program.</li>
+<li>Screen 3 resets batch records and cancels operations if KG is pressed.</li>
+</ol>
+<hr />
 <h3 id="tables-files-used">Tables (Files) Used<a class="headerlink" href="#tables-files-used" title="Permanent link">&para;</a></h3>
-<p>The program uses the following files:
-1. <code>BBBTCH</code>: Batch master file (input, disk, 48 bytes, logical file with 2 access paths).
-2. <code>BBBTCHX</code>: Batch master file (update/create, disk, 48 bytes, logical file with 2 access paths).</p>
+<p>The program interacts with the following files:</p>
+<ol>
+<li><strong>SCREEN</strong>: Workstation display file for interactive screens (BB001S1, BB001S2, BB001S3).</li>
+<li><strong>BBBTCH</strong>: Batch header file (input, 48 bytes, indexed, key fields: 1-2).</li>
+<li>Fields: <code>ABDEL</code> (delete code), <code>ABBTCH</code> (batch number), <code>ABLOCK</code> (lock status), <code>ABLKWS</code> (lock workstation ID), <code>ABPRTD</code> (BOL printed), <code>ABUSER</code> (user ID), <code>ABDATE</code> (creation date), <code>ABLUDT</code> (last update date), <code>ABREC</code> (record count), <code>ABSRCE</code> (batch source), <code>ABNXTB</code> (next batch number).</li>
+<li><strong>BBBTCHX</strong>: Update-capable batch header file (48 bytes, indexed, key fields: 1-2).</li>
+<li>Same fields as <code>BBBTCH</code>.</li>
+</ol>
+<hr />
 <h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
-<p>No external programs are explicitly called in <code>BB001.rpg36.txt</code>. All processing is handled internally through subroutines and file operations.</p>
+<p>The <code>BB001</code> RPG program does not explicitly call any external programs. All processing is handled internally through subroutines and file operations.</p>
+<hr />
 <h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
-<p>The <code>BB001.rpg36.txt</code> program manages batch selection and maintenance for order entry, providing screens to select, create, update, or delete batch records. It enforces strict validation to ensure batch integrity, such as preventing duplicate or locked batches, restricting creation to Order Entry mode, and ensuring batch source compatibility. The program uses two files (<code>BBBTCH</code>, <code>BBBTCHX</code>) to store and manage batch data, with no external program calls. Its focus is on maintaining batch records efficiently, supporting the order entry process initiated by the <code>BB101.ocl36.txt</code> OCL program.</p>
+<p>The <code>BB001</code> RPG program, called from the <code>BB101.ocl36.txt</code> OCL program, manages the selection, creation, updating, and deletion of order entry batches stored in <code>BBBTCH</code> and <code>BBBTCHX</code>. It uses three screens (S1, S2, S3) for user interaction, supports navigation via roll keys, and enforces business rules such as batch number validation, lock checking, and program mode restrictions. The program initializes new batches with the next available number, ensures only authorized users can access locked batches, and prevents invalid operations like creating batches outside order entry mode. It interacts with the <code>SCREEN</code>, <code>BBBTCH</code>, and <code>BBBTCHX</code> files and does not call external programs, relying on internal subroutines for all processing.</p>
 
 
 
