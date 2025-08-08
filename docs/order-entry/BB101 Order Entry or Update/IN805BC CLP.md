@@ -1,63 +1,79 @@
-The `IN805BC.clp.txt` is a CLP (Control Language Program) called by the `BB101.ocl36.txt` OCL program as part of the order entry system on an IBM AS/400 (iSeries) platform. Its purpose is to build and populate work files (`INWZHW` and `INWZ10W`) in the `QTEMP` library to accumulate totals for tanks, which are used by the `IN805W` work file for inventory processing. Below is an explanation of the process steps, business rules, tables used, and external programs called.
+The `IN805BC.clp.txt` document is a CLP (Control Language Program) written for an IBM System/36 or AS/400 (now IBM i) environment, called from the `BB101.ocl36.txt` OCL program. Its purpose is to build work files (`INWZHW` and `INWZ10W`) in the `QTEMP` library to accumulate totals for tanks in the work file `IN805W`. The program was written by Jimmy Krajacic on 03/14/2018 and revised on 08/30/21 (revision JK01) to update library references and copy files to `QTEMP`. Below is a detailed explanation of the process steps, business rules, tables (files) used, and any external programs called.
 
 ---
 
-### Process Steps of the IN805BC CLP Program
+### Process Steps of the CLP Program
 
-The `IN805BC` program creates and populates temporary work files based on input parameters. The process steps are as follows:
+The `IN805BC` CLP program creates and populates temporary work files (`INWZHW` and `INWZ10W`) in the `QTEMP` library by copying data from source files based on input parameters. The steps are as follows:
 
-1. **Parameter Declaration and Input Processing**:
-   - Declares input parameters:
-     - `&P$FGRP` (1 character): File group identifier (e.g., 'G' for production or other values for development).
+1. **Program Initialization**:
+   - The program accepts two parameters:
+     - `&P$FGRP` (1 character): File group identifier (e.g., 'G' or other values).
      - `&P$CO#` (2 characters): Company number.
-   - Constructs work file names:
-     - `&WRKFIL1` = `&P$FGRP` + 'INWZH' (e.g., 'GINWZH' for `&P$FGRP='G'`).
-     - `&WRKFIL2` = `&P$FGRP` + 'INWZ' + `&P$CO#` (e.g., 'GINWZ10' for `&P$FGRP='G'` and `&P$CO#='10'`).
+   - Declares variables:
+     - `&WRKFIL1` (10 characters): Name of the first source file, constructed as `&P$FGRP + 'INWZH'`.
+     - `&WRKFIL2` (10 characters): Name of the second source file, constructed as `&P$FGRP + 'INWZ' + &P$CO#`.
 
-2. **Clear or Create Work File INWZHW**:
-   - Attempts to clear the `INWZHW` file in `QTEMP` using `CLRPFM`.
-   - If the file does not exist (`CPF3142` message):
-     - If `&P$FGRP='G'`, creates a duplicate of `INWZHW` from the `DATA` library using `CRTDUPOBJ`, with no constraints or triggers.
-     - If `&P$FGRP≠'G'`, creates a duplicate from the `DATADEV` library.
-     - Ignores errors (`CPF5813`, `CPF7302`) during object creation.
+2. **Construct File Names**:
+   - Concatenates `&P$FGRP` with `'INWZH'` to form `&WRKFIL1` (e.g., 'GINWZH' for `&P$FGRP='G'`).
+   - Concatenates `&P$FGRP`, `'INWZ'`, and `&P$CO#` to form `&WRKFIL2` (e.g., 'GINWZ01' for `&P$FGRP='G'` and `&P$CO#='01'`).
 
-3. **Clear or Create Work File INWZ10W**:
-   - Attempts to clear the `INWZ10W` file in `QTEMP` using `CLRPFM`.
-   - If the file does not exist (`CPF3142` message):
-     - If `&P$FGRP='G'`, creates a duplicate of `INWZ10W` from the `DATA` library using `CRTDUPOBJ`.
-     - If `&P$FGRP≠'G'`, creates a duplicate from the `DATADEV` library.
-     - Ignores errors (`CPF5813`, `CPF7302`) during object creation.
+3. **Clear or Create Work File `INWZHW`**:
+   - Attempts to clear the physical file `QTEMP/INWZHW` using `CLRPFM`.
+   - If the file does not exist (`CPF3142` message), executes a `DO` block:
+     - If `&P$FGRP = 'G'`:
+       - Creates a duplicate object of `INWZHW` from the `DATA` library to `QTEMP` using `CRTDUPOBJ`, with constraints (`CST(*NO)`) and triggers (`TRG(*NO)`) disabled.
+       - Monitors for errors `CPF5813` (template file locked) and `CPF7302` (constraint error).
+     - If `&P$FGRP ≠ 'G'`:
+       - Creates a duplicate object of `INWZHW` from the `DATADEV` library to `QTEMP` with the same settings.
+       - Monitors for the same errors.
 
-4. **Copy Data to Work Files**:
-   - Copies data from the source file `&WRKFIL1` (e.g., `GINWZH`) to `QTEMP/INWZHW` using `CPYF`, replacing existing records (`MBROPT(*REPLACE)`) and bypassing field checks (`FMTOPT(*NOCHK)`).
-     - Ignores copy errors (`CPF2817`).
-   - Copies data from the source file `&WRKFIL2` (e.g., `GINWZ10`) to `QTEMP/INWZ10W` using `CPYF`, with the same options.
-     - Ignores copy errors (`CPF2817`).
+4. **Clear or Create Work File `INWZ10W`**:
+   - Attempts to clear the physical file `QTEMP/INWZ10W` using `CLRPFM`.
+   - If the file does not exist (`CPF3142` message), executes a `DO` block:
+     - If `&P$FGRP = 'G'`:
+       - Creates a duplicate object of `INWZ10W` from the `DATA` library to `QTEMP` with constraints and triggers disabled.
+       - Monitors for errors `CPF5813` and `CPF7302`.
+     - If `&P$FGRP ≠ 'G'`:
+       - Creates a duplicate object of `INWZ10W` from the `DATADEV` library to `QTEMP` with the same settings.
+       - Monitors for the same errors.
 
-5. **Completion**:
-   - Ends the program after creating and populating the work files.
+5. **Copy Data to Work Files**:
+   - Copies data from the source file `&WRKFIL1` (e.g., `GINWZH`) to `QTEMP/INWZHW` using `CPYF` with:
+     - `MBROPT(*REPLACE)`: Replaces existing data in the target file.
+     - `FMTOPT(*NOCHK)`: Bypasses format checking for faster copying.
+     - Monitors for error `CPF2817` (copy failed, e.g., if source file is empty or does not exist).
+   - Copies data from the source file `&WRKFIL2` (e.g., `GINWZ01`) to `QTEMP/INWZ10W` using `CPYF` with the same options and error monitoring.
+
+6. **Program Termination**:
+   - The program ends with `ENDPGM` after completing the file creation and data copy operations.
 
 ---
 
 ### Business Rules
 
-1. **File Naming**:
-   - Work file names are dynamically constructed using `&P$FGRP` and `&P$CO#` to ensure uniqueness per company and environment (e.g., `GINWZH`, `GINWZ10`).
+The program enforces the following business rules:
 
-2. **Environment-Based File Creation**:
-   - For production (`&P$FGRP='G'`), source files are copied from the `DATA` library.
-   - For development or testing (`&P$FGRP≠'G'`), source files are copied from the `DATADEV` library.
+1. **Dynamic File Naming**:
+   - Source file names are dynamically constructed using `&P$FGRP` and `&P$CO#` to ensure the correct files are accessed (e.g., `GINWZH`, `GINWZ01`).
+   - This allows the program to handle different file groups and company-specific data.
 
-3. **File Management**:
-   - Work files are created in `QTEMP` to ensure temporary, job-specific storage.
-   - Existing work files are cleared; non-existent files are created as duplicates of source files without constraints or triggers.
+2. **Library Selection Based on File Group**:
+   - If `&P$FGRP = 'G'`, source files are copied from the `DATA` library (production environment).
+   - If `&P$FGRP ≠ 'G'`, source files are copied from the `DATADEV` library (development or test environment, per revision JK01).
 
-4. **Data Copying**:
-   - Data is copied with replacement (`MBROPT(*REPLACE)`) and no field validation (`FMTOPT(*NOCHK)`) to ensure compatibility with S/36 files.
-   - Copy errors are ignored to allow processing to continue.
+3. **Temporary Work Files**:
+   - Work files (`INWZHW`, `INWZ10W`) are created in the `QTEMP` library, which is temporary and unique to the job, ensuring isolation and cleanup upon job completion.
+   - If the files do not exist, they are created by duplicating objects from the appropriate library (`DATA` or `DATADEV`).
 
-5. **Error Handling**:
-   - Monitors for file not found (`CPF3142`), object creation errors (`CPF5813`, `CPF7302`), and copy errors (`CPF2817`), proceeding without interruption.
+4. **Error Handling**:
+   - The program handles missing files (`CPF3142`) by creating them dynamically.
+   - It monitors for file copy errors (`CPF2817`) and object creation errors (`CPF5813`, `CPF7302`) to ensure robust execution without abending.
+   - Constraints and triggers are disabled (`CST(*NO)`, `TRG(*NO)`) to simplify file creation and avoid conflicts.
+
+5. **Data Replacement**:
+   - The `CPYF` command uses `MBROPT(*REPLACE)` to overwrite any existing data in `INWZHW` and `INWZ10W`, ensuring the work files contain the latest data.
+   - `FMTOPT(*NOCHK)` bypasses format validation, assuming the source and target file formats are compatible.
 
 ---
 
@@ -65,25 +81,25 @@ The `IN805BC` program creates and populates temporary work files based on input 
 
 The program interacts with the following files:
 
-1. **INWZHW**: Temporary work file in `QTEMP` for accumulating tank totals (created or cleared).
-2. **INWZ10W**: Temporary work file in `QTEMP` for company-specific tank totals (created or cleared).
-3. **Source Files**:
-   - `&WRKFIL1` (e.g., `GINWZH`): S/36 work file in `DATA` or `DATADEV`, source for `INWZHW`.
-   - `&WRKFIL2` (e.g., `GINWZ10`): S/36 work file in `DATA` or `DATADEV`, source for `INWZ10W`.
+1. **INWZHW** (in `QTEMP`):
+   - Temporary work file created or cleared to store data copied from `&WRKFIL1` (e.g., `GINWZH`).
+   - Source library: `DATA` (if `&P$FGRP = 'G'`) or `DATADEV` (if `&P$FGRP ≠ 'G'`).
+2. **INWZ10W** (in `QTEMP`):
+   - Temporary work file created or cleared to store data copied from `&WRKFIL2` (e.g., `GINWZ01`).
+   - Source library: `DATA` (if `&P$FGRP = 'G'`) or `DATADEV` (if `&P$FGRP ≠ 'G'`).
+3. **&WRKFIL1** (e.g., `GINWZH`):
+   - Source file in `DATA` or `DATADEV`, dynamically named using `&P$FGRP + 'INWZH'`.
+4. **&WRKFIL2** (e.g., `GINWZ01`):
+   - Source file in `DATA` or `DATADEV`, dynamically named using `&P$FGRP + 'INWZ' + &P$CO#`.
 
 ---
 
 ### External Programs Called
 
-The `IN805BC` program does not call any external programs. It relies on CL commands (`CLRPFM`, `CRTDUPOBJ`, `CPYF`) to perform its tasks.
+The `IN805BC` CLP program does not call any external programs. It relies entirely on CL commands (`CHGVAR`, `CLRPFM`, `CRTDUPOBJ`, `CPYF`) for its operations.
 
 ---
 
 ### Summary
 
-- **Process Overview**: The `IN805BC` CLP program creates and populates temporary work files (`INWZHW`, `INWZ10W`) in `QTEMP` by copying data from S/36 files (`&WRKFIL1`, `&WRKFIL2`) based on file group and company number. It clears existing files or creates new ones from `DATA` or `DATADEV` libraries.
-- **Business Rules**: Constructs file names dynamically, uses environment-specific source libraries (`DATA` for production, `DATADEV` for development), creates files in `QTEMP`, and copies data without validation. Ignores errors to ensure continuation.
-- **Files/Tables**: Uses `INWZHW` and `INWZ10W` in `QTEMP`, with source files like `GINWZH` and `GINWZ10` from `DATA` or `DATADEV`.
-- **External Programs**: None called.
-
-This program supports inventory processing by preparing work files for tank total accumulation, ensuring compatibility with the order entry system’s inventory checks.
+The `IN805BC` CLP program, called from the `BB101.ocl36.txt` OCL program, builds temporary work files (`INWZHW` and `INWZ10W`) in the `QTEMP` library to accumulate tank totals for the `IN805W` work file. It constructs source file names using input parameters `&P$FGRP` and `&P$CO#`, clears or creates the target files, and copies data from source files in the `DATA` (production) or `DATADEV` (development) library based on the file group. Business rules ensure dynamic file naming, appropriate library selection, error handling, and data replacement in temporary files. The program interacts with four files (`INWZHW`, `INWZ10W`, and their source files) and does not call external programs, relying on internal CL commands for all processing.
