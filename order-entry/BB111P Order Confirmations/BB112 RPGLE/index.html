@@ -12,13 +12,13 @@
         <meta name="author" content="American Refining Group">
       
       
-        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB111P%20OCL%20Order%20Confirmations/BB111P%20OCL/">
+        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB111P%20Order%20Confirmations/BB112%20RPGLE/">
       
       
-        <link rel="prev" href="../BB111AC%20CLP/">
+        <link rel="prev" href="../BB111P%20OCL/">
       
       
-        <link rel="next" href="../BB112%20RPGLE/">
+        <link rel="next" href="../BB112S%20RPGLE/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>BB111P OCL - ARG AS400 IBMi Documentation</title>
+        <title>BB112 RPGLE - ARG AS400 IBMi Documentation</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#process-steps-of-the-rpg-ocl-program" class="md-skip">
+        <a href="#process-steps-of-the-rpg-program-bb112" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              BB111P OCL
+              BB112 RPGLE
             
           </span>
         </div>
@@ -8123,7 +8123,7 @@
   
   
   <span class="md-ellipsis">
-    BB111P OCL Order Confirmations
+    BB111P Order Confirmations
     
   </span>
   
@@ -8134,7 +8134,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_3">
             <span class="md-nav__icon md-icon"></span>
-            BB111P OCL Order Confirmations
+            BB111P Order Confirmations
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -8257,6 +8257,29 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB111P%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB111P OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -8272,7 +8295,7 @@
   
   
   <span class="md-ellipsis">
-    BB111P OCL
+    BB112 RPGLE
     
   </span>
   
@@ -8285,7 +8308,7 @@
   
   
   <span class="md-ellipsis">
-    BB111P OCL
+    BB112 RPGLE
     
   </span>
   
@@ -8306,18 +8329,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-rpg-ocl-program" class="md-nav__link">
+  <a href="#process-steps-of-the-rpg-program-bb112" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the RPG .OCL Program
+      Process Steps of the RPG Program BB112
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#external-programs-called" class="md-nav__link">
+  <a href="#business-rules" class="md-nav__link">
     <span class="md-ellipsis">
-      External Programs Called
+      Business Rules
     </span>
   </a>
   
@@ -8332,33 +8355,19 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#external-programs-called" class="md-nav__link">
+    <span class="md-ellipsis">
+      External Programs Called
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../BB112%20RPGLE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    BB112 RPGLE
-    
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -8960,18 +8969,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-rpg-ocl-program" class="md-nav__link">
+  <a href="#process-steps-of-the-rpg-program-bb112" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the RPG .OCL Program
+      Process Steps of the RPG Program BB112
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#external-programs-called" class="md-nav__link">
+  <a href="#business-rules" class="md-nav__link">
     <span class="md-ellipsis">
-      External Programs Called
+      Business Rules
     </span>
   </a>
   
@@ -8981,6 +8990,15 @@
   <a href="#tables-used" class="md-nav__link">
     <span class="md-ellipsis">
       Tables Used
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-programs-called" class="md-nav__link">
+    <span class="md-ellipsis">
+      External Programs Called
     </span>
   </a>
   
@@ -9005,81 +9023,152 @@
   
 
 
-  <h1>BB111P OCL</h1>
+  <h1>BB112 RPGLE</h1>
 
-<h3 id="process-steps-of-the-rpg-ocl-program">Process Steps of the RPG .OCL Program<a class="headerlink" href="#process-steps-of-the-rpg-ocl-program" title="Permanent link">&para;</a></h3>
-<p>This .OCL (Operation Control Language) script appears to be a control program for handling order confirmations in an IBM i (AS/400) environment. It uses conditional logic, switches, tags for jumping, file operations, and calls to external programs to manage batch processing, user prompts, and job submissions. The script is structured around prompts, checks, selections, and executions, with placeholders like <code>?9?</code> (likely a library prefix), <code>?L'position,length'?</code> (screen or data location checks), and <code>?3?</code> (input checks). Below is a step-by-step breakdown of the process flow:</p>
+<h3 id="process-steps-of-the-rpg-program-bb112">Process Steps of the RPG Program BB112<a class="headerlink" href="#process-steps-of-the-rpg-program-bb112" title="Permanent link">&para;</a></h3>
+<p>This RPGLE program (BB112) is an interactive inquiry tool for customer order confirmations in a customer orders system. It provides a subfile-based screen where users can enter selection criteria to view and interact with open orders (e.g., filtering by company, order number, customer, ship-to, etc.). The program supports prompting, validation, message handling, and actions like sending confirmations. It uses overrides to access files from different library groups (e.g., G or Z) based on input parameters. The main flow is initialization, file opening, subfile processing in a loop (display, input handling, repositioning/loading), and termination. Below is a step-by-step breakdown based on the code structure and subroutines:</p>
 <ol>
-<li><strong>Initial Prompt and Checking Loop</strong>:</li>
-<li>Displays an "ORDER CONFIRMATION PROMPT" and executes <code>SCPROCP</code> (possibly a system command or procedure call with parameters).</li>
-<li>Tags "AGAIN" and pauses with a message 'CHECKING AGAIN'.</li>
-<li>Checks if "ACTIVE-BB111P" is active: If so, loads and runs program <code>BB110E</code>, then checks a screen/data location <code>?L'300,6'?</code> for "/CANCEL". If cancel is detected, jumps to "END"; otherwise, loops back to "AGAIN".</li>
-<li>Similarly checks if "ACTIVE-BB111" is active: Loads and runs <code>BB110E</code>, checks for "/CANCEL", and jumps or loops accordingly.</li>
+<li><strong>Program Initialization (*INZSR Subroutine)</strong>:</li>
+<li>Receives entry parameters: <code>P$FGRP</code> (file group: 'G' or 'Z' for library overrides).</li>
+<li>Defines work fields, reposition fields (e.g., <code>R$CO</code>, <code>R$ORD#</code>), output parameters (e.g., <code>O$CO</code>, <code>O$ORD#</code>), and defaults (e.g., <code>O$MODE</code> to blanks, <code>O$FLAG</code> to '0').</li>
+<li>Sets subfile control variables (e.g., <code>RRN1</code> to 0, page size <code>PAGSZ1</code> to 24).</li>
+<li>Calculates current date/time from program status data structure (<code>PSDS##</code>), derives century (<code>PS#CEN</code>), year/month/day formats (<code>PS#YMD</code>, <code>PS#DAT</code>), and handles Y2K logic (e.g., if year &gt;=40, century=19; else 20).</li>
+<li>Initializes message handling (e.g., <code>DSPMSG</code> off, program message queue to '*').</li>
 <li>
-<p>Resets switches to <code>00000000</code>, blanks all local variables, and calls <code>GSY2K</code> (possibly a year-2000 compliance routine or global setup).</p>
+<p>Defines keylists (e.g., <code>KLORDH</code> for order header chaining by company/order#, <code>KLCUST</code> for customer, etc.) for file access.</p>
 </li>
 <li>
-<p><strong>Switch and Local Variable Setup Based on Input</strong>:</p>
+<p><strong>Open Database Tables (OPNTBL Subroutine)</strong>:</p>
 </li>
-<li>If input at position <code>?3?</code> is 'Y', sets switch to <code>XXXXX1XX</code> (for order confirmations only) and sets a local offset (231) to 'Y'.</li>
-<li>
-<p>Proceeds to "ORDER BATCH SELECTION":</p>
-<ul>
-<li>Sets local data offsets: 470 to '?13?', 494 to '?USER?', 502 to '?WS?', 504 to 'L'.</li>
-<li>If switch bit 6 is 1, sets offset 60 to '<em>    ORDER CONFIRMATIONS     </em>' (likely a title display).</li>
+<li>Applies file overrides via <code>QCMDEXC</code> API based on <code>P$FGRP</code>:<ul>
+<li>If 'G' or 'Z', loops through arrays <code>OVG</code> or <code>OVZ</code> (8 overrides each) for files like ARCUST, BBORCL, etc., redirecting to libraries like <em>LIBL/GARCUST or </em>LIBL/ZARCUST.</li>
+<li>Additionally, overrides BB112WL1 to QTEMP/BB112WL1 (from <code>OVR</code> array, added in revision jk01).</li>
 </ul>
 </li>
 <li>
-<p><strong>Batch Deletion Switch and Evaluation</strong>:</p>
-</li>
-<li>Sets switch to <code>0XXXXXXX</code> (resets bit 1).</li>
-<li>If switch bit 6 is 1, jumps to "JUMP".</li>
-<li>Tags "JUMP".</li>
-<li>Evaluates <code>P20</code> as data from location <code>?L'490,2'?</code> (possibly user input or selection code).</li>
-<li>
-<p>If switch bit 6 is 1, jumps to "ORDCONF" (order confirmation selection).</p>
+<p>Opens all declared files with USROPN (user-controlled open): ARCUST, BBORCL, BBORDH, GSCNTR, GSPROD, GSTABL, INLOC, SHIPTO, and BB112WL1.</p>
 </li>
 <li>
-<p><strong>Order Confirmation Selection</strong>:</p>
+<p><strong>Process Subfile (SRSFL1 Subroutine - Main Interactive Loop)</strong>:</p>
 </li>
-<li>Tags "ORDCONF".</li>
-<li>Clears physical file members (CLRPFM) for several files in library <code>?9?</code>: <code>BBOCFB</code>, <code>BBOCFD</code>, <code>BBOCFH</code>, <code>BBOCFI</code>, <code>BBOCFM</code>, <code>BBOCFO</code> (prepares files for new data by emptying them).</li>
-<li>
-<p>Calls program <code>BB112</code> with parameter '?9?' (likely populates or processes data into the cleared files).</p>
-</li>
-<li>
-<p><strong>Job Submission or Execution</strong>:</p>
-</li>
-<li>Jumps to "JUMP" (another tag, possibly for looping or continuation).</li>
-<li>Checks location <code>?L'166,1'?</code> for 'Y':<ul>
-<li>If 'Y' and switch bit 6 is 1, submits job <code>BB111</code> with <code>*ALL</code> to job queue <code>?CLIB?,BB111,*ALL</code>.</li>
-<li>Otherwise, if switch bit 6 is 1, runs <code>BB111 *ALL</code> directly.</li>
+<li>Sets initial subfile mode to folded (<code>#FOLD='1'</code>, indicator 45 on).</li>
+<li>Clears and writes message subfile.</li>
+<li>Defaults company (<code>C$CO</code>) to 10, repositions to first record, and sets ship-from date (<code>C$SFDT</code>) to the 1st of the month one year ago (using date conversion DS).</li>
+<li>Calls SF1REP to reposition/load the subfile initially.</li>
+<li>Enters a loop (<code>SF1AGN=*ON</code>) for user interaction:<ul>
+<li>If reposition needed (<code>REPSFL=*ON</code>), clears selection fields and calls SF1REP.</li>
+<li>Writes command line (SFLCMD1), displays messages if any.</li>
+<li>Conditions subfile display (indicator 41 on if <code>RRN1&gt;0</code>), sets fold/unfold (indicator 45).</li>
+<li>Displays subfile control (EXFMT SFLCTL1, indicator 40 on).</li>
+<li>Clears messages and format indicators (50-69 off, 21-39 off).</li>
+<li>Determines cursor position from INFDS (<code>CSRSRLOC</code>).</li>
+<li>Initializes subfile record number (<code>RCDNB1</code>) with page RRN for redisplay.</li>
+<li>Processes user input BEFORE subfile read:</li>
+<li>F3: Displays exit confirmation window (EXFMT F03WDW); if confirmed, sets <code>SF1AGN=*OFF</code> to exit loop.</li>
+<li>F4: Calls PROMPT subroutine to handle field-specific prompting (e.g., for order#, customer, etc., using keylists and chains).</li>
+<li>F5: Sets <code>ONETIME=*ON</code> and <code>REPSFL=*ON</code> for refresh.</li>
+<li>Position changes (e.g., <code>C$CO &lt;&gt; R$CO</code>): Calls SF1REP to reload subfile.</li>
+<li>Page Down: Calls SF1LOD to load more records (commented as "fill subfile" for non-load-all method).</li>
+<li>If Enter pressed, calls SF1PRC to process subfile.</li>
+<li>Processes user input AFTER subfile read:</li>
+<li>F10: Positions cursor to control record.</li>
 </ul>
 </li>
 <li>
-<p>Jumps to "END".</p>
+<p>Loop continues until exit (F3 confirmed).</p>
 </li>
 <li>
-<p><strong>Termination</strong>:</p>
+<p><strong>Subfile Reposition/Load (SF1REP Subroutine)</strong>:</p>
 </li>
-<li>Tags "END".</li>
-<li>Resets switches to <code>00000000</code> and blanks all local variables (cleanup).</li>
+<li>Clears subfile (indicator 40 on for SFLCLR).</li>
+<li>Builds query select strings (<code>QRYSLT</code>) using arrays QRYOH (for order header) and QRYOD (for order detail), incorporating selection criteria (e.g., company, customer, order status not 'D'eleted, date ranges).</li>
+<li>Positions files (e.g., SETLL on BBORDH using keylists).</li>
+<li>Loads subfile records by reading files (e.g., BBORDH, BBORCL), chaining for details (e.g., customer name from ARCUST, ship-to from SHIPTO), and writing to SFL1.</li>
+<li>Handles "no results" message if no records loaded.</li>
+<li>
+<p>Updates reposition fields (e.g., <code>R$CO = C$CO</code>).</p>
+</li>
+<li>
+<p><strong>Process Subfile on Enter (SF1PRC Subroutine)</strong>:</p>
+</li>
+<li>If subfile not empty (<code>RRN1&gt;0</code>), reads changed records (READC SFL1 until EOF, indicator 81).</li>
+<li>
+<p>For each changed record, calls SF1CHG.</p>
+</li>
+<li>
+<p><strong>Process Subfile Record Change (SF1CHG Subroutine)</strong>:</p>
+</li>
+<li>Processes option field (<code>S1OPT</code>):<ul>
+<li>If 6 (Customer Order Confirmation): Calls external program BB112SC with parameters (company, order# , file group); sets message "Confirmation has been sent for Order # [order#]" using COM array, calls ADDMSG.</li>
+</ul>
+</li>
+<li>Updates subfile record (CHAIN and UPDATE SFL1).</li>
+<li>
+<p>Clears option field.</p>
+</li>
+<li>
+<p><strong>Field Prompting (PROMPT Subroutine)</strong>:</p>
+</li>
+<li>Determines cursor row/column and field/record name.</li>
+<li>Selects based on record/field:<ul>
+<li>For SFLCTL1 fields (e.g., <code>C$ORD#</code>): Chains to files (e.g., BBORDH for order#, ARCUST for customer), prompts windows if needed, validates, and sets values.</li>
+<li>For SFL1: Displays credit window (EXFMT CRDWDW) for credit limit field.</li>
+</ul>
+</li>
+<li>
+<p>Handles commented-out calls (e.g., to LGSTABL for carrier reason).</p>
+</li>
+<li>
+<p><strong>Message Handling</strong>:</p>
+</li>
+<li>ADDMSG: Builds message data, calculates length, sends via QMHSNDPM API, sets <code>DSPMSG=*ON</code>.</li>
+<li>WRTMSG: Writes message control (MSGCTL), indicators 49 on for display.</li>
+<li>
+<p>CLRMSG: Removes messages via QMHRMVPM API, restores record/page, sets <code>DSPMSG=*OFF</code>.</p>
+</li>
+<li>
+<p><strong>Program Termination</strong>:</p>
+</li>
+<li>Closes all files.</li>
+<li>Sets <code>*INLR=*ON</code> and returns.</li>
 </ol>
-<p>The overall flow is a prompted, interactive batch process for order confirmations: It checks for active processes, handles cancellations, sets up selections, clears data files, calls a selection program, and finally executes or queues a batch job. Error handling is implicit via cancel checks and jumps.</p>
-<h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
-<p>The script calls or loads the following external programs:
-- <code>BB110E</code>: Loaded and run conditionally during initial checks (for both "ACTIVE-BB111P" and "ACTIVE-BB111" scenarios).
-- <code>BB112</code>: Called directly in the order confirmation selection step, with parameter '?9?'.
-- <code>BB111</code>: Run directly or submitted to a job queue in the final execution step, with parameter <code>*ALL</code>.</p>
+<p>The program uses a "load-on-demand" approach for the subfile (via Page Down), with dynamic queries for filtering open orders.</p>
+<h3 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Selection Criteria</strong>: Users must enter at least one value (error message from COM(01) if not). Supports filters like company (default 10), order#, PO#, customer, ship-to, salesman, location, product, carrier ID, country. Validates inputs (e.g., chains to ensure existence).</li>
+<li><strong>Order Scope</strong>: Focuses on open orders (status not 'D'eleted, order print flag 'C' or 'R' for confirmation/reprint). Includes date ranges (e.g., requested date &gt;=1 year ago default).</li>
+<li><strong>Credit Limits</strong>: Displays indicators for over-credit-limit (unauthorized/authorized, messages from COM(03/04)).</li>
+<li><strong>Restrictions</strong>: Cannot search tracking# if invoices excluded (COM(05)); cannot search cancel reason without including canceled orders (COM(06)).</li>
+<li><strong>Subfile Interaction</strong>: Supports fold/unfold (indicator 45), options (e.g., 6 for confirmation send), reposition on changes.</li>
+<li><strong>File Overrides</strong>: Based on <code>P$FGRP</code> ('G' or 'Z'), redirects files to group-specific libraries (e.g., G for production, Z for test/archive). Work file BB112WL1 always to QTEMP.</li>
+<li><strong>Messages/Errors</strong>: Uses GSMSGF message file. Displays "No Results" (COM(02)) if empty subfile. Logs actions like confirmation sent (COM(07)) or order in batch (COM(08)).</li>
+<li><strong>Validation</strong>: Date validation via PLDTED (prepared for GSDTEDIT module, but not called). Ensures valid keys via chains (indicators 80/90-99 for chain failures).</li>
+<li><strong>Security/Interactivity</strong>: User-controlled opens, interactive with function keys (F3 exit confirm, F4 prompt, F5 refresh, F10 cursor position). Protects fields (indicators 70-79).</li>
+</ul>
 <h3 id="tables-used">Tables Used<a class="headerlink" href="#tables-used" title="Permanent link">&para;</a></h3>
-<p>The script interacts with the following physical files (tables) in the library prefixed by <code>?9?</code> (e.g., a dynamic library name). These are cleared (CLRPFM) to prepare for new data:
-- <code>BBOCFB</code>
-- <code>BBOCFD</code>
-- <code>BBOCFH</code>
-- <code>BBOCFI</code>
-- <code>BBOCFM</code>
-- <code>BBOCFO</code></p>
-<p>No other files or tables are explicitly mentioned for read/write operations.</p>
+<p>The program declares and uses the following files (tables). All are keyed (K) disk files except the display file. Overrides may redirect to different libraries (e.g., G/Z prefixed):</p>
+<ul>
+<li><code>BB112D</code>: Workstation display file (CF WORKSTN) with subfile SFL1 for interactive inquiry screen (input/output).</li>
+<li><code>ARCUST</code>: Input-only (IF) for customer data (e.g., chaining for names).</li>
+<li><code>BBORCL</code>: Input-only (IF) for order control/details.</li>
+<li><code>BBORDH</code>: Input-only (IF) for order headers (primary for positioning/reading orders).</li>
+<li><code>GSCNTR</code>: Input-only (IF) for country data.</li>
+<li><code>GSPROD</code>: Input-only (IF) for product data (renames TPFIL5 to X@FIL5).</li>
+<li><code>GSTABL</code>: Input-only (IF) for table data (e.g., salesmen, carriers).</li>
+<li><code>INLOC</code>: Input-only (IF) for location/inventory data.</li>
+<li><code>SHIPTO</code>: Input-only (IF) for ship-to addresses.</li>
+<li><code>BB112WL1</code>: Input-only (IF) work file (temporary in QTEMP for query results or intermediate data).</li>
+</ul>
+<p>No update/output files; all are read-only except potential subfile updates.</p>
+<h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
+<p>The program calls the following external programs/procedures (via CALL opcode). System APIs are included as they are external:</p>
+<ul>
+<li><code>BB112SC</code>: Called for option 6 (order confirmation) with parameters for company, order#, file group.</li>
+<li><code>QCMDEXC</code>: System API to execute override commands (multiple times in OPNTBL).</li>
+<li><code>QMHSNDPM</code>: System API to send program messages (in ADDMSG).</li>
+<li><code>QMHRMVPM</code>: System API to remove messages (in CLRMSG).</li>
+</ul>
+<p>Commented-out calls (not executed): <code>LGSTABL</code> (for table lookup in PROMPT) and <code>GSDTEDIT</code> (prepared PLIST but no CALL). No other user programs in visible code.</p>
 
 
 

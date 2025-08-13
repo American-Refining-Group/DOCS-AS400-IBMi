@@ -12,13 +12,13 @@
         <meta name="author" content="American Refining Group">
       
       
-        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB111P%20OCL%20Order%20Confirmations/BB111%20OCL/">
+        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB111P%20Order%20Confirmations/BB1103%20RPG/">
       
       
-        <link rel="prev" href="../BB110E%20RPG36/">
+        <link rel="prev" href="../BB110%20RPG36/">
       
       
-        <link rel="next" href="../BB111AC%20CLP/">
+        <link rel="next" href="../BB110E%20RPG36/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>BB111 OCL - ARG AS400 IBMi Documentation</title>
+        <title>BB1103 RPG - ARG AS400 IBMi Documentation</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#process-steps-of-the-ocl-program-bb111" class="md-skip">
+        <a href="#process-steps-of-the-rpg-program-bb1103" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              BB111 OCL
+              BB1103 RPG
             
           </span>
         </div>
@@ -8123,7 +8123,7 @@
   
   
   <span class="md-ellipsis">
-    BB111P OCL Order Confirmations
+    BB111P Order Confirmations
     
   </span>
   
@@ -8134,7 +8134,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_3">
             <span class="md-nav__icon md-icon"></span>
-            BB111P OCL Order Confirmations
+            BB111P Order Confirmations
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -8165,52 +8165,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../BB1103%20RPG/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    BB1103 RPG
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../BB110E%20RPG36/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    BB110E RPG36
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -8226,7 +8180,7 @@
   
   
   <span class="md-ellipsis">
-    BB111 OCL
+    BB1103 RPG
     
   </span>
   
@@ -8239,7 +8193,7 @@
   
   
   <span class="md-ellipsis">
-    BB111 OCL
+    BB1103 RPG
     
   </span>
   
@@ -8260,9 +8214,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-ocl-program-bb111" class="md-nav__link">
+  <a href="#process-steps-of-the-rpg-program-bb1103" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the OCL Program BB111
+      Process Steps of the RPG Program BB1103
     </span>
   </a>
   
@@ -8299,6 +8253,52 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB110E%20RPG36/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB110E RPG36
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB111%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB111 OCL
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -8969,9 +8969,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-ocl-program-bb111" class="md-nav__link">
+  <a href="#process-steps-of-the-rpg-program-bb1103" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the OCL Program BB111
+      Process Steps of the RPG Program BB1103
     </span>
   </a>
   
@@ -9023,163 +9023,111 @@
   
 
 
-  <h1>BB111 OCL</h1>
+  <h1>BB1103 RPG</h1>
 
-<h3 id="process-steps-of-the-ocl-program-bb111">Process Steps of the OCL Program BB111<a class="headerlink" href="#process-steps-of-the-ocl-program-bb111" title="Permanent link">&para;</a></h3>
-<p>This OCL (Operation Control Language) script for IBM i/AS/400 handles the printing of order confirmations and related documents (e.g., pick lists, packaging lists) from pre-selected order data. It prepares data through sorting and preprocessing, sets up printer overrides, runs the main print program, and optionally processes spool files for server copying (via Spoolflex). The script uses conditional logic based on parameters like <code>?9?</code> (library prefix), <code>?13?</code> (mode, e.g., 'PP' for pick print), and switches. It assumes input files like BBOCFR (from prior selection) contain sorted order records. Below is a step-by-step breakdown:</p>
+<h3 id="process-steps-of-the-rpg-program-bb1103">Process Steps of the RPG Program BB1103<a class="headerlink" href="#process-steps-of-the-rpg-program-bb1103" title="Permanent link">&para;</a></h3>
+<p>This RPG III program (BB1103) preprocesses order data for printing picking tickets by reading input records, determining custom grouping and sorting keys based on order characteristics, and writing extended records to an output file. It handles three record types: headers, details, and others (e.g., marks or attachments). The core logic applies business-specific sorting rules to detail lines (e.g., by product, container, size) while preserving headers first and others last. The program extends each record by 42 bytes (to 554 total) with sort indicators and keys for downstream sorting (e.g., in #GSORT as seen in calling OCL). It runs in a standard RPG cycle: read input → calculate → output → repeat until end-of-file. Below is a step-by-step breakdown:</p>
 <ol>
-<li><strong>Initial Setup and File Check</strong>:</li>
-<li>Sets local offsets: 470 to '?13?' (mode or parameter), 480 to '?9?' (library prefix).</li>
-<li>Checks if file <code>?9?BBOCFH</code> exists and has records (<code>?F'A,?9?BBOCFH'?/0</code>); if empty (0 records), jumps to "END" (skips processing, as no orders to print).</li>
-<li>Calls <code>GSY2K</code> (likely a year-2000 date compliance routine).</li>
-<li>
-<p>Calls <code>STRPCOCLP</code> (starts PC organizer or client access process, possibly for integration).</p>
-</li>
-<li>
-<p><strong>Conditional Local Data Setup</strong>:</p>
-</li>
-<li>
-<p>If location <code>?L'103,3'?</code> is 'SEL', sets offset 1 to 'O COAC' (possibly a sort or output option for selected orders); otherwise, sets to 'O<em>CO</em>C' (default company/output code).</p>
-</li>
-<li>
-<p><strong>Initial Sorting of Order Records</strong>:</p>
-</li>
-<li>Loads sort utility <code>#GSORT</code>.</li>
-<li>Defines input file <code>?9?BBOCFR</code> (shared), output <code>?9?BB111S</code> (extendable, job-retained).</li>
-<li>Runs sort with specifications:<ul>
-<li>Header: SORTR 15A, 3X 512 N (ascending sort on 512-byte records).</li>
-<li>Input conditions: Exclude if position 1='D' (deleted?), include if positions 2-3='C10' (company-specific?).</li>
-<li>Fields: Company (2-3), Order (4-9), Seq# (10-12), with special handling for positions 121-123 (record types: header first, then marks, details last).</li>
-<li>Forces header records first by sorting on record type markers.</li>
+<li><strong>Program Initialization</strong>:</li>
+<li>Header (H) specifications define the program title and purpose.</li>
+<li>File (F) specifications declare:<ul>
+<li><code>BBORTR</code>: Input primary (IP) file (512 bytes, sequential read).</li>
+<li><code>GSCNTR</code>: Input keyed (IF) file (512 bytes, key length 3, alternate index 2).</li>
+<li><code>BB1103</code>: Output (O) file (554 bytes, add mode for sequential writes).</li>
 </ul>
 </li>
 <li>
-<p>Ends sort.</p>
+<p>No explicit *INZSR; defaults to standard RPG init.</p>
 </li>
 <li>
-<p><strong>Preprocess for Pick List Sorting (JB01 Section)</strong>:</p>
+<p><strong>Input Record Identification</strong>:</p>
 </li>
-<li>Calls <code>GSDELETE</code> to delete <code>?9?BB1103</code> if exists.</li>
-<li>Creates temporary physical file <code>QTEMP/?9?BB1113</code> (record length 554).</li>
-<li>Loads program <code>BB1103</code> (preprocess for sorting detail records based on group-by in header).</li>
-<li>Files: Input <code>?9?BB111S</code> (from prior sort), output <code>?9?BB1113</code> (extendable), <code>?9?GSCNTR</code> (shared).</li>
-<li>Runs <code>BB1103</code>.</li>
-<li>Loads <code>#GSORT</code> again.</li>
-<li>Input <code>?9?BB1113</code>, output <code>?9?BB1113S</code> (extendable).</li>
-<li>Sort specs: SORTR 42A, 3X 553 N.<ul>
-<li>Conditions: Exclude pos 1='D', include pos 554='C'.</li>
-<li>Fields: Company (2-3), Order (4-9), Header first (513), SORT1 asc (524-533), SORT2 desc (534-543), SORT3 asc (544-553), Seq# (10-12).</li>
-</ul>
-</li>
-<li>Ends sort.</li>
-<li>
-<p>Deletes <code>?9?BB1113</code> (cleanup temporary).</p>
-</li>
-<li>
-<p><strong>Main Print Program Load and File Setup</strong>:</p>
-</li>
-<li>Loads program <code>BB110</code> (core printing logic for confirmations/picks).</li>
-<li>
-<p>Defines numerous input files (all shared DISP-SHR): <code>?9?BB1113S</code> (sorted input), <code>?9?BBOCFR</code> (input/output), <code>?9?BBORCL</code>, <code>?9?ARCUST</code>, <code>?9?ARCUPR</code>, <code>?9?SHIPTO</code>, <code>?9?GSCONT</code>, <code>?9?GSTABL</code>, <code>?9?GSUMCV</code>, <code>?9?GSCTWT</code>, <code>?9?GSCTUM</code>, <code>?9?BICONT</code>, <code>?9?GSHAZM</code>, <code>?9?BBFRPR</code>, <code>?9?BBSRNH</code>, <code>?9?CUADR</code>, <code>?9?SHPADR</code>, <code>?9?EDICUS</code>, <code>?9?BBASND</code>, <code>?9?BBSHPH</code>, <code>?9?BBSHPD</code>, <code>?9?BBORHS1</code>, <code>?9?BBORDS1</code>, <code>?9?BBORA</code>, <code>?9?BBORHS1</code> (duplicate), <code>?9?BBORDS1</code> (duplicate), <code>?9?BBFPORH</code>, <code>?9?BBFPORH</code> (duplicate), <code>?9?BBFPORD</code>, <code>?9?BBFPORA</code>, <code>?9?BBORDB</code>, <code>?9?BBORA</code> (duplicate), <code>?9?BBORF</code>, <code>?9?BBFPORF</code>, <code>?9?ARCUFMX</code>, <code>?9?GSCNTR</code>, <code>?9?GSCNTR1</code>, <code>?9?BBOCFR</code> (duplicate as BBORTR3), <code>?9?GSPROD</code>, <code>?9?GSPRCT</code>, <code>?9?GSMLCD</code>, <code>?9?BBCAID</code>.</p>
-</li>
-<li>
-<p><strong>Printer Overrides and Setup</strong>:</p>
-</li>
-<li>Conditional on <code>?9?/G</code> (likely production library) and <code>?13?/PP</code> (pick print mode):<ul>
-<li>Overrides printer file <code>LIST</code> (form type PICK, CPI 10, output queue varies, drawer 1, align yes).</li>
-<li>Similar for <code>LIST2</code> (added 10/24/2013 for packaging, form PKGP).</li>
-<li>For <code>LIST3</code> (added for order confirmations, form ORCF, CPI 15, output queues like ORDCONOUTQ or TESTOUTQ).</li>
+<li>Input (I) specifications define non-sequential (NS) formats for three record types from <code>BBORTR</code>:<ul>
+<li>01 (Header): Identified by indicators 10, C0 (company?), 11 C0, 12 C0. Maps fields like BOCO (company), BORDNO (order#), BORSEQ (sequence#), BOCOON ('Y' for customer-owned), BOGPBY (group by, e.g., 'C' for category), BORACD (responsible area, e.g., 'PP'), BOMLCD (major location, e.g., 'PKGP'), BOORPR (process status).</li>
+<li>02 (Detail): Identified by 10NC9 (non-company?). Maps similar header fields plus BDLOC (location), BDPROD (product), BDCNTR (container), BDFLCD (flag code).</li>
+<li>03 (Other): Catch-all for remaining records.</li>
 </ul>
 </li>
 <li>
-<p>These ensure correct form alignment, compression, and routing for different document types (picks, packaging, confirmations).</p>
+<p>Additional input for <code>GSCNTR</code> (NS) maps TCDSCS (short description for size).</p>
 </li>
 <li>
-<p><strong>Run Main Print Program</strong>:</p>
+<p><strong>Calculation Logic (Main Processing)</strong>:</p>
+</li>
+<li>For all records: Clears work fields (SIZE, GROUP, SORT1, SORT2, SORT3 to blanks).</li>
+<li>Header-specific (01):<ul>
+<li>Sets indicator 50 off if BOORPR is blank (prints in line entry order); on otherwise (sorted order for 'C'/'S' codes).</li>
+</ul>
+</li>
+<li>Detail-specific (02):<ul>
+<li>Retrieves SIZE: If BDFLCD != 'N', chains to GSCNTR by BDCNTR (indicator 88 on failure); sets SIZE to TCDSCS (short desc) if found, else blank.</li>
+<li>Determines GROUP/SORT keys based on nested conditions (see Business Rules for details):</li>
+<li>If customer-owned (BOCOON='Y'): Group by product or size/container/product.</li>
+<li>Else if ARG PKG PLANT (BORACD='PP' and BOMLCD='PKGP'): Similar, product or size/container/product.</li>
+<li>Else (ARG all other): Product or container/product/container.</li>
+<li>No processing for other records (03).</li>
+</ul>
 </li>
 <li>
-<p>Runs <code>BB110</code> (prints confirmations/picks using prepared files).</p>
+<p>The program cycles through all <code>BBORTR</code> records automatically via LR (last record) indicator.</p>
 </li>
 <li>
-<p><strong>Spoolflex Processing</strong>:</p>
+<p><strong>Output to Extended File</strong>:</p>
+</li>
+<li>Output (O) specifications write to <code>BB1103</code> in detail add (DADD) mode:<ul>
+<li>For headers (01): Copies original 512 bytes (DTA1/DTA2), adds '1' (record type) at pos 513, blanks in sort fields (523-553), BOORPR at 554.</li>
+<li>For details (02): Copies 512 bytes, adds '2' at 513. Conditionally (based on 50 off/on):</li>
+<li>If unsorted (N50): '0' at 524, BORKEY (order key) at 533.</li>
+<li>If sorted (50): GROUP at 523, SORT1 at 533, SORT2 at 543, SORT3 at 553.</li>
+<li>Adds BOORPR at 554.</li>
+<li>For others (03): Copies 512 bytes, adds '3' at 513, blanks in sort fields, BOORPR at 554.</li>
+</ul>
 </li>
 <li>
-<p>If <code>?9?/G</code>, <code>?13?/PP</code>, and switch bit 6 is 1: Calls <code>BB111AC</code> (Spoolflex to copy picks to server; errors pop up on user workstation if PDF is open).</p>
+<p>Ensures output records are extended for sorting (e.g., headers first via '1', details '2', others '3').</p>
 </li>
 <li>
-<p><strong>Termination (TAG END)</strong>:</p>
+<p><strong>Program Termination</strong>:</p>
 </li>
-<li>If <code>?10?/</code> is true (possibly a cancel or end flag), blanks all local variables and resets switches to 00000000 (cleanup).</li>
+<li>Ends when <code>BBORTR</code> EOF reached (LR on implicitly).</li>
+<li>No explicit cleanup; files close automatically.</li>
 </ol>
-<p>The script is batch-oriented, assuming prior selection populated BBOCFH/BBOCFR. It emphasizes sorting for proper order (headers first, details last) and conditional printing based on environment/mode.</p>
+<p>The program is called from OCL (e.g., BB111) to prepare sorted data for picking ticket printing, extending records for custom sorts in subsequent steps.</p>
 <h3 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Data Preparation</strong>: Orders must be sorted by company, order#, sequence, with headers prioritized (via record type markers in pos 121-123/513). Deleted records ('D' in pos 1) are excluded. Custom sorts (SORT1 asc, SORT2 desc, SORT3 asc) apply to details, likely for bin/location grouping in pick lists.</li>
-<li><strong>File Existence Check</strong>: No processing if BBOCFH empty (business: Avoid unnecessary runs/printer waste).</li>
-<li><strong>Environment-Specific Handling</strong>: In production (<code>?9?/G</code>), uses specific output queues (e.g., PICKNWOUTQ, ORDCONOUTQ); test uses TESTOUTQ. Pick mode (<code>?13?/PP</code>) triggers pick/pack forms and Spoolflex.</li>
-<li><strong>Printer Configuration</strong>: Forms must align (ALIGN-YES), CPI set for readability (10 for picks/pack, 15 for confirmations). Drawer 1 default.</li>
-<li><strong>Spoolflex Rule</strong>: Only in live environment, for server PDF copying; user must close conflicting files (error popup).</li>
-<li><strong>Temporary Files</strong>: Created in QTEMP, deleted post-use (cleanup to avoid clutter).</li>
-<li><strong>Record Types</strong>: Forces headers &gt; marks &gt; details in output for coherent printing.</li>
-<li><strong>Assumptions</strong>: Relies on prior programs (e.g., BB112) to populate selection files. No direct updates; read-only shared access.</li>
+<li><strong>Record Typing and Prioritization</strong>: Forces output order: Headers ('1' marker) &gt; Details ('2') &gt; Others ('3'). This ensures coherent picking tickets (headers first, details grouped, attachments last).</li>
+<li><strong>Sorting Modes</strong>:</li>
+<li>If BOORPR blank: Unsorted (indicator 50 off; prints in entry sequence, uses '0' and BORKEY for minimal sort).</li>
+<li>If BOORPR non-blank (e.g., 'C' for confirmation, 'S' for something else): Sorted (50 on; applies custom GROUP/SORT1-3).</li>
+<li><strong>Detail Grouping/Sorting Logic</strong> (Nested by Order Type):</li>
+<li>Customer-Owned Only (BOCOON='Y', e.g., for viscosity EDI856):<ul>
+<li>By Category (BOGPBY='C'): GROUP/SORT1=Product, SORT2=Container, SORT3=Blank.</li>
+<li>By Size: GROUP=Size Desc, SORT1=Blank, SORT2=Container, SORT3=Product.</li>
+</ul>
+</li>
+<li>ARG PKG Plant (BORACD='PP' and BOMLCD='PKGP'):<ul>
+<li>By Category: GROUP/SORT1=Product, SORT2=Container, SORT3=Blank.</li>
+<li>By Size: GROUP=Size Desc, SORT1=Blank, SORT2=Container, SORT3=Product.</li>
+</ul>
+</li>
+<li>ARG All Other:<ul>
+<li>By Category: GROUP/SORT1=Product, SORT2=Blank, SORT3=Container.</li>
+<li>By Size: GROUP/SORT1=Container, SORT2=Blank, SORT3=Product.</li>
+</ul>
+</li>
+<li>SIZE derived from GSCNTR short desc if BDFLCD!='N' (non-new?); blank otherwise.</li>
+<li><strong>Data Integrity</strong>: Chains fail gracefully (88 on, sets blanks). No updates; read-only input, additive output.</li>
+<li><strong>Purpose Alignment</strong>: Prepares for picking tickets with efficient warehouse flow (e.g., group by category for similar items, size for bin optimization). Assumes input from prior selection (e.g., BB112/BB111).</li>
 </ul>
 <h3 id="tables-used">Tables Used<a class="headerlink" href="#tables-used" title="Permanent link">&para;</a></h3>
-<p>The script interacts with the following physical files (tables) via FILE NAME- specifications (all shared DISP-SHR unless noted). Many are inputs for lookup/printing; some are outputs or temporaries:</p>
 <ul>
-<li><code>?9?BBOCFH</code>: Checked for records (input).</li>
-<li><code>?9?BBOCFR</code>: Input for sorting, also as BBORTR/BBORTO/BBORTR3 (input/output).</li>
-<li><code>?9?BB111S</code>: Sorted output from first sort (input to preprocess).</li>
-<li><code>QTEMP/?9?BB1113</code>: Temporary created (output from BB1103, input to second sort).</li>
-<li><code>?9?BB1113S</code>: Sorted output from second sort (input to BB110).</li>
-<li><code>?9?GSCNTR</code>: Shared input (country data, multiple uses).</li>
-<li><code>?9?BBORCL</code>: Shared input (order control).</li>
-<li><code>?9?ARCUST</code>: Shared input (customers).</li>
-<li><code>?9?ARCUPR</code>: Shared input (customer pricing?).</li>
-<li><code>?9?SHIPTO</code>: Shared input (ship-to addresses).</li>
-<li><code>?9?GSCONT</code>: Shared input (contacts?).</li>
-<li><code>?9?GSTABL</code>: Shared input (tables/lookups).</li>
-<li><code>?9?GSUMCV</code>: Shared input (unit conversions?).</li>
-<li><code>?9?GSCTWT</code>: Shared input (carton weights?).</li>
-<li><code>?9?GSCTUM</code>: Shared input (carton UOM?).</li>
-<li><code>?9?BICONT</code>: Shared input (bill-to contacts?).</li>
-<li><code>?9?GSHAZM</code>: Shared input (hazmat data).</li>
-<li><code>?9?BBFRPR</code>: Shared input (freight pricing?).</li>
-<li><code>?9?BBSRNH</code>: Shared input (serial numbers?).</li>
-<li><code>?9?CUADR</code>: Shared input (customer addresses).</li>
-<li><code>?9?SHPADR</code>: Shared input (ship addresses).</li>
-<li><code>?9?EDICUS</code>: Shared input (EDI customers).</li>
-<li><code>?9?BBASND</code>: Shared input (ASN data?).</li>
-<li><code>?9?BBSHPH</code>: Shared input (ship headers?).</li>
-<li><code>?9?BBSHPD</code>: Shared input (ship details?).</li>
-<li><code>?9?BBORHS1</code>: Shared input (order headers, duplicate).</li>
-<li><code>?9?BBORDS1</code>: Shared input (order details, duplicate).</li>
-<li><code>?9?BBORA</code>: Shared input (order attachments?, duplicate).</li>
-<li><code>?9?BBFPORH</code>: Shared input (freight PO headers, duplicate).</li>
-<li><code>?9?BBFPORD</code>: Shared input (freight PO details).</li>
-<li><code>?9?BBFPORA</code>: Shared input (freight PO attachments).</li>
-<li><code>?9?BBORDB</code>: Shared input (order rebates? as BBORDRB).</li>
-<li><code>?9?BBORF</code>: Shared input (order freight?).</li>
-<li><code>?9?BBFPORF</code>: Shared input (freight PO freight).</li>
-<li><code>?9?ARCUFMX</code>: Shared input (customer format matrix?).</li>
-<li><code>?9?GSCNTR1</code>: Shared input (country alternate?).</li>
-<li><code>?9?GSPROD</code>: Shared input (products).</li>
-<li><code>?9?GSPRCT</code>: Shared input (product categories?).</li>
-<li><code>?9?GSMLCD</code>: Shared input (multi-location codes?).</li>
-<li><code>?9?BBCAID</code>: Shared input (carrier IDs).</li>
+<li><code>BBORTR</code>: Input primary (IP) file (sequential read, 512 bytes). Source of order records (headers, details, others).</li>
+<li><code>GSCNTR</code>: Input keyed (IF) file (512 bytes, key 3 bytes). Used for chaining to get container size descriptions (TCDSCS).</li>
+<li><code>BB1103</code>: Output (O) file (554 bytes, add mode). Extended output with sort keys.</li>
 </ul>
-<p>Printer files: LIST (picks), LIST2 (packaging), LIST3 (confirmations) – overridden but not traditional tables.</p>
+<p>No database updates; all are disk files.</p>
 <h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
-<p>The script calls or loads the following external programs/utilities/commands:</p>
-<ul>
-<li><code>GSY2K</code>: Called for date handling.</li>
-<li><code>STRPCOCLP</code>: Called to start PC-related process.</li>
-<li><code>#GSORT</code>: Loaded and run twice (system sort utility).</li>
-<li><code>GSDELETE</code>: Called to delete files (custom command?).</li>
-<li><code>BB1103</code>: Loaded and run for preprocess sorting.</li>
-<li><code>BB110</code>: Loaded and run for main printing.</li>
-<li><code>BB111AC</code>: Called conditionally for Spoolflex.</li>
-</ul>
-<p>System commands: CRTPF (create physical file), OVRPRTF (override printer file), IFF/IF (conditionals), PRINTER (printer setup, possibly custom).</p>
+<p>None. The program contains no CALL opcodes or external subroutine references (EXSR to external programs). It operates standalone.</p>
 
 
 

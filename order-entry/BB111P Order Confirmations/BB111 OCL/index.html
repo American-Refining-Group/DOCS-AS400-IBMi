@@ -12,13 +12,13 @@
         <meta name="author" content="American Refining Group">
       
       
-        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB111P%20OCL%20Order%20Confirmations/BB111AC%20CLP/">
+        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB111P%20Order%20Confirmations/BB111%20OCL/">
       
       
-        <link rel="prev" href="../BB111%20OCL/">
+        <link rel="prev" href="../BB110E%20RPG36/">
       
       
-        <link rel="next" href="../BB111P%20OCL/">
+        <link rel="next" href="../BB111AC%20CLP/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>BB111AC CLP - ARG AS400 IBMi Documentation</title>
+        <title>BB111 OCL - ARG AS400 IBMi Documentation</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#process-steps-of-the-clp-program-bb111ac" class="md-skip">
+        <a href="#process-steps-of-the-ocl-program-bb111" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              BB111AC CLP
+              BB111 OCL
             
           </span>
         </div>
@@ -8123,7 +8123,7 @@
   
   
   <span class="md-ellipsis">
-    BB111P OCL Order Confirmations
+    BB111P Order Confirmations
     
   </span>
   
@@ -8134,7 +8134,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_3">
             <span class="md-nav__icon md-icon"></span>
-            BB111P OCL Order Confirmations
+            BB111P Order Confirmations
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -8211,29 +8211,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../BB111%20OCL/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    BB111 OCL
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -8249,7 +8226,7 @@
   
   
   <span class="md-ellipsis">
-    BB111AC CLP
+    BB111 OCL
     
   </span>
   
@@ -8262,7 +8239,7 @@
   
   
   <span class="md-ellipsis">
-    BB111AC CLP
+    BB111 OCL
     
   </span>
   
@@ -8283,9 +8260,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-clp-program-bb111ac" class="md-nav__link">
+  <a href="#process-steps-of-the-ocl-program-bb111" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the CLP Program BB111AC
+      Process Steps of the OCL Program BB111
     </span>
   </a>
   
@@ -8322,6 +8299,29 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB111AC%20CLP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB111AC CLP
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -8969,9 +8969,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-clp-program-bb111ac" class="md-nav__link">
+  <a href="#process-steps-of-the-ocl-program-bb111" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the CLP Program BB111AC
+      Process Steps of the OCL Program BB111
     </span>
   </a>
   
@@ -9023,107 +9023,163 @@
   
 
 
-  <h1>BB111AC CLP</h1>
+  <h1>BB111 OCL</h1>
 
-<h3 id="process-steps-of-the-clp-program-bb111ac">Process Steps of the CLP Program BB111AC<a class="headerlink" href="#process-steps-of-the-clp-program-bb111ac" title="Permanent link">&para;</a></h3>
-<p>This Control Language Program (CLP) for IBM i/AS/400 automates the handling of spool files generated from order confirmation printing (e.g., from BB110 via LIST3 printer file). It uses Spoolflex (a third-party spool file management tool) commands to split, convert to PDF, copy, distribute (e.g., for emailing), and archive the files to a network folder (G:\CUSTSRV\ORDER CONFIRMATIONS). The program runs in a loop to handle errors gracefully, such as when a PDF is already open on the network share, prompting the user to close it and retry. It retrieves the current user and workstation for messaging. Below is a step-by-step breakdown of the execution flow:</p>
+<h3 id="process-steps-of-the-ocl-program-bb111">Process Steps of the OCL Program BB111<a class="headerlink" href="#process-steps-of-the-ocl-program-bb111" title="Permanent link">&para;</a></h3>
+<p>This OCL (Operation Control Language) script for IBM i/AS/400 handles the printing of order confirmations and related documents (e.g., pick lists, packaging lists) from pre-selected order data. It prepares data through sorting and preprocessing, sets up printer overrides, runs the main print program, and optionally processes spool files for server copying (via Spoolflex). The script uses conditional logic based on parameters like <code>?9?</code> (library prefix), <code>?13?</code> (mode, e.g., 'PP' for pick print), and switches. It assumes input files like BBOCFR (from prior selection) contain sorted order records. Below is a step-by-step breakdown:</p>
 <ol>
-<li><strong>Variable Declaration and Job Information Retrieval</strong>:</li>
-<li>Declares variables: <code>&amp;WRKSTN</code> (workstation/job name, char 10), <code>&amp;USER</code> (user ID, char 10), <code>&amp;PICK</code> (extracted PDF name for error handling, char 15), <code>&amp;MSGID</code> (message ID, char 7), <code>&amp;ERRMSG</code> (error message data, char 80).</li>
+<li><strong>Initial Setup and File Check</strong>:</li>
+<li>Sets local offsets: 470 to '?13?' (mode or parameter), 480 to '?9?' (library prefix).</li>
+<li>Checks if file <code>?9?BBOCFH</code> exists and has records (<code>?F'A,?9?BBOCFH'?/0</code>); if empty (0 records), jumps to "END" (skips processing, as no orders to print).</li>
+<li>Calls <code>GSY2K</code> (likely a year-2000 date compliance routine).</li>
 <li>
-<p>Retrieves the current job's user ID (<code>&amp;USER</code>) and job name (<code>&amp;WRKSTN</code>) using <code>RTVJOBA</code>.</p>
+<p>Calls <code>STRPCOCLP</code> (starts PC organizer or client access process, possibly for integration).</p>
 </li>
 <li>
-<p><strong>Main Processing Loop (Labeled AGAIN)</strong>:</p>
-</li>
-<li>Executes <code>SFASPLIT</code> to split spool files from output queue <code>ORDCONOUTQ</code> (order confirmation outq), selecting files named 'ORDER CONF LIST3', renaming output to 'order confirmation', and moving to <code>ORDCONSVOQ</code> (save queue). Combines selections (*NO).</li>
-<li>
-<p>Monitors for message <code>SF00136</code> (no files selected); if triggered, jumps to <code>EMPTY</code> label.</p>
+<p><strong>Conditional Local Data Setup</strong>:</p>
 </li>
 <li>
-<p><strong>Add Document for Emailing/Archiving</strong>:</p>
-</li>
-<li>Executes <code>FFAEDOC</code> to add the spool file as an electronic document named 'ARG ORDER CONFIRM', for printer 'ORDER CONFIRMATION', selecting from <code>QUSRSYS/ORDCONOUTQ</code> and naming output 'ORDER CONFIRMATION' (likely converts to PDF for emailing/saving).</li>
-<li>
-<p>Monitors <code>SF00136</code>; if triggered, jumps to <code>EMPTY</code>.</p>
+<p>If location <code>?L'103,3'?</code> is 'SEL', sets offset 1 to 'O COAC' (possibly a sort or output option for selected orders); otherwise, sets to 'O<em>CO</em>C' (default company/output code).</p>
 </li>
 <li>
-<p><strong>Copy Spool File for Naming/Email</strong>:</p>
+<p><strong>Initial Sorting of Order Records</strong>:</p>
 </li>
-<li>Executes <code>SFACOPY</code> to copy spool files from <code>QUSRSYS/ORDCONOUTQ</code> named 'ORDER CONF LIST3', renaming to 'ORD CONF NAMING EMAL', no combine.</li>
-<li>
-<p>Monitors <code>SF00136</code>; if triggered, jumps to <code>EMPTY</code>.</p>
-</li>
-<li>
-<p><strong>Distribute to Multiple Delivery Points</strong>:</p>
-</li>
-<li>Executes <code>SFARDST</code> three times for different recipients/distribution names: 'ORDCONF EL DELIVERY1', 'ORDCONF EL DELIVERY2', 'ORDCONF EL DELIVERY3', all from <code>ORDCONOUTQ</code>.</li>
-<li>
-<p>For each:</p>
-<ul>
-<li>Monitors <code>CPFA0D4</code> (object not found or bad condition); jumps to <code>BAD</code> label.</li>
-<li>Monitors <code>CPFA09E</code> (object in use, e.g., PDF open); jumps to <code>ERROR</code> label.</li>
-<li>Monitors <code>SF00136</code>; jumps to <code>EMPTY</code>.</li>
+<li>Loads sort utility <code>#GSORT</code>.</li>
+<li>Defines input file <code>?9?BBOCFR</code> (shared), output <code>?9?BB111S</code> (extendable, job-retained).</li>
+<li>Runs sort with specifications:<ul>
+<li>Header: SORTR 15A, 3X 512 N (ascending sort on 512-byte records).</li>
+<li>Input conditions: Exclude if position 1='D' (deleted?), include if positions 2-3='C10' (company-specific?).</li>
+<li>Fields: Company (2-3), Order (4-9), Seq# (10-12), with special handling for positions 121-123 (record types: header first, then marks, details last).</li>
+<li>Forces header records first by sorting on record type markers.</li>
 </ul>
 </li>
 <li>
-<p><strong>Jump to Successful Completion</strong>:</p>
+<p>Ends sort.</p>
 </li>
 <li>
-<p>Jumps to <code>GOOD</code> label if no errors.</p>
+<p><strong>Preprocess for Pick List Sorting (JB01 Section)</strong>:</p>
+</li>
+<li>Calls <code>GSDELETE</code> to delete <code>?9?BB1103</code> if exists.</li>
+<li>Creates temporary physical file <code>QTEMP/?9?BB1113</code> (record length 554).</li>
+<li>Loads program <code>BB1103</code> (preprocess for sorting detail records based on group-by in header).</li>
+<li>Files: Input <code>?9?BB111S</code> (from prior sort), output <code>?9?BB1113</code> (extendable), <code>?9?GSCNTR</code> (shared).</li>
+<li>Runs <code>BB1103</code>.</li>
+<li>Loads <code>#GSORT</code> again.</li>
+<li>Input <code>?9?BB1113</code>, output <code>?9?BB1113S</code> (extendable).</li>
+<li>Sort specs: SORTR 42A, 3X 553 N.<ul>
+<li>Conditions: Exclude pos 1='D', include pos 554='C'.</li>
+<li>Fields: Company (2-3), Order (4-9), Header first (513), SORT1 asc (524-533), SORT2 desc (534-543), SORT3 asc (544-553), Seq# (10-12).</li>
+</ul>
+</li>
+<li>Ends sort.</li>
+<li>
+<p>Deletes <code>?9?BB1113</code> (cleanup temporary).</p>
 </li>
 <li>
-<p><strong>Error Handling (ERROR Label)</strong>:</p>
+<p><strong>Main Print Program Load and File Setup</strong>:</p>
 </li>
-<li>Receives the last message data into <code>&amp;ERRMSG</code> and ID into <code>&amp;MSGID</code> using <code>RCVMSG</code>.</li>
-<li>If <code>&amp;MSGID</code> is not 'CPFA09E', loops back to <code>ERROR</code> (safety check, though unlikely).</li>
-<li>Extracts the PDF name (<code>&amp;PICK</code>) from positions 38-49 of <code>&amp;ERRMSG</code>.</li>
-<li>Sends a break message (<code>SNDBRKMSG</code>) to the user's workstation queue (<code>&amp;WRKSTN</code>) informing them the PDF is open, to close it, and press Enter to continue.</li>
+<li>Loads program <code>BB110</code> (core printing logic for confirmations/picks).</li>
 <li>
-<p>Jumps back to <code>AGAIN</code> to retry.</p>
+<p>Defines numerous input files (all shared DISP-SHR): <code>?9?BB1113S</code> (sorted input), <code>?9?BBOCFR</code> (input/output), <code>?9?BBORCL</code>, <code>?9?ARCUST</code>, <code>?9?ARCUPR</code>, <code>?9?SHIPTO</code>, <code>?9?GSCONT</code>, <code>?9?GSTABL</code>, <code>?9?GSUMCV</code>, <code>?9?GSCTWT</code>, <code>?9?GSCTUM</code>, <code>?9?BICONT</code>, <code>?9?GSHAZM</code>, <code>?9?BBFRPR</code>, <code>?9?BBSRNH</code>, <code>?9?CUADR</code>, <code>?9?SHPADR</code>, <code>?9?EDICUS</code>, <code>?9?BBASND</code>, <code>?9?BBSHPH</code>, <code>?9?BBSHPD</code>, <code>?9?BBORHS1</code>, <code>?9?BBORDS1</code>, <code>?9?BBORA</code>, <code>?9?BBORHS1</code> (duplicate), <code>?9?BBORDS1</code> (duplicate), <code>?9?BBFPORH</code>, <code>?9?BBFPORH</code> (duplicate), <code>?9?BBFPORD</code>, <code>?9?BBFPORA</code>, <code>?9?BBORDB</code>, <code>?9?BBORA</code> (duplicate), <code>?9?BBORF</code>, <code>?9?BBFPORF</code>, <code>?9?ARCUFMX</code>, <code>?9?GSCNTR</code>, <code>?9?GSCNTR1</code>, <code>?9?BBOCFR</code> (duplicate as BBORTR3), <code>?9?GSPROD</code>, <code>?9?GSPRCT</code>, <code>?9?GSMLCD</code>, <code>?9?BBCAID</code>.</p>
 </li>
 <li>
-<p><strong>Bad Condition Handling (BAD Label)</strong>:</p>
+<p><strong>Printer Overrides and Setup</strong>:</p>
 </li>
-<li>Sends a break message to <code>&amp;WRKSTN</code> indicating a PDF is open for a selected confirmation, to close it and press Enter to reset and retry.</li>
-<li>
-<p>Jumps back to <code>AGAIN</code>.</p>
-</li>
-<li>
-<p><strong>Empty/No Files Handling (EMPTY Label)</strong>:</p>
-</li>
-<li>
-<p>Sends a break message to <code>&amp;WRKSTN</code> indicating no order confirmations were selected, press Enter to return to the menu.</p>
-</li>
-<li>
-<p><strong>Successful Completion (GOOD Label)</strong>:</p>
-<ul>
-<li>Executes <code>SFAMOVE</code> to move spool files named 'ORDER CONF list3' from <code>QUSRSYS/ORDCONOUTQ</code> to <code>QUSRSYS/ORDCONSVOQ</code> (archive/save queue).</li>
-<li>Monitors <code>SF00136</code> (ignores if no files to move).</li>
+<li>Conditional on <code>?9?/G</code> (likely production library) and <code>?13?/PP</code> (pick print mode):<ul>
+<li>Overrides printer file <code>LIST</code> (form type PICK, CPI 10, output queue varies, drawer 1, align yes).</li>
+<li>Similar for <code>LIST2</code> (added 10/24/2013 for packaging, form PKGP).</li>
+<li>For <code>LIST3</code> (added for order confirmations, form ORCF, CPI 15, output queues like ORDCONOUTQ or TESTOUTQ).</li>
 </ul>
 </li>
 <li>
-<p><strong>Program Termination</strong>:</p>
-<ul>
-<li>Ends the program (<code>ENDPGM</code>).</li>
-</ul>
+<p>These ensure correct form alignment, compression, and routing for different document types (picks, packaging, confirmations).</p>
 </li>
+<li>
+<p><strong>Run Main Print Program</strong>:</p>
+</li>
+<li>
+<p>Runs <code>BB110</code> (prints confirmations/picks using prepared files).</p>
+</li>
+<li>
+<p><strong>Spoolflex Processing</strong>:</p>
+</li>
+<li>
+<p>If <code>?9?/G</code>, <code>?13?/PP</code>, and switch bit 6 is 1: Calls <code>BB111AC</code> (Spoolflex to copy picks to server; errors pop up on user workstation if PDF is open).</p>
+</li>
+<li>
+<p><strong>Termination (TAG END)</strong>:</p>
+</li>
+<li>If <code>?10?/</code> is true (possibly a cancel or end flag), blanks all local variables and resets switches to 00000000 (cleanup).</li>
 </ol>
-<p>The program is interactive via break messages, assuming a user at the workstation to respond (e.g., close PDFs). It retries indefinitely on file-open errors until resolved or no files.</p>
+<p>The script is batch-oriented, assuming prior selection populated BBOCFH/BBOCFR. It emphasizes sorting for proper order (headers first, details last) and conditional printing based on environment/mode.</p>
 <h3 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Spool File Selection and Processing</strong>: Only processes spool files named 'ORDER CONF LIST3' from <code>ORDCONOUTQ</code>. If none exist, informs user and exits (no unnecessary processing).</li>
-<li><strong>Error Retry Mechanism</strong>: If a PDF is open on the network share (G:\CUSTSRV\ORDER CONFIRMATIONS), prompts the user to close it and automatically retries the entire process. This ensures data integrity and avoids overwrites on locked files.</li>
-<li><strong>Distribution</strong>: Distributes copies to three predefined delivery points ('ORDCONF EL DELIVERY1/2/3'), likely for emailing to different recipients or systems (e.g., customer service, archives). Fails gracefully if any distribution point is invalid.</li>
-<li><strong>Archiving</strong>: Moves processed files to <code>ORDCONSVOQ</code> for saving/archiving after successful distribution.</li>
-<li><strong>User Interaction</strong>: Uses break messages to the calling workstation for real-time feedback (e.g., close PDF, no files). Assumes an interactive session from OCL.</li>
-<li><strong>Environment</strong>: Relies on Spoolflex for PDF conversion/emailing/saving to Windows share (G: drive). Ignores non-critical errors like no files to move.</li>
-<li><strong>Assumptions</strong>: Spool files are generated prior (e.g., by BB110). No direct data validation; focuses on spool management.</li>
+<li><strong>Data Preparation</strong>: Orders must be sorted by company, order#, sequence, with headers prioritized (via record type markers in pos 121-123/513). Deleted records ('D' in pos 1) are excluded. Custom sorts (SORT1 asc, SORT2 desc, SORT3 asc) apply to details, likely for bin/location grouping in pick lists.</li>
+<li><strong>File Existence Check</strong>: No processing if BBOCFH empty (business: Avoid unnecessary runs/printer waste).</li>
+<li><strong>Environment-Specific Handling</strong>: In production (<code>?9?/G</code>), uses specific output queues (e.g., PICKNWOUTQ, ORDCONOUTQ); test uses TESTOUTQ. Pick mode (<code>?13?/PP</code>) triggers pick/pack forms and Spoolflex.</li>
+<li><strong>Printer Configuration</strong>: Forms must align (ALIGN-YES), CPI set for readability (10 for picks/pack, 15 for confirmations). Drawer 1 default.</li>
+<li><strong>Spoolflex Rule</strong>: Only in live environment, for server PDF copying; user must close conflicting files (error popup).</li>
+<li><strong>Temporary Files</strong>: Created in QTEMP, deleted post-use (cleanup to avoid clutter).</li>
+<li><strong>Record Types</strong>: Forces headers &gt; marks &gt; details in output for coherent printing.</li>
+<li><strong>Assumptions</strong>: Relies on prior programs (e.g., BB112) to populate selection files. No direct updates; read-only shared access.</li>
 </ul>
 <h3 id="tables-used">Tables Used<a class="headerlink" href="#tables-used" title="Permanent link">&para;</a></h3>
-<p>None. This is a spool file manipulation program using output queues (e.g., ORDCONOUTQ, ORDCONSVOQ), but no database files (physical or logical) are declared, opened, or accessed.</p>
+<p>The script interacts with the following physical files (tables) via FILE NAME- specifications (all shared DISP-SHR unless noted). Many are inputs for lookup/printing; some are outputs or temporaries:</p>
+<ul>
+<li><code>?9?BBOCFH</code>: Checked for records (input).</li>
+<li><code>?9?BBOCFR</code>: Input for sorting, also as BBORTR/BBORTO/BBORTR3 (input/output).</li>
+<li><code>?9?BB111S</code>: Sorted output from first sort (input to preprocess).</li>
+<li><code>QTEMP/?9?BB1113</code>: Temporary created (output from BB1103, input to second sort).</li>
+<li><code>?9?BB1113S</code>: Sorted output from second sort (input to BB110).</li>
+<li><code>?9?GSCNTR</code>: Shared input (country data, multiple uses).</li>
+<li><code>?9?BBORCL</code>: Shared input (order control).</li>
+<li><code>?9?ARCUST</code>: Shared input (customers).</li>
+<li><code>?9?ARCUPR</code>: Shared input (customer pricing?).</li>
+<li><code>?9?SHIPTO</code>: Shared input (ship-to addresses).</li>
+<li><code>?9?GSCONT</code>: Shared input (contacts?).</li>
+<li><code>?9?GSTABL</code>: Shared input (tables/lookups).</li>
+<li><code>?9?GSUMCV</code>: Shared input (unit conversions?).</li>
+<li><code>?9?GSCTWT</code>: Shared input (carton weights?).</li>
+<li><code>?9?GSCTUM</code>: Shared input (carton UOM?).</li>
+<li><code>?9?BICONT</code>: Shared input (bill-to contacts?).</li>
+<li><code>?9?GSHAZM</code>: Shared input (hazmat data).</li>
+<li><code>?9?BBFRPR</code>: Shared input (freight pricing?).</li>
+<li><code>?9?BBSRNH</code>: Shared input (serial numbers?).</li>
+<li><code>?9?CUADR</code>: Shared input (customer addresses).</li>
+<li><code>?9?SHPADR</code>: Shared input (ship addresses).</li>
+<li><code>?9?EDICUS</code>: Shared input (EDI customers).</li>
+<li><code>?9?BBASND</code>: Shared input (ASN data?).</li>
+<li><code>?9?BBSHPH</code>: Shared input (ship headers?).</li>
+<li><code>?9?BBSHPD</code>: Shared input (ship details?).</li>
+<li><code>?9?BBORHS1</code>: Shared input (order headers, duplicate).</li>
+<li><code>?9?BBORDS1</code>: Shared input (order details, duplicate).</li>
+<li><code>?9?BBORA</code>: Shared input (order attachments?, duplicate).</li>
+<li><code>?9?BBFPORH</code>: Shared input (freight PO headers, duplicate).</li>
+<li><code>?9?BBFPORD</code>: Shared input (freight PO details).</li>
+<li><code>?9?BBFPORA</code>: Shared input (freight PO attachments).</li>
+<li><code>?9?BBORDB</code>: Shared input (order rebates? as BBORDRB).</li>
+<li><code>?9?BBORF</code>: Shared input (order freight?).</li>
+<li><code>?9?BBFPORF</code>: Shared input (freight PO freight).</li>
+<li><code>?9?ARCUFMX</code>: Shared input (customer format matrix?).</li>
+<li><code>?9?GSCNTR1</code>: Shared input (country alternate?).</li>
+<li><code>?9?GSPROD</code>: Shared input (products).</li>
+<li><code>?9?GSPRCT</code>: Shared input (product categories?).</li>
+<li><code>?9?GSMLCD</code>: Shared input (multi-location codes?).</li>
+<li><code>?9?BBCAID</code>: Shared input (carrier IDs).</li>
+</ul>
+<p>Printer files: LIST (picks), LIST2 (packaging), LIST3 (confirmations) – overridden but not traditional tables.</p>
 <h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
-<p>None. The program uses system commands (e.g., <code>RTVJOBA</code>, <code>RCVMSG</code>, <code>SNDBRKMSG</code>, <code>MONMSG</code>) and Spoolflex-specific commands (e.g., <code>SFASPLIT</code>, <code>FFAEDOC</code>, <code>SFACOPY</code>, <code>SFARDST</code>, <code>SFAMOVE</code>), but no explicit <code>CALL</code> to other programs. Spoolflex commands are likely custom or product-specific but not treated as external program calls in CLP context.</p>
+<p>The script calls or loads the following external programs/utilities/commands:</p>
+<ul>
+<li><code>GSY2K</code>: Called for date handling.</li>
+<li><code>STRPCOCLP</code>: Called to start PC-related process.</li>
+<li><code>#GSORT</code>: Loaded and run twice (system sort utility).</li>
+<li><code>GSDELETE</code>: Called to delete files (custom command?).</li>
+<li><code>BB1103</code>: Loaded and run for preprocess sorting.</li>
+<li><code>BB110</code>: Loaded and run for main printing.</li>
+<li><code>BB111AC</code>: Called conditionally for Spoolflex.</li>
+</ul>
+<p>System commands: CRTPF (create physical file), OVRPRTF (override printer file), IFF/IF (conditionals), PRINTER (printer setup, possibly custom).</p>
 
 
 
