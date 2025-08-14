@@ -1,4 +1,4 @@
-### Process  Steps
+### Process Steps
 
 This RPG program (BB935) is designed for maintaining or inquiring about product code references in a billing system. It operates in two modes: Maintenance (MNT) for adding/updating records, or Inquiry (INQ) for viewing only. The program receives parameters (company code, cross-reference set, product cross-reference, mode, file group, and a return flag) and interacts with a display screen (FMT01 format) to allow user input/validation. It uses a workstation display file (bb935d) for user interaction.
 

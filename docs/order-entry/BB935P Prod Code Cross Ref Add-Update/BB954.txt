@@ -1,4 +1,4 @@
-### Process  Steps
+### Process Steps
 
 This RPGLE program (BB9354) is designed to handle the deletion or reactivation of a product cross-reference record in the Bradford Billing system. It is interactive, using a display file to present a confirmation window to the user. The program receives parameters from a calling program (likely a CL program, as OCL refers to older System/36 Operating Control Language, but this appears to be IBM i/AS/400 RPG). It performs basic validation, data retrieval, user interaction, and updates to the database. Below is a step-by-step breakdown of the process:
 
