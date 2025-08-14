@@ -1,111 +1,233 @@
-The RPG36 program `AP765N` is designed to generate Vendor 1099 forms, specifically tailored for printing three forms per page on laser paper, an evolution from the two-form-per-page design in `AP765`. It processes vendor data from an input file, validates amounts, formats addresses, and prints 1099 forms with fields like payee names, vendor IDs, and amounts. The program includes revisions for handling payee names, name overflow, vendor numbers as account numbers, and laser paper printing. Below is a detailed explanation of the process steps, business rules, tables used, and external programs called.
+### Explanation of the Process Steps and Business Rules in the RPG Program (AP765N.rpg36.txt)
+
+The RPG III program `AP765N.rpg36.txt` is designed to print vendor 1099-NEC (Non-Employee Compensation) forms on an IBM System/36 or AS/400 system. It is called by the OCL program `AP765N.ocl36.txt` when `?L'110,1'?` is set to `N` in the main OCL (`AP765P.ocl36.txt`), indicating a focus on 1099-NEC forms. This program is similar to `AP765.rpg36.txt` (used for 1099-MISC forms) but has modifications to handle three forms per page instead of two, reflecting differences in form layout or printing requirements for 1099-NEC. Below is a detailed explanation of the process steps, business rules, tables/files used, and external programs called.
+
+---
 
 ### Process Steps
 
-1. **File and Data Structure Definitions**:
-   - **File Definitions (F-Spec)**:
-     - `AP766` (Line 0008): Input file (`IP`), disk-based, with a record length of 300 bytes, containing vendor data.
-     - `AP1099` (Line 0009): Output file (`O`), printer file with a record length of 80 bytes, used for printing 1099 forms.
-     - `LAP1099` (Line 0011): Logical file for the printer, specifying 66 lines per page with overflow at line 66.
-   - **Input Specifications (I-Spec)**:
-     - **AP766 Record Format (NS 01)** (Lines 0012–0025):
-       - Fields include `VNDEL` (delete code), `VN1099` (1099 code), `VNVEND` (vendor number), `VNNAME` (vendor name), `VNADD1–VNADD4` (address lines), `L1AMT1` and `L1AMT2` (amounts for two boxes), `BOX1` and `BOX2` (box numbers), `VNID#` (1099 ID), `VNPYN1` and `VNPYN2` (payee names 1 and 2, added in JB01), `VNNOVF` (name overflow flag, added in JB02), `STATID`, and `STATED` (state-related fields).
-     - **Data Structure (UDS)** (Lines 0026–0032):
-       - Fields include `HEAD1`, `HEAD2`, `HEAD3` (headings), `ID#` (company ID), `ENTAMT` (entered amount), `CURLST` (current/last indicator), `CNYEAR`, and `YEAR` (year fields).
-   - **Output Specifications (O-Spec)** (Lines 0107–0141):
-     - Defines output formats for printing three 1099 forms per page, controlled by indicators 31 (top form), 32 (middle form), and 40 (bottom form).
-     - Outputs fields like headings, amounts, vendor/payee names, addresses, and totals, with specific positioning on the form.
+1. **Program Setup and File Definitions**:
+   - **Header Specification (H)**:
+     - Line `0002`: Defines the program name (`AP765N`) and parameter `P016`, likely a control parameter passed from the OCL.
+   - **File Specifications (F)**:
+     - Line `0008`: `AP766` (Input, Primary, 300 bytes): The preprocessed work file (e.g., `?9?AP766` from the OCL), containing consolidated vendor data from `AP766.rpg36.txt`.
+     - Line `0009`: `AP1099` (Output, 80 bytes, Printer): The printer file used to output 1099-NEC forms, configured in the OCL with form type `1099`, 10 CPI, and 6 LPI.
+   - **Line Counter Specification (L)**:
+     - Line `0011`: Defines line counter settings for `AP1099` with 66 lines per form (`FL 66`) and 66 lines of overflow (`OL 66`), ensuring proper pagination.
+   - **Input Specifications (I)**:
+     - Lines `0012-0025`: Define fields in the `AP766` file (format `NS 01`):
+       - `VNDEL` (1 char, position 1): Delete code.
+       - `VN1099` (1 char, position 2): A/P 1099 code (e.g., `N` for Non-Employee Compensation).
+       - `VNVEND` (5 chars, positions 3-7): Vendor number.
+       - `VNNAME` (30 chars, positions 8-37): Vendor name.
+       - `VNADD1-4` (30 chars each, positions 38-157): Address lines 1-4.
+       - `L1AMT1` (9,2 numeric, positions 158-166): First box amount.
+       - `L1AMT2` (9,2 numeric, positions 167-175): Second box amount.
+       - `BOX1` (2 numeric, positions 176-177): First box number.
+       - `BOX2` (2 numeric, positions 178-179): Second box number.
+       - `VNID#` (11 chars, positions 180-190): 1099 ID number (e.g., Tax ID).
+       - `VNPYN1` (40 chars, positions 191-230, added by `JB01`): Payee name 1.
+       - `VNPYN2` (40 chars, positions 231-270, added by `JB01`): Payee name 2.
+       - `VNNOVF` (1 char, position 271, added by `JB02`): Name overflow indicator.
+       - `STATID` (8 chars, positions 272-279): State ID.
+       - `STATED` (9,2 numeric, positions 280-288): State amount.
+     - Lines `0026-0032`: Define fields in the User Data Structure (`UDS`):
+       - `HEAD1` (30 chars, positions 1-30): First heading (e.g., company name).
+       - `HEAD2` (30 chars, positions 31-60): Second heading (e.g., address line 1).
+       - `HEAD3` (30 chars, positions 61-90): Third heading (e.g., address line 2).
+       - `ID#` (10 chars, positions 91-100): Company Tax ID.
+       - `ENTAMT` (8,2 numeric, positions 101-108): Threshold amount for printing.
+       - `CURLST` (1 char, position 109): Current/Last indicator (`C` or `L`).
+       - `CNYEAR` (4 numeric, positions 201-204): Current year.
+       - `YEAR` (4 numeric, positions 203-204): Year (overlaps with `CNYEAR`, possibly a typo or legacy field).
 
-2. **Calculation Specifications (C-Spec)**:
-   - **Initial Setup and Vendor Checks**:
-     - Line 0033: Turn off indicator 33 (Miscellaneous Income flag, commented out for 'M' check).
-     - If `VN1099` is 'N' (Nonemployee Compensation), set indicator 34.
-     - If `VNVEND` equals 32800, set `YES` to 'YES'.
-   - **Amount Validation**:
-     - Line 0034: Add `L1AMT1` and `L1AMT2` to `TOTAMT`.
-     - Line 0035: Compare `TOTAMT` with `ENTAMT`. If they don’t match, set indicator 30 and branch to `END` (Line 0036).
-   - **Form Counter Logic**:
-     - Lines 0037: `COUNTP` tracks whether to print the top (31), middle (32), or bottom (40) form:
-       - If `COUNTP` is 2, increment to 3, set indicator 40, turn off 32, and branch to `SKIP`.
-       - If `COUNTP` is zero, set to 1, turn on 31, turn off 32 and 40.
-       - Otherwise, increment `COUNTP`, turn off 31 and 40, and turn on 32.
-   - **Clear Work Fields**:
-     - Lines JB01: For each form (31, 32, 40), clear fields like `PYN11`, `PYN12`, `PYN13`, `PYN21`, `PYN22`, `PYN23`, `VNID#1`, `VNID#2`, `VNID#3`, `STATE1`, `STATE2`, `STATE3`, `STATI1`, `STATI2`, `STATI3`, `VNVEN1`, `VNVEN2`, `VNVEN3`, and amount fields (`AMT11`, `AMT31`, `AMT61`, `AMT71`, etc.).
-   - **Payee and Address Processing for Form 1 (Indicator 31)**:
-     - Lines 0038–0069: If `VNPYN1` is blank, use `VNNAME` for `PYN11`. If `VNNOVF` is 'Y', set indicators 35 and 71 for name overflow.
-     - Address lines (`VNADD1–VNADD4`) are checked in descending order. The highest non-blank address line is moved to `CTSTZ1`, with lower lines shifted to `VNAD11`, `VNAD21`, or `PYN21` as needed.
-     - If `VNPYN1` is not blank, use `VNPYN1` and `VNPYN2` for `PYN11` and `PYN21`, respectively, and set indicator 71.
-   - **Payee and Address Processing for Form 2 (Indicator 32)**:
-     - Similar logic, using fields like `PYN12`, `PYN22`, `CTSTZ2`, `VNAD12`, `VNAD22`, with indicators 36 and 72.
-   - **Payee and Address Processing for Form 3 (Indicator 40)**:
-     - Similar logic, using fields like `PYN13`, `PYN23`, `CTSTZ3`, `VNAD13`, `VNAD23`, with indicators 37 and 73.
-   - **Additional Address Processing**:
-     - Lines 0045–0069 (for 31, 32, 40): Additional checks for non-overflow cases (`N35`, `N36`, `N37`) to format addresses into `CTSTZ1`, `VNAD11`, `VNAD21`, etc.
-   - **Amount Assignment**:
-     - Lines 0071–0094: Assign `L1AMT1` and `L1AMT2` to specific amount fields (`AMT11`, `AMT31`, `AMT61`, `AMT71` for Form 1; `AMT12`, `AMT32`, `AMT62`, `AMT72` for Form 2; `AMT13`, `AMT33`, `AMT63`, `AMT73` for Form 3) based on `BOX1` and `BOX2` values (1, 3, 6, or 7).
-   - **Accumulate Totals**:
-     - Lines 0095–0098: For each form, increment `COUNT` and add amounts to running totals (`LRAMT1`, `LRAMT3`, `LRAMT6`, `LRAMT7`).
-   - **Print Logic**:
-     - Line 0100: If `COUNTP` equals 3, reset `COUNTP`, set indicators 31, 32, and 40, and execute the `EXCPT` operation to print all three forms.
-   - **End-of-File Handling**:
-     - If the end of file is reached (`LR` on) and indicator 31 is on, clear fields, set indicator 30, and print the last form with `EXCPT`.
-   - **Output Execution**:
-     - The `EXCPT` operation triggers printing of the forms based on indicators 31, 32, and 40, outputting fields to the printer file.
+2. **Initial Vendor Processing**:
+   - **Indicator Reset**:
+     - Line `C*`: Set indicator `33` off (disabling 1099-MISC logic, as this program is for 1099-NEC).
+   - **1099 Type Check**:
+     - Lines `C*`: If `VN1099` is `N`, set indicator `34` on (for 1099-NEC).
+     - The commented-out logic for `VN1099 = 'M'` (1099-MISC) indicates this program is exclusively for 1099-NEC.
+   - **Vendor Number Check**:
+     - Lines `C*`: If `VNVEND` equals `32800`, set `YES` to `'YES'` (3 chars). This likely flags a specific vendor for special handling, though its purpose is unclear (different from `9384` in `AP765`).
 
-3. **Output Processing**:
-   - **Form 1 (Indicator 31)**:
-     - Outputs headings (`HEAD1`, `HEAD2`, `HEAD3`), year (`CNYEAR`), amounts (`AMT11`, `AMT31`), IDs (`ID#`, `VNID#1`), payee names (`PYN11`, `PYN21`), addresses (`VNAD11`, `VNAD21`, `CTSTZ1`), and vendor number (`VNVEN1`).
-   - **Form 2 (Indicator 32)**:
-     - Similar to Form 1 but uses fields like `AMT12`, `AMT32`, `PYN12`, `PYN22`, `VNAD12`, `VNAD22`, `CTSTZ2`, `VNVEN2`.
-   - **Form 3 (Indicator 40)**:
-     - Similar to Form 1 but uses fields like `AMT13`, `AMT33`, `PYN13`, `PYN23`, `VNAD13`, `VNAD23`, `CTSTZ3`, `VNVEN3`.
-   - **Totals (LR Indicator)**:
-     - Prints totals (`LRAMT1`, `LRAMT6`, `LRAMT7`, `COUNT`) and headings at the end of the job.
+3. **Amount Validation**:
+   - Line `0034`: Add `L1AMT1` and `L1AMT2` to compute `TOTAMT` (9,2 numeric), the total vendor payment.
+   - Line `0035`: Compare `TOTAMT` with `ENTAMT` (threshold amount from `UDS`). Set indicator `30` if `TOTAMT` is greater than or equal to `ENTAMT`.
+   - Line `0036`: If indicator `30` is off (`N30`), skip to the `END` tag, bypassing the vendor (i.e., only vendors meeting the threshold are printed).
+
+4. **Form Counter Logic**:
+   - Lines `C*`: Manage the `COUNTP` (2 numeric) field to track whether the first (`31`), second (`32`), or third (`40`) form on the page is being processed:
+     - If `COUNTP` is `2`, increment to `3`, set indicator `40` on (third form), set `32` off, and jump to `SKIP`.
+     - If `COUNTP` is zero, set it to `1`, set `31` on (first form), set `32` and `40` off.
+     - Otherwise, increment `COUNTP`, set `31` and `40` off, set `32` on (second form).
+     - This supports printing **three forms per page**, a key difference from `AP765` (which prints two forms per page, revision `MG03`).
+
+5. **Clear Work Fields**:
+   - Lines `JB01`: For each form (indicators `31`, `32`, `40`):
+     - Clear fields for payee names (`PYN11`, `PYN12`, `PYN13`, `PYN21`, `PYN22`, `PYN23`), tax IDs (`VNID#1`, `VNID#2`, `VNID#3`), state amounts (`STATE1`, `STATE2`, `STATE3`), state IDs (`STATI1`, `STATI2`, `STATI3`), vendor numbers (`VNVEN1`, `VNVEN2`, `VNVEN3`), addresses (`ADDR11`, `ADDR12`, `ADDR13`, `ADDR21`, `ADDR22`, `ADDR23`, `CTSTZ1`, `CTSTZ2`, `CTSTZ3`), and amounts (`AMT11`, `AMT12`, `AMT13`, `AMT31`, `AMT32`, `AMT33`, `AMT61`, `AMT62`, `AMT63`, `AMT71`, `AMT72`, `AMT73`).
+     - Reset indicators `71`, `72`, `73`, `35`, `36`, `37` to control name and address printing.
+
+6. **Payee and Address Processing (First Form, Indicator `31`)**:
+   - Lines `JB01`: Determine whether to use vendor name or payee names:
+     - If `VNPYN1` is blank, use `VNNAME` for `PYN11` (vendor name).
+     - If `VNNOVF` is `Y` (name overflow, revision `JB02`), set indicators `35` and `71` on.
+     - If `VNPYN1` is not blank, use `VNPYN1` for `PYN11` and set `71` on. If `VNPYN2` is not blank, use `VNPYN2` for `PYN21` and set `71` on.
+   - Lines `0045-0069`: Assign address fields based on non-blank values:
+     - If `VNADD4` is not blank, set `CTSTZ1` (city/state/ZIP) to `VNADD4`, `VNAD21` to `VNADD3`, `VNAD11` to `VNADD2`, and `PYN21` to `VNADD1`.
+     - Else if `VNADD3` is not blank, set `CTSTZ1` to `VNADD3`, `VNAD21` to `VNADD2`, `PYN21` to `VNADD1`.
+     - Else if `VNADD2` is not blank, set `CTSTZ1` to `VNADD2`, `PYN21` to `VNADD1`.
+     - Else if `VNADD1` is not blank, set `CTSTZ1` to `VNADD1`.
+     - If none are non-blank, set indicator `73` on (likely to skip address printing).
+     - Jump to `CONT1` tag after address assignment.
+   - Lines `0045-0069` (non-overflow case, `N35`): Similar address assignment without overflow logic.
+
+7. **Payee and Address Processing (Second Form, Indicator `32`)**:
+   - Identical logic to the first form, but for fields `PYN12`, `PYN22`, `VNAD12`, `CTSTZ2`, with indicators `36` and `72`, jumping to `CONT2` tag.
+
+8. **Payee and Address Processing (Third Form, Indicator `40`)**:
+   - Identical logic to the first form, but for fields `PYN13`, `PYN23`, `VNAD13`, `CTSTZ3`, with indicators `37` and `73`, jumping to `CONT3` tag.
+
+9. **Address Processing (Non-Overflow, `CONT3`, `CONT4`, `CONT5`)**:
+   - Lines `0045-0069`: For each form (`31N35`, `32N36`, `40N37`), assign address fields similarly to ensure proper formatting when no name overflow occurs, jumping to `CONT3`, `CONT4`, or `CONT5` tags.
+
+10. **Amount Assignment for Printing**:
+    - Lines `0071-0094`: Assign amounts to specific 1099 box fields based on `BOX1` and `BOX2` for each form (`31`, `32`, `40`):
+      - For `BOX1`:
+        - If `1`, set `AMT11`/`AMT12`/`AMT13` to `L1AMT1` (box 1 for 1099-NEC).
+        - If `3`, set `AMT31`/`AMT32`/`AMT33` to `L1AMT1` (box 3, possibly for other forms).
+        - If `6`, set `AMT61`/`AMT62`/`AMT63` to `L1AMT1` (box 6, possibly for other forms).
+        - If `7`, set `AMT71`/`AMT72`/`AMT73` to `L1AMT1` (box 7, standard for 1099-NEC Non-Employee Compensation).
+      - For `BOX2`:
+        - If `1`, set `AMT11`/`AMT12`/`AMT13` to `L1AMT2`.
+        - If `3`, set `AMT31`/`AMT32`/`AMT33` to `L1AMT2`.
+        - If `6`, set `AMT61`/`AMT62`/`AMT63` to `L1AMT2`.
+        - If `7`, set `AMT71`/`AMT72`/`AMT73` to `L1AMT2`.
+
+11. **Accumulate Totals**:
+    - Lines `0095-0098`: For each form (`31`, `32`, `40`):
+      - Increment `COUNT` (6 numeric, total vendors printed).
+      - Add `AMT11`/`AMT12`/`AMT13` to `LRAMT1` (10,2 numeric, total for box 1).
+      - Add `AMT31`/`AMT32`/`AMT33` to `LRAMT3` (total for box 3).
+      - Add `AMT61`/`AMT62`/`AMT63` to `LRAMT6` (total for box 6).
+      - Add `AMT71`/`AMT72`/`AMT73` to `LRAMT7` (total for box 7).
+
+12. **Page Break Logic**:
+    - Lines `C*`: If `COUNTP` equals `3` (all three forms on the page filled):
+      - Reset `COUNTP` to zero, set indicators `31`, `32`, `40` on, and execute an `EXCPT` to print the page.
+    - At end of file (`LR` on):
+      - If data remains for the first form (`31` on), set indicator `30` on, clear `TEST` (11 chars), and execute `EXCPT` to print a final page with one vendor.
+      - Unlike `AP765`, this program does not compute a grand total (`LRAMT`) across all boxes, focusing only on individual box totals.
+
+13. **Output to Printer**:
+    - Lines `0107-0140`: Define the output format for `AP1099`:
+      - **First Form (Indicator `31`)**:
+        - Lines 5-23: Print company headers (`HEAD1-3`), year (`CNYEAR`), tax IDs (`ID#`, `VNID#1`), payee names (`PYN11`, `PYN21`), addresses (`VNAD11`, `VNAD21`, `CTSTZ1`), amounts (`AMT11`, `AMT31`, `AMT61`, `AMT71`), and vendor number (`VNVEN1`, revision `JB02`).
+        - Conditional on `34` (1099-NEC) for primary amount (`AMT11`) and `N34` for other boxes (`AMT31`).
+      - **Second Form (Indicator `32`)**:
+        - Similar fields for the second form, using `PYN12`, `PYN22`, `VNAD12`, `CTSTZ2`, `AMT12`, `AMT32`, `AMT62`, `AMT72`, `VNID#2`, `VNVEN2`.
+      - **Third Form (Indicator `40`)**:
+        - Similar fields for the third form, using `PYN13`, `PYN23`, `VNAD13`, `CTSTZ3`, `AMT13`, `AMT33`, `AMT63`, `AMT73`, `VNID#3`, `VNVEN3`.
+      - **Totals (LR)**:
+        - Print `HEAD1-3`, `ID#`, totals (`LRAMT1`, `LRAMT6`, `LRAMT7`), and vendor count (`COUNT`). Notably, `LRAMT3` is printed but not accumulated for `40`, indicating a possible oversight or specific requirement.
+
+---
 
 ### Business Rules
 
-1. **Amount Validation**:
-   - The sum of `L1AMT1` and `L1AMT2` must equal `ENTAMT`. If not, the program skips to the `END` tag, bypassing further processing for that record.
-2. **Form Layout**:
-   - Three forms are printed per page (top, middle, bottom), controlled by indicators 31, 32, and 40, respectively. `COUNTP` cycles through 1 (top), 2 (middle), and 3 (bottom).
-   - If fewer than three forms remain at the end, the last form is printed with indicator 30.
-3. **Payee Name Handling** (JB01, 2013):
-   - If `VNPYN1` is blank, use `VNNAME`. If `VNPYN1` and `VNPYN2` are provided, use them for printing payee names.
-4. **Name Overflow** (JB02, 2014):
-   - If `VNNOVF` is 'Y', set indicators 35/71 (Form 1), 36/72 (Form 2), or 37/73 (Form 3) to handle name continuation on the second line.
-5. **Address Formatting**:
-   - Address lines are processed from `VNADD4` to `VNADD1`, using the highest non-blank line for `CTSTZ1`/`CTSTZ2`/`CTSTZ3`, with lower lines shifted to `VNAD11`/`VNAD21`, etc.
-6. **Amount Mapping**:
-   - Amounts (`L1AMT1`, `L1AMT2`) are assigned to specific boxes (1, 3, 6, or 7) based on `BOX1` and `BOX2` values, corresponding to IRS 1099 form fields.
-7. **Vendor Number as Account** (JB02, 2014):
-   - Vendor number (`VNVEND`) is printed as the account number (`VNVEN1`, `VNVEN2`, `VNVEN3`).
-8. **Laser Paper Printing** (MG03, 2016):
-   - Designed to print on laser paper with three forms per page.
-9. **Three Different Forms** (MG04, 2021):
-   - Supports printing three distinct 1099 forms per page, with separate fields for each.
-10. **1099 Code Handling**:
-    - If `VN1099` is 'N', set indicator 34 (Nonemployee Compensation). The check for 'M' (Miscellaneous) is commented out, suggesting a focus on Nonemployee Compensation forms.
+1. **Threshold Check**:
+   - Only vendors with a total amount (`TOTAMT` = `L1AMT1` + `L1AMT2`) greater than or equal to `ENTAMT` are printed.
 
-### Tables Used
+2. **Three Forms per Page**:
+   - The program prints three 1099-NEC forms per page on laser paper (revision `MG03`, modified for three forms), managed by `COUNTP` and indicators `31`, `32`, `40`.
+   - If fewer than three vendors remain at the end, a final page with one or two vendors is printed.
 
-- **AP766**:
-  - Input disk file containing vendor data: `VNDEL`, `VN1099`, `VNVEND`, `VNNAME`, `VNADD1–VNADD4`, `L1AMT1`, `L1AMT2`, `BOX1`, `BOX2`, `VNID#`, `VNPYN1`, `VNPYN2`, `VNNOVF`, `STATID`, `STATED`.
-- **No explicit arrays** are defined, but work fields like `AMT11`, `AMT31`, `LRAMT1`, etc., act as temporary storage for calculations and printing.
+3. **Payee Name Handling**:
+   - If `VNPYN1` is blank, use `VNNAME` (vendor name). Otherwise, use `VNPYN1` and `VNPYN2` (payee names, revision `JB01`).
+   - If `VNNOVF` is `Y`, use address fields to continue the name on the second line (revision `JB02`).
+
+4. **Address Formatting**:
+   - Use the highest non-blank address field (`VNADD4` to `VNADD1`) for city/state/ZIP (`CTSTZ1`/`CTSTZ2`/`CTSTZ3`) and shift other fields accordingly to ensure proper formatting.
+
+5. **Box Amount Assignment**:
+   - Amounts are assigned to boxes 1, 3, 6, or 7 based on `BOX1` and `BOX2`, with a focus on box 7 for 1099-NEC Non-Employee Compensation (revision `MG04` supports multiple form types).
+
+6. **1099 Type**:
+   - Indicator `34` is set for `VN1099 = 'N'` (1099-NEC). The commented-out logic for `M` (1099-MISC) ensures this program is dedicated to 1099-NEC.
+
+7. **Totals**:
+   - Accumulate totals for boxes 1, 3, 6, and 7 (`LRAMT1`, `LRAMT3`, `LRAMT6`, `LRAMT7`) and vendor count (`COUNT`). Unlike `AP765`, no grand total (`LRAMT`) is computed.
+
+8. **Vendor Number as Account Number**:
+   - Print `VNVEND` as the account number (`VNVEN1`/`VNVEN2`/`VNVEN3`, revision `JB02`).
+
+---
+
+### Comparison with AP765.rpg36.txt
+
+- **Similarity**:
+  - Both programs read `AP766`, validate amounts against `ENTAMT`, handle payee names and addresses, assign amounts to boxes 1, 3, 6, or 7, and print to `AP1099`.
+  - Both support revisions `JB01` (payee names), `JB02` (name overflow, vendor number as account), `MG03` (laser paper), and `MG04` (multiple form types).
+- **Differences**:
+  - **Forms per Page**: `AP765` prints two forms per page (`COUNTP` up to 2, indicators `31`/`32`), while `AP765N` prints three forms per page (`COUNTP` up to 3, indicators `31`/`32`/`40`).
+  - **1099 Type**: `AP765` handles both 1099-MISC (`VN1099 = 'M'`, indicator `33`) and 1099-NEC (`VN1099 = 'N'`, indicator `34`), while `AP765N` is dedicated to 1099-NEC (`VN1099 = 'N'`, indicator `34` only).
+  - **Vendor Number Check**: `AP765` checks for `VNVEND = 9384`, while `AP765N` checks for `VNVEND = 32800`.
+  - **Totals**: `AP765` computes a grand total (`LRAMT`), while `AP765N` does not, though it prints `LRAMT3` in the totals section without accumulating it for `40`.
+  - **Output Lines**: `AP765N` has fewer active output lines for amounts (e.g., `AMT61`, `AMT71` are commented out), focusing on 1099-NEC fields.
+
+---
+
+### Tables/Files Used
+
+1. **AP766**:
+   - Input file (300 bytes, labeled `?9?AP766` in the OCL, e.g., `XXAP766`).
+   - Contains preprocessed vendor data from `AP766.rpg36.txt`, including vendor details, amounts, box numbers, and payee names.
+
+2. **AP1099**:
+   - Output printer file (80 bytes, labeled `AP1099` in the OCL).
+   - Configured to print 1099-NEC forms with form type `1099`, 10 CPI, 6 LPI, three forms per page.
+
+3. **PA1099X** (Implied):
+   - Referenced in the OCL (`?9?PA1099X`), likely a cross-reference file, but not used directly in this program.
+
+---
 
 ### External Programs Called
 
-- **None**:
-  - The program does not explicitly call any external programs (no `CALL` statements).
-  - It is invoked from a main OCL script, but no details about the OCL or other programs are provided.
+- None are explicitly called within `AP765N`. It is invoked by `AP765N.ocl36.txt` and processes data from `AP766.rpg36.txt`, with input prepared by `#GSORT` and `AP766`.
+
+---
+
+### Outputs
+
+1. **AP1099 Printer File**:
+   - Prints 1099-NEC forms (three per page) with:
+     - Company headers (`HEAD1`, `HEAD2`, `HEAD3`).
+     - Year (`CNYEAR`).
+     - Company Tax ID (`ID#`) and vendor Tax ID (`VNID#1`/`VNID#2`/`VNID#3`).
+     - Payee names (`PYN11`/`PYN12`/`PYN13`, `PYN21`/`PYN22`/`PYN23`) or vendor name (`VNNAME`).
+     - Addresses (`VNAD11`/`VNAD12`/`VNAD13`, `VNAD21`/`VNAD22`/`VNAD23`, `CTSTZ1`/`CTSTZ2`/`CTSTZ3`).
+     - Amounts for boxes 1, 3, 6, or 7 (`AMT11`/`AMT12`/`AMT13`, `AMT31`/`AMT32`/`AMT33`, `AMT61`/`AMT62`/`AMT63`, `AMT71`/`AMT72`/`AMT73`), primarily box 7 for 1099-NEC.
+     - Vendor number as account number (`VNVEN1`/`VNVEN2`/`VNVEN3`, revision `JB02`).
+   - Final page includes totals (`LRAMT1`, `LRAMT6`, `LRAMT7`, `LRAMT3` for `31`/`32` only) and vendor count (`COUNT`).
+
+---
 
 ### Summary
 
-The `AP765N` program:
-- Reads vendor data from the `AP766` file and prints 1099 forms to the `AP1099` printer file, formatted for laser paper with three forms per page.
-- Validates that the sum of `L1AMT1` and `L1AMT2` matches `ENTAMT`.
-- Formats payee names, using `VNPYN1` and `VNPYN2` if provided, or `VNNAME` otherwise, with overflow handling.
-- Processes addresses by selecting the highest non-blank line and shifting others accordingly.
-- Maps amounts to specific 1099 form boxes (1, 3, 6, 7) based on `BOX1` and `BOX2`.
-- Accumulates totals and prints a summary at the end.
-- Uses indicators to control printing of top (31), middle (32), and bottom (40) forms, with special handling for the last form.
-- Does not call external programs but is part of a larger OCL-driven process.
+- **Purpose**: The RPG program `AP765N` prints 1099-NEC forms, formatting three forms per page on laser paper, using preprocessed vendor data from `AP766`.
+- **Process**:
+  - Reads `AP766` and validates vendor amounts against `ENTAMT`.
+  - Manages three forms per page with `COUNTP` and indicators `31`/`32`/`40`.
+  - Assigns payee names, addresses, and amounts to appropriate fields, focusing on 1099-NEC.
+  - Prints forms with company and vendor details, amounts, and totals.
+- **Business Rules**:
+  - Prints only vendors meeting the amount threshold.
+  - Supports three forms per page and 1099-NEC exclusively.
+  - Handles payee names, name overflow, and vendor number as account number.
+  - Accumulates totals for boxes 1, 3, 6, and 7, but not a grand total.
+- **Files Used**:
+  - Input: `AP766` (preprocessed vendor data).
+  - Output: `AP1099` (printer file for 1099-NEC forms).
+- **External Programs**: None called directly; part of a workflow with `#GSORT`, `AP766`, and `AP765N.ocl36.txt`.
+
+This program is tailored for 1099-NEC forms, differing from `AP765` by supporting three forms per page and focusing exclusively on Non-Employee Compensation, ensuring IRS-compliant output for vendors.
