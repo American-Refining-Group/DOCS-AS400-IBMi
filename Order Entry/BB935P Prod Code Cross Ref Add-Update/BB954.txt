@@ -1,0 +1,93 @@
+### Process Steps
+
+This RPGLE program (BB9354) is designed to handle the deletion or reactivation of a product cross-reference record in the Bradford Billing system. It is interactive, using a display file to present a confirmation window to the user. The program receives parameters from a calling program (likely a CL program, as OCL refers to older System/36 Operating Control Language, but this appears to be IBM i/AS/400 RPG). It performs basic validation, data retrieval, user interaction, and updates to the database. Below is a step-by-step breakdown of the process:
+
+1. **Initialization (*INZSR Subroutine)**:
+   - Receives input parameters: Company code (P$CO), Cross-reference set (P$XSET), Product cross-reference (P$PXRC), File group (P$FGRP, either 'G' or 'Z' to determine file overrides), and a return flag (P$FLAG).
+   - Initializes work fields, date/time stamps, message handling variables, and key lists (e.g., KLPRXY for chaining to files).
+   - Moves parameters to display fields for the user interface.
+   - Sets default output parameters to blanks.
+
+2. **Open Database Tables (OPNTBL Subroutine)**:
+   - Applies file overrides using QCMDEXC API based on the file group (P$FGRP):
+     - If 'G', overrides BICONT to GBICONT and BBPRXY to GBBPRXY.
+     - If 'Z', overrides BICONT to ZBICONT and BBPRXY to ZBBPRXY.
+     - This allows switching between different data sets (e.g., production vs. test or grouped data).
+   - Opens the files BICONT (input-only) and BBPRXY (update).
+
+3. **Retrieve Data for Passed Parameters (RTVDTA Subroutine)**:
+   - Chains (reads) the BBPRXY file using the key list (Company, X-Ref Set, Prod X-Ref) to fetch the record.
+   - If the record is not found (*IN99 = *ON), closes all files and exits the program immediately.
+   - Chains to BICONT to retrieve the company name (BCNAME); if not found, clears the name field.
+   - Determines the mode based on the delete flag (BXDEL) in the record:
+     - If BXDEL ≠ 'D' (active record), sets header to "Product Cross Reference Delete" and function key to F23=Delete.
+     - If BXDEL = 'D' (deleted record), sets header to "Product Cross Reference Re-Activate", function key to F22=ReActivate, and highlights in red (*IN72 = *ON).
+   - This step ensures the record exists and prepares the UI based on its status.
+
+4. **Process Panel Formats (SRFMT Subroutine)**:
+   - Enters a loop to display and handle the confirmation window (DELWDW format in display file BB9354D).
+   - Writes any pending messages to the message subfile if needed (using WRTMSG).
+   - Displays the window with the retrieved data (company name, headers, function keys).
+   - Processes user input:
+     - F12: Cancels the operation and exits the loop without changes.
+     - F23 (if record is active, *IN72 = *OFF): Chains to BBPRXY, sets BXDEL = 'D' (mark as deleted), updates the record, sets return flag P$FLAG = 'D', and exits.
+     - F22 (if record is deleted, *IN72 = *ON): Chains to BBPRXY, sets BXDEL = 'A' (mark as active), updates the record, sets return flag P$FLAG = 'A', and exits.
+     - Other keys: Loops back for re-display if invalid.
+   - Clears messages after input (using CLRMSG) and handles errors via indicators (e.g., *IN50-*IN69 for screen errors).
+
+5. **Message Handling**:
+   - **ADDMSG**: Sends diagnostic messages to the program message queue using QMHSNDPM API. Calculates message data length and sets a flag for display.
+   - **WRTMSG**: Writes the message subfile control record (MSGCTL) to display messages on the screen.
+   - **CLRMSG**: Removes messages from the queue using QMHRMVPM API and clears the display flag. Saves/restores current record format and page RRN to avoid disrupting the UI.
+
+6. **Program End**:
+   - Closes all files.
+   - Sets *INLR = *ON and returns to the caller with the updated P$FLAG (indicating delete 'D', reactivate 'A', or unchanged).
+
+The program is straightforward and focuses on a single record operation with user confirmation. It uses indicators extensively for UI control (e.g., *IN72 for delete/reactivate mode, *IN49 for message subfile display).
+
+### Business Rules
+
+The program enforces the following business rules for managing product cross-reference records:
+
+- **Record Existence Check**: The program immediately exits if the specified record (based on Company, X-Ref Set, Prod X-Ref) does not exist in BBPRXY. This prevents operations on non-existent data.
+- **Delete/Reactivate Logic**: 
+  - Deletion is "soft" – it sets a flag (BXDEL = 'D') rather than physically removing the record, allowing for reactivation.
+  - Reactivation sets BXDEL = 'A' (or presumably blanks, but code uses 'A').
+  - Only allows deletion if the record is active (BXDEL ≠ 'D') and reactivation if deleted (BXDEL = 'D').
+  - Updates are conditional on a successful chain (read) to avoid overwriting non-existent or locked records.
+- **File Grouping**: Supports two data sets ('G' or 'Z') via overrides, likely for segregation (e.g., general vs. zoned data, or different environments). Overrides ensure shared access is disabled (SHARE(*NO)).
+- **User Interface Rules**:
+  - Displays a confirmation window with dynamic headers and function keys based on record status.
+  - Fields are protected based on indicators (*IN70-*IN79), and deleted records are highlighted in red.
+  - Function keys: F12 for cancel, F23 for delete (active records), F22 for reactivate (deleted records).
+  - Messages are handled via a subfile for errors or diagnostics, cleared after each interaction.
+- **No Complex Validation**: Minimal input validation beyond existence checks; assumes parameters are valid from the caller. No business calculations (e.g., no date expirations enforced despite a comment on *IN71 for expired records).
+- **Security/Access**: Uses USROPN for files, implying controlled opening. Updates require a successful chain, implying record-level locking.
+- **Return to Caller**: Passes back a flag (P$FLAG) indicating the action taken ('D' for delete, 'A' for reactivate), allowing the calling program (e.g., CL) to proceed accordingly.
+
+These rules focus on safe, reversible record management with user confirmation to prevent accidental deletions.
+
+### Tables Used
+
+In RPG terms, these are files (declared via F-specs). The program uses overrides to point to specific physical files based on the file group parameter:
+
+- **BICONT**: Input-only keyed disk file (IF E K DISK USROPN). Used to retrieve company name (BCNAME). Overridden to:
+  - GBICONT (for 'G' group).
+  - ZBICONT (for 'Z' group).
+- **BBPRXY**: Update keyed disk file (UF E K DISK USROPN). Primary file for product cross-reference records. Contains fields like BXCONO (company), BXXSET (x-ref set), BXPXRC (prod x-ref), BXDEL (delete flag). Overridden to:
+  - GBBPRXY (for 'G' group).
+  - ZBBPRXY (for 'Z' group).
+- **BB9354D**: Display file (CF E WORKSTN INFDS(DSPF_DS)). Used for the user interface (formats: DELWDW for window, WDWOVR for overlay, MSGCTL/MSGCLR for message subfile).
+
+No other database files are accessed.
+
+### External Programs Called
+
+The program calls the following external system APIs (not custom user programs):
+
+- **QMHSNDPM**: IBM i API to send program messages (used in ADDMSG for error/diagnostic messaging).
+- **QMHRMVPM**: IBM i API to remove program messages (used in CLRMSG to clear the message queue).
+- **QCMDEXC**: IBM i API to execute CL commands (used in OPNTBL to apply file overrides via OVRDBF commands).
+
+No other custom external programs are called; all logic is internal to this RPG program. The program itself is called from an external caller (likely a CL program, referred to as "main OCL").
