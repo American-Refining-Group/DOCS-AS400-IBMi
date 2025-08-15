@@ -9,7 +9,7 @@ Based on the OCL script and RPG program BI920, which together form a call stack 
 
 4. **Deletion of Product Tax Records**: Supports marking records for deletion (via 'D' flag) or implicit deletion (by blanking all tax codes), physically removing them from the file.
 
-5. **Validation of Tax Configurations**: Enforces business rules during editing, such as checking tax codes against the Sales Tax Master, restricting sales tax based on company invoice style, and ensuring 'MISC' products use only 'T'-prefixed tax codes.
+5. **Validation of Tax Configurations**: Enforces business rules during editing, such as checking tax codes against the Sales Tax Master, restricting sales tax based on company invoice style, and ensuring 'MISC' products use only 'T'-prefixed tax codes .
 
 6. **Cleanup of Orphaned Product Tax Records**: On program exit (via F3 key), automatically scans and deletes Product Tax Master records without matching sellable products in the Product Master file.
 
