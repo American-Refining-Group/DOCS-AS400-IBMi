@@ -1,4 +1,4 @@
-The RPG program `GS9293` is designed to copy product load records within an IBM i (AS/400) environment. It is called from the main program `GS929P` to create a new product load record by duplicating an existing record with new key values specified by the user. The program does not have a user interface (no display file) and focuses solely on database operations. Below, I outline the process steps, business rules, database tables used, and external programs called .
+The RPG program `GS9293` is designed to copy product load records within an IBM i (AS/400) environment. It is called from the main program `GS929P` to create a new product load record by duplicating an existing record with new key values specified by the user. The program does not have a user interface (no display file) and focuses solely on database operations. Below, I outline the process steps, business rules, database tables used, and external programs called.
 
 ---
 
