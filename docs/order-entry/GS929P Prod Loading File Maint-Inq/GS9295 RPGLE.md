@@ -1,4 +1,4 @@
-The RPG program `GS9295` is designed to print a product load listing within an IBM i (AS/400) environment. It is called from the main program `GS929P` (via the F15 function key) to generate a report of product load records from the `prdlodx` file, outputting the results to a printer file (`qsysprt`). The program does not have a user interface and focuses solely on reading database records and formatting them for printing. Below, I outline the process steps, business rules, database tables used, and external programs called.
+The RPG program `GS9295` is designed to print a product load listing within an IBM i (AS/400) environment. It is called from the main program `GS929P` (via the F15 function key) to generate a report of product load records from the `prdlodx` file, outputting the results to a printer file (`qsysprt`). The program does not have a user interface and focuses solely on reading database records and formatting them for printing. Below, I outline the process steps, business rules, database tables used, and external programs called .
 
 ---
 

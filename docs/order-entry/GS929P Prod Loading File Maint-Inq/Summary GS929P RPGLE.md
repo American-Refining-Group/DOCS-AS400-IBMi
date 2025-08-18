@@ -1,6 +1,6 @@
 ### List of Use Cases Implemented in the GS929 Program Call Stack
 
-The call stack consists of five RPG programs (`GS929P`, `GS929`, `GS9293`, `GS9294`, `GS9295`) that collectively manage product load records in an IBM i (AS/400) environment. Below is a comprehensive list of use cases implemented across these programs, derived from their functionality and interactions. Each use case represents a distinct user-driven or system-driven process for managing product load data.
+The call stack consists of five RPG programs (`GS929P`, `GS929`, `GS9293`, `GS9294`, `GS9295`) that collectively manage product load records in an IBM i (AS/400) environment. Below is a comprehensive list of use cases implemented across these programs, derived from their functionality and interactions. Each use case represents a distinct user-driven or system-driven process for managing product load data .
 
 1. **Browse Product Load Records (GS929P)**:
    - **Description**: Allows users to view a list of product load records in a subfile, with options to filter by various criteria (e.g., company, location, product, container, priority, sequence number, responsibility area, major location, product type, hazardous material code, or responsible person) and toggle the inclusion of inactive records.

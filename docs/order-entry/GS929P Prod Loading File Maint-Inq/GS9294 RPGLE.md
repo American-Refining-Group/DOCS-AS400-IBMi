@@ -1,4 +1,4 @@
-The RPG program `GS9294` is designed to inactivate or reactivate product load records within an IBM i (AS/400) environment. It is called from the main program `GS929P` to toggle the status of a product load record between active ('A') and inactive ('I') using a display file interface. The program provides a confirmation window (`actwdw`) for the user to approve the action. Below, I outline the process steps, business rules, database tables used, and external programs called.
+The RPG program `GS9294` is designed to inactivate or reactivate product load records within an IBM i (AS/400) environment. It is called from the main program `GS929P` to toggle the status of a product load record between active ('A') and inactive ('I') using a display file interface. The program provides a confirmation window (`actwdw`) for the user to approve the action. Below, I outline the process steps, business rules, database tables used, and external programs called .
 
 ---
 

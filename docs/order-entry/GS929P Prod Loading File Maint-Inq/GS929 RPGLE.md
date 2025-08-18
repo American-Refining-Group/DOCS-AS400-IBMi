@@ -1,4 +1,4 @@
-The RPG program `GS929` is a workstation program designed for product load maintenance and inquiry within an IBM i (AS/400) environment. It is called from the main program `GS929P` to handle the creation, modification, and display of individual product load records. The program interacts with a display file and database files, providing a user interface for entering or viewing product load details, with validation to ensure data integrity. Below, I outline the process steps, business rules, database tables used, and external programs called.
+The RPG program `GS929` is a workstation program designed for product load maintenance and inquiry within an IBM i (AS/400) environment. It is called from the main program `GS929P` to handle the creation, modification, and display of individual product load records. The program interacts with a display file and database files, providing a user interface for entering or viewing product load details, with validation to ensure data integrity. Below, I outline the process steps, business rules, database tables used, and external programs called .
 
 ---
 

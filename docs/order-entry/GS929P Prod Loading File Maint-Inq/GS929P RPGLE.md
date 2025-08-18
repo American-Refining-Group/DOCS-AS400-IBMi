@@ -1,4 +1,4 @@
-The RPG program `GS929P` is designed to manage product load entries within an IBM i (AS/400) environment. It is a workstation program that interacts with a display file and multiple database files to allow users to work with product load data, including creating, updating, copying, inactivating/reactivating, and displaying records. Below, I will outline the process steps of the program, list the external programs called, and identify the database tables used.
+The RPG program `GS929P` is designed to manage product load entries within an IBM i (AS/400) environment. It is a workstation program that interacts with a display file and multiple database files to allow users to work with product load data, including creating, updating, copying, inactivating/reactivating, and displaying records. Below, I will outline the process steps of the program, list the external programs called, and identify the database tables used .
 
 ---
 
