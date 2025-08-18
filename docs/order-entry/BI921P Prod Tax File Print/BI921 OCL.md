@@ -2,7 +2,7 @@ The provided document, `BI921.ocl36.txt`, is an Operation Control Language (OCL)
 
 ### Process Steps of the OCL Program
 
-The OCL program `BI921.ocl36.txt` orchestrates the sorting of tax-related data and the execution of a report generation program. Here’s a step-by-step breakdown of the process:
+The OCL program `BI921.ocl36.txt` orchestrates the sorting of tax-related data and the execution of a report generation program. Here’s a step-by-step breakdown of the process :
 
 1. **Header and Metadata**:
    - The file starts with a comment: `** PRODUCT TAX MASTER LIST **`, indicating its purpose, which is to generate or process a product tax master list.
