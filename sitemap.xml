@@ -1241,26 +1241,6 @@
          <lastmod>2025-08-21</lastmod>
     </url>
     <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/BB953%20RPG36/</loc>
-         <lastmod>2025-08-21</lastmod>
-    </url>
-    <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/BB9531%20RPG36/</loc>
-         <lastmod>2025-08-21</lastmod>
-    </url>
-    <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/BB9534%20RPG/</loc>
-         <lastmod>2025-08-21</lastmod>
-    </url>
-    <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/BB953B%20OCL/</loc>
-         <lastmod>2025-08-21</lastmod>
-    </url>
-    <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/BB953B%20RPG36/</loc>
-         <lastmod>2025-08-21</lastmod>
-    </url>
-    <url>
          <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/BI942E%20OCL/</loc>
          <lastmod>2025-08-21</lastmod>
     </url>
@@ -1305,59 +1285,79 @@
          <lastmod>2025-08-21</lastmod>
     </url>
     <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/GSDT12%20OCL/</loc>
-         <lastmod>2025-08-21</lastmod>
-    </url>
-    <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/GSDT12%20RPG36/</loc>
-         <lastmod>2025-08-21</lastmod>
-    </url>
-    <url>
          <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/PRICEGEN%20CLP/</loc>
          <lastmod>2025-08-21</lastmod>
     </url>
     <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/PRICES%20OCL/</loc>
-         <lastmod>2025-08-21</lastmod>
-    </url>
-    <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/SA505C%20OCL/</loc>
-         <lastmod>2025-08-21</lastmod>
-    </url>
-    <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/SA505C%20RPG36/</loc>
-         <lastmod>2025-08-21</lastmod>
-    </url>
-    <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/SA505G%20OCL/</loc>
-         <lastmod>2025-08-21</lastmod>
-    </url>
-    <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/SA505G%20RPG36/</loc>
-         <lastmod>2025-08-21</lastmod>
-    </url>
-    <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/SA505H%20OCL/</loc>
-         <lastmod>2025-08-21</lastmod>
-    </url>
-    <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/SA505H%20RPG36/</loc>
-         <lastmod>2025-08-21</lastmod>
-    </url>
-    <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/SA505I%20OCL/</loc>
-         <lastmod>2025-08-21</lastmod>
-    </url>
-    <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/SA505I%20RPG36/</loc>
-         <lastmod>2025-08-21</lastmod>
-    </url>
-    <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/SA505X%20RPG36/</loc>
-         <lastmod>2025-08-21</lastmod>
-    </url>
-    <url>
          <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/Summary%20PRICEGEN%20CLP/</loc>
+         <lastmod>2025-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/PRICES_SUB/BB953%20RPG36/</loc>
+         <lastmod>2025-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/PRICES_SUB/BB9531%20RPG36/</loc>
+         <lastmod>2025-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/PRICES_SUB/BB9534%20RPG/</loc>
+         <lastmod>2025-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/PRICES_SUB/BB953B%20OCL/</loc>
+         <lastmod>2025-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/PRICES_SUB/BB953B%20RPG36/</loc>
+         <lastmod>2025-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/PRICES_SUB/GSDT12%20OCL/</loc>
+         <lastmod>2025-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/PRICES_SUB/GSDT12%20RPG36/</loc>
+         <lastmod>2025-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/PRICES_SUB/PRICES%20OCL/</loc>
+         <lastmod>2025-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/PRICES_SUB/SA505C%20OCL/</loc>
+         <lastmod>2025-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/PRICES_SUB/SA505C%20RPG36/</loc>
+         <lastmod>2025-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/PRICES_SUB/SA505G%20OCL/</loc>
+         <lastmod>2025-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/PRICES_SUB/SA505G%20RPG36/</loc>
+         <lastmod>2025-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/PRICES_SUB/SA505H%20OCL/</loc>
+         <lastmod>2025-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/PRICES_SUB/SA505H%20RPG36/</loc>
+         <lastmod>2025-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/PRICES_SUB/SA505I%20OCL/</loc>
+         <lastmod>2025-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/PRICES_SUB/SA505I%20RPG36/</loc>
+         <lastmod>2025-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB943%20Sales%20Agreement%20File%20Add-Update/PRICEGEN/PRICES_SUB/SA505X%20RPG36/</loc>
          <lastmod>2025-08-21</lastmod>
     </url>
     <url>
