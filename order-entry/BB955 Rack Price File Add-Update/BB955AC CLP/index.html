@@ -15,10 +15,10 @@
         <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB955%20Rack%20Price%20File%20Add-Update/BB955AC%20CLP/">
       
       
-        <link rel="prev" href="../BB955%20RPGLE/">
+        <link rel="prev" href="../BB955%20RPGLE%202/">
       
       
-        <link rel="next" href="../Summary%20BB955%20OCL/">
+        <link rel="next" href="../GB730P%20RPGLE/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -13746,12 +13746,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../BB955%20RPGLE/" class="md-nav__link">
+      <a href="../BB955%20RPGLE%201/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    BB955 RPGLE
+    BB955 RPGLE 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB955%20RPGLE%202/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB955 RPGLE 2
     
   </span>
   
@@ -13851,6 +13874,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#integration-with-bb955-gb730p-and-ocl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with BB955, GB730P, and OCL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#additional-notes" class="md-nav__link">
     <span class="md-ellipsis">
       Additional Notes
@@ -13860,9 +13892,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#final-answer" class="md-nav__link">
+  <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Final Answer
+      Summary
     </span>
   </a>
   
@@ -13872,6 +13904,29 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GB730P%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GB730P RPGLE
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -15788,6 +15843,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#integration-with-bb955-gb730p-and-ocl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with BB955, GB730P, and OCL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#additional-notes" class="md-nav__link">
     <span class="md-ellipsis">
       Additional Notes
@@ -15797,9 +15861,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#final-answer" class="md-nav__link">
+  <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Final Answer
+      Summary
     </span>
   </a>
   
@@ -15826,200 +15890,103 @@
 
   <h1>BB955AC CLP</h1>
 
-<p>The provided <code>BB955AC.clp.txt</code> file is a CLP (Control Language Program) for the IBM AS/400 (iSeries) system, named <code>BB955AC</code>. It is called from the main <code>BB955.ocl36</code> OCL program and supports the "Rack Price File Maintenance" process by preparing a work file. Below, I will explain the process steps, outline the business rules, list the tables used, and identify any external programs called, based on the provided CLP source code.</p>
-<h3 id="process-steps-of-the-clp-program-bb955ac">Process Steps of the CLP Program (BB955AC)<a class="headerlink" href="#process-steps-of-the-clp-program-bb955ac" title="Permanent link">&para;</a></h3>
-<p>The <code>BB955AC</code> program is designed to clear or create a work file (<code>BB955W</code>) in the <code>QTEMP</code> library, which is used by the <code>BB955</code> RPGLE program for temporary data storage during rack price file maintenance. The program takes a single parameter, <code>&amp;P$FGRP</code>, to determine the source library for the work file. Here’s a step-by-step breakdown of the process:</p>
+<p>The provided document, <code>BB955AC.clp.txt</code>, is a CLP (Control Language Program) named <code>BB955AC</code>, which is called from the <code>BB955</code> RPGLE program (itself invoked by the <code>BB955.ocl36.txt</code> OCL program) within the context of the "Rack Price File Maintenance" system. The purpose of <code>BB955AC</code> is to clear or create a work file (<code>BB955W</code>) in the <code>QTEMP</code> library, used as a temporary storage for rack price data during processing in <code>BB955</code>. Below, I’ll explain the process steps, business rules, tables used, and external programs called, integrating this with the context from <code>BB955.rpgle</code> (parts 1 and 2) and <code>GB730P.rpgle</code>.</p>
+<h3 id="process-steps-of-the-clp-program-bb955ac">Process Steps of the CLP Program (<code>BB955AC</code>)<a class="headerlink" href="#process-steps-of-the-clp-program-bb955ac" title="Permanent link">&para;</a></h3>
+<p>The <code>BB955AC</code> program is a simple CLP designed to manage the work file <code>BB955W</code> in the <code>QTEMP</code> library. It takes a single parameter (<code>&amp;P$FGRP</code>) to determine the source library for the file creation. Here are the detailed process steps:</p>
 <ol>
 <li><strong>Program Declaration and Parameter</strong>:</li>
-<li><strong>Command</strong>: <code>PGM PARM(&amp;P$FGRP)</code></li>
-<li><strong>Action</strong>: Declares the program and defines an input parameter <code>&amp;P$FGRP</code>, a 1-character variable that specifies the file group ('G' or another value, typically 'Z').</li>
+<li><strong>Step</strong>: Declares the program with a single parameter <code>&amp;P$FGRP</code>, a 1-character variable that specifies the file group (<code>G</code> or <code>Z</code>).</li>
 <li>
-<p><strong>Purpose</strong>: The parameter determines which library (<code>DATA</code> or <code>DATADEV</code>) to use as the source for creating the work file.</p>
+<p><strong>Purpose</strong>: The parameter determines whether the work file is created from the <code>DATA</code> library (for <code>G</code>) or <code>DATADEV</code> library (for <code>Z</code>), reflecting different environments (e.g., production vs. development).</p>
 </li>
 <li>
-<p><strong>Commented Testing Section</strong>:</p>
+<p><strong>Clear Work File (<code>CLRPFM</code>)</strong>:</p>
 </li>
-<li><strong>Commands</strong>: 
-     <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">/*</span><span class="w"> </span><span class="nv">FOR</span><span class="w"> </span><span class="nv">TESTING</span><span class="w"> </span><span class="nv">-----------------------------------------------------------</span><span class="w"> </span><span class="nv">*/</span>
-<span class="nv">/*</span><span class="w">           </span><span class="nv">CLRPFM</span><span class="w">     </span><span class="nv">FILE</span><span class="p">(</span><span class="nv">DRCLIB/BB955W</span><span class="p">)</span><span class="w">                                </span><span class="nv">*/</span>
-<span class="nv">/*</span><span class="w">           </span><span class="nv">GOTO</span><span class="w">       </span><span class="nv">CMDLBL</span><span class="p">(</span><span class="nv">PGMEND</span><span class="p">)</span><span class="w">                                     </span><span class="nv">*/</span>
-</code></pre></div></td></tr></table></div></li>
-<li><strong>Action</strong>: This section is commented out and not executed. It was likely used during development to clear a file in the <code>DRCLIB</code> library and skip to the end of the program (<code>PGMEND</code>).</li>
+<li><strong>Step</strong>: Executes the <code>CLRPFM</code> command to clear the physical file <code>BB955W</code> in the <code>QTEMP</code> library.</li>
+<li><strong>Purpose</strong>: Ensures the work file is empty before processing, preventing residual data from affecting <code>BB955</code>’s operations.</li>
 <li>
-<p><strong>Purpose</strong>: Indicates a testing configuration that is no longer active.</p>
+<p><strong>Error Handling</strong>: Monitors for message <code>CPF3142</code> (file not found) using <code>MONMSG</code>. If the file does not exist, proceeds to the <code>DO</code> block to create it.</p>
 </li>
 <li>
-<p><strong>Clear Work File</strong>:</p>
+<p><strong>Create Work File (<code>CRTDUPOBJ</code>)</strong>:</p>
 </li>
-<li><strong>Command</strong>: <code>CLRPFM FILE(QTEMP/BB955W)</code></li>
-<li><strong>Action</strong>: Attempts to clear the physical file <code>BB955W</code> in the <code>QTEMP</code> library, which is a temporary library unique to each user session.</li>
-<li><strong>Error Handling</strong>: <ul>
-<li>Monitors for message <code>CPF3142</code> (file not found).</li>
-<li>If the file does not exist, proceeds to the <code>DO</code> block to create it.</li>
+<li><strong>Step</strong>: If the file is not found (<code>CPF3142</code>), checks the value of <code>&amp;P$FGRP</code>:<ul>
+<li><strong>If <code>&amp;P$FGRP = 'G'</code></strong>:</li>
+<li>Executes <code>CRTDUPOBJ</code> to create a duplicate of the <code>BB955W</code> file from the <code>DATA</code> library into <code>QTEMP</code>, with constraints (<code>CST(*NO)</code>) and triggers (<code>TRG(*NO)</code>) disabled.</li>
+<li>Monitors for messages <code>CPF5813</code> (constraint error) and <code>CPF7302</code> (object already exists) to handle potential errors gracefully.</li>
+<li><strong>If <code>&amp;P$FGRP ≠ 'G'</code></strong>:</li>
+<li>Executes <code>CRTDUPOBJ</code> to create a duplicate of <code>BB955W</code> from the <code>DATADEV</code> library into <code>QTEMP</code>, with the same constraints and trigger settings.</li>
+<li>Monitors for the same error messages.</li>
 </ul>
 </li>
 <li>
-<p><strong>Purpose</strong>: Ensures the work file is empty before use, preparing it for temporary data storage by the <code>BB955</code> RPGLE program.</p>
+<p><strong>Purpose</strong>: Creates a fresh copy of the work file in <code>QTEMP</code> if it doesn’t exist, tailored to the specified file group.</p>
 </li>
 <li>
-<p><strong>Conditional File Creation Based on File Group</strong>:</p>
+<p><strong>Program Termination</strong>:</p>
 </li>
-<li><strong>Command</strong>: 
-     <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">IF</span><span class="w"> </span><span class="nv">COND</span><span class="p">(</span><span class="nv">&amp;P$FGRP</span><span class="w"> </span><span class="nv">*EQ</span><span class="w"> </span><span class="ss">&#39;G</span><span class="o">&#39;</span><span class="p">)</span><span class="w"> </span><span class="nv">THEN</span><span class="p">(</span><span class="nv">DO</span><span class="p">)</span>
-<span class="nv">CRTDUPOBJ</span><span class="w"> </span><span class="nv">OBJ</span><span class="p">(</span><span class="nv">BB955W</span><span class="p">)</span><span class="w"> </span><span class="nv">FROMLIB</span><span class="p">(</span><span class="nv">DATA</span><span class="p">)</span><span class="w"> </span><span class="nv">OBJTYPE</span><span class="p">(</span><span class="nv">*FILE</span><span class="p">)</span><span class="w"> </span><span class="nv">TOLIB</span><span class="p">(</span><span class="nv">QTEMP</span><span class="p">)</span><span class="w"> </span><span class="nv">CST</span><span class="p">(</span><span class="nv">*NO</span><span class="p">)</span><span class="w"> </span><span class="nv">TRG</span><span class="p">(</span><span class="nv">*NO</span><span class="p">)</span>
-<span class="nv">MONMSG</span><span class="w"> </span><span class="nv">MSGID</span><span class="p">(</span><span class="nv">CPF5813</span><span class="w"> </span><span class="nv">CPF7302</span><span class="p">)</span>
-<span class="nv">ENDDO</span>
-</code></pre></div></td></tr></table></div></li>
-<li><strong>Action</strong>: If <code>&amp;P$FGRP</code> equals 'G':<ul>
-<li>Creates a duplicate of the <code>BB955W</code> file from the <code>DATA</code> library into <code>QTEMP</code> using <code>CRTDUPOBJ</code>.</li>
-<li>Specifies <code>CST(*NO)</code> to exclude constraints and <code>TRG(*NO)</code> to exclude triggers.</li>
-<li>Monitors for messages <code>CPF5813</code> (template file not found) and <code>CPF7302</code> (object already exists) to handle potential errors gracefully.</li>
-</ul>
+<li><strong>Step</strong>: Ends the program with <code>ENDPGM</code> at the <code>PGMEND</code> label.</li>
+<li>
+<p><strong>Purpose</strong>: Returns control to the calling program (<code>BB955</code>).</p>
 </li>
 <li>
-<p><strong>Purpose</strong>: Creates the work file in <code>QTEMP</code> using the production library (<code>DATA</code>) as the source when the file group is 'G'.</p>
+<p><strong>Commented-Out Testing Section</strong>:</p>
 </li>
-<li>
-<p><strong>Alternative File Creation for Non-'G' Group</strong>:</p>
-</li>
-<li><strong>Command</strong>: 
-     <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">IF</span><span class="w"> </span><span class="nv">COND</span><span class="p">(</span><span class="nv">&amp;P$FGRP</span><span class="w"> </span><span class="nv">*NE</span><span class="w"> </span><span class="ss">&#39;G</span><span class="o">&#39;</span><span class="p">)</span><span class="w"> </span><span class="nv">THEN</span><span class="p">(</span><span class="nv">DO</span><span class="p">)</span>
-<span class="nv">CRTDUPOBJ</span><span class="w"> </span><span class="nv">OBJ</span><span class="p">(</span><span class="nv">BB955W</span><span class="p">)</span><span class="w"> </span><span class="nv">FROMLIB</span><span class="p">(</span><span class="nv">DATADEV</span><span class="p">)</span><span class="w"> </span><span class="nv">OBJTYPE</span><span class="p">(</span><span class="nv">*FILE</span><span class="p">)</span><span class="w"> </span><span class="nv">TOLIB</span><span class="p">(</span><span class="nv">QTEMP</span><span class="p">)</span><span class="w"> </span><span class="nv">CST</span><span class="p">(</span><span class="nv">*NO</span><span class="p">)</span><span class="w"> </span><span class="nv">TRG</span><span class="p">(</span><span class="nv">*NO</span><span class="p">)</span>
-<span class="nv">MONMSG</span><span class="w"> </span><span class="nv">MSGID</span><span class="p">(</span><span class="nv">CPF5813</span><span class="w"> </span><span class="nv">CPF7302</span><span class="p">)</span>
-<span class="nv">ENDDO</span>
-</code></pre></div></td></tr></table></div></li>
-<li><strong>Action</strong>: If <code>&amp;P$FGRP</code> is not 'G' (e.g., 'Z'):<ul>
-<li>Creates a duplicate of the <code>BB955W</code> file from the <code>DATADEV</code> library into <code>QTEMP</code>.</li>
-<li>Uses the same <code>CRTDUPOBJ</code> parameters and error handling as above.</li>
-</ul>
-</li>
-<li>
-<p><strong>Purpose</strong>: Creates the work file in <code>QTEMP</code> using the development or test library (<code>DATADEV</code>) as the source for non-'G' file groups.</p>
-</li>
-<li>
-<p><strong>Program End</strong>:</p>
-</li>
-<li><strong>Command</strong>: <code>PGMEND: ENDPGM</code></li>
-<li><strong>Action</strong>: Marks the end of the program, returning control to the caller (the OCL program).</li>
-<li><strong>Purpose</strong>: Completes the program execution after setting up the work file.</li>
+<li><strong>Step</strong>: A commented-out section references clearing <code>BB955W</code> in <code>DRCLIB</code> and jumping to <code>PGMEND</code>.</li>
+<li><strong>Purpose</strong>: Likely used for testing in a different environment (<code>DRCLIB</code>) but is inactive in the production version.</li>
 </ol>
 <h3 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
-<p>The <code>BB955AC</code> program enforces the following business rules:</p>
-<ol>
-<li><strong>Work File Isolation</strong>:</li>
-<li>
-<p>The work file <code>BB955W</code> is created in <code>QTEMP</code>, ensuring that temporary data is isolated to the user’s session and automatically deleted when the session ends.</p>
-</li>
-<li>
-<p><strong>Dynamic Source Library Selection</strong>:</p>
-</li>
-<li>The <code>&amp;P$FGRP</code> parameter determines the source library:<ul>
-<li>'G' uses the production library <code>DATA</code>.</li>
-<li>Any other value (e.g., 'Z') uses the development/test library <code>DATADEV</code>.</li>
-</ul>
-</li>
-<li>
-<p>This allows the program to support different environments (e.g., production vs. testing) based on the file group.</p>
-</li>
-<li>
-<p><strong>Error Handling</strong>:</p>
-</li>
-<li>The program gracefully handles cases where the work file does not exist (<code>CPF3142</code>) by creating it.</li>
-<li>
-<p>It also handles potential errors during file creation (<code>CPF5813</code>, <code>CPF7302</code>), ensuring the program does not fail if the template file is missing or the target file already exists.</p>
-</li>
-<li>
-<p><strong>File Configuration</strong>:</p>
-</li>
-<li>
-<p>The work file is created without constraints (<code>CST(*NO)</code>) or triggers (<code>TRG(*NO)</code>), simplifying its use as a temporary data store and avoiding unintended side effects.</p>
-</li>
-<li>
-<p><strong>Revision History</strong>:</p>
-</li>
-<li>The <code>JK01</code> revision (08/27/2021) replaced library references <code>ARGDEV</code> with <code>DATA</code> and <code>ARGDEVTEST</code> with <code>DATADEV</code>, aligning the program with current library naming conventions.</li>
-</ol>
+<p>The business rules for <code>BB955AC</code> are straightforward and focus on work file management:
+- <strong>Work File Initialization</strong>: The <code>BB955W</code> file in <code>QTEMP</code> must be cleared or created before use in <code>BB955</code> to ensure a clean slate for staging rack price data.
+- <strong>File Group Selection</strong>:
+  - If <code>&amp;P$FGRP = 'G'</code>, the work file is sourced from the <code>DATA</code> library, typically for production data.
+  - If <code>&amp;P$FGRP ≠ 'G'</code> (assumed to be <code>Z</code>), the work file is sourced from the <code>DATADEV</code> library, likely for development or test data.
+- <strong>Error Handling</strong>: The program handles cases where the work file does not exist by creating it and ignores errors related to constraints or existing objects to ensure robust execution.
+- <strong>Temporary Storage</strong>: The use of <code>QTEMP</code> ensures the work file is session-specific and automatically deleted when the job ends, maintaining data isolation.
+- <strong>Revision Update (<code>JK01</code>)</strong>: Replaces <code>ARGDEV</code> with <code>DATA</code> and <code>ARGDEVTEST</code> with <code>DATADEV</code> (as of 08/27/2021), aligning library names with current standards.</p>
 <h3 id="tables-used">Tables Used<a class="headerlink" href="#tables-used" title="Permanent link">&para;</a></h3>
-<p>The program interacts with the following file:</p>
-<ul>
-<li><strong>BB955W</strong>:</li>
-<li><strong>Library</strong>: <code>QTEMP</code> (target), <code>DATA</code> or <code>DATADEV</code> (source).</li>
-<li><strong>Description</strong>: A physical file used as a temporary work file for the <code>BB955</code> RPGLE program. It is cleared or created in <code>QTEMP</code> to store temporary data during rack price file maintenance.</li>
-<li><strong>Usage</strong>: Cleared with <code>CLRPFM</code> or created with <code>CRTDUPOBJ</code>.</li>
-</ul>
-<p>No other files are directly referenced in the CLP program.</p>
+<p>The program interacts with the following file:
+1. <strong>BB955W</strong>: A physical file used as a temporary work file in the <code>QTEMP</code> library. It is either cleared (<code>CLRPFM</code>) or created (<code>CRTDUPOBJ</code>) from the <code>DATA</code> or <code>DATADEV</code> library, depending on <code>&amp;P$FGRP</code>. This file is used by <code>BB955</code> to stage rack price data before updating <code>bbprce</code>.</p>
 <h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
-<p>The <code>BB955AC</code> program does not explicitly call any external programs. It relies on the following system command:</p>
+<p>No external programs are explicitly called in <code>BB955AC</code>. The program uses only CL commands:
+- <code>CLRPFM</code>: Clears the <code>BB955W</code> file.
+- <code>CRTDUPOBJ</code>: Creates a duplicate of the <code>BB955W</code> file in <code>QTEMP</code>.
+- <code>MONMSG</code>: Monitors for specific error messages.
+- <code>IF/DO/ENDDO</code>: Conditional logic for file group handling.</p>
+<h3 id="integration-with-bb955-gb730p-and-ocl">Integration with <code>BB955</code>, <code>GB730P</code>, and OCL<a class="headerlink" href="#integration-with-bb955-gb730p-and-ocl" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>CRTDUPOBJ</strong>: A system command (not a program) used to create a duplicate of the <code>BB955W</code> file in <code>QTEMP</code>. It is executed natively within the CLP program.</li>
+<li><strong>Context in <code>BB955</code></strong>:</li>
+<li><code>BB955AC</code> is called from <code>BB955</code> (part 1, <code>sf1f07</code> subroutine) to clear or recreate the <code>BB955W</code> work file after updates are applied to <code>bbprce</code>. The parameter <code>p$fgrp</code> from <code>BB955</code> maps to <code>&amp;P$FGRP</code> in <code>BB955AC</code>, determining the source library (<code>DATA</code> or <code>DATADEV</code>).</li>
+<li>The work file is used by <code>BB955</code> to stage changes (e.g., in <code>sf1upd</code>, <code>updadlloc</code>, <code>addadlloc</code>) before committing them to <code>bbprce</code>.</li>
+<li><strong>Context in OCL</strong>:</li>
+<li>The OCL program (<code>BB955.ocl36.txt</code>) initiates <code>BB955</code>, passing the <code>'?9?'</code> parameter, which likely influences the file group (<code>p$fgrp</code> in <code>BB955</code>, passed to <code>BB955AC</code> as <code>&amp;P$FGRP</code>).</li>
+<li>The OCL checks for the <code>27X132</code> display condition, ensuring <code>BB955</code> (and thus <code>BB955AC</code>) only runs in a compatible environment.</li>
+<li><strong>Context in <code>GB730P</code></strong>:</li>
+<li><code>BB955AC</code> does not directly interact with <code>GB730P</code>, but <code>BB955W</code> may be used to stage data that <code>GB730P</code> queries historically via <code>bbprcehx</code> when called for history inquiries (F9 in <code>BB955</code>).</li>
+<li><strong>Process Flow</strong>:</li>
+<li>The OCL calls <code>BB955</code>, which processes rack price data using <code>BB955W</code>.</li>
+<li><code>BB955</code> calls <code>BB955AC</code> to clear or create <code>BB955W</code> in <code>QTEMP</code>, ensuring a clean work file for each session.</li>
+<li>After updates, <code>BB955</code> logs changes to <code>bbprceh</code> (via <code>writehist</code>), and <code>GB730P</code> can display these historical changes when invoked.</li>
 </ul>
 <h3 id="additional-notes">Additional Notes<a class="headerlink" href="#additional-notes" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Context with OCL and RPGLE</strong>:</li>
-<li>The <code>BB955AC</code> CLP is called from the <code>BB955.ocl36</code> program before the <code>BB955</code> RPGLE program to ensure the <code>BB955W</code> work file is ready in <code>QTEMP</code>.</li>
-<li>
-<p>The <code>&amp;P$FGRP</code> parameter aligns with the <code>p$fgrp</code> parameter passed to the <code>BB955</code> RPGLE program, ensuring consistency in file group selection ('G' or 'Z').</p>
-</li>
-<li>
-<p><strong>Purpose Clarification</strong>:</p>
-</li>
-<li>
-<p>Despite the comment indicating "CUSTOMER ORDER AND INVOICE INQUIRY," the program’s actual purpose is to support rack price file maintenance by preparing the work file, as it is called by <code>BB955.ocl36</code> and aligns with the <code>BB955</code> RPGLE program’s functionality. The comment may reflect a documentation error or a reused template.</p>
-</li>
-<li>
-<p><strong>Revision</strong>:</p>
-</li>
-<li>
-<p>The <code>JK01</code> revision (08/27/2021) updated library references, indicating a migration from older library names (<code>ARGDEV</code>, <code>ARGDEVTEST</code>) to standardized ones (<code>DATA</code>, <code>DATADEV</code>).</p>
-</li>
-<li>
-<p><strong>No Search Required</strong>:</p>
-</li>
-<li>The analysis is based solely on the provided CLP code, as requested. If additional context (e.g., about <code>DATA</code> or <code>DATADEV</code> libraries) is needed, I can perform a search or analyze related files.</li>
+<li><strong>Purpose Clarification</strong>: Despite the comment in the CLP stating "CUSTOMER ORDER AND INVOICE INQUIRY," the program’s actual purpose aligns with rack price file maintenance, as it supports <code>BB955</code>. The comment may be a documentation error or a remnant from a copied template.</li>
+<li><strong>Revision (<code>JK01</code>)</strong>: The update on 08/27/2021 standardizes library names (<code>DATA</code> for production, <code>DATADEV</code> for development), replacing <code>ARGDEV</code> and <code>ARGDEVTEST</code>.</li>
+<li><strong>Testing Section</strong>: The commented-out code suggests a previous testing setup in <code>DRCLIB</code>, which is not active in the current version.</li>
+<li><strong>Truncation</strong>: The provided code is complete for <code>BB955AC</code>, so no additional subroutines are missing. However, the full behavior of <code>BB955W</code> depends on <code>BB955</code>’s logic, which is partially truncated in the provided <code>BB955.rpgle</code> files.</li>
 </ul>
-<h3 id="final-answer">Final Answer<a class="headerlink" href="#final-answer" title="Permanent link">&para;</a></h3>
+<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Process Steps</strong>:</li>
-<li>Receive the <code>&amp;P$FGRP</code> parameter ('G' or other, typically 'Z').</li>
-<li>Attempt to clear the <code>BB955W</code> file in <code>QTEMP</code>.</li>
-<li>If <code>BB955W</code> is not found (<code>CPF3142</code>):<ul>
-<li>If <code>&amp;P$FGRP = 'G'</code>, create <code>BB955W</code> in <code>QTEMP</code> from <code>DATA</code>.</li>
-<li>If <code>&amp;P$FGRP ≠ 'G'</code>, create <code>BB955W</code> in <code>QTEMP</code> from <code>DATADEV</code>.</li>
+<li><strong>Process Steps</strong>: </li>
+<li>Receive <code>&amp;P$FGRP</code> parameter.</li>
+<li>Attempt to clear <code>BB955W</code> in <code>QTEMP</code>.</li>
+<li>If not found, create <code>BB955W</code> from <code>DATA</code> (if <code>G</code>) or <code>DATADEV</code> (if not <code>G</code>) with constraints and triggers disabled.</li>
+<li>End the program.</li>
+<li><strong>Business Rules</strong>: Clear or create <code>BB955W</code> in <code>QTEMP</code> based on the file group, handle errors robustly, and ensure session-specific data isolation.</li>
+<li><strong>Tables Used</strong>: <code>BB955W</code> (work file in <code>QTEMP</code>, sourced from <code>DATA</code> or <code>DATADEV</code>).</li>
+<li><strong>External Programs Called</strong>: None; uses only CL commands.</li>
 </ul>
-</li>
-<li>Handle errors (<code>CPF5813</code>, <code>CPF7302</code>) during file creation.</li>
-<li>
-<p>End the program.</p>
-</li>
-<li>
-<p><strong>Business Rules</strong>:</p>
-</li>
-<li>Isolates temporary data in <code>QTEMP</code> for session-specific use.</li>
-<li>Selects the source library (<code>DATA</code> or <code>DATADEV</code>) based on <code>&amp;P$FGRP</code>.</li>
-<li>Handles file-not-found and creation errors gracefully.</li>
-<li>
-<p>Creates <code>BB955W</code> without constraints or triggers for simplicity.</p>
-</li>
-<li>
-<p><strong>Tables Used</strong>:</p>
-</li>
-<li>
-<p><code>BB955W</code> (in <code>QTEMP</code>, sourced from <code>DATA</code> or <code>DATADEV</code>).</p>
-</li>
-<li>
-<p><strong>External Programs Called</strong>:</p>
-</li>
-<li>None (uses the <code>CRTDUPOBJ</code> system command).</li>
-</ul>
-<p>If you have additional files or need further details about the <code>DATA</code>/<code>DATADEV</code> libraries or the <code>BB955W</code> file structure, let me know, and I can refine the analysis or perform a search!</p>
+<p>If you have additional code (e.g., missing <code>BB955</code> subroutines like <code>bldwrkf</code> or <code>writehist</code>) or need further analysis of how <code>BB955W</code> is populated, please share them. I can also use DeepSearch to gather context on AS/400 CLP conventions or similar work file management programs if needed. Let me know how to proceed!</p>
 
 
 

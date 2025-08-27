@@ -12,13 +12,13 @@
         <meta name="author" content="American Refining Group">
       
       
-        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB955%20Rack%20Price%20File%20Add-Update/BB955%20RPGLE/">
+        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB955%20Rack%20Price%20File%20Add-Update/BB955%20RPGLE%201/">
       
       
         <link rel="prev" href="../BB955%20OCL/">
       
       
-        <link rel="next" href="../BB955AC%20CLP/">
+        <link rel="next" href="../BB955%20RPGLE%202/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>BB955 RPGLE - ARG AS400 IBMi Documentation</title>
+        <title>BB955 RPGLE 1 - ARG AS400 IBMi Documentation</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#process-steps-of-the-rpgle-program-bb955" class="md-skip">
+        <a href="#process-steps-of-the-rpgle-program" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              BB955 RPGLE
+              BB955 RPGLE 1
             
           </span>
         </div>
@@ -13758,7 +13758,7 @@
   
   
   <span class="md-ellipsis">
-    BB955 RPGLE
+    BB955 RPGLE 1
     
   </span>
   
@@ -13771,7 +13771,7 @@
   
   
   <span class="md-ellipsis">
-    BB955 RPGLE
+    BB955 RPGLE 1
     
   </span>
   
@@ -13792,9 +13792,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-rpgle-program-bb955" class="md-nav__link">
+  <a href="#process-steps-of-the-rpgle-program" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the RPGLE Program (BB955)
+      Process Steps of the RPGLE Program
     </span>
   </a>
   
@@ -13836,19 +13836,33 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#final-answer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Final Answer
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB955%20RPGLE%202/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB955 RPGLE 2
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -13867,6 +13881,29 @@
   
   <span class="md-ellipsis">
     BB955AC CLP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GB730P%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GB730P RPGLE
     
   </span>
   
@@ -15752,9 +15789,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-rpgle-program-bb955" class="md-nav__link">
+  <a href="#process-steps-of-the-rpgle-program" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the RPGLE Program (BB955)
+      Process Steps of the RPGLE Program
     </span>
   </a>
   
@@ -15796,15 +15833,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#final-answer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Final Answer
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -15824,297 +15852,157 @@
   
 
 
-  <h1>BB955 RPGLE</h1>
+  <h1>BB955 RPGLE 1</h1>
 
-<p>The provided <code>BB955.rpgle</code> file is an RPGLE (RPG IV) program for the IBM AS/400 (iSeries) system, designed for "Rack Price File Maintenance" within the Bradford Order Entry/Invoices system. It is called from the <code>BB955.ocl36</code> OCL program discussed previously. Below, I will explain the process steps, outline the business rules, list the tables used, and identify external programs called, based on the provided RPGLE source code.</p>
-<h3 id="process-steps-of-the-rpgle-program-bb955">Process Steps of the RPGLE Program (BB955)<a class="headerlink" href="#process-steps-of-the-rpgle-program-bb955" title="Permanent link">&para;</a></h3>
-<p>The <code>BB955</code> program manages the maintenance of rack price data, allowing users to view, update, add, delete, or restore pricing records via a subfile-based interface. The program follows a structured flow, leveraging subroutines to handle initialization, file operations, user input, and data processing. Here’s a step-by-step breakdown of the process:</p>
+<p>The provided document is an RPGLE program named <code>BB955.rpgle</code>, which is called from the OCL program <code>BB955.ocl36.txt</code> for "Rack Price File Maintenance" in the Bradford Order Entry / Invoices system. Below, I’ll explain the process steps, business rules, tables used, and external programs called based on the provided RPGLE code. Since the code is truncated, the analysis covers the available portion, focusing on the main program flow, subroutines, and key logic.</p>
+<h3 id="process-steps-of-the-rpgle-program">Process Steps of the RPGLE Program<a class="headerlink" href="#process-steps-of-the-rpgle-program" title="Permanent link">&para;</a></h3>
+<p>The <code>BB955</code> program is an interactive RPGLE program that maintains rack price data, allowing users to view, update, add, or delete pricing records via a subfile-based display. It uses a workstation file (<code>bb955d</code>) for user interaction and manages data in a work file (<code>bb955w</code>) and primary price file (<code>bbprce</code>). The program follows these high-level steps:</p>
 <ol>
-<li><strong>Initialization (<code>*inzsr</code> Subroutine)</strong>:</li>
-<li><strong>Purpose</strong>: Sets up the program environment and initializes variables.</li>
+<li><strong>Program Initialization</strong>:</li>
+<li><strong>Open Database Tables</strong>: The subroutine <code>opntbl</code> is executed to open the necessary files (<code>bb955d</code>, <code>bicont</code>, <code>gscntr1</code>, <code>gsctum</code>, <code>gsprod</code>, <code>gstabl</code>, <code>inloc</code>, <code>bbprcw</code>, <code>bb955w</code>, <code>bbprce</code>, <code>bbprceh</code>). These files are opened with the <code>USROPN</code> keyword, indicating they are explicitly opened by the program.</li>
+<li><strong>Retrieve Initial Data</strong>: The <code>rtvdta</code> subroutine retrieves data based on the parameter passed from the OCL program (<code>'?9?'</code>), likely initializing key fields or setting up the environment.</li>
 <li>
-<p><strong>Actions</strong>:</p>
-<ul>
-<li>Receives an input parameter <code>p$fgrp</code> (file group, 'G' or 'Z'), which determines the file overrides to use (e.g., <code>gbicont</code> vs. <code>zbicont</code>).</li>
-<li>Initializes work fields, subfile control fields (e.g., <code>rrn1</code>, <code>pagsz1</code>), and message handling fields.</li>
-<li>Sets up date and time stamps using the program status data structure (<code>psds##</code>) for current date (<code>ps#mdy</code>) and time (<code>ps#hms</code>).</li>
-<li>Defines key lists (e.g., <code>kls1s1</code>, <code>klbbprce</code>) for database access.</li>
-<li>Clears format and reposition fields (e.g., <code>c1cono</code>, <code>s1date</code>, <code>s1time</code>) to prepare for user input.</li>
+<p><strong>Subfile Processing</strong>: The main logic is handled by the <code>srsfl1</code> subroutine, which manages the subfile (<code>sfl1</code>) for displaying and editing rack price records.</p>
+</li>
+<li>
+<p><strong>Subfile Processing (<code>srsfl1</code> Subroutine)</strong>:</p>
+</li>
+<li><strong>Initialize Subfile</strong>: The subfile is set to "folded" mode (<code>sfmod1 = '1'</code>, <code>*IN45 = *ON</code>), controlling how data is displayed (folded or unfolded). The message subfile is cleared (<code>clrmsg</code>), and function key labels are set (<code>s1f06d</code>, <code>s1f08d</code>).</li>
+<li><strong>Main Loop (<code>sf1agn</code>)</strong>: The program enters a loop to handle user interaction:<ul>
+<li><strong>Reposition Subfile</strong>: If the <code>repsfl</code> flag is set, the <code>sf1rep</code> subroutine repositions the subfile based on user filters (e.g., company number, location, product).</li>
+<li><strong>Condition Function Keys</strong>: The program checks for subfile records (<code>rrn1</code>) to enable/disable function keys (e.g., F7 for accepting changes, <code>*IN78</code>).</li>
+<li><strong>Display Subfile</strong>: The subfile control record (<code>sflctl1</code>) is displayed using <code>EXFMT</code>, allowing user input. The subfile display is conditioned (<code>*IN41</code>) based on whether records exist.</li>
+<li><strong>Handle Folded/Unfolded Mode</strong>: The display toggles between folded (<code>*IN45 = *OFF</code>) and unfolded modes based on <code>sfmod1</code> and whether multiple quantities exist (<code>w$mltqty</code>).</li>
+<li><strong>Cursor Positioning</strong>: The cursor is positioned to the effective date field for new records (<code>*IN77</code>) if no errors are present.</li>
 </ul>
 </li>
 <li>
-<p><strong>Open Database Tables (<code>opntbl</code> Subroutine)</strong>:</p>
-</li>
-<li><strong>Purpose</strong>: Opens all necessary database files with appropriate overrides based on the file group (<code>p$fgrp</code>).</li>
-<li>
-<p><strong>Actions</strong>:</p>
+<p><strong>Process User Input</strong>:</p>
 <ul>
-<li>Checks the <code>p$fgrp</code> parameter ('G' or 'Z') to apply file overrides from arrays <code>ovg</code> or <code>ovz</code> (e.g., <code>ovrdbf file(bicont) tofile(*libl/gbicont)</code> for 'G').</li>
-<li>Executes overrides using the <code>QCMDEXC</code> API to redirect file access to the correct library (e.g., <code>QTEMP</code> for <code>bb955w</code>).</li>
-<li>Opens input files (<code>bicont</code>, <code>gscntr1</code>, <code>gsctum</code>, <code>gsprod</code>, <code>gstabl</code>, <code>inloc</code>, <code>bbprcw</code>), update files (<code>bbprce</code>, <code>bb955w</code>), and output file (<code>bbprceh</code>).</li>
-<li>Ensures files are opened with <code>usropn</code> (user-controlled open) for flexibility.</li>
+<li><strong>F3 (Exit)</strong>: Exits the loop (<code>sf1agn = *OFF</code>).</li>
+<li><strong>F4 (Prompt)</strong>: Calls the <code>prompt</code> subroutine to assist with field input.</li>
+<li><strong>F5 (Refresh)</strong>: Triggers subfile repositioning (<code>repsfl = *ON</code>).</li>
+<li><strong>F6 (Toggle Update)</strong>: Toggles whether existing records can be updated (<code>s1alwupd</code>), updating the function key label (<code>s1f06d</code>).</li>
+<li><strong>F8 (Toggle Deleted Records)</strong>: Toggles whether deleted records are shown (<code>s1showdel</code>), updating the function key label (<code>s1f08d</code>).</li>
+<li><strong>F9 (History Inquiry)</strong>: Calls the external program <code>GB730P</code> with parameters (<code>x$custhist</code>) to display historical data for the selected subfile record.</li>
+<li><strong>F10 (Position Cursor)</strong>: Clears cursor coordinates (<code>row1</code>, <code>col1</code>) to reposition to the control record.</li>
+<li><strong>F23 (Delete/Restore)</strong>: Processes deletion or restoration of a subfile record (<code>sf1del</code>, <code>sf1fmt</code>, <code>sf1pro</code>), updates the subfile, and sets <code>SFLNXTCHG</code> (<code>*IN44</code>).</li>
+<li><strong>User Filters</strong>: If control fields (e.g., <code>c1cono</code>, <code>c1loc</code>, <code>c1prod</code>) differ from saved values, the subfile is repositioned (<code>sf1rep</code>).</li>
+<li><strong>New Record Input</strong>: If the effective date (<code>c1emdy</code>) or location fields (<code>loc</code>) change, the <code>sf1ctenew</code> subroutine validates new record input.</li>
+<li><strong>Enter/F7 (Accept Changes)</strong>: Processes subfile changes (<code>sf1prc</code>) or accepts changes (<code>sf1f07</code>) if no errors are present (<code>w$sflerr = *OFF</code>).</li>
 </ul>
 </li>
 <li>
-<p><strong>Retrieve Data for Parameters (<code>rtvdta</code> Subroutine)</strong>:</p>
+<p><strong>Subfile Record Processing (<code>sf1prc</code> Subroutine)</strong>:</p>
 </li>
-<li><strong>Purpose</strong>: Loads initial data for display based on passed parameters.</li>
+<li>Reads changed subfile records (<code>READC sfl1</code>) and processes them via <code>sf1chg</code>.</li>
 <li>
-<p><strong>Actions</strong>:</p>
-<ul>
-<li>Sets the header for the display (<code>c$hdr1 = 'Rack Price File Maintenance'</code>).</li>
-<li>Likely retrieves initial data for the subfile or control fields (though the subroutine is minimal in the provided code, suggesting additional logic may be truncated).</li>
-</ul>
+<p>Sets the <code>s1chng</code> flag to indicate changes and checks for errors (<code>w$sflerr</code>).</p>
 </li>
 <li>
-<p><strong>Process Subfile (<code>srsfl1</code> Subroutine)</strong>:</p>
+<p><strong>Process Subfile Changes (<code>sf1chg</code> Subroutine)</strong>:</p>
 </li>
-<li><strong>Purpose</strong>: Manages the main user interface loop, displaying and processing a subfile (SFL1) for rack price records.</li>
+<li>Edits subfile input (<code>sf1edt</code>) to validate fields.</li>
 <li>
-<p><strong>Actions</strong>:</p>
-<ul>
-<li>Initializes subfile mode (<code>sfmod1 = '1'</code>, folded) and clears the message subfile (<code>clrmsg</code>).</li>
-<li>Sets default behaviors: excludes deleted records (<code>s1showdel = *off</code>) and prevents updates to existing records (<code>s1alwupd = *off</code>).</li>
-<li>Enters a loop (<code>sf1agn</code>) that:</li>
-<li>Repositions the subfile if needed (<code>sf1rep</code>).</li>
-<li>Conditions function key availability (e.g., F7=Accept Changes enabled only if subfile records exist).</li>
-<li>Displays the subfile control record (<code>sflctl1</code>) and command line (<code>sflcmd1</code>).</li>
-<li>Handles user input based on function keys (F3, F4, F5, F6, F8, F9, F10, F23) or Enter key.</li>
-<li>Processes subfile changes (<code>sf1prc</code>) when Enter or F7 is pressed.</li>
-<li>Key actions include:</li>
-<li><strong>F3</strong>: Exits the program.</li>
-<li><strong>F4</strong>: Prompts for valid values for fields like company, location, or product (<code>prompt</code> subroutine).</li>
-<li><strong>F5</strong>: Refreshes the subfile.</li>
-<li><strong>F6</strong>: Toggles allow/prevent updates for existing records.</li>
-<li><strong>F8</strong>: Toggles include/exclude deleted records.</li>
-<li><strong>F9</strong>: Calls <code>GB730P</code> to display customer history for the selected subfile record.</li>
-<li><strong>F10</strong>: Repositions the cursor to the control record.</li>
-<li><strong>F23</strong>: Deletes or restores a subfile record (<code>sf1del</code>).</li>
-<li><strong>Enter/F7</strong>: Processes subfile changes (<code>sf1prc</code>) and accepts updates (<code>sf1f07</code>).</li>
-</ul>
-</li>
-<li>
-<p><strong>Process Subfile Changes (<code>sf1prc</code> Subroutine)</strong>:</p>
-</li>
-<li><strong>Purpose</strong>: Validates and processes changes made to subfile records.</li>
-<li>
-<p><strong>Actions</strong>:</p>
-<ul>
-<li>Reads changed subfile records (<code>readc sfl1</code>) and processes each (<code>sf1chg</code>).</li>
-<li>Sets a flag (<code>s1chng</code>) if changes are detected.</li>
-<li>Calls <code>sf1edt</code> to validate input and <code>sf1upd</code> to update the database if no errors occur.</li>
-</ul>
-</li>
-<li>
-<p><strong>Edit Subfile Input (<code>sf1edt</code> Subroutine)</strong>:</p>
-</li>
-<li><strong>Purpose</strong>: Validates user input in the subfile.</li>
-<li>
-<p><strong>Actions</strong>:</p>
-<ul>
-<li>Clears error indicators (<code>*in50</code> to <code>*in69</code>, <code>*in30</code> to <code>*in39</code>).</li>
-<li>Constructs an item identifier (<code>w$item = s1prod + '/' + s1cntr + '/' + s1unms</code>).</li>
-<li>Validates fields on the left (existing records) and right (new records) sides of the subfile (<code>sf1edtlt</code> and assumed <code>sf1edtrt</code>, though truncated).</li>
-<li>Sets error indicators if validation fails.</li>
-</ul>
+<p>Updates the database (<code>sf1upd</code>) if no errors are present (<code>*IN50 = *OFF</code>).</p>
 </li>
 <li>
 <p><strong>Update Database (<code>sf1upd</code> Subroutine)</strong>:</p>
 </li>
-<li><strong>Purpose</strong>: Updates the database (<code>bbprce</code>) with validated subfile changes.</li>
+<li>Chains to the work file (<code>bb955w</code>) using key fields (<code>klsfl1</code>).</li>
+<li>Updates existing fields (<code>w1prce</code>, <code>w1pr02</code>, etc.) and new fields (<code>n1prce</code>, <code>n1pr02</code>, etc.) in the work file.</li>
 <li>
-<p><strong>Actions</strong>: Writes or updates records in <code>bbprce</code> and logs changes to the history file (<code>bbprceh</code>) via <code>writehist</code>.</p>
+<p>Copies data to history fields (<code>h1prce</code>, <code>h1pr01</code>) for logging.</p>
 </li>
 <li>
-<p><strong>Write to History File (<code>writehist</code> Subroutine)</strong>:</p>
+<p><strong>Accept Changes (<code>sf1f07</code> Subroutine)</strong>:</p>
 </li>
-<li><strong>Purpose</strong>: Logs changes to the <code>bbprceh</code> history file.</li>
-<li>
-<p><strong>Actions</strong>:</p>
-<ul>
-<li>Captures current date and time (<code>t#time12</code>, <code>ps#dat</code>).</li>
-<li>Populates history record fields (e.g., <code>ihcono</code>, <code>ihloc</code>, <code>ihprod</code>, <code>ihprce</code>) from the current rack price record.</li>
-<li>Sets <code>ihdel</code> to 'A' (active) or retains the deletion flag.</li>
-<li>Writes the history record with user and timestamp (<code>ihuser</code>, <code>ihchtm</code>).</li>
+<li>Checks for new records in the work file (<code>bb955w</code>) by scanning for non-zero/non-blank values (<code>n1minq</code>, <code>n1rkrq</code>, etc.).</li>
+<li>Validates the effective date (<code>c1emdy</code>) for new records, displaying an error (<code>ERR0020</code>) if missing.</li>
+<li>Displays a confirmation window (<code>f07wrn</code>) and processes user input:<ul>
+<li><strong>F12</strong>: Cancels the update (<code>winagn = *OFF</code>).</li>
+<li><strong>F22</strong>: Triggers the database update (<code>sf1f07upd</code>).</li>
 </ul>
 </li>
 <li>
-<p><strong>Field Prompting (<code>prompt</code> Subroutine)</strong>:</p>
+<p>Clears the subfile and work file, calls <code>BB955AC</code> to recreate the work file, and resets filters.</p>
 </li>
-<li><strong>Purpose</strong>: Provides lookup functionality for input fields using F4.</li>
 <li>
-<p><strong>Actions</strong>:</p>
+<p><strong>Update Database for F7 (<code>sf1f07upd</code> Subroutine)</strong>:</p>
+</li>
+<li>Reads the work file (<code>bb955w</code>) and skips records marked as deleted (<code>w1del = 'D'</code>).</li>
+<li>Updates existing records in <code>bbprce</code> by comparing fields (<code>w1prce</code> vs. <code>rkprce</code>, etc.) and writing changes if differences exist. Calls <code>writehist</code> to log changes to <code>bbprceh</code>.</li>
+<li>Adds new records for the new effective date (<code>c1edat</code>) if non-zero/non-blank values exist. Restores deleted records (<code>rkdel = 'A'</code>) if applicable.</li>
+<li>
+<p>Calls <code>updadlloc</code> and <code>addadlloc</code> to handle additional locations.</p>
+</li>
+<li>
+<p><strong>Update Additional Locations (<code>updadlloc</code> Subroutine)</strong>:</p>
+</li>
+<li>Loops through 10 additional locations (<code>loc</code> array).</li>
+<li>
+<p>Updates existing records in <code>bbprce</code> for each non-blank location, comparing and updating fields as needed. Logs changes via <code>writehist</code>.</p>
+</li>
+<li>
+<p><strong>Add Additional Locations (<code>addadlloc</code> Subroutine)</strong>:</p>
+</li>
+<li>Loops through 10 additional locations (<code>loc</code> array).</li>
+<li>
+<p>Adds new records to <code>bbprce</code> for non-blank locations with the new effective date (<code>c1edat</code>). Logs changes via <code>writehist</code>.</p>
+</li>
+<li>
+<p><strong>Reposition Subfile (<code>sf1rep</code> Subroutine)</strong>:</p>
 <ul>
-<li>Calls external programs (e.g., <code>LBICONT</code>, <code>LINLOC</code>, <code>LGSPROD</code>) to display valid values for fields like company (<code>c1cono</code>), location (<code>c1loc</code>), or product (<code>c1prod</code>).</li>
-<li>Updates control fields with selected values.</li>
+<li>Checks if user filters have changed (e.g., <code>c1cono</code> vs. <code>r$cono</code>).</li>
+<li>If the work file is open and contains records, warns the user of unprocessed changes (<code>bldwrkfwrn</code>).</li>
+<li>Clears the subfile (<code>sf1clr</code>), validates control fields (<code>sf1cte</code>), rebuilds the work file (<code>bldwrkf</code>) if needed, and loads all records (<code>sf1lodall</code>).</li>
 </ul>
 </li>
 <li>
 <p><strong>Program Termination</strong>:</p>
 <ul>
-<li>Closes all open files (<code>close *all</code>).</li>
-<li>Sets <code>*inlr = *on</code> to indicate the program is ending and returns control to the caller (the OCL program).</li>
+<li>Closes all files (<code>CLOSE *ALL</code>).</li>
+<li>Sets <code>*INLR = *ON</code> to indicate the program is complete and returns control to the calling OCL program.</li>
 </ul>
 </li>
 </ol>
 <h3 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
-<p>The program enforces several business rules to ensure data integrity and usability:</p>
-<ol>
-<li><strong>Display Compatibility</strong>:</li>
-<li>
-<p>The OCL program checks for <code>DSPLY-27X132</code> and halts if the terminal uses this format, indicating potential display issues with the subfile interface.</p>
-</li>
-<li>
-<p><strong>File Group Selection</strong>:</p>
-</li>
-<li>
-<p>The <code>p$fgrp</code> parameter ('G' or 'Z') determines which set of files to use (e.g., <code>gbicont</code> vs. <code>zbicont</code>), allowing the program to operate in different environments or data sets.</p>
-</li>
-<li>
-<p><strong>Input Validation</strong>:</p>
-</li>
-<li>Fields like company (<code>c1cono</code>), location (<code>c1loc</code>), product (<code>c1prod</code>), container (<code>c1cntr</code>), unit of measure (<code>c1unms</code>), and product class (<code>c1prcl</code>) must exist in reference files (<code>bicont</code>, <code>inloc</code>, <code>gsprod</code>, <code>gscntr1</code>, <code>gstabl</code>).</li>
-<li>Error messages (e.g., "Invalid Company...F4 To View Valid Values") are displayed if validation fails (see <code>com</code> array).</li>
-<li>
-<p>Quantities and prices must follow specific rules:</p>
-<ul>
-<li>Quantities cannot be zero if a price is entered (<code>Cannot Be Zero If Price Is Entered</code>).</li>
-<li>The last quantity must be 9999999 (<code>Is The Last Qty And Must Be 9999999</code>).</li>
-<li>Quantities must be in ascending order (<code>Is Not In Ascending Order</code>).</li>
-<li>Prices cannot be zero if subsequent prices exist (<code>Cannot Be Zero With Prices Following</code>).</li>
-</ul>
-</li>
-<li>
-<p><strong>Subfile Behavior</strong>:</p>
-</li>
-<li>The subfile supports folded/unfolded modes, toggled automatically if multiple quantities exist (<code>w$mltqty</code>).</li>
-<li>Deleted records can be included or excluded via F8 (<code>s1showdel</code>).</li>
-<li>Updates to existing records can be allowed or prevented via F6 (<code>s1alwupd</code>).</li>
-<li>
-<p>New records require an effective date if additional locations are entered (<code>Must Enter Effective Date For New Entries If Additional Locations Are Entered</code>).</p>
-</li>
-<li>
-<p><strong>Data Integrity</strong>:</p>
-</li>
-<li>Duplicate pricing entries for the same product, container, unit of measure, and effective date are prevented (<code>New Pricing Already Entered For Same Product, Container, And UM</code>).</li>
-<li>Additional locations cannot match the selected location (<code>Additional Location Cannot Be Same As Selected Location</code>).</li>
-<li>
-<p>Inactive records (<code>GSCTUM</code>, <code>GSCTWT</code>, <code>GSUMCV</code>) are treated as deleted (<code>JB05</code> revision).</p>
-</li>
-<li>
-<p><strong>History Tracking</strong>:</p>
-</li>
-<li>
-<p>All changes (add, update, delete) are logged to the <code>bbprceh</code> history file with user, date, and time stamps (<code>writehist</code>).</p>
-</li>
-<li>
-<p><strong>User Interface</strong>:</p>
-</li>
-<li>Function keys (F3, F4, F5, F6, F8, F9, F10, F23) provide specific actions (e.g., exit, prompt, refresh, toggle modes, delete/restore).</li>
-<li>The subfile supports cursor positioning (F10) and error highlighting (<code>SFLNXTCHG</code>).</li>
-</ol>
+<p>The program enforces several business rules for maintaining rack price data:
+- <strong>Display Validation</strong>: The OCL program checks for a <code>27X132</code> display condition, and if present, prevents execution, indicating a compatibility issue.
+- <strong>Subfile Management</strong>: The subfile supports viewing, updating, adding, and deleting records. Users can toggle between showing/hiding deleted records (<code>s1showdel</code>) and allowing/preventing updates to existing records (<code>s1alwupd</code>).
+- <strong>Data Validation</strong>: Input fields (e.g., quantities <code>s1qt</code>, prices <code>s1pr</code>, new quantities <code>n$qt</code>, new prices <code>n$pr</code>) are validated (<code>sf1edt</code>, <code>sf1ctenew</code>) to ensure data integrity.
+- <strong>Effective Date Requirement</strong>: New records require a valid effective date (<code>c1emdy</code>). If missing, an error (<code>ERR0020</code>) is displayed.
+- <strong>History Logging</strong>: Changes to <code>bbprce</code> are logged to <code>bbprceh</code> via the <code>writehist</code> subroutine (added in revision <code>JK01</code>).
+- <strong>Additional Locations</strong>: The program supports up to 10 additional locations (<code>loc</code> array), updating or adding records for each non-blank location.
+- <strong>Deleted Records</strong>: Records marked as deleted (<code>rkdel = 'D'</code>) can be restored (<code>rkdel = 'A'</code>) or excluded based on the <code>s1showdel</code> toggle. Inactive records in <code>gsctum</code>, <code>gsctwt</code>, and <code>gsumcv</code> are treated as deleted (revision <code>JB05</code>).
+- <strong>Work File Management</strong>: The work file (<code>bb955w</code>) is recreated via <code>BB955AC</code> and cleared after updates to ensure data consistency.
+- <strong>Error Handling</strong>: Errors are displayed in a message subfile (<code>m@msgf = 'GSMSGF'</code>), with indicators (<code>*IN50</code> to <code>*IN69</code>) flagging specific field errors.
+- <strong>Currency</strong>: The program assumes prices are in U.S. dollars (<code>c#US$ = 'U.S. Dollars'</code>).</p>
 <h3 id="tables-used">Tables Used<a class="headerlink" href="#tables-used" title="Permanent link">&para;</a></h3>
-<p>The program uses the following files, as defined in the file specifications (<code>F</code> specs) and overrides:</p>
-<ol>
-<li><strong>Display File</strong>:</li>
-<li>
-<p><code>bb955d</code>: Display file for the user interface, containing subfile <code>sfl1</code> and control record <code>sflctl1</code>.</p>
-</li>
-<li>
-<p><strong>Input Files</strong>:</p>
-</li>
-<li><code>bicont</code>: Company master file (likely contains valid company codes).</li>
-<li><code>gscntr1</code>: Container master file (replaced <code>GSCNTR</code> per <code>JK03</code>, uses an alpha key).</li>
-<li><code>gsctum</code>: Customer master file (possibly for customer-specific data).</li>
-<li><code>gsprod</code>: Product master file (contains product codes and details).</li>
-<li><code>gstabl</code>: Table file (likely for codes like unit of measure or product class).</li>
-<li><code>inloc</code>: Location master file (contains valid location codes).</li>
-<li>
-<p><code>bbprcw</code>: Rack price work file (renamed to <code>bbprcepw</code> to avoid naming conflicts).</p>
-</li>
-<li>
-<p><strong>Update Files</strong>:</p>
-</li>
-<li><code>bbprce</code>: Primary rack price file, used for adding or updating pricing records.</li>
-<li>
-<p><code>bb955w</code>: Work file in <code>QTEMP</code>, used for temporary data storage (<code>jk04</code> override).</p>
-</li>
-<li>
-<p><strong>Output File</strong>:</p>
-</li>
-<li><code>bbprceh</code>: History file for logging changes to rack price records (<code>JK01</code>).</li>
-</ol>
+<p>The program uses the following files (tables), as defined in the file specifications:
+1. <strong>bb955d</strong>: Workstation file (display file) with a subfile (<code>sfl1</code>) for user interaction. Used for input/output via the display.
+2. <strong>bicont</strong>: Input-only file, likely containing control or configuration data.
+3. <strong>gscntr1</strong>: Input-only file, used for country or center data (replaced <code>gscntr</code> in revision <code>JK03</code> for an alpha key).
+4. <strong>gsctum</strong>: Input-only file, possibly containing customer or unit master data (treated as deleted if inactive, per <code>JB05</code>).
+5. <strong>gsprod</strong>: Input-only file, containing product master data.
+6. <strong>gstabl</strong>: Input-only file, likely a general table for reference data.
+7. <strong>inloc</strong>: Input-only file, containing location data.
+8. <strong>bbprcw</strong>: Input-only file, a renamed version of <code>bbprcepf</code> (<code>bbprcepw</code>) for reading price data.
+9. <strong>bb955w</strong>: Update file (work file) in <code>QTEMP</code> (revision <code>jk04</code>), used to stage changes before updating the main price file.
+10. <strong>bbprce</strong>: Update file, the primary file for rack price data.
+11. <strong>bbprceh</strong>: Output file, used to log historical price changes (added in revision <code>JK01</code>).</p>
 <h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
-<p>The program calls the following external programs, primarily for field prompting (F4) and history inquiry:</p>
-<ol>
-<li><strong>LBICONT</strong>: Displays valid company codes for <code>c1cono</code>.</li>
-<li><strong>LINLOC</strong>: Displays valid locations for <code>c1loc</code> or additional locations (<code>loc(x)</code>).</li>
-<li><strong>LGSPROD</strong>: Displays valid products for <code>c1prod</code> or positioning product (<code>c1ppos</code>).</li>
-<li><strong>LGSCNTR</strong>: Displays valid containers for <code>c1cntr</code>.</li>
-<li><strong>LGSTABL</strong>: Displays valid units of measure for <code>c1unms</code>.</li>
-<li><strong>LPRODCL</strong>: Displays valid product classes for <code>c1prcl</code>.</li>
-<li><strong>GB730P</strong>: Displays customer history for a selected subfile record (called with <code>x$custhist</code> parameters).</li>
-<li><strong>QCMDEXC</strong>: System API to execute file override commands.</li>
-<li><strong>QMHSNDPM</strong>: System API to send program messages to the message queue.</li>
-<li><strong>QMHRMVPM</strong>: System API to remove messages from the message queue.</li>
-</ol>
+<p>The program calls the following external programs:
+1. <strong>GB730P</strong>: Called when the F9 key is pressed to display historical data for a selected subfile record. Parameters are passed via the <code>x$custhist</code> data structure.
+2. <strong>BB955AC</strong>: Called to create or clear the work file (<code>bb955w</code>) after updates, passing the file group parameter (<code>p$fgrp</code> to <code>o$fgrp</code>).</p>
 <h3 id="additional-notes">Additional Notes<a class="headerlink" href="#additional-notes" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Truncated Code</strong>: The provided code is truncated (94,989 characters omitted), particularly in subroutines like <code>sf1edt</code>, which may contain additional validation logic. This limits a full analysis of all subfile editing rules.</li>
-<li><strong>File Overrides</strong>: The <code>jk04</code> revision ensures <code>bb955w</code> is overridden to <code>QTEMP</code>, isolating temporary data. The <code>ovg</code> and <code>ovz</code> arrays allow dynamic file selection based on the environment.</li>
-<li><strong>Error Handling</strong>: The program uses a message subfile (<code>msgctl</code>) and indicators (<code>*in50</code> to <code>*in69</code>, <code>*in21</code> to <code>*in39</code>) to display errors, ensuring user feedback for invalid inputs.</li>
-<li><strong>Revisions</strong>:</li>
-<li><code>JK01</code> (11/09/12): Added history file logging (<code>bbprceh</code>).</li>
-<li><code>JB02</code> (04/25/13): Changed <code>c1cono</code> to <code>o$cono</code> in calls to fix a definition issue.</li>
-<li><code>JK02</code> (06/25/13): Updated timestamp before writing to the history file.</li>
-<li><code>JK03</code> (02/24/16): Replaced <code>GSCNTR</code> with <code>GSCNTR1</code> for an alpha key.</li>
-<li><code>JB05</code> (11/01/16): Treated inactive records in <code>GSCTUM</code>, <code>GSCTWT</code>, and <code>GSUMCV</code> as deleted.</li>
-<li><code>jk04</code> (07/30/21): Added override for <code>bb955w</code> to <code>QTEMP</code>.</li>
+<li><strong>Truncated Code</strong>: The provided code is truncated, omitting subroutines like <code>opntbl</code>, <code>rtvdta</code>, <code>sf1edt</code>, <code>sf1del</code>, <code>sf1fmt</code>, <code>sf1pro</code>, <code>sf1cte</code>, <code>sf1lodall</code>, <code>bldwrkf</code>, <code>bldwrkfwrn</code>, <code>clrmsg</code>, <code>wrtmsg</code>, <code>addmsg</code>, and <code>writehist</code>. These likely handle specific tasks like file opening, data retrieval, validation, deletion logic, and history logging. If you have the full code, I can provide a more detailed analysis.</li>
+<li><strong>Revisions</strong>: The program has been updated to add history logging (<code>JK01</code>), fix a company number field issue (<code>JB02</code>), update timestamps (<code>JK02</code>), switch to <code>gscntr1</code> (<code>JK03</code>), handle inactive records (<code>JB05</code>), and override <code>bb955w</code> to <code>QTEMP</code> (<code>jk04</code>).</li>
+<li><strong>Subfile Design</strong>: The subfile (<code>sfl1</code>) supports up to four quantity/price pairs (<code>s1qt</code>, <code>s1pr</code>, <code>n$qt</code>, <code>n$pr</code>) and additional locations (<code>loc</code>), with fields for company number, product, country, unit of measure, effective date, and more.</li>
+<li><strong>Parameter from OCL</strong>: The <code>'?9?'</code> parameter from the OCL program is not explicitly referenced in the provided code but likely influences the <code>rtvdta</code> subroutine’s behavior.</li>
 </ul>
-<h3 id="final-answer">Final Answer<a class="headerlink" href="#final-answer" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Process Steps</strong>:</li>
-<li>Initialize program variables, key lists, and work fields (<code>*inzsr</code>).</li>
-<li>Open database files with overrides based on <code>p$fgrp</code> (<code>opntbl</code>).</li>
-<li>Retrieve initial data for display (<code>rtvdta</code>).</li>
-<li>Process the subfile (<code>srsfl1</code>):<ul>
-<li>Display and manage subfile records.</li>
-<li>Handle function keys (F3, F4, F5, F6, F8, F9, F10, F23) and Enter.</li>
-<li>Validate and update subfile changes (<code>sf1prc</code>, <code>sf1chg</code>, <code>sf1edt</code>, <code>sf1upd</code>).</li>
-</ul>
-</li>
-<li>Log changes to the history file (<code>writehist</code>).</li>
-<li>Provide field prompting via external programs (<code>prompt</code>).</li>
-<li>
-<p>Close files and exit.</p>
-</li>
-<li>
-<p><strong>Business Rules</strong>:</p>
-</li>
-<li>Enforces display compatibility (via OCL).</li>
-<li>Validates input fields against master files.</li>
-<li>Ensures quantities and prices follow ascending order and non-zero rules.</li>
-<li>Prevents duplicate pricing entries and invalid locations.</li>
-<li>Logs all changes to the history file.</li>
-<li>Supports toggling deleted records and update permissions.</li>
-<li>
-<p>Provides user-friendly prompting and error messages.</p>
-</li>
-<li>
-<p><strong>Tables Used</strong>:</p>
-</li>
-<li>Display: <code>bb955d</code> (subfile <code>sfl1</code>, control <code>sflctl1</code>).</li>
-<li>Input: <code>bicont</code>, <code>gscntr1</code>, <code>gsctum</code>, <code>gsprod</code>, <code>gstabl</code>, <code>inloc</code>, <code>bbprcw</code>.</li>
-<li>Update: <code>bbprce</code>, <code>bb955w</code>.</li>
-<li>
-<p>Output: <code>bbprceh</code>.</p>
-</li>
-<li>
-<p><strong>External Programs Called</strong>:</p>
-</li>
-<li><code>LBICONT</code>, <code>LINLOC</code>, <code>LGSPROD</code>, <code>LGSCNTR</code>, <code>LGSTABL</code>, <code>LPRODCL</code>, <code>GB730P</code>, <code>QCMDEXC</code>, <code>QMHSNDPM</code>, <code>QMHRMVPM</code>.</li>
-</ul>
-<p>If you have the truncated portions of the code or additional details, I can provide a more comprehensive analysis of specific subroutines or validations. Let me know if you need further clarification or a search for related information!</p>
+<p>If you have the full RPGLE code or specific questions about a subroutine, please share them, and I can provide a more comprehensive explanation. Additionally, I can use DeepSearch to gather context about AS/400 RPG conventions or related systems if needed. Let me know how you’d like to proceed!</p>
 
 
 

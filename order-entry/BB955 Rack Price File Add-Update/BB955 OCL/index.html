@@ -18,7 +18,7 @@
         <link rel="prev" href="../../BB954P%20Rack%20Pricing%20Customer%20Upload%20Post/Summary%20BB954P%20OCL/">
       
       
-        <link rel="next" href="../BB955%20RPGLE/">
+        <link rel="next" href="../BB955%20RPGLE%201/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -13771,16 +13771,7 @@
         <li class="md-nav__item">
   <a href="#process-steps-of-the-ocl-program" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the .OCL Program
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#summary-of-process-flow" class="md-nav__link">
-    <span class="md-ellipsis">
-      Summary of Process Flow
+      Process Steps of the OCL Program
     </span>
   </a>
   
@@ -13804,24 +13795,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#additional-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Additional Notes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#final-answer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Final Answer
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -13838,12 +13811,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../BB955%20RPGLE/" class="md-nav__link">
+      <a href="../BB955%20RPGLE%201/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    BB955 RPGLE
+    BB955 RPGLE 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB955%20RPGLE%202/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB955 RPGLE 2
     
   </span>
   
@@ -13867,6 +13863,29 @@
   
   <span class="md-ellipsis">
     BB955AC CLP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GB730P%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GB730P RPGLE
     
   </span>
   
@@ -15754,16 +15773,7 @@
         <li class="md-nav__item">
   <a href="#process-steps-of-the-ocl-program" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the .OCL Program
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#summary-of-process-flow" class="md-nav__link">
-    <span class="md-ellipsis">
-      Summary of Process Flow
+      Process Steps of the OCL Program
     </span>
   </a>
   
@@ -15782,24 +15792,6 @@
   <a href="#tables-used" class="md-nav__link">
     <span class="md-ellipsis">
       Tables Used
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#additional-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Additional Notes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#final-answer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Final Answer
     </span>
   </a>
   
@@ -15826,83 +15818,43 @@
 
   <h1>BB955 OCL</h1>
 
-<p>Let’s break down the provided <code>.OCL</code> (Operation Control Language) program snippet, which appears to be written for an IBM AS/400 (iSeries) system, commonly used with RPG programs. The document represents a control procedure, likely part of a larger application for rack price file maintenance. Below, I’ll explain the process steps, identify external programs called, and note any tables used based on the provided information.</p>
-<h3 id="process-steps-of-the-ocl-program">Process Steps of the .OCL Program<a class="headerlink" href="#process-steps-of-the-ocl-program" title="Permanent link">&para;</a></h3>
-<p>The <code>.OCL</code> program snippet contains a sequence of control commands that govern the flow of execution. Here’s a step-by-step explanation of the process:</p>
+<h3 id="process-steps-of-the-ocl-program">Process Steps of the OCL Program<a class="headerlink" href="#process-steps-of-the-ocl-program" title="Permanent link">&para;</a></h3>
+<p>This OCL (Operations Control Language) program appears to be a procedure script (likely from an IBM System/36 or AS/400 compatibility environment) designed to handle "Rack Price File Maintenance." It performs conditional checks before invoking external programs. The steps are executed sequentially as follows:</p>
 <ol>
-<li><strong>Comment Header</strong>:</li>
 <li>
-<p>The lines starting with <code>**</code> are comments, providing metadata or descriptions:</p>
-<ul>
-<li><code>// SCPROCP ,,,,,,,,?9?</code> likely indicates the procedure name (<code>SCPROCP</code>) and a parameter or version identifier (<code>?9?</code>).</li>
-<li><code>** RACK PRICE FILE MAINTENANCE</code> describes the purpose of the program, which is to maintain a rack price file (likely for pricing data in a retail or inventory system).</li>
-<li>Other comments, like <code>// IFF DSPLY-27X132 * 'RACK PRICE CANNOT BE RUN...</code>, provide context about error handling or display conditions.</li>
-</ul>
+<p><strong>Procedure Parameter Setup</strong>: The program begins with <code>// SCPROCP ,,,,,,,,?9?</code>, which likely defines or sets up the procedure with a parameter placeholder <code>?9?</code>. In OCL syntax, this could be configuring the 9th parameter position for input, allowing the procedure to accept a runtime value (e.g., a mode or option flag).</p>
 </li>
 <li>
-<p><strong>Conditional Check (<code>IFF DSPLY-27X132</code>)</strong>:</p>
+<p><strong>Display Mode Check and Error Handling</strong>:</p>
 </li>
-<li>The <code>IFF</code> statement checks a condition related to <code>DSPLY-27X132</code>, which likely refers to a display format or screen size (27 rows by 132 columns, typical for AS/400 terminal displays).</li>
-<li>If the condition <code>DSPLY-27X132</code> is true (e.g., the terminal or session matches this display configuration), the following actions are executed:<ul>
-<li><strong>Display Message</strong>: The program displays the message <code>'RACK PRICE CANNOT BE RUN. SUBMIT I.T. HELP TICKET FOR THE 27X132 FIX'</code>. This suggests that the program cannot execute in this display mode and instructs the user to submit an IT help ticket to resolve the issue.</li>
-<li><strong>Pause Execution</strong>: The <code>PAUSE</code> command halts the program, likely waiting for user acknowledgment of the message.</li>
-<li><strong>Return Control</strong>: The <code>RETURN</code> command exits the procedure, preventing further execution.</li>
+<li>It uses conditional <code>IFF</code> (If) statements to evaluate the display mode: <code>IFF DSPLY-27X132</code>.</li>
+<li>If the terminal/display is in 27x132 mode (a wide-screen format), it executes:<ul>
+<li>Displays an error message: <code>* 'RACK PRICE CANNOT BE RUN.  SUBMIT I.T. HELP TICKET FOR THE 27X132 FIX'</code>.</li>
+<li>Pauses execution (<code>PAUSE</code>) to allow the user to read the message.</li>
+<li>Returns control (<code>RETURN</code>), effectively exiting the procedure without further processing.</li>
 </ul>
+</li>
+<li>
+<p>This acts as a safeguard to prevent running the maintenance in an incompatible display mode.</p>
+</li>
+<li>
+<p><strong>Comment Block</strong>: A comment section <code>** RACK PRICE FILE MAINTENANCE</code> provides a description of the procedure's purpose, but performs no executable action.</p>
+</li>
+<li>
+<p><strong>Execute GSY2K</strong>: If the display check passes (i.e., not 27x132 mode), it runs <code>// GSY2K</code>. This is likely a command or utility program, possibly related to globalization, date handling, or Y2K compliance (common in legacy systems), to prepare the environment.</p>
+</li>
+<li>
+<p><strong>Call Main Program</strong>: Finally, it invokes <code>// CALL BB955 PARM('?9?')</code>, which calls the external program <code>BB955</code> (presumably an RPG program for the actual file maintenance logic) and passes the value of the parameter <code>?9?</code> to it.</p>
 </li>
 </ol>
-<p>This conditional block acts as a safeguard, ensuring the program does not proceed if the display configuration is incompatible, possibly due to formatting or compatibility issues with the 27x132 display mode.</p>
-<ol>
-<li><strong>Call to External Program (<code>CALL BB955</code>)</strong>:</li>
-<li>If the <code>DSPLY-27X132</code> condition is not met (or after handling the condition), the program proceeds to the <code>CALL</code> statement.</li>
-<li>The <code>CALL BB955 PARM('?9?')</code> command invokes an external program named <code>BB955</code>, passing the parameter <code>'?9?'</code>.</li>
-<li>The parameter <code>'?9?'</code> could be a control code, mode indicator, or configuration value that <code>BB955</code> uses to determine its behavior (e.g., which pricing file to process or which operation to perform).</li>
-<li>The <code>GSY2K</code> comment preceding the <code>CALL</code> might indicate a system library, module, or context (possibly related to Y2K compliance or a specific system environment), but it does not directly affect the OCL flow.</li>
-</ol>
-<h3 id="summary-of-process-flow">Summary of Process Flow<a class="headerlink" href="#summary-of-process-flow" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Step 1</strong>: Check if the display mode is <code>DSPLY-27X132</code>.</li>
-<li>If true:<ul>
-<li>Display an error message about the program’s inability to run.</li>
-<li>Pause for user interaction.</li>
-<li>Exit the procedure with <code>RETURN</code>.</li>
-</ul>
-</li>
-<li>If false:<ul>
-<li>Proceed to the next step.</li>
-</ul>
-</li>
-<li><strong>Step 2</strong>: Call the external program <code>BB955</code> with the parameter <code>'?9?'</code> to perform the rack price file maintenance tasks.</li>
-</ul>
-<p>The OCL program itself is a controller that either halts execution due to an incompatible display or delegates the main processing to the <code>BB955</code> program.</p>
+<p>The overall flow ensures compatibility checks before proceeding to the core maintenance task. If the display is incompatible, the process aborts early; otherwise, it sets up the environment and calls the main logic.</p>
 <h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>BB955</strong>: This is the only external program explicitly called in the OCL procedure. It is likely an RPG or CL program responsible for the core logic of rack price file maintenance. The parameter <code>'?9?'</code> suggests it accepts input to customize its behavior.</li>
+<li><code>GSY2K</code>: Executed as a preparatory step, likely a utility or command (purpose inferred as environment setup, e.g., for date/year handling).</li>
+<li><code>BB955</code>: The primary program called with a parameter, handling the "Rack Price File Maintenance" functionality (assumed to be an RPG program based on context).</li>
 </ul>
 <h3 id="tables-used">Tables Used<a class="headerlink" href="#tables-used" title="Permanent link">&para;</a></h3>
-<ul>
-<li>The provided <code>.OCL</code> snippet does not explicitly reference any tables (files or databases in AS/400 terminology). OCL programs typically do not directly interact with database files; instead, they control the flow and call RPG or other programs that handle data access.</li>
-<li>Any tables used would likely be accessed by the <code>BB955</code> program, but no specific table names are mentioned in the OCL code. Without additional details about <code>BB955</code> or the rack price file maintenance process, I cannot identify specific tables.</li>
-</ul>
-<h3 id="additional-notes">Additional Notes<a class="headerlink" href="#additional-notes" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Display Condition (<code>DSPLY-27X132</code>)</strong>: The check for a 27x132 display suggests the program may have compatibility issues with certain terminal configurations. This is common in legacy AS/400 applications, where screen formatting is critical.</li>
-<li><strong>Parameter <code>'?9?'</code></strong>: The use of <code>'?9?'</code> as a parameter is unusual and may indicate a placeholder, a specific control code, or a dynamically substituted value. In AS/400 OCL, parameters are often used to pass modes or options to called programs.</li>
-<li><strong>Limitations</strong>: The snippet is brief and lacks details about the <code>BB955</code> program’s internal logic or the data files it processes. If you have additional documentation (e.g., the RPG source for <code>BB955</code> or related OCL procedures), I could provide a more detailed analysis.</li>
-<li><strong>No Search Required</strong>: The question asks for an explanation based on the provided document, so I did not perform a web or X search. If you need real-time data or further context (e.g., about <code>BB955</code> or rack price file structures), let me know, and I can use my search capabilities.</li>
-</ul>
-<h3 id="final-answer">Final Answer<a class="headerlink" href="#final-answer" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Process Steps</strong>:</li>
-<li>Check if the display mode is <code>DSPLY-27X132</code>.<ul>
-<li>If true, display an error message, pause, and exit.</li>
-<li>If false, proceed.</li>
-</ul>
-</li>
-<li>Call the <code>BB955</code> program with parameter <code>'?9?'</code> to perform rack price file maintenance.</li>
-<li><strong>External Programs Called</strong>: <code>BB955</code></li>
-<li><strong>Tables Used</strong>: None explicitly referenced in the OCL code.</li>
-</ul>
-<p>If you have more details about <code>BB955</code> or related files, I can refine the analysis further!</p>
+<p>No tables (files or database objects) are explicitly referenced or used in this OCL program. Any table access would occur within the called programs (e.g., <code>BB955</code>), but none are declared here.</p>
 
 
 
