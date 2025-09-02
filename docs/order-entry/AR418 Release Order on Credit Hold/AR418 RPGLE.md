@@ -1,4 +1,4 @@
-The provided document is an **RPGLE program** named `AR418.rpgle`, which is called from the `AR418.ocl36` OCL program in an IBM System/36 or AS/400 environment. This program handles the **Order Authorization Credit Limit Update** process, allowing authorized users to override credit limits for orders, place orders on credit hold, or unauthorize them. It includes functionality to send email notifications to customer service representatives (CSRs) and salesmen. Below, I will explain the process steps, business rules, tables used, and external programs called.
+The provided document is an **RPGLE program** named `AR418.rpgle`, which is called from the `AR418.ocl36` OCL program in an IBM System/36 or AS/400 environment. This program handles the **Order Authorization Credit Limit Update** process, allowing authorized users to override credit limits for orders, place orders on credit hold, or unauthorize them. It includes functionality to send email notifications to customer service representatives (CSRs) and salesmen. Below, I will explain the process steps, business rules, tables used, and external programs called .
 
 ---
 

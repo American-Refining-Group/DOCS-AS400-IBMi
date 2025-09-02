@@ -1,4 +1,4 @@
-Below, I will first identify the **use cases** implemented in the call stack consisting of the `AR418.ocl36` (OCL), `AR418.rpgle` (RPGLE), and `AR418TC.clp` (CLP) programs. Then, I will provide a **Function Requirement Document** for one of the primary use cases, reimagined as a large function that processes inputs programmatically rather than through screen interactions. The document will focus on business requirements, process steps, and relevant calculations.
+Below, I will first identify the **use cases** implemented in the call stack consisting of the `AR418.ocl36` (OCL), `AR418.rpgle` (RPGLE), and `AR418TC.clp` (CLP) programs. Then, I will provide a **Function Requirement Document** for one of the primary use cases, reimagined as a large function that processes inputs programmatically rather than through screen interactions. The document will focus on business requirements, process steps, and relevant calculations .
 
 ---
 

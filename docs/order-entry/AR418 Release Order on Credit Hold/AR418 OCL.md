@@ -1,4 +1,4 @@
-The provided document is an **Operation Control Language (OCL)** program, specifically `AR418.ocl36`, which appears to be part of an IBM System/36 environment. OCL is used to control job execution, manage files, and invoke programs. Below, I will explain the process steps of the program, identify the external programs called, and list the tables (files) used.
+The provided document is an **Operation Control Language (OCL)** program, specifically `AR418.ocl36`, which appears to be part of an IBM System/36 environment. OCL is used to control job execution, manage files, and invoke programs. Below, I will explain the process steps of the program, identify the external programs called, and list the tables (files) used .
 
 ---
 

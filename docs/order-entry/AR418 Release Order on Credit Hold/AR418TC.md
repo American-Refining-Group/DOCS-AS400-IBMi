@@ -1,4 +1,4 @@
-The provided document is a **Control Language Program (CLP)** named `AR418TC.clp.txt`, which is called conditionally from the `AR418.ocl36` OCL program when the parameter `?9?` equals `G`. This CLP program is responsible for sending email notifications to customer service representatives (CSRs) and salesmen when the credit hold status of an order changes. Below, I will explain the process steps, business rules, tables used, and external programs called.
+The provided document is a **Control Language Program (CLP)** named `AR418TC.clp.txt`, which is called conditionally from the `AR418.ocl36` OCL program when the parameter `?9?` equals `G`. This CLP program is responsible for sending email notifications to customer service representatives (CSRs) and salesmen when the credit hold status of an order changes. Below, I will explain the process steps, business rules, tables used, and external programs called .
 
 ---
 
