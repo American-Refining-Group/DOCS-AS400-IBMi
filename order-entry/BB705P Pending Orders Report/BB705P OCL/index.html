@@ -12,13 +12,13 @@
         <meta name="author" content="American Refining Group">
       
       
-        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BI890%20Shipto%20File%20Inquiry/BI890P%20RPGLE/">
+        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BB705P%20Pending%20Orders%20Report/BB705P%20OCL/">
       
       
-        <link rel="prev" href="../BI8903%20RPGLE/">
+        <link rel="prev" href="../BB7051%20RPG36/">
       
       
-        <link rel="next" href="../BI907%20RPGLE/">
+        <link rel="next" href="../BB705P%20RPG36/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>BI890P RPGLE - ARG AS400 IBMi Documentation</title>
+        <title>BB705P OCL - ARG AS400 IBMi Documentation</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#process-steps-of-the-rpg-program" class="md-skip">
+        <a href="#process-steps-of-the-ocl-program" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              BI890P RPGLE
+              BB705P OCL
             
           </span>
         </div>
@@ -10215,6 +10215,268 @@
                 
   
   
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_13" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_13" id="__nav_4_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    BB705P Pending Orders Report
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_13_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_13">
+            <span class="md-nav__icon md-icon"></span>
+            BB705P Pending Orders Report
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB705%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB705 OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB705%20RPG36/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB705 RPG36
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB7051%20RPG36/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB7051 RPG36
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    BB705P OCL
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB705P OCL
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#process-steps-of-the-ocl-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Steps of the OCL Program
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-programs-called" class="md-nav__link">
+    <span class="md-ellipsis">
+      External Programs Called
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tables-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tables Used
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BB705P%20RPG36/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BB705P RPG36
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Summary%20BB705P%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Summary BB705P OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
   
   
     
@@ -10228,10 +10490,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_13" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_14" >
         
           
-          <label class="md-nav__link" for="__nav_4_13" id="__nav_4_13_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_14" id="__nav_4_14_label" tabindex="0">
             
   
   
@@ -10244,8 +10506,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_13_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_13">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_14">
             <span class="md-nav__icon md-icon"></span>
             BB715P Daily Requirements Report
           </label>
@@ -10460,10 +10722,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_14" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_15" >
         
           
-          <label class="md-nav__link" for="__nav_4_14" id="__nav_4_14_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_15" id="__nav_4_15_label" tabindex="0">
             
   
   
@@ -10476,8 +10738,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_14_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_14">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_15">
             <span class="md-nav__icon md-icon"></span>
             BB802 Complete Order   Invoice Inquiry
           </label>
@@ -10830,10 +11092,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_15" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_16" >
         
           
-          <label class="md-nav__link" for="__nav_4_15" id="__nav_4_15_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_16" id="__nav_4_16_label" tabindex="0">
             
   
   
@@ -10846,8 +11108,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_15_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_15">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_16">
             <span class="md-nav__icon md-icon"></span>
             BB850 Price History Inquiry
           </label>
@@ -10970,10 +11232,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_16" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_17" >
         
           
-          <label class="md-nav__link" for="__nav_4_16" id="__nav_4_16_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_17" id="__nav_4_17_label" tabindex="0">
             
   
   
@@ -10986,8 +11248,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_16_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_16">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_17">
             <span class="md-nav__icon md-icon"></span>
             BB905P Carrier Id Maint
           </label>
@@ -11156,10 +11418,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_17" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_18" >
         
           
-          <label class="md-nav__link" for="__nav_4_17" id="__nav_4_17_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_18" id="__nav_4_18_label" tabindex="0">
             
   
   
@@ -11172,8 +11434,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_17_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_17">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_18">
             <span class="md-nav__icon md-icon"></span>
             BB910 Diesel Fuel Index Inquiry
           </label>
@@ -11273,10 +11535,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_18" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_19" >
         
           
-          <label class="md-nav__link" for="__nav_4_18" id="__nav_4_18_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_19" id="__nav_4_19_label" tabindex="0">
             
   
   
@@ -11289,8 +11551,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_18_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_18">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_19">
             <span class="md-nav__icon md-icon"></span>
             BB910 Diesel Fuel Index Maint
           </label>
@@ -11390,10 +11652,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_19" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_20" >
         
           
-          <label class="md-nav__link" for="__nav_4_19" id="__nav_4_19_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_20" id="__nav_4_20_label" tabindex="0">
             
   
   
@@ -11406,8 +11668,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_19_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_19">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_20_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_20">
             <span class="md-nav__icon md-icon"></span>
             BB911 Railcar Fuel Surcharge Inquiry
           </label>
@@ -11507,10 +11769,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_20" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_21" >
         
           
-          <label class="md-nav__link" for="__nav_4_20" id="__nav_4_20_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_21" id="__nav_4_21_label" tabindex="0">
             
   
   
@@ -11523,8 +11785,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_20_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_20">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_21_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_21">
             <span class="md-nav__icon md-icon"></span>
             BB911 Railcar Fuel Surcharge Maint
           </label>
@@ -11624,10 +11886,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_21" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_22" >
         
           
-          <label class="md-nav__link" for="__nav_4_21" id="__nav_4_21_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_22" id="__nav_4_22_label" tabindex="0">
             
   
   
@@ -11640,8 +11902,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_21_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_21">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_22_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_22">
             <span class="md-nav__icon md-icon"></span>
             BB912 Carrier Fuel Surcharge Inquiry
           </label>
@@ -11787,10 +12049,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_22" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_23" >
         
           
-          <label class="md-nav__link" for="__nav_4_22" id="__nav_4_22_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_23" id="__nav_4_23_label" tabindex="0">
             
   
   
@@ -11803,8 +12065,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_22_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_22">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_23_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_23">
             <span class="md-nav__icon md-icon"></span>
             BB912 Carrier Fuel Surcharge Maint
           </label>
@@ -11950,10 +12212,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_23" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_24" >
         
           
-          <label class="md-nav__link" for="__nav_4_23" id="__nav_4_23_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_24" id="__nav_4_24_label" tabindex="0">
             
   
   
@@ -11966,8 +12228,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_23_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_23">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_24_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_24">
             <span class="md-nav__icon md-icon"></span>
             BB915P Freight Arranged By Add Update
           </label>
@@ -12090,10 +12352,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_24" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_25" >
         
           
-          <label class="md-nav__link" for="__nav_4_24" id="__nav_4_24_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_25" id="__nav_4_25_label" tabindex="0">
             
   
   
@@ -12106,8 +12368,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_24_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_24">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_25_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_25">
             <span class="md-nav__icon md-icon"></span>
             BB920 Prod Tax File Add Update
           </label>
@@ -12207,10 +12469,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_25" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_26" >
         
           
-          <label class="md-nav__link" for="__nav_4_25" id="__nav_4_25_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_26" id="__nav_4_26_label" tabindex="0">
             
   
   
@@ -12223,8 +12485,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_25_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_25">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_26_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_26">
             <span class="md-nav__icon md-icon"></span>
             BB927 Prod Code Cross Ref Print
           </label>
@@ -12324,10 +12586,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_26" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_27" >
         
           
-          <label class="md-nav__link" for="__nav_4_26" id="__nav_4_26_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_27" id="__nav_4_27_label" tabindex="0">
             
   
   
@@ -12340,8 +12602,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_26_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_26">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_27_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_27">
             <span class="md-nav__icon md-icon"></span>
             BB931 Freight Table Code Add Update
           </label>
@@ -12441,10 +12703,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_27" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_28" >
         
           
-          <label class="md-nav__link" for="__nav_4_27" id="__nav_4_27_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_28" id="__nav_4_28_label" tabindex="0">
             
   
   
@@ -12457,8 +12719,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_27_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_27">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_28_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_28">
             <span class="md-nav__icon md-icon"></span>
             BB932 Freight Table Code List
           </label>
@@ -12558,10 +12820,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_28" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_29" >
         
           
-          <label class="md-nav__link" for="__nav_4_28" id="__nav_4_28_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_29" id="__nav_4_29_label" tabindex="0">
             
   
   
@@ -12574,8 +12836,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_28_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_28">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_29_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_29">
             <span class="md-nav__icon md-icon"></span>
             BB935P Prod Code Cross Ref Add Update
           </label>
@@ -12698,10 +12960,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_29" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_30" >
         
           
-          <label class="md-nav__link" for="__nav_4_29" id="__nav_4_29_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_30" id="__nav_4_30_label" tabindex="0">
             
   
   
@@ -12714,8 +12976,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_29_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_29">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_30_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_30">
             <span class="md-nav__icon md-icon"></span>
             BB943 Sales Agreement File Add Update
           </label>
@@ -12922,10 +13184,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_29_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_30_9" >
         
           
-          <label class="md-nav__link" for="__nav_4_29_9" id="__nav_4_29_9_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_30_9" id="__nav_4_30_9_label" tabindex="0">
             
   
   
@@ -12938,8 +13200,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_29_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_29_9">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_30_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_30_9">
             <span class="md-nav__icon md-icon"></span>
             PRICEGEN
           </label>
@@ -13261,10 +13523,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_29_9_14" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_30_9_14" >
         
           
-          <label class="md-nav__link" for="__nav_4_29_9_14" id="__nav_4_29_9_14_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_30_9_14" id="__nav_4_30_9_14_label" tabindex="0">
             
   
   
@@ -13277,8 +13539,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_29_9_14_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_29_9_14">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_30_9_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_30_9_14">
             <span class="md-nav__icon md-icon"></span>
             PRICES SUB
           </label>
@@ -13716,10 +13978,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_30" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_31" >
         
           
-          <label class="md-nav__link" for="__nav_4_30" id="__nav_4_30_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_31" id="__nav_4_31_label" tabindex="0">
             
   
   
@@ -13732,8 +13994,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_30_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_30">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_31_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_31">
             <span class="md-nav__icon md-icon"></span>
             BB943INQ Sales Agreement Master Inquiry
           </label>
@@ -13971,10 +14233,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_31" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_32" >
         
           
-          <label class="md-nav__link" for="__nav_4_31" id="__nav_4_31_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_32" id="__nav_4_32_label" tabindex="0">
             
   
   
@@ -13987,8 +14249,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_31_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_31">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_32_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_32">
             <span class="md-nav__icon md-icon"></span>
             BB945P Customer Freight Table Maint
           </label>
@@ -14295,10 +14557,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_32" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_33" >
         
           
-          <label class="md-nav__link" for="__nav_4_32" id="__nav_4_32_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_33" id="__nav_4_33_label" tabindex="0">
             
   
   
@@ -14311,8 +14573,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_32_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_32">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_33_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_33">
             <span class="md-nav__icon md-icon"></span>
             BB951P Rack Price File Print
           </label>
@@ -14504,10 +14766,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_33" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_34" >
         
           
-          <label class="md-nav__link" for="__nav_4_33" id="__nav_4_33_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_34" id="__nav_4_34_label" tabindex="0">
             
   
   
@@ -14520,8 +14782,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_33_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_33">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_34_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_34">
             <span class="md-nav__icon md-icon"></span>
             BB953P Rack Price Selection Report
           </label>
@@ -14713,10 +14975,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_34" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_35" >
         
           
-          <label class="md-nav__link" for="__nav_4_34" id="__nav_4_34_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_35" id="__nav_4_35_label" tabindex="0">
             
   
   
@@ -14729,8 +14991,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_34_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_34">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_35_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_35">
             <span class="md-nav__icon md-icon"></span>
             BB954P Rack Pricing Customer Upload Edit
           </label>
@@ -14876,10 +15138,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_35" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_36" >
         
           
-          <label class="md-nav__link" for="__nav_4_35" id="__nav_4_35_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_36" id="__nav_4_36_label" tabindex="0">
             
   
   
@@ -14892,8 +15154,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_35_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_35">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_36_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_36">
             <span class="md-nav__icon md-icon"></span>
             BB954P Rack Pricing Customer Upload Post
           </label>
@@ -15039,10 +15301,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_36" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_37" >
         
           
-          <label class="md-nav__link" for="__nav_4_36" id="__nav_4_36_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_37" id="__nav_4_37_label" tabindex="0">
             
   
   
@@ -15055,8 +15317,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_36_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_36">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_37_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_37">
             <span class="md-nav__icon md-icon"></span>
             BB955 Rack Price File Add Update
           </label>
@@ -15225,10 +15487,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_37" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_38" >
         
           
-          <label class="md-nav__link" for="__nav_4_37" id="__nav_4_37_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_38" id="__nav_4_38_label" tabindex="0">
             
   
   
@@ -15241,8 +15503,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_37_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_37">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_38_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_38">
             <span class="md-nav__icon md-icon"></span>
             BB956P Rack Pricing for Customer Download
           </label>
@@ -15536,8 +15798,6 @@
                 
   
   
-    
-  
   
   
     
@@ -15547,14 +15807,14 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_38" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_39" >
         
           
-          <label class="md-nav__link" for="__nav_4_38" id="__nav_4_38_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_39" id="__nav_4_39_label" tabindex="0">
             
   
   
@@ -15567,8 +15827,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_38_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4_38">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_39_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_39">
             <span class="md-nav__icon md-icon"></span>
             BI890 Shipto File Inquiry
           </label>
@@ -15581,76 +15841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../BB800E%20RPGLE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    BB800E RPGLE
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../BI890%20OCL/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    BI890 OCL
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../BI890%20RPG36/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    BI890 RPG36
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../BI8902R%20%20RPG/" class="md-nav__link">
+      <a href="../../BI890%20Shipto%20File%20Inquiry/BI8902R%20%20RPG/" class="md-nav__link">
         
   
   
@@ -15673,7 +15864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../BI8903%20RPGLE/" class="md-nav__link">
+      <a href="../../BI890%20Shipto%20File%20Inquiry/BI8903%20RPGLE/" class="md-nav__link">
         
   
   
@@ -15693,139 +15884,10 @@
                 
   
   
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    BI890P RPGLE
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    BI890P RPGLE
-    
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#process-steps-of-the-rpg-program" class="md-nav__link">
-    <span class="md-ellipsis">
-      Process Steps of the RPG Program
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#business-rules" class="md-nav__link">
-    <span class="md-ellipsis">
-      Business Rules
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tables-files-used" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tables (Files) Used
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#external-programs-called" class="md-nav__link">
-    <span class="md-ellipsis">
-      External Programs Called
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      Summary
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
   
   
     <li class="md-nav__item">
-      <a href="../BI907%20RPGLE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    BI907 RPGLE
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../BI9078%20RPGLE/" class="md-nav__link">
+      <a href="../../BI890%20Shipto%20File%20Inquiry/BI9078%20RPGLE/" class="md-nav__link">
         
   
   
@@ -15848,30 +15910,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../BI907AC%20CLP/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    BI907AC CLP
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../BI907C2%20CLP/" class="md-nav__link">
+      <a href="../../BI890%20Shipto%20File%20Inquiry/BI907C2%20CLP/" class="md-nav__link">
         
   
   
@@ -15894,7 +15933,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../GB730P%20RPGLE/" class="md-nav__link">
+      <a href="../../BI890%20Shipto%20File%20Inquiry/GB730P%20RPGLE/" class="md-nav__link">
         
   
   
@@ -15917,7 +15956,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Summary%20BI890%20OCL/" class="md-nav__link">
+      <a href="../../BI890%20Shipto%20File%20Inquiry/Summary%20BI890%20OCL/" class="md-nav__link">
         
   
   
@@ -15958,10 +15997,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_39" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_40" >
         
           
-          <label class="md-nav__link" for="__nav_4_39" id="__nav_4_39_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_40" id="__nav_4_40_label" tabindex="0">
             
   
   
@@ -15974,8 +16013,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_39_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_39">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_40_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_40">
             <span class="md-nav__icon md-icon"></span>
             BI907P Billed Customer Prices Add Update
           </label>
@@ -16167,10 +16206,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_40" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_41" >
         
           
-          <label class="md-nav__link" for="__nav_4_40" id="__nav_4_40_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_41" id="__nav_4_41_label" tabindex="0">
             
   
   
@@ -16183,8 +16222,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_40_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_40">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_41_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_41">
             <span class="md-nav__icon md-icon"></span>
             BI921P Prod Tax File Print
           </label>
@@ -16330,10 +16369,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_41" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_42" >
         
           
-          <label class="md-nav__link" for="__nav_4_41" id="__nav_4_41_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_42" id="__nav_4_42_label" tabindex="0">
             
   
   
@@ -16346,8 +16385,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_41_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_41">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_42_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_42">
             <span class="md-nav__icon md-icon"></span>
             BI941P Sales Agreement File Print
           </label>
@@ -16585,10 +16624,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_42" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_43" >
         
           
-          <label class="md-nav__link" for="__nav_4_42" id="__nav_4_42_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_43" id="__nav_4_43_label" tabindex="0">
             
   
   
@@ -16601,8 +16640,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_42_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_42">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_43_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_43">
             <span class="md-nav__icon md-icon"></span>
             BI944P Sales Agreement Pricing Report
           </label>
@@ -16794,10 +16833,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_43" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_44" >
         
           
-          <label class="md-nav__link" for="__nav_4_43" id="__nav_4_43_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_44" id="__nav_4_44_label" tabindex="0">
             
   
   
@@ -16810,8 +16849,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_43_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_43">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_44_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_44">
             <span class="md-nav__icon md-icon"></span>
             BI945P Pricing App After Upload Edit
           </label>
@@ -16980,10 +17019,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_44" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_45" >
         
           
-          <label class="md-nav__link" for="__nav_4_44" id="__nav_4_44_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_45" id="__nav_4_45_label" tabindex="0">
             
   
   
@@ -16996,8 +17035,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_44_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_44">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_45_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_45">
             <span class="md-nav__icon md-icon"></span>
             BI946P Customer Freight Tbl Print Customer
           </label>
@@ -17189,10 +17228,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_45" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_46" >
         
           
-          <label class="md-nav__link" for="__nav_4_45" id="__nav_4_45_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_46" id="__nav_4_46_label" tabindex="0">
             
   
   
@@ -17205,8 +17244,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_45_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_45">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_46_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_46">
             <span class="md-nav__icon md-icon"></span>
             BI947P Customer Freight Tbl Print Carrier
           </label>
@@ -17352,10 +17391,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_46" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_47" >
         
           
-          <label class="md-nav__link" for="__nav_4_46" id="__nav_4_46_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_47" id="__nav_4_47_label" tabindex="0">
             
   
   
@@ -17368,8 +17407,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_46_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_46">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_47_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_47">
             <span class="md-nav__icon md-icon"></span>
             GS800 Table File Inquiry
           </label>
@@ -17469,10 +17508,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_47" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_48" >
         
           
-          <label class="md-nav__link" for="__nav_4_47" id="__nav_4_47_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_48" id="__nav_4_48_label" tabindex="0">
             
   
   
@@ -17485,8 +17524,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_47_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_47">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_48_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_48">
             <span class="md-nav__icon md-icon"></span>
             GS928P Prod Cntr Description Overrides
           </label>
@@ -17632,10 +17671,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_48" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_49" >
         
           
-          <label class="md-nav__link" for="__nav_4_48" id="__nav_4_48_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_49" id="__nav_4_49_label" tabindex="0">
             
   
   
@@ -17648,8 +17687,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_48_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_48">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_49_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_49">
             <span class="md-nav__icon md-icon"></span>
             GS929P Prod Loading File Maint Inq
           </label>
@@ -17818,10 +17857,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_49" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_50" >
         
           
-          <label class="md-nav__link" for="__nav_4_49" id="__nav_4_49_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_50" id="__nav_4_50_label" tabindex="0">
             
   
   
@@ -17834,8 +17873,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_49_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_49">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_50_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_50">
             <span class="md-nav__icon md-icon"></span>
             GS973 Prod Cntr Override Sale Status
           </label>
@@ -17935,10 +17974,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_50" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_51" >
         
           
-          <label class="md-nav__link" for="__nav_4_50" id="__nav_4_50_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_51" id="__nav_4_51_label" tabindex="0">
             
   
   
@@ -17951,8 +17990,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_50_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_50">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_51_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_51">
             <span class="md-nav__icon md-icon"></span>
             IN873 Convert Pounds to Net Gallons
           </label>
@@ -18075,10 +18114,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_51" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_52" >
         
           
-          <label class="md-nav__link" for="__nav_4_51" id="__nav_4_51_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_52" id="__nav_4_52_label" tabindex="0">
             
   
   
@@ -18091,8 +18130,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_51_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_51">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_52_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_52">
             <span class="md-nav__icon md-icon"></span>
             PRICEGEN Pricing APP Download Populate
           </label>
@@ -18115,10 +18154,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_51_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_52_1" >
         
           
-          <label class="md-nav__link" for="__nav_4_51_1" id="__nav_4_51_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_52_1" id="__nav_4_52_1_label" tabindex="0">
             
   
   
@@ -18131,8 +18170,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_51_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_51_1">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_52_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_52_1">
             <span class="md-nav__icon md-icon"></span>
             PRICEGEN
           </label>
@@ -18454,10 +18493,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_51_1_14" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_52_1_14" >
         
           
-          <label class="md-nav__link" for="__nav_4_51_1_14" id="__nav_4_51_1_14_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_52_1_14" id="__nav_4_52_1_14_label" tabindex="0">
             
   
   
@@ -18470,8 +18509,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_51_1_14_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_51_1_14">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_52_1_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_52_1_14">
             <span class="md-nav__icon md-icon"></span>
             PRICES SUB
           </label>
@@ -18909,10 +18948,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_52" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_53" >
         
           
-          <label class="md-nav__link" for="__nav_4_52" id="__nav_4_52_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_53" id="__nav_4_53_label" tabindex="0">
             
   
   
@@ -18925,8 +18964,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_52_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_52">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_53_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_53">
             <span class="md-nav__icon md-icon"></span>
             SA717P BOL Report by Lane
           </label>
@@ -19026,10 +19065,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_53" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_54" >
         
           
-          <label class="md-nav__link" for="__nav_4_53" id="__nav_4_53_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_54" id="__nav_4_54_label" tabindex="0">
             
   
   
@@ -19042,8 +19081,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_53_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_53">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_54_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_54">
             <span class="md-nav__icon md-icon"></span>
             SA870 SA Summary Inquiry by Customer
           </label>
@@ -19143,10 +19182,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_54" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_55" >
         
           
-          <label class="md-nav__link" for="__nav_4_54" id="__nav_4_54_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_55" id="__nav_4_55_label" tabindex="0">
             
   
   
@@ -19159,8 +19198,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_54_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_54">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_55_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_55">
             <span class="md-nav__icon md-icon"></span>
             SA880 SA Summary Inquiry by Product
           </label>
@@ -19275,27 +19314,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-rpg-program" class="md-nav__link">
+  <a href="#process-steps-of-the-ocl-program" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the RPG Program
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#business-rules" class="md-nav__link">
-    <span class="md-ellipsis">
-      Business Rules
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tables-files-used" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tables (Files) Used
+      Process Steps of the OCL Program
     </span>
   </a>
   
@@ -19305,6 +19326,15 @@
   <a href="#external-programs-called" class="md-nav__link">
     <span class="md-ellipsis">
       External Programs Called
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tables-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tables Used
     </span>
   </a>
   
@@ -19338,266 +19368,91 @@
   
 
 
-  <h1>BI890P RPGLE</h1>
+  <h1>BB705P OCL</h1>
 
-<p>The RPG program <code>BI890P.rpgle.txt</code> is a Ship-to Master Inquiry Prompt program, part of the Customer Orders and Invoicing system, designed to interact with a display file for user inquiries and maintenance of ship-to records. Below, I’ll explain the process steps, business rules, tables used, and external programs called, based on the provided RPGLE code and its interaction with the OCL program <code>BI890.ocl36.txt</code>.</p>
-<hr />
-<h3 id="process-steps-of-the-rpg-program"><strong>Process Steps of the RPG Program</strong><a class="headerlink" href="#process-steps-of-the-rpg-program" title="Permanent link">&para;</a></h3>
-<p>The <code>BI890P</code> program is an interactive RPGLE program that manages a subfile-based interface for inquiring, updating, or copying ship-to records. It uses a display file (<code>bi890pd</code>) with a subfile (<code>sfl1</code>) and handles user input via function keys and direct access options. Here’s a step-by-step breakdown of the process:</p>
+<p>The provided document is an <strong>Open Control Language (OCL)</strong> program, specifically named <code>BB705P.ocl36.txt</code>, which is used to manage operations in an IBM System/36 environment. OCL is a scripting language used to control job execution, file handling, and program flow on IBM midrange systems like the System/36. Below, I’ll explain the process steps of the OCL program, identify any external programs called, and list any tables used.</p>
+<h3 id="process-steps-of-the-ocl-program">Process Steps of the OCL Program<a class="headerlink" href="#process-steps-of-the-ocl-program" title="Permanent link">&para;</a></h3>
+<p>The OCL program outlines a sequence of steps to manage the execution of a job, likely related to generating an <strong>Open Order Listing by Order</strong>. Here’s a step-by-step breakdown of the program’s logic:</p>
 <ol>
-<li><strong>Initialization (<code>*inzsr</code> Subroutine)</strong>:</li>
-<li><strong>Parameters</strong>: Receives <code>p$fgrp</code> (file group: 'G' or 'Z') and <code>p$mode</code> (mode: 'INQ' for inquiry or 'MNT' for maintenance).</li>
-<li><strong>Data Area</strong>: Reads the Local Data Area (LDA) to retrieve company (<code>l$co</code>), customer (<code>l$cust</code>), ship-to (<code>l$ship</code>), and function key (<code>l$fkey</code>) values.</li>
-<li><strong>Field Setup</strong>: Initializes subfile control fields (e.g., <code>rrn1</code>, <code>rrnsv1</code>, <code>pagsz1</code>=32 for page size), work fields, and key lists (<code>kls1s1</code>, <code>kls1s2</code>, <code>klcust</code>, <code>klcust2</code>, <code>klshipto</code>) for file access.</li>
-<li><strong>Date Handling</strong>: Converts system date (<code>ps#mdy</code>) to various formats (e.g., <code>d#cymd</code>, <code>d#ymd</code>) for consistent date processing.</li>
-<li><strong>Message Handling</strong>: Initializes message handling fields (<code>dspmsg</code>, <code>m@pgmq</code>) for error and status messages.</li>
+<li><strong>Header and Initialization</strong>:</li>
+<li>The program starts with a header indicating it is an <strong>"OPEN ORDER LISTING BY ORDER"</strong>.</li>
 <li>
-<p><strong>Mode Check</strong>: If <code>p$mode</code> is 'MNT', sets indicator <code>*in78</code> to enable maintenance functions.</p>
-</li>
-<li>
-<p><strong>Open Database Tables (<code>opntbl</code> Subroutine)</strong>:</p>
-</li>
-<li><strong>File Overrides</strong>: Based on <code>p$fgrp</code> ('G' or 'Z'), applies file overrides (<code>ovg</code> or <code>ovz</code>) to redirect file access to <code>garcust</code>, <code>gbicont</code>, <code>gshipto</code> (for 'G') or <code>zarcust</code>, <code>zbicont</code>, <code>zshipto</code> (for 'Z') using <code>QCMDEXC</code>.</li>
-<li>
-<p><strong>Open Files</strong>: Opens <code>arcust</code>, <code>bicont</code>, and <code>shipto</code> files in user-controlled mode (<code>usropn</code>) for shared access.</p>
-</li>
-<li>
-<p><strong>Process Subfile (<code>srsfl1</code> Subroutine)</strong>:</p>
-</li>
-<li><strong>Subfile Initialization</strong>:<ul>
-<li>Sets <code>sfmod1</code> to '1' (folded mode) and <code>*in45</code> for initial subfile display.</li>
-<li>Clears message subfile (<code>clrmsg</code>) and writes it (<code>wrtmsg</code>).</li>
-<li>Sets default company number (<code>c$co</code>=10).</li>
-</ul>
-</li>
-<li>
-<p><strong>Main Loop</strong> (<code>sf1agn</code>):</p>
+<p>Comments (<code>//</code>) provide metadata and configuration details:</p>
 <ul>
-<li>Displays command line (<code>sflcmd1</code>) and message subfile if needed.</li>
-<li>Checks if subfile has records (<code>rrn1 &gt; 0</code>) to set <code>*in41</code> (SFLDSP).</li>
-<li>Toggles folded/unfolded mode based on <code>sfmod1</code>.</li>
-<li>Displays subfile control (<code>sflctl1</code>) using <code>exfmt</code>.</li>
-<li>Processes user input based on function keys or direct access:</li>
-<li><strong>F03 (Exit)</strong>: Sets <code>l$fkey</code> to 'F03', updates LDA, and exits loop.</li>
-<li><strong>F04 (Prompt)</strong>: Calls <code>prompt</code> subroutine to assist with field input.</li>
-<li><strong>F05 (Refresh)</strong>: Triggers subfile repositioning (<code>repsfl</code>).</li>
-<li><strong>User Positioning</strong>: If company (<code>c$co</code>), customer (<code>c$cust</code>), or ship-to (<code>c$ship</code>) changes, repositions subfile (<code>sf1rep</code>).</li>
-<li><strong>Direct Access</strong>: If <code>d1opt</code> or <code>d1ship</code> is specified, processes direct access (<code>sf1dir</code>).</li>
-<li><strong>Page Down</strong>: Loads additional subfile records (<code>sf1lod</code>).</li>
-<li><strong>Enter</strong>: Processes subfile selections (<code>sf1prc</code>).</li>
-<li><strong>F10</strong>: Moves cursor to control record.</li>
-<li>Updates cursor location (<code>csrloc</code>) and subfile record number (<code>rcdnb1</code>).</li>
+<li><code>SCPROCP ,,,,,,,,?9?</code>: Likely specifies the procedure name (<code>SCPROCP</code>) and a parameter placeholder (<code>?9?</code>) for dynamic substitution (e.g., library or file name).</li>
+<li><code>LOCAL BLANK-*ALL</code>: Clears all local variables to ensure a clean environment.</li>
+<li><code>GSY2K</code>: Possibly a system identifier or configuration setting (e.g., for year 2000 compliance).</li>
+<li><code>SWITCH 00000000</code>: Initializes a switch register (8-bit) to all zeros. Switches are used for conditional logic in OCL.</li>
 </ul>
 </li>
 <li>
-<p><strong>Subfile Processing (<code>sf1prc</code> Subroutine)</strong>:</p>
+<p><strong>Load and File Definitions</strong>:</p>
 </li>
-<li>
-<p>Reads changed subfile records (<code>readc sfl1</code>) and processes each via <code>sf1chg</code> if not empty.</p>
-</li>
-<li>
-<p><strong>Subfile Record Change (<code>sf1chg</code> Subroutine)</strong>:</p>
-</li>
-<li>Processes subfile options (<code>s1opt</code>):<ul>
-<li><strong>Option 2 (Update)</strong>: If <code>s1ship</code> is non-zero and maintenance mode (<code>*in78</code>), calls <code>sf1s02</code> to update ship-to.</li>
-<li><strong>Option 3 (Copy)</strong>: Calls <code>sf1s03</code> to copy ship-to record.</li>
-<li><strong>Option 5 (Inquiry)</strong>: If not in maintenance mode, calls <code>sf1s05</code> to display ship-to details.</li>
+<li><code>// LOAD BB705P</code>: Loads the program or procedure named <code>BB705P</code>. This is likely the main program responsible for generating the open order listing.</li>
+<li>File definitions:<ul>
+<li><code>// FILE NAME-BICONT,LABEL-?9?BICONT,DISP-SHRRM</code>: Defines a file named <code>BICONT</code> with a label that includes the <code>?9?</code> parameter (dynamic substitution). <code>DISP-SHRRM</code> indicates the file is opened in shared read mode, allowing multiple jobs to read it simultaneously.</li>
+<li><code>// FILE NAME-INLOC,LABEL-?9?INLOC,DISP-SHRRM</code>: Defines another file named <code>INLOC</code> with a similar label and shared read mode.</li>
 </ul>
 </li>
 <li>
-<p>Clears and updates subfile record after processing.</p>
+<p><code>// RUN</code>: Initiates the execution of the loaded program (<code>BB705P</code>) with the defined files.</p>
 </li>
 <li>
-<p><strong>Subfile Repositioning (<code>sf1rep</code> Subroutine)</strong>:</p>
+<p><strong>Conditional Logic for Cancellation</strong>:</p>
 </li>
-<li>Clears subfile (<code>sf1clr</code>) and validates control fields (<code>sf1cte</code>).</li>
-<li>Positions <code>shipto</code> file using key list <code>kls1s1</code> (company, customer, ship-to).</li>
+<li><code>// IF SWITCH8-1 GOTO END</code>: Checks if the 8th bit of the switch register is set to 1. If true, the program jumps to the <code>END</code> tag, effectively canceling the procedure.</li>
 <li>
-<p>Loads subfile records (<code>sf1lod</code>) and retains control fields for repositioning.</p>
-</li>
-<li>
-<p><strong>Validate Control Input (<code>sf1cte</code> Subroutine)</strong>:</p>
-</li>
-<li>Validates company (<code>c$co</code>) against <code>bicont</code>. If invalid or zero, sets error <code>ERR0010</code> and indicators <code>*in50</code>, <code>*in51</code>.</li>
-<li>Validates customer (<code>c$cust</code>) against <code>arcust</code>. If invalid or zero, sets error <code>ERR0010</code> and indicators <code>*in50</code>, <code>*in52</code>.</li>
-<li>
-<p>Updates display fields (<code>c$conm</code>, <code>c$csnm</code>) with company and customer names.</p>
+<p>The comment <code>// IF SWITCH8-1 * 'PROCEDURE IS CANCELLED'</code>: Indicates that setting <code>SWITCH8</code> to 1 is a mechanism to cancel the job.</p>
 </li>
 <li>
-<p><strong>Load Subfile Records (<code>sf1lod</code> Subroutine)</strong>:</p>
+<p><strong>Conditional Job Queue Submission</strong>:</p>
 </li>
-<li>Loads up to <code>pagsz1</code> (32) records into the subfile.</li>
-<li>Reads <code>shipto</code> file using key list <code>kls1r1</code> (company, customer).</li>
-<li>If no records are found (<code>*in43</code>), adds a "No Results" record (<code>com(01)</code>).</li>
+<li><code>// IF ?L'166,1'?/Y JOBQ ?CLIB?,BB705,,,,,,,,,?9?</code>: If the condition <code>?L'166,1'?/Y</code> is true (i.e., a specific condition at position 166, length 1, equals 'Y'), the program submits a job named <code>BB705</code> to the job queue in the library specified by <code>?CLIB?</code>. The <code>?9?</code> parameter is passed along.</li>
+<li><code>// ELSE BB705 ,,,,,,,,?9?</code>: If the condition is false, the program executes <code>BB705</code> directly (not through the job queue) with the <code>?9?</code> parameter.</li>
 <li>
-<p>Formats each record (<code>sf1fmt</code>) and writes to subfile.</p>
-</li>
-<li>
-<p><strong>Format Subfile Line (<code>sf1fmt</code> Subroutine)</strong>:</p>
-</li>
-<li>Clears subfile record and populates fields (<code>s1ship</code>, <code>s1name</code>, <code>s1ctst</code>, <code>s1adr1</code>, <code>s1adr2</code>, <code>s1adr3</code>, <code>s1stat</code>, <code>s1cszp</code>) from <code>shipto</code> file.</li>
-<li>
-<p>Applies color coding (<code>sf1color</code>) based on delete flag (<code>s1del</code>).</p>
+<p>The <code>?L'166,1'?</code> likely refers to a system variable or parameter (e.g., a flag in a control file or system setting) that determines whether the job should be queued or run immediately.</p>
 </li>
 <li>
-<p><strong>Color Coding (<code>sf1color</code> Subroutine)</strong>:</p>
-<ul>
-<li>Sets <code>*in77</code> if ship-to is flagged for deletion (<code>s1del='D'</code>), likely for visual highlighting.</li>
-</ul>
+<p><strong>End of Program</strong>:</p>
 </li>
-<li>
-<p><strong>Direct Access Processing (<code>sf1dir</code> Subroutine)</strong>:</p>
-<ul>
-<li>Validates direct access input (<code>d1opt</code>, <code>d1ship</code>):</li>
-<li><strong>Option 1 (Create)</strong>: Ensures non-zero company, customer, and ship-to; checks if ship-to doesn’t exist (<code>*in99</code>). If it exists, sets error <code>ERR0101</code>.</li>
-<li><strong>Option 2 (Update)</strong>: Ensures ship-to exists (<code>*in99</code>). If not, sets error <code>ERR0102</code>.</li>
-<li><strong>Option 3 (Copy)</strong>: Processes copy operation.</li>
-<li><strong>Option 5 (Inquiry)</strong>: Displays ship-to details.</li>
-<li>Calls corresponding subroutines (<code>sf1s01</code>, <code>sf1s02</code>, <code>sf1s03</code>, <code>sf1s05</code>) if no errors.</li>
-</ul>
-</li>
-<li>
-<p><strong>Create (<code>sf1s01</code>), Update (<code>sf1s02</code>), Display (<code>sf1s05</code>) Subroutines</strong>:</p>
-<ul>
-<li>Sets LDA fields (<code>l$co</code>, <code>l$cust</code>, <code>l$ship</code>), clears <code>l$fkey</code>, updates LDA, and exits loop (<code>sf1agn=off</code>).</li>
-<li>Updates cursor location.</li>
-</ul>
-</li>
-<li>
-<p><strong>Copy (<code>sf1s03</code> and <code>sf1cpy</code> Subroutines)</strong>:</p>
-<ul>
-<li>Displays a copy window (<code>sflcpy1</code>) with customer name (<code>c$tcnm</code>) and temporary customer/ship-to fields (<code>w$tcst</code>, <code>w$tshp</code>).</li>
-<li>Processes window input:</li>
-<li><strong>F04</strong>: Calls <code>prompt</code> for field assistance.</li>
-<li><strong>F12</strong>: Cancels copy operation.</li>
-<li><strong>F22</strong>: Processes copy (not fully implemented).</li>
-<li>Validates customer (<code>w$tcst</code>) and ship-to (<code>w$tshp</code>) via <code>sf1cpyedt</code>. If valid, calls <code>BI8903</code> with parameters for copy operation.</li>
-</ul>
-</li>
-<li>
-<p><strong>Field Prompting (<code>prompt</code> Subroutine)</strong>:</p>
-<ul>
-<li>For <code>SFLCTL1</code>:</li>
-<li>Company (<code>C$CO</code>): Calls <code>LBICONT</code> to prompt company selection.</li>
-<li>Customer (<code>C$CUST</code>): Calls <code>LARCUST</code> with company and customer parameters.</li>
-<li>For <code>SFLCPY1</code>:</li>
-<li>Customer (<code>W$TCST</code>): Calls <code>LARCUST</code> and updates customer name (<code>c$tcnm</code>).</li>
-</ul>
-</li>
-<li>
-<p><strong>Message Handling (<code>addmsg</code>, <code>wrtmsg</code>, <code>clrmsg</code> Subroutines)</strong>:</p>
-<ul>
-<li><strong>addmsg</strong>: Sends error messages to program message queue (<code>QMHSNDPM</code>) with message ID (<code>m@id</code>), file (<code>m@msgf</code>), and data (<code>m@data</code>).</li>
-<li><strong>wrtmsg</strong>: Displays message subfile (<code>msgctl</code>) with <code>*in49</code>.</li>
-<li><strong>clrmsg</strong>: Clears message subfile using <code>QMHRMVPM</code> and restores record format and page number.</li>
-</ul>
-</li>
-<li>
-<p><strong>Program Termination</strong>:</p>
-<ul>
-<li>Closes all files (<code>close *all</code>), sets <code>*inlr</code> to end the program, and returns.</li>
-</ul>
-</li>
+<li><code>// TAG END</code>: Marks the <code>END</code> label, where the program jumps if <code>SWITCH8</code> is 1.</li>
+<li><code>// LOCAL BLANK-*ALL</code>: Clears all local variables again to clean up.</li>
+<li><code>// SWITCH 00000000</code>: Resets the switch register to all zeros.</li>
 </ol>
-<hr />
-<h3 id="business-rules"><strong>Business Rules</strong><a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
-<p>The program enforces the following business rules:
-1. <strong>Validation</strong>:
-   - Company (<code>c$co</code>) must exist in <code>bicont</code> (error <code>ERR0010</code> if invalid or zero).
-   - Customer (<code>c$cust</code>) must exist in <code>arcust</code> (error <code>ERR0010</code> if invalid or zero).
-   - Ship-to (<code>d1ship</code>, <code>w$tshp</code>) cannot be zero (error <code>ERR0000</code>, message <code>com(02)</code>).
-   - For create/copy (<code>d1opt=1</code> or <code>3</code>): Ship-to must not exist (<code>ERR0101</code> if it does).
-   - For update (<code>d1opt=2</code>): Ship-to must exist (<code>ERR0102</code> if it doesn’t).
-   - For copy, new ship-to must not exist (<code>ERR0000</code>, message <code>com(03)</code>).</p>
+<h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>BB705</strong>: This is the primary program or procedure called by the OCL script. It is either executed directly (<code>BB705 ,,,,,,,,?9?</code>) or submitted to the job queue (<code>JOBQ ?CLIB?,BB705,,,,,,,,,?9?</code>). This program is likely responsible for generating the open order listing based on the data in the specified files.</li>
+</ul>
+<h3 id="tables-used">Tables Used<a class="headerlink" href="#tables-used" title="Permanent link">&para;</a></h3>
+<p>The OCL program references two files, which may be considered tables or datasets in the context of the System/36:</p>
 <ol>
-<li><strong>Modes</strong>:</li>
-<li><strong>Inquiry Mode (<code>p$mode='INQ'</code>)</strong>: Allows viewing ship-to details (option 5) without modification.</li>
-<li>
-<p><strong>Maintenance Mode (<code>p$mode='MNT'</code>)</strong>: Enables create (option 1), update (option 2), and copy (option 3) operations.</p>
-</li>
-<li>
-<p><strong>Subfile Behavior</strong>:</p>
-</li>
-<li>Displays up to 32 records per page (<code>pagsz1</code>).</li>
-<li>Supports folded/unfolded display modes (<code>sfmod1</code>, <code>*in45</code>).</li>
-<li>Highlights deleted records (<code>s1del='D'</code>) with color coding (<code>*in77</code>).</li>
-<li>
-<p>Repositions based on user input (company, customer, ship-to) or direct access.</p>
-</li>
-<li>
-<p><strong>Function Keys</strong>:</p>
-</li>
-<li><strong>F03</strong>: Exits program, updating LDA with <code>F03</code>.</li>
-<li><strong>F04</strong>: Prompts for company or customer selection.</li>
-<li><strong>F05</strong>: Refreshes subfile.</li>
-<li><strong>F10</strong>: Moves cursor to control record.</li>
-<li><strong>F12</strong>: Cancels copy operation.</li>
-<li><strong>F22</strong>: Processes copy (partially implemented).</li>
-<li><strong>Page Down</strong>: Loads next page of subfile records.</li>
-<li>
-<p><strong>Enter</strong>: Processes subfile selections.</p>
-</li>
-<li>
-<p><strong>Copy Operation</strong>:</p>
-</li>
-<li>Validates new customer (<code>w$tcst</code>) and ship-to (<code>w$tshp</code>) before calling <code>BI8903</code>.</li>
-<li>Ensures new ship-to doesn’t exist to avoid duplication.</li>
+<li><strong>BICONT</strong>: A file used by the <code>BB705P</code> program, opened in shared read mode (<code>DISP-SHRRM</code>). The label <code>?9?BICONT</code> suggests it is stored in a library specified by the <code>?9?</code> parameter.</li>
+<li><strong>INLOC</strong>: Another file used by the program, also opened in shared read mode with the label <code>?9?INLOC</code>.</li>
 </ol>
-<hr />
-<h3 id="tables-files-used"><strong>Tables (Files) Used</strong><a class="headerlink" href="#tables-files-used" title="Permanent link">&para;</a></h3>
-<p>The program uses the following files, as declared in the RPGLE code and overridden in the OCL:
-1. <strong>bi890pd</strong> (Display File, <code>cf</code>):
-   - Work station file with subfile <code>sfl1</code> for interactive display.
-2. <strong>arcust</strong> (Input File, <code>if</code>):
-   - Customer master file (<code>garcust</code> or <code>zarcust</code> based on <code>p$fgrp</code>).
-   - Used to validate customer numbers and retrieve names.
-3. <strong>bicont</strong> (Input File, <code>if</code>):
-   - Control file (<code>gbicont</code> or <code>zbicont</code>).
-   - Used to validate company numbers and retrieve names.
-4. <strong>shipto</strong> (Input File, <code>if</code>):
-   - Ship-to master file (<code>gshipto</code> or <code>zshipto</code>).
-   - Stores ship-to details (e.g., address, status, city/state/ZIP).</p>
-<p>The OCL program declares additional files (<code>arcupr</code>, <code>gsprod</code>, <code>gstabl</code>, <code>trrtcd</code>, <code>cuadr</code>, <code>cuadrrd</code>, <code>bbora1</code>, <code>bbordh</code>, <code>bbshsa1</code>, <code>shipths</code>, <code>arcuphs</code>), but only <code>arcust</code>, <code>bicont</code>, and <code>shipto</code> are explicitly used in <code>BI890P</code>.</p>
-<hr />
-<h3 id="external-programs-called"><strong>External Programs Called</strong><a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
-<p>The program calls the following external programs:
-1. <strong>QCMDEXC</strong>:
-   - System program to execute file override commands (<code>ovg</code> or <code>ovz</code>) for <code>arcust</code>, <code>bicont</code>, and <code>shipto</code>.
-2. <strong>QMHSNDPM</strong>:
-   - Sends error messages to the program message queue.
-3. <strong>QMHRMVPM</strong>:
-   - Clears messages from the message subfile.
-4. <strong>LBICONT</strong>:
-   - Called in <code>prompt</code> subroutine to assist with company number selection.
-   - Parameters: <code>c$co</code> (input/output), <code>p$fgrp</code> (input), <code>o$fgrp</code> (output).
-5. <strong>LARCUST</strong>:
-   - Called in <code>prompt</code> subroutine to assist with customer number selection.
-   - Parameters: <code>c$co</code>/<code>o$co</code> (input/output), <code>c$cust</code>/<code>o$cust</code> or <code>w$tcst</code>/<code>o$cust</code> (input/output), <code>p$fgrp</code> (input), <code>o$fgrp</code> (output).
-6. <strong>BI8903</strong>:
-   - Called in <code>sf1cpy</code> to perform ship-to copy operation.
-   - Parameters: <code>c$co</code>, <code>c$cust</code>, <code>s$ship</code>, <code>w$tcst</code>, <code>w$tshp</code>, <code>p$fgrp</code>.</p>
-<p>The OCL references <code>BI9002</code> and <code>BB800E</code>, but they are not called directly in <code>BI890P</code>. They may be invoked by <code>BI8903</code> or other programs in the chain.</p>
-<hr />
-<h3 id="summary"><strong>Summary</strong><a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
-<p>The <code>BI890P</code> program is an interactive RPGLE application for managing ship-to master inquiries and maintenance. It:
-- Displays a subfile with ship-to records, supporting inquiry, update, and copy operations.
-- Validates input against <code>bicont</code>, <code>arcust</code>, and <code>shipto</code> files.
-- Handles user input via function keys (F03, F04, F05, F10, F12, F22, Page Down, Enter).
-- Enforces business rules for data validation and mode-specific operations.
-- Integrates with the OCL program (<code>BI890.ocl36.txt</code>) by using shared files and parameters.</p>
-<p><strong>Tables Used</strong>:
-- <code>bi890pd</code> (display file with subfile <code>sfl1</code>)
-- <code>arcust</code> (<code>garcust</code> or <code>zarcust</code>)
-- <code>bicont</code> (<code>gbicont</code> or <code>zbicont</code>)
-- <code>shipto</code> (<code>gshipto</code> or <code>zshipto</code>)</p>
-<p><strong>External Programs Called</strong>:
-- <code>QCMDEXC</code>
-- <code>QMHSNDPM</code>
-- <code>QMHRMVPM</code>
-- <code>LBICONT</code>
-- <code>LARCUST</code>
-- <code>BI8903</code></p>
-<p>If you need a deeper analysis of specific subroutines, business rules, or interactions with the OCL, let me know!</p>
+<p>These files likely contain data related to open orders (e.g., inventory, customer orders, or location-specific data). However, the OCL script does not explicitly define them as "tables" in the RPG sense (e.g., RPG table arrays like <code>TABxxx</code>). If <code>BB705</code> is an RPG program, it might internally define tables, but no such tables are explicitly mentioned in the OCL code.</p>
+<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Process Steps</strong>:</li>
+<li>Initialize environment (clear variables, set switches).</li>
+<li>Load the <code>BB705P</code> program and define input files (<code>BICONT</code>, <code>INLOC</code>).</li>
+<li>Check if the job is canceled (<code>SWITCH8=1</code>); if so, skip to the end.</li>
+<li>Evaluate a condition (<code>?L'166,1'?/Y</code>) to decide whether to submit <code>BB705</code> to a job queue or run it directly.</li>
+<li>
+<p>Clean up variables and switches at the end.</p>
+</li>
+<li>
+<p><strong>External Programs Called</strong>:</p>
+</li>
+<li>
+<p><code>BB705</code>: The main program or procedure executed or queued.</p>
+</li>
+<li>
+<p><strong>Tables Used</strong>:</p>
+</li>
+<li>No explicit RPG tables (e.g., <code>TABxxx</code>) are defined in the OCL code.</li>
+<li>Files <code>BICONT</code> and <code>INLOC</code> are used as data sources, which may function as tables in the context of the <code>BB705</code> program.</li>
+</ul>
+<p>If you have additional details (e.g., the RPG code for <code>BB705</code> or more context about the files), I can provide a more detailed analysis of the tables or program logic. Let me know if you’d like me to search for related information or analyze further!</p>
 
 
 
