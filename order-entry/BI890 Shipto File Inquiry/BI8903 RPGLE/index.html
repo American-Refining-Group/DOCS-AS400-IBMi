@@ -15,10 +15,10 @@
         <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BI890%20Shipto%20File%20Inquiry/BI8903%20RPGLE/">
       
       
-        <link rel="prev" href="../BI8902R%20%20RPG/">
+        <link rel="prev" href="../BI890%20RPG36/">
       
       
-        <link rel="next" href="../BI9078%20RPGLE/">
+        <link rel="next" href="../BI890P%20RPGLE/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#process-steps-of-the-rpg-program" class="md-skip">
+        <a href="#process-steps" class="md-skip">
           Skip to content
         </a>
       
@@ -16254,12 +16254,58 @@
   
   
     <li class="md-nav__item">
-      <a href="../BI8902R%20%20RPG/" class="md-nav__link">
+      <a href="../BB800E%20RPGLE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    BI8902R  RPG
+    BB800E RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BI890%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BI890 OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BI890%20RPG36/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BI890 RPG36
     
   </span>
   
@@ -16323,9 +16369,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-rpg-program" class="md-nav__link">
+  <a href="#process-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the RPG Program
+      Process Steps
     </span>
   </a>
   
@@ -16383,12 +16429,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../BI9078%20RPGLE/" class="md-nav__link">
+      <a href="../BI890P%20RPGLE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    BI9078 RPGLE
+    BI890P RPGLE
     
   </span>
   
@@ -16406,12 +16452,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../BI907C2%20CLP/" class="md-nav__link">
+      <a href="../BI907%20RPGLE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    BI907C2 CLP
+    BI907 RPGLE
     
   </span>
   
@@ -16429,12 +16475,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../GB730P%20RPGLE/" class="md-nav__link">
+      <a href="../BI907AC%20CLP/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    GB730P RPGLE
+    BI907AC CLP
     
   </span>
   
@@ -20692,9 +20738,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-rpg-program" class="md-nav__link">
+  <a href="#process-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the RPG Program
+      Process Steps
     </span>
   </a>
   
@@ -20757,164 +20803,149 @@
 
   <h1>BI8903 RPGLE</h1>
 
-<p>The RPG program <code>BI8903.rpgle.txt</code> is part of the Brandford Order Entry / Invoices system and is designed to copy ship-to records from one customer and ship-to combination to another. It is called by the <code>BI890P</code> program (as referenced in the previous context) and operates non-interactively to duplicate records across multiple files. Below, I’ll explain the process steps, business rules, tables used, and external programs called, integrating its role within the context of the OCL (<code>BI890.ocl36.txt</code>) and <code>BI890P</code> programs.</p>
-<hr />
-<h3 id="process-steps-of-the-rpg-program"><strong>Process Steps of the RPG Program</strong><a class="headerlink" href="#process-steps-of-the-rpg-program" title="Permanent link">&para;</a></h3>
-<p>The <code>BI8903</code> program is a straightforward RPGLE program that performs the task of copying records from a source customer/ship-to to a target customer/ship-to across four files: <code>shipto</code>, <code>arcupr</code>, <code>cuadr</code>, and <code>bbshsa</code>. Here’s a step-by-step breakdown of the process:</p>
+<p>The <code>BI8903.rpgle.txt</code> is an RPGLE (RPG IV) program named <code>BI8903</code>, designed for the Brandford Order Entry / Invoices system on an IBM AS/400 (iSeries) platform. It is responsible for copying ship-to records from one customer/ship-to combination to another, updating multiple related files. Below, I will explain the process steps, business rules, tables used, and external programs called, based on the provided RPGLE source code.</p>
+<h3 id="process-steps">Process Steps<a class="headerlink" href="#process-steps" title="Permanent link">&para;</a></h3>
+<p>The program follows a structured flow to copy ship-to records and their associated data, organized into subroutines executed sequentially:</p>
 <ol>
 <li><strong>Initialization (<code>*inzsr</code> Subroutine)</strong>:</li>
 <li><strong>Parameters</strong>: Receives six input parameters:<ul>
-<li><code>p$co</code> (2 digits, company number).</li>
-<li><code>p$fcust</code> (6 digits, source customer number).</li>
-<li><code>p$fshp</code> (3 digits, source ship-to number).</li>
-<li><code>p$tcust</code> (6 digits, target customer number).</li>
-<li><code>p$tshp</code> (3 digits, target ship-to number).</li>
-<li><code>p$fgrp</code> (1 character, file group: 'G' or 'Z').</li>
+<li><code>p$co</code> (2 digits): Company number.</li>
+<li><code>p$fcust</code> (6 digits): Source customer number (copy from).</li>
+<li><code>p$fshp</code> (3 digits): Source ship-to number (copy from).</li>
+<li><code>p$tcust</code> (6 digits): Target customer number (copy to).</li>
+<li><code>p$tshp</code> (3 digits): Target ship-to number (copy to).</li>
+<li><code>p$fgrp</code> (1 character): File group identifier ('G' or 'Z') for file overrides.</li>
 </ul>
 </li>
-<li><strong>Key Fields</strong>: Populates a composite key (<code>key11</code>) and a data structure (<code>ds</code>) with:<ul>
-<li><code>dsco</code> (company, from <code>p$co</code>).</li>
-<li><code>dstcust</code> (target customer, from <code>p$tcust</code>).</li>
-<li><code>dstshp</code> (target ship-to, from <code>p$tshp</code>).</li>
-</ul>
-</li>
+<li><strong>Field Setup</strong>: Initializes key fields (<code>dsco</code>, <code>dstcust</code>, <code>dstshp</code>) with input parameters (<code>p$co</code>, <code>p$tcust</code>, <code>p$tshp</code>) for use in key lists.</li>
 <li><strong>Key Lists</strong>: Defines two key lists:<ul>
-<li><code>klFrmShipto</code>: For source records (<code>p$co</code>, <code>p$fcust</code>, <code>p$fshp</code>).</li>
-<li><code>KlToShipto</code>: For target records (<code>p$co</code>, <code>p$tcust</code>, <code>p$tshp</code>).</li>
+<li><code>klFrmShipto</code>: For accessing source records (<code>p$co</code>, <code>p$fcust</code>, <code>p$fshp</code>).</li>
+<li><code>KlToShipto</code>: For checking target records (<code>p$co</code>, <code>p$tcust</code>, <code>p$tshp</code>).</li>
 </ul>
 </li>
+<li><strong>Data Structures</strong>: Defines external data structures (<code>wkds01</code>, <code>wkds02</code>, <code>wkds03</code>, <code>wkds04</code>) for <code>shipto</code>, <code>arcupr</code>, <code>cuadr</code>, and <code>bbshsa1</code> to store and manipulate record data.</li>
+<li><strong>Test Data</strong>: Includes commented-out test values for parameters (e.g., <code>p$co = '10'</code>, <code>p$fcust = '006700'</code>, etc.).</li>
 <li>
-<p><strong>Test Data</strong>: Includes commented-out test values for parameters, indicating a debugging or development setup (e.g., <code>p$co='10'</code>, <code>p$fcust='006700'</code>, etc.).</p>
+<p><strong>Environment</strong>: Uses the program status data structure (<code>psds##</code>) to access user, date, and time information.</p>
 </li>
 <li>
 <p><strong>Open Database Tables (<code>opntbl</code> Subroutine)</strong>:</p>
 </li>
-<li><strong>File Overrides</strong>: Based on <code>p$fgrp</code> ('G' or 'Z'), applies file overrides (<code>ovg</code> or <code>ovz</code>) for seven files using the <code>QCMDEXC</code> system program. The overrides redirect file access to either <code>g*</code> (e.g., <code>gshipto</code>, <code>garcupr</code>) or <code>z*</code> (e.g., <code>zshipto</code>, <code>zarcupr</code>) files.</li>
+<li>Applies file overrides for <code>shipto</code>, <code>arcuprrd</code>, <code>arcupr</code>, <code>cuadrrd</code>, <code>cuadr</code>, <code>bbshsa1rd</code>, and <code>bbshsa</code> based on <code>p$fgrp</code> ('G' for <code>g*</code> files, 'Z' for <code>z*</code> files) using the <code>QCMDEXC</code> API.</li>
 <li>
-<p><strong>Open Files</strong>: Opens the following files in user-controlled mode (<code>usropn</code>):</p>
-<ul>
-<li>Input files: <code>arcuprrd</code>, <code>cuadrrd</code>, <code>bbshsa1rd</code> (read-only, renamed record formats).</li>
-<li>Update file: <code>shipto</code> (update/add mode).</li>
-<li>Output files: <code>arcupr</code>, <code>cuadr</code>, <code>bbshsa</code> (write mode).</li>
-</ul>
+<p>Opens input files (<code>arcuprrd</code>, <code>cuadrrd</code>, <code>bbshsa1rd</code>) and input/output files (<code>shipto</code>, <code>arcupr</code>, <code>cuadr</code>, <code>bbshsa</code>) with <code>usropn</code>.</p>
 </li>
 <li>
 <p><strong>Write New Ship-to Records (<code>WriteShipto</code> Subroutine)</strong>:</p>
 </li>
 <li><strong>Copy to <code>shipto</code></strong>:<ul>
-<li>Checks if the source record exists in <code>shipto</code> using <code>klFrmShipto</code> (<code>chain(n)</code>). If found (<code>*in99=*off</code>), stores the record in <code>svds</code> (a 2048-byte save data structure).</li>
-<li>Checks if the target record does not exist in <code>shipto</code> using <code>KlToShipto</code> (<code>chain</code>). If it doesn’t exist (<code>*in99=*on</code>):</li>
+<li>Chains to the source <code>shipto</code> record using <code>klFrmShipto</code> (<code>p$co</code>, <code>p$fcust</code>, <code>p$fshp</code>).</li>
+<li>If found (<code>*in99 = *off</code>), stores the record in <code>svds</code> (save data structure).</li>
+<li>Checks if the target ship-to exists using <code>KlToShipto</code> (<code>p$co</code>, <code>p$tcust</code>, <code>p$tshp</code>).</li>
+<li>If the target does not exist (<code>*in99 = *on</code>):</li>
 <li>Clears the <code>shiptopf</code> record format.</li>
-<li>Copies fields from <code>svds</code> to <code>wkds01</code> (external data structure for <code>shipto</code>).</li>
-<li>Updates key fields: <code>csship</code> (target ship-to, <code>p$tshp</code>), <code>cscust</code> (target customer, <code>p$tcust</code>).</li>
-<li>Clears specific fields (e.g., <code>csadr1</code>, <code>csadr2</code>, <code>csadr3</code>, <code>csadr4</code>, <code>cszip5</code>, <code>cszip9</code>, <code>csstat</code>, <code>csmils</code>, <code>csctst</code>, <code>cscszp</code>, <code>cslong</code>, <code>cslatt</code>) to ensure only relevant data is copied.</li>
+<li>Moves <code>svds</code> to <code>wkds01</code> and updates <code>csship</code> (target ship-to) and <code>cscust</code> (target customer).</li>
+<li>Clears specific fields (<code>cscsid</code>, <code>csadr1</code>, <code>csadr2</code>, <code>csadr3</code>, <code>csadr4</code>, <code>cszip5</code>, <code>cszip9</code>, <code>csstat</code>, <code>csmils</code>, <code>csctst</code>, <code>cscszp</code>, <code>cslong</code>, <code>cslatt</code>).</li>
 <li>Writes the new record to <code>shipto</code>.</li>
 </ul>
 </li>
 <li><strong>Copy to <code>arcupr</code></strong>:<ul>
-<li>Positions to source records in <code>arcuprrd</code> using <code>klFrmShipto</code> (<code>setll</code>).</li>
-<li>Reads all matching records (<code>reade</code>) until end-of-file (<code>*in99=*on</code>).</li>
-<li>For each record:</li>
-<li>Stores in <code>svds</code> and clears <code>arcuprpf</code> format.</li>
-<li>Copies fields to <code>wkds02</code> (external data structure for <code>arcupr</code>).</li>
-<li>Updates key fields: <code>cpship</code> (<code>p$tshp</code>), <code>cpcust</code> (<code>p$tcust</code>).</li>
+<li>Sets the lower limit (<code>setll</code>) for <code>arcuprrd</code> using <code>klFrmShipto</code>.</li>
+<li>Reads all matching records (<code>reade</code>) until end of file (<code>*in99 = *on</code>).</li>
+<li>For each record found:</li>
+<li>Stores the record in <code>svds</code>.</li>
+<li>Clears the <code>arcuprpf</code> record format.</li>
+<li>Moves <code>svds</code> to <code>wkds02</code> and updates <code>cpship</code> (target ship-to) and <code>cpcust</code> (target customer).</li>
 <li>Writes the new record to <code>arcupr</code>.</li>
 </ul>
 </li>
 <li><strong>Copy to <code>cuadr</code></strong>:<ul>
-<li>Similar to <code>arcupr</code>, positions to source records in <code>cuadrrd</code> (<code>setll</code>), reads (<code>reade</code>), and for each record:</li>
-<li>Stores in <code>svds</code>, clears <code>cuadrpf</code>, and copies to <code>wkds03</code>.</li>
-<li>Updates key fields: <code>cdship</code> (<code>p$tshp</code>), <code>cdcust</code> (<code>p$tcust</code>).</li>
-<li>Writes to <code>cuadr</code>.</li>
+<li>Sets the lower limit for <code>cuadrrd</code> using <code>klFrmShipto</code>.</li>
+<li>Reads all matching records (<code>reade</code>) until end of file.</li>
+<li>For each record found:</li>
+<li>Stores the record in <code>svds</code>.</li>
+<li>Clears the <code>cuadrpf</code> record format.</li>
+<li>Moves <code>svds</code> to <code>wkds03</code> and updates <code>cdship</code> (target ship-to) and <code>cdcust</code> (target customer).</li>
+<li>Writes the new record to <code>cuadr</code>.</li>
 </ul>
 </li>
 <li>
 <p><strong>Copy to <code>bbshsa</code></strong>:</p>
 <ul>
-<li>Positions to source records in <code>bbshsa1rd</code> (<code>setll</code>), reads (<code>reade</code>), and for each record:</li>
-<li>Stores in <code>svds</code>, clears <code>bbshsapf</code>, and copies to <code>wkds04</code>.</li>
-<li>Updates key fields: <code>baship</code> (<code>p$tshp</code>), <code>bacust</code> (<code>p$tcust</code>), <code>bahkey</code> (from <code>key11</code>).</li>
-<li>Writes to <code>bbshsa</code>.</li>
+<li>Sets the lower limit for <code>bbshsa1rd</code> using <code>klFrmShipto</code>.</li>
+<li>Reads all matching records (<code>reade</code>) until end of file.</li>
+<li>For each record found:</li>
+<li>Stores the record in <code>svds</code>.</li>
+<li>Clears the <code>bbshsapf</code> record format.</li>
+<li>Moves <code>svds</code> to <code>wkds04</code> and updates <code>baship</code> (target ship-to), <code>bacust</code> (target customer), and <code>bahkey</code> (key11).</li>
+<li>Writes the new record to <code>bbshsa</code>.</li>
 </ul>
 </li>
 <li>
 <p><strong>Program Termination</strong>:</p>
 </li>
 <li>Closes all files (<code>close *all</code>).</li>
-<li>Sets <code>*inlr</code> to end the program and returns.</li>
+<li>Sets <code>*inlr = *on</code> and returns.</li>
 </ol>
-<hr />
-<h3 id="business-rules"><strong>Business Rules</strong><a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
-<p>The program enforces the following business rules:
-1. <strong>Record Existence</strong>:
-   - The source ship-to record (<code>p$co</code>, <code>p$fcust</code>, <code>p$fshp</code>) must exist in <code>shipto</code> for copying to proceed.
-   - The target ship-to record (<code>p$co</code>, <code>p$tcust</code>, <code>p$tshp</code>) must not exist in <code>shipto</code> to avoid duplication. If it exists, no write occurs for that file.</p>
+<h3 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>Data Copying</strong>:</li>
-<li>Copies all relevant fields from source records to target records, preserving the structure and most data except for specific fields in <code>shipto</code> (e.g., addresses, ZIP codes, status) which are cleared to ensure the new record is initialized appropriately.</li>
+<li><strong>Copy Functionality</strong>:</li>
+<li>Copies ship-to data from a source customer/ship-to (<code>p$fcust</code>, <code>p$fshp</code>) to a target customer/ship-to (<code>p$tcust</code>, <code>p$tshp</code>) within the same company (<code>p$co</code>).</li>
 <li>
-<p>Updates key fields (company, customer, ship-to) to reflect the target values in all files.</p>
+<p>Copies records from <code>shipto</code>, <code>arcupr</code>, <code>cuadr</code>, and <code>bbshsa1</code> to their respective target files, updating customer and ship-to fields.</p>
 </li>
 <li>
-<p><strong>File Group Handling</strong>:</p>
+<p><strong>Validation</strong>:</p>
+</li>
+<li>Verifies the source ship-to exists in <code>shipto</code> using <code>klFrmShipto</code>.</li>
+<li>Ensures the target ship-to does not exist in <code>shipto</code> before writing (<code>*in99 = *on</code> for <code>KlToShipto</code>).</li>
+<li>
+<p>No explicit error messages are defined in the code, but the program assumes prior validation (e.g., in <code>BI890P</code>) prevents invalid inputs.</p>
 </li>
 <li>
-<p>Supports two file groups ('G' or 'Z'), determined by <code>p$fgrp</code>. This allows the program to work with different sets of files (<code>g*</code> or <code>z*</code>) based on the environment or configuration.</p>
+<p><strong>Data Handling</strong>:</p>
+</li>
+<li>Clears specific fields (<code>cscsid</code>, <code>csadr1</code>, <code>csadr2</code>, <code>csadr3</code>, <code>csadr4</code>, <code>cszip5</code>, <code>cszip9</code>, <code>csstat</code>, <code>csmils</code>, <code>csctst</code>, <code>cscszp</code>, <code>cslong</code>, <code>cslatt</code>) in the new <code>shipto</code> record to ensure only essential data is copied.</li>
+<li>
+<p>Copies all related records from <code>arcuprrd</code>, <code>cuadrrd</code>, and <code>bbshsa1rd</code> without modification, except for updating customer and ship-to fields.</p>
 </li>
 <li>
-<p><strong>Multi-File Consistency</strong>:</p>
+<p><strong>File Overrides</strong>:</p>
+</li>
+<li>Uses <code>p$fgrp</code> to determine file overrides ('G' for <code>g*</code> files, 'Z' for <code>z*</code> files).</li>
+<li>
+<p>Ensures shared access is disabled (<code>share(*no)</code>) to prevent conflicts during writes.</p>
 </li>
 <li>
-<p>Ensures related records in <code>arcupr</code>, <code>cuadr</code>, and <code>bbshsa</code> are copied only if corresponding source records exist, maintaining data integrity across files.</p>
+<p><strong>Non-Interactive</strong>:</p>
 </li>
-<li>
-<p><strong>Non-Interactive Operation</strong>:</p>
-</li>
-<li>The program does not interact with a display file or user input, relying entirely on parameters passed from <code>BI890P</code> to perform the copy operation.</li>
+<li>The program is non-interactive, with no display file or user interface (unlike <code>BI890P</code> or <code>BB800E</code>).</li>
+<li>It processes data programmatically based on input parameters.</li>
 </ol>
-<hr />
-<h3 id="tables-files-used"><strong>Tables (Files) Used</strong><a class="headerlink" href="#tables-files-used" title="Permanent link">&para;</a></h3>
-<p>The program uses the following files, as declared in the RPGLE code and overridden in the OCL:
-1. <strong>shipto</strong> (Update/Add, <code>uf a</code>):
-   - Ship-to master file (<code>gshipto</code> or <code>zshipto</code> based on <code>p$fgrp</code>).
-   - Used to read source records and write new target records.
-2. <strong>arcuprrd</strong> (Input, <code>if</code>):
-   - Customer pricing/profile file (<code>garcupr</code> or <code>zarcupr</code>), renamed to <code>arcuprpr</code>.
-   - Read-only for source records.
-3. <strong>arcupr</strong> (Output, <code>o</code>):
-   - Same file as <code>arcuprrd</code> but used for writing new target records.
-4. <strong>cuadrrd</strong> (Input, <code>if</code>):
-   - Customer address file (<code>gcuadr</code> or <code>zcuadr</code>), renamed to <code>cuadrpr</code>.
-   - Read-only for source records.
-5. <strong>cuadr</strong> (Output, <code>o</code>):
-   - Same file as <code>cuadrrd</code> but used for writing new target records.
-6. <strong>bbshsa1rd</strong> (Input, <code>if</code>):
-   - Shipping data file (<code>gbbshsa1</code> or <code>zbbshsa1</code>), renamed to <code>bbshsapr</code>.
-   - Read-only for source records.
-7. <strong>bbshsa</strong> (Output, <code>o</code>):
-   - Same file as <code>bbshsa1rd</code> but used for writing new target records.</p>
-<p>The OCL (<code>BI890.ocl36.txt</code>) declares additional files (e.g., <code>arcust</code>, <code>bicont</code>, <code>gsprod</code>, <code>gstabl</code>, <code>trrtcd</code>, <code>shipths</code>, <code>arcuphs</code>), but only the above are used by <code>BI8903</code>.</p>
-<hr />
-<h3 id="external-programs-called"><strong>External Programs Called</strong><a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
-<p>The program calls the following external program:
-1. <strong>QCMDEXC</strong>:
-   - System program used in the <code>opntbl</code> subroutine to execute file override commands (<code>ovg</code> or <code>ovz</code>) for redirecting file access based on <code>p$fgrp</code>.</p>
-<p>No other external programs are called directly by <code>BI8903</code>. The OCL references <code>BI9002</code> and <code>BB800E</code>, but they are not invoked by this program.</p>
-<hr />
-<h3 id="summary"><strong>Summary</strong><a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
-<p>The <code>BI8903</code> program is a non-interactive RPGLE program that copies ship-to records from a source customer/ship-to to a target customer/ship-to across four files (<code>shipto</code>, <code>arcupr</code>, <code>cuadr</code>, <code>bbshsa</code>). It:
-- Initializes with parameters from <code>BI890P</code>, sets up key lists, and applies file overrides.
-- Copies records by reading source data, updating keys, and writing to target files, ensuring the target ship-to does not already exist.
-- Enforces business rules for record existence and data integrity.
-- Integrates with the OCL (<code>BI890.ocl36.txt</code>) and <code>BI890P</code> by using shared files and parameters.</p>
-<p><strong>Tables Used</strong>:
-- <code>shipto</code> (<code>gshipto</code> or <code>zshipto</code>)
-- <code>arcuprrd</code>/<code>arcupr</code> (<code>garcupr</code> or <code>zarcupr</code>)
-- <code>cuadrrd</code>/<code>cuadr</code> (<code>gcuadr</code> or <code>zcuadr</code>)
-- <code>bbshsa1rd</code>/<code>bbshsa</code> (<code>gbbshsa1</code> or <code>zbbshsa1</code>)</p>
-<p><strong>External Programs Called</strong>:
-- <code>QCMDEXC</code></p>
-<p>If you need further analysis of specific subroutines, business rules, or interactions with <code>BI890P</code> or the OCL, let me know!</p>
+<h3 id="tables-files-used">Tables (Files) Used<a class="headerlink" href="#tables-files-used" title="Permanent link">&para;</a></h3>
+<p>The program uses the following database files (tables):
+- <strong>Input Files</strong> (with <code>usropn</code> and <code>if</code> for read-only access, renamed record formats):
+  1. <strong>arcuprrd</strong>: Customer pricing read file (<code>arcuprpf</code> renamed to <code>arcuprpr</code>).
+  2. <strong>cuadrrd</strong>: Customer address read file (<code>cuadrpf</code> renamed to <code>cuadrpr</code>).
+  3. <strong>bbshsa1rd</strong>: Ship-to accessorial/marks read file (<code>bbshsapf</code> renamed to <code>bbshsapr</code>).
+- <strong>Input/Output File</strong> (with <code>usropn</code> and <code>uf a</code> for update/add):
+  4. <strong>shipto</strong>: Ship-to master file (supports both reading and writing).
+- <strong>Output Files</strong> (with <code>usropn</code> and <code>o</code> for write-only):
+  5. <strong>arcupr</strong>: Customer pricing file (writes new pricing records).
+  6. <strong>cuadr</strong>: Customer address file (writes new address records).
+  7. <strong>bbshsa</strong>: Ship-to accessorial/marks file (writes new accessorial records).</p>
+<h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
+<p>The program calls one external program:
+1. <strong>QCMDEXC</strong>: System API to execute file override commands (<code>ovrdbf</code>) for <code>shipto</code>, <code>arcuprrd</code>, <code>arcupr</code>, <code>cuadrrd</code>, <code>cuadr</code>, <code>bbshsa1rd</code>, and <code>bbshsa</code>.</p>
+<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
+<p>The <code>BI8903</code> program is a non-interactive utility that copies ship-to records and related data from a source customer/ship-to to a target customer/ship-to within the same company. It:
+- Copies records from <code>shipto</code>, <code>arcuprrd</code>, <code>cuadrrd</code>, and <code>bbshsa1rd</code> to <code>shipto</code>, <code>arcupr</code>, <code>cuadr</code>, and <code>bbshsa</code>, updating customer and ship-to fields.
+- Clears specific <code>shipto</code> fields to ensure clean data.
+- Uses file overrides based on <code>p$fgrp</code> ('G' or 'Z') and ensures no shared access.
+- Relies on prior validation (e.g., from <code>BI890P</code>) to ensure valid inputs.
+- Operates without a user interface, focusing on backend data processing.</p>
+<p>The program integrates with seven files and uses the <code>QCMDEXC</code> API for file overrides, ensuring efficient data copying for ship-to management in the Brandford Order Entry / Invoices system.</p>
+<p>If you need further details or have additional context (e.g., related programs like <code>BI9002</code>), please let me know!</p>
 
 
 

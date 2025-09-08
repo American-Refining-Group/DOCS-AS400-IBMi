@@ -12,13 +12,13 @@
         <meta name="author" content="American Refining Group">
       
       
-        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BI890%20Shipto%20File%20Inquiry/GB730P%20RPGLE/">
+        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BI890%20Shipto%20File%20Inquiry/BI890P%20RPGLE/">
       
       
-        <link rel="prev" href="../BI907C2%20CLP/">
+        <link rel="prev" href="../BI8903%20RPGLE/">
       
       
-        <link rel="next" href="../Summary%20BI890%20OCL/">
+        <link rel="next" href="../BI907%20RPGLE/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>GB730P RPGLE - ARG AS400 IBMi Documentation</title>
+        <title>BI890P RPGLE - ARG AS400 IBMi Documentation</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#process-steps-of-the-rpg-program" class="md-skip">
+        <a href="#process-steps" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              GB730P RPGLE
+              BI890P RPGLE
             
           </span>
         </div>
@@ -16254,12 +16254,58 @@
   
   
     <li class="md-nav__item">
-      <a href="../BI8902R%20%20RPG/" class="md-nav__link">
+      <a href="../BB800E%20RPGLE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    BI8902R  RPG
+    BB800E RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BI890%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BI890 OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BI890%20RPG36/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BI890 RPG36
     
   </span>
   
@@ -16297,52 +16343,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../BI9078%20RPGLE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    BI9078 RPGLE
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../BI907C2%20CLP/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    BI907C2 CLP
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -16358,7 +16358,7 @@
   
   
   <span class="md-ellipsis">
-    GB730P RPGLE
+    BI890P RPGLE
     
   </span>
   
@@ -16371,7 +16371,7 @@
   
   
   <span class="md-ellipsis">
-    GB730P RPGLE
+    BI890P RPGLE
     
   </span>
   
@@ -16392,9 +16392,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-rpg-program" class="md-nav__link">
+  <a href="#process-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the RPG Program
+      Process Steps
     </span>
   </a>
   
@@ -16440,6 +16440,52 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BI907%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BI907 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BI907AC%20CLP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BI907AC CLP
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -20692,9 +20738,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-rpg-program" class="md-nav__link">
+  <a href="#process-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the RPG Program
+      Process Steps
     </span>
   </a>
   
@@ -20755,223 +20801,262 @@
   
 
 
-  <h1>GB730P RPGLE</h1>
+  <h1>BI890P RPGLE</h1>
 
-<p>The RPG program <code>GB730P.rpgle</code> is part of the Brandford Order Entry / Invoices system and is designed for Global File Tracking History Inquiry. It is an interactive RPGLE program that displays historical data across multiple files, allowing users to inquire about changes to various records such as ship-to, customer, product, and order data. It is called from the OCL program <code>BI890.ocl36.txt</code>, likely as part of the broader ship-to master maintenance workflow involving <code>BI890P</code>, <code>BI8903</code>, and <code>BI890</code>. Due to the truncation of the source code (571,894 characters omitted), some logic is inferred based on the provided declarations, field definitions, partial code, and context from the OCL and related programs. Below, I’ll explain the process steps, business rules, tables used, and external programs called.</p>
-<hr />
-<h3 id="process-steps-of-the-rpg-program"><strong>Process Steps of the RPG Program</strong><a class="headerlink" href="#process-steps-of-the-rpg-program" title="Permanent link">&para;</a></h3>
-<p>The <code>GB730P</code> program is an interactive application that uses a workstation file (<code>gb730pd</code>) with a subfile (<code>SFL1</code>) to display historical tracking data for various files. It supports inquiries based on parameters like company, customer, and file type, with headers tailored to the specific file being queried. Here’s a step-by-step breakdown of the process based on the provided code and context:</p>
+<p>The <code>BI890P.rpgle.txt</code> is an RPGLE (RPG IV) program named <code>BI890P</code>, designed as a "Ship-to Master Inquiry Prompt" for the Customer Orders and Invoicing system on an IBM AS/400 (iSeries) platform. It provides an interactive interface to query and manage ship-to master records, utilizing a subfile (SFL) to display records and handle user interactions. Below, I will explain the process steps, business rules, tables used, and external programs called, based on the provided RPGLE source code.</p>
+<h3 id="process-steps">Process Steps<a class="headerlink" href="#process-steps" title="Permanent link">&para;</a></h3>
+<p>The program follows a structured flow to manage the inquiry process for ship-to master records. The steps are organized into subroutines, executed in a specific sequence:</p>
 <ol>
 <li><strong>Initialization (<code>*inzsr</code> Subroutine)</strong>:</li>
-<li><strong>Parameters</strong>: Receives a parameter data structure (<code>p$elist</code>) containing:<ul>
-<li><code>p$file</code> (10 characters): Specifies the file to query (e.g., <code>SHIPTO</code>, <code>ARCUPR</code>, <code>CUADR</code>, <code>ARCUST</code>, <code>ARCUSP</code>, <code>BICUAG</code>, <code>BBPRCE</code>, <code>BBNDFI</code>, <code>BBCFSH</code>, <code>BBCFSD</code>, <code>BICUFR</code>, <code>GSPROD</code>, <code>GSHAZM</code>, <code>GSUMCV</code>, <code>GSCTUM</code>, <code>GSCTWT</code>, <code>BIPRT2</code>, <code>GSCNTR1</code>, <code>BBORDH</code>, <code>BBORDD</code>, <code>BBORDM</code>).</li>
-<li><code>p$fgrp</code> (1 character): File group (<code>G</code> or <code>Z</code>) for file overrides.</li>
-<li><code>p$co</code> (2 digits): Company number.</li>
+<li><strong>Parameters</strong>: Receives two input parameters:<ul>
+<li><code>p$fgrp</code> (1 character): File group identifier ('G' or 'Z') to determine file overrides.</li>
+<li><code>p$mode</code> (3 characters): Mode of operation ('INQ' for inquiry or 'MNT' for maintenance).</li>
 </ul>
 </li>
-<li><strong>Additional Parameters</strong>: Defines data structures for specific file types, including:<ul>
-<li><code>stparm</code> (for <code>SHIPTO</code>): <code>stco#</code> (company), <code>stcust</code> (customer), <code>stship</code> (ship-to).</li>
-<li><code>acparm</code> (for <code>ARCUPR</code>): <code>acco#</code>, <code>accust</code>, <code>acship</code>, <code>acprod</code> (product), <code>accnty</code> (container type).</li>
-<li><code>caparm</code> (for <code>CUADR</code>): <code>caco#</code>, <code>cacust</code>, <code>caship</code>, <code>caedic</code> (EDI code).</li>
-<li><code>arparm</code> (for <code>ARCUST</code>): <code>arco#</code>, <code>arcus</code>.</li>
-<li><code>arpparm</code> (for <code>ARCUSP</code>): <code>apco#</code>, <code>apcust</code>.</li>
-<li><code>bicuparm</code> (for <code>BICUAG</code>): <code>bico#</code>, <code>bicust</code>, <code>biloc</code> (location), <code>bicntr</code> (container), <code>biunms</code> (unit measure), <code>biship</code>, <code>bipr01</code>–<code>bipr10</code> (products), <code>bipord</code> (purchase order), <code>bistd8</code> (date), <code>bisttm</code> (time), <code>biseqn</code> (sequence).</li>
-<li><code>bbprparm</code> (for <code>BBPRCE</code>): <code>bbcono</code>, <code>bbloc</code>, <code>bbprod</code> (partial, truncated).</li>
+<li><strong>Local Data Area (LDA)</strong>: Retrieves data from the LDA (fields <code>l$co</code>, <code>l$cust</code>, <code>l$ship</code>, <code>l$fkey</code>) for company, customer, ship-to, and function key values.</li>
+<li><strong>File Overrides</strong>: Applies database file overrides based on <code>p$fgrp</code> ('G' for <code>garcust</code>, <code>gbicont</code>, <code>gshipto</code> or 'Z' for <code>zarcust</code>, <code>zbicont</code>, <code>zshipto</code>) using the <code>opntbl</code> subroutine.</li>
+<li><strong>Field Setup</strong>: Initializes work fields, subfile control fields (e.g., <code>rrn1</code>, <code>pagsz1</code>), and date/time fields using the program status data structure (<code>psds##</code>).</li>
+<li><strong>Key Lists</strong>: Defines key lists (<code>kls1s1</code>, <code>kls1s2</code>, <code>kls1r1</code>, <code>klcust</code>, <code>klcust2</code>, <code>klshipto</code>) for file access.</li>
+<li>
+<p><strong>Mode Check</strong>: If <code>p$mode</code> is 'MNT', sets indicator <code>*in78</code> to enable maintenance options.</p>
+</li>
+<li>
+<p><strong>Open Database Tables (<code>opntbl</code> Subroutine)</strong>:</p>
+</li>
+<li>Executes file overrides for <code>arcust</code>, <code>bicont</code>, and <code>shipto</code> based on <code>p$fgrp</code> using the <code>QCMDEXC</code> API.</li>
+<li>
+<p>Opens the <code>arcust</code>, <code>bicont</code>, and <code>shipto</code> files with <code>usropn</code> for input-only access.</p>
+</li>
+<li>
+<p><strong>Process Subfile (<code>srsfl1</code> Subroutine)</strong>:</p>
+</li>
+<li><strong>Subfile Setup</strong>: Initializes the subfile mode (<code>sfmod1</code>) to '1' (folded) and clears the message subfile (<code>clrmsg</code>).</li>
+<li><strong>Main Loop (<code>sf1agn</code>)</strong>:<ul>
+<li>Displays the command line (<code>sflcmd1</code>) and message subfile if errors exist (<code>wrtmsg</code>).</li>
+<li>Checks if subfile records exist (<code>rrn1 &gt; 0</code>) to set <code>*in41</code> (SFLDSP).</li>
+<li>Sets folded/unfolded mode based on <code>sfmod1</code> (<code>*in45</code>).</li>
+<li>Displays the subfile control format (<code>sflctl1</code>) using <code>exfmt</code>.</li>
+<li>Clears message subfile and format indicators after display.</li>
+<li>Determines cursor location (<code>csrloc</code>) and sets the subfile record number (<code>rcdnb1</code>) based on <code>pagrrn</code>.</li>
 </ul>
 </li>
-<li><strong>Header Setup</strong>: Sets the subfile header (<code>C$HDR1</code>) based on <code>p$file</code> using the <code>HDR</code> array (e.g., "Ship-To Information Tracking" for <code>SHIPTO</code>, "Customer Product Code Tracking" for <code>ARCUPR</code>, etc.).</li>
-<li><strong>Indicator Setup</strong>: Sets <code>*in75</code> for specific files (<code>ARCUPR</code>, <code>BICUFR</code>, potentially <code>BICUAG</code>) to control display or processing logic.</li>
-<li><strong>Field Definitions</strong>: Defines fields for date conversion (<code>d#cymd</code>, etc.), message handling (<code>m@msgf</code>, <code>m@data</code>, etc.), and subfile control (<code>RRN1</code>, <code>PAGRRN</code>, <code>CSRLOC</code>).</li>
 <li>
-<p><strong>Environment Data</strong>: Uses <code>PSDS##</code> for job details (<code>JOB##</code>, <code>USER##</code>, <code>JBDT##</code>) and defines fields like <code>r$fdat</code>, <code>r$tdat</code>, <code>h$fdat</code>, <code>h$tdat</code>, <code>h$user</code>, <code>r$user</code> for tracking history dates and users.</p>
-</li>
-<li>
-<p><strong>Open Database Tables</strong>:</p>
-</li>
-<li><strong>File Overrides</strong>: Applies overrides from <code>OVG</code> (for <code>G</code> group) or <code>OVZ</code> (for <code>Z</code> group) arrays using <code>QCMDEXC</code> (implied, not shown in truncated code) to redirect files (e.g., <code>gshiptz</code> or <code>zshiptz</code> for <code>shiptz</code>).</li>
-<li>
-<p><strong>Open Files</strong>: Opens all declared files in user-controlled mode (<code>USROPN</code>) for read-only access:</p>
+<p><strong>User Input Handling</strong>:</p>
 <ul>
-<li><code>glcont</code>, <code>shiptz</code>, <code>shipthx</code>, <code>arcup31</code>, <code>arcuphx</code>, <code>cuadrx</code>, <code>cuadrhx</code>, <code>arcusz</code>, <code>arcushx</code>, <code>arcuspx</code>, <code>arcusphx</code>, <code>bicuag</code>, <code>bicuaghx</code>, <code>bbprce</code>, <code>bbprcehx</code>, <code>bbndfi</code>, <code>bbndfihx</code>, <code>bbcfsh</code>, <code>bbcfshhx</code>, <code>bbcfsd</code>, <code>bbcfsdhx</code>, <code>bicuf2</code>, <code>bicufrhx</code>, <code>gsprod</code>, <code>gsprodhx</code>, <code>gshazm</code>, <code>gshazmhx</code>, <code>gsumcv</code>, <code>gsumcvhx</code>, <code>gsctum</code>, <code>gsctumhx</code>, <code>gsctwt</code>, <code>gsctwthx</code>, <code>biprt2</code>, <code>biprtxhx</code>, <code>gscntr1</code>, <code>gscntrhx</code>, <code>bbordh</code>, <code>bborhhsx</code>, <code>bbordd</code>, <code>bbordhsx</code>, <code>bbordm</code>, <code>bbormhsx</code>, <code>gbfmsg</code>.</li>
-<li>Note: <code>empmas</code> and <code>emphisz</code> are commented out (per <code>jb07</code>), indicating they are no longer used.</li>
+<li><strong>F03 (Exit)</strong>: Sets <code>l$fkey</code> to 'F03', writes to LDA, and exits the loop.</li>
+<li><strong>F04 (Prompt)</strong>: Calls the <code>prompt</code> subroutine to assist with field input (e.g., company or customer lookup).</li>
+<li><strong>F05 (Refresh)</strong>: Triggers subfile repositioning (<code>repsfl</code>).</li>
+<li><strong>User Positioning</strong>: If company (<code>c$co</code>), customer (<code>c$cust</code>), or ship-to (<code>c$ship</code>) changes, repositions the subfile (<code>sf1rep</code>).</li>
+<li><strong>Direct Access</strong>: If <code>d1opt</code> or <code>d1ship</code> is specified, processes direct access (<code>sf1dir</code>).</li>
+<li><strong>Page Down</strong>: Loads additional subfile records (<code>sf1lod</code>).</li>
+<li><strong>Enter Key</strong>: Processes subfile selections (<code>sf1prc</code>).</li>
+<li><strong>F10</strong>: Clears cursor position (<code>row1</code>, <code>col1</code>).</li>
 </ul>
 </li>
 <li>
-<p><strong>Subfile Processing</strong> (Inferred from <code>SFL1</code> and Truncated Code):</p>
+<p><strong>Subfile Processing (<code>sf1prc</code> Subroutine)</strong>:</p>
 </li>
-<li><strong>Subfile Setup</strong>: Uses <code>gb730pd</code> with subfile <code>SFL1</code> (relative record number <code>RRN1</code>) to display historical data.</li>
-<li><strong>File Selection</strong>: Based on <code>p$file</code>, queries the corresponding file (e.g., <code>shipthx</code> for <code>SHIPTO</code>, <code>arcuphx</code> for <code>ARCUPR</code>, etc.) using appropriate key lists (defined in data structures like <code>stparm</code>, <code>acparm</code>).</li>
-<li><strong>Data Retrieval</strong>: Reads historical records (e.g., <code>shipthx</code> for ship-to history, <code>arcuphx</code> for customer product history) and populates the subfile with fields like dates (<code>r$fdat</code>, <code>r$tdat</code>), user (<code>r$user</code>), and record-specific data.</li>
+<li>Reads subfile records (<code>readc sfl1</code>) if <code>rrn1 &gt; 0</code>.</li>
 <li>
-<p><strong>Header Display</strong>: Sets <code>C$HDR1</code> to a descriptive header from the <code>HDR</code> array, reflecting the file being queried.</p>
+<p>Processes each record change (<code>sf1chg</code>) if a record is read (<code>*in81 = *off</code>).</p>
+</li>
+<li>
+<p><strong>Subfile Record Change (<code>sf1chg</code> Subroutine)</strong>:</p>
+</li>
+<li>Handles subfile options (<code>s1opt</code>):<ul>
+<li><strong>Option 2 (Update)</strong>: In maintenance mode (<code>*in78</code>), sets <code>s$ship</code> and calls <code>sf1s02</code>.</li>
+<li><strong>Option 3 (Copy)</strong>: In maintenance mode, sets <code>s$ship</code> and calls <code>sf1s03</code>.</li>
+<li><strong>Option 5 (Display)</strong>: In inquiry mode, sets <code>s$ship</code> and calls <code>sf1s05</code>.</li>
+</ul>
+</li>
+<li>
+<p>Clears the selection field (<code>s1opt</code>) and updates the subfile record after applying color coding (<code>sf1color</code>).</p>
+</li>
+<li>
+<p><strong>Subfile Repositioning (<code>sf1rep</code> Subroutine)</strong>:</p>
+</li>
+<li>Clears the subfile (<code>sf1clr</code>) and validates control fields (<code>sf1cte</code>).</li>
+<li>If no errors (<code>*in50 = *off</code>), positions the <code>shipto</code> file using <code>kls1s1</code> and loads subfile records (<code>sf1lod</code>).</li>
+<li>
+<p>Retains control fields (<code>r$co</code>, <code>r$cust</code>, <code>r$ship</code>) for repositioning and clears <code>c$ship</code>.</p>
+</li>
+<li>
+<p><strong>Control Field Validation (<code>sf1cte</code> Subroutine)</strong>:</p>
+</li>
+<li>Validates company number (<code>c$co</code>) against <code>bicont</code>. If invalid or zero, sets error 'ERR0010' and indicators <code>*in50</code>, <code>*in51</code>.</li>
+<li>
+<p>Validates customer number (<code>c$cust</code>) against <code>arcust</code>. If invalid or zero, sets error 'ERR0010' and indicators <code>*in50</code>, <code>*in52</code>.</p>
+</li>
+<li>
+<p><strong>Subfile Loading (<code>sf1lod</code> Subroutine)</strong>:</p>
+</li>
+<li>Sets the relative record number (<code>rrn1</code>) to the last saved value (<code>rrnsv1</code>).</li>
+<li>Loads up to <code>pagsz1</code> (32) records into the subfile:<ul>
+<li>Reads the next <code>shipto</code> record (<code>reade shipto</code>).</li>
+<li>If no records are found (<code>*in43 = *on</code> and <code>rrn1 = 0</code>), adds a "No Results" record (<code>com(01)</code>).</li>
+<li>Formats each record (<code>sf1fmt</code>) and writes to the subfile.</li>
+</ul>
+</li>
+<li>
+<p>Updates <code>rrnsv1</code> with the last record number.</p>
+</li>
+<li>
+<p><strong>Subfile Formatting (<code>sf1fmt</code> Subroutine)</strong>:</p>
+</li>
+<li>Clears the subfile record and populates fields (<code>s1ship</code>, <code>s1name</code>, <code>s1ctst</code>, <code>s1adr1</code>, <code>s1adr2</code>, <code>s1adr3</code>, <code>s1stat</code>, <code>s1cszp</code>) from <code>shipto</code> data.</li>
+<li>
+<p>Applies color coding (<code>sf1color</code>).</p>
+</li>
+<li>
+<p><strong>Color Coding (<code>sf1color</code> Subroutine)</strong>:</p>
+<ul>
+<li>Sets <code>*in77</code> if the record is flagged for deletion (<code>s1del = 'D'</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Direct Access (<code>sf1dir</code> Subroutine)</strong>:</p>
+<ul>
+<li>Validates direct input (<code>d1opt</code>, <code>d1ship</code>):</li>
+<li>For option 1 (Create) in maintenance mode, ensures <code>c$co</code>, <code>c$cust</code>, and <code>d1ship</code> are non-zero; otherwise, sets error 'ERR0103'.</li>
+<li>Checks if the ship-to exists (<code>setll shipto</code>).</li>
+<li>For option 2 (Update), errors if the ship-to does not exist ('ERR0102').</li>
+<li>For option 1 (Create), errors if the ship-to already exists ('ERR0101').</li>
+<li>If no errors, processes options (calls <code>sf1s01</code>, <code>sf1s02</code>, <code>sf1s03</code>, or <code>sf1s05</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Option Processing</strong>:</p>
+<ul>
+<li><strong>Create (<code>sf1s01</code>)</strong>: Sets LDA fields (<code>l$co</code>, <code>l$cust</code>, <code>l$ship</code>), clears <code>l$fkey</code>, writes to LDA, and exits the loop.</li>
+<li><strong>Update (<code>sf1s02</code>)</strong>: Same as <code>sf1s01</code>.</li>
+<li><strong>Copy (<code>sf1s03</code>)</strong>: Calls <code>sf1cpy</code> to handle copying a ship-to record.</li>
+<li><strong>Display (<code>sf1s05</code>)</strong>: Sets LDA fields and exits the loop.</li>
+</ul>
+</li>
+<li>
+<p><strong>Copy Processing (<code>sf1cpy</code> Subroutine)</strong>:</p>
+<ul>
+<li>Initializes window fields (<code>c$tcnm</code>, <code>w$tcst</code>, <code>w$tshp</code>) and enters a loop (<code>winagn</code>).</li>
+<li>Displays the copy window (<code>sflcpy1</code>) and processes input:</li>
+<li><strong>F04</strong>: Calls <code>prompt</code>.</li>
+<li><strong>F12</strong>: Exits the window.</li>
+<li><strong>F22</strong>: No action defined.</li>
+<li>Validates input (<code>sf1cpyedt</code>).</li>
+<li>If no errors, calls <code>BI8903</code> with parameters (<code>c$co</code>, <code>c$cust</code>, <code>s$ship</code>, <code>w$tcst</code>, <code>w$tshp</code>, <code>p$fgrp</code>), updates LDA, and exits both window and main loops.</li>
+</ul>
+</li>
+<li>
+<p><strong>Copy Input Validation (<code>sf1cpyedt</code> Subroutine)</strong>:</p>
+<ul>
+<li>Validates target customer (<code>w$tcst</code>) against <code>arcust</code>. If invalid, sets error 'ERR0010'.</li>
+<li>Ensures target ship-to (<code>w$tshp</code>) is non-zero; otherwise, sets error 'ERR0000' with message <code>com(02)</code>.</li>
+<li>Checks if the target ship-to exists (<code>chain shipto</code>). If it does, sets error 'ERR0000' with message <code>com(03)</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Field Prompting (<code>prompt</code> Subroutine)</strong>:</p>
+<ul>
+<li>For <code>SFLCTL1</code> format:</li>
+<li>If <code>C$CO</code>, calls <code>LBICONT</code> to prompt for company.</li>
+<li>If <code>C$CUST</code>, calls <code>LARCUST</code> to prompt for customer.</li>
+<li>For <code>SFLCPY1</code> format:</li>
+<li>If <code>W$TCST</code>, calls <code>LARCUST</code> and updates <code>c$tcnm</code>.</li>
+</ul>
 </li>
 <li>
 <p><strong>Message Handling</strong>:</p>
+<ul>
+<li><strong>Add Message (<code>addmsg</code>)</strong>: Sends error messages to the program message queue using <code>QMHSNDPM</code>.</li>
+<li><strong>Write Message (<code>wrtmsg</code>)</strong>: Displays the message subfile (<code>msgctl</code>).</li>
+<li><strong>Clear Message (<code>clrmsg</code>)</strong>: Clears the message subfile using <code>QMHRMVPM</code>.</li>
+</ul>
 </li>
-<li>Uses message subfile data structures (<code>m@msgf</code>, <code>m@data</code>, etc.) to display errors or status messages (e.g., "Cannot Enter both Sys And Program Id" from <code>COM</code> array).</li>
 <li>
-<p>Likely calls <code>QMHSNDPM</code> and <code>QMHRMVPM</code> (implied, common in RPGLE for message handling) to manage message subfile.</p>
+<p><strong>Program Termination</strong>:</p>
+<ul>
+<li>Closes all files (<code>close *all</code>).</li>
+<li>Sets <code>*inlr = *on</code> and returns.</li>
+</ul>
 </li>
-<li>
-<p><strong>Program Termination</strong> (Inferred):</p>
-</li>
-<li>Closes all files (<code>close *all</code>, implied).</li>
-<li>Sets <code>*inlr</code> to end the program and returns control to the OCL.</li>
 </ol>
-<hr />
-<h3 id="business-rules"><strong>Business Rules</strong><a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
-<p>The program enforces the following business rules, inferred from the code and context:
-1. <strong>File Selection</strong>:
-   - The file to query (<code>p$file</code>) determines which historical file is accessed (e.g., <code>shipthx</code> for <code>SHIPTO</code>, <code>arcuphx</code> for <code>ARCUPR</code>). The program supports 21 file types, each with a specific header.
-   - Only one file can be queried at a time, and both system and program IDs cannot be entered simultaneously (error message: "Cannot Enter both Sys And Program Id").</p>
+<h3 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>History Tracking</strong>:</li>
-<li>Displays historical changes for records, including user (<code>r$user</code>), from/to dates (<code>r$fdat</code>, <code>r$tdat</code>), and file-specific fields (e.g., customer, ship-to, product, container).</li>
+<li><strong>Access Control</strong>:</li>
+<li>The program operates in two modes: Inquiry (<code>INQ</code>) and Maintenance (<code>MNT</code>).</li>
 <li>
-<p>Supports both current (<code>g*</code>) and alternate (<code>z*</code>) file groups, controlled by <code>p$fgrp</code>.</p>
-</li>
-<li>
-<p><strong>Field Expansions</strong> (Revisions):</p>
-</li>
-<li><code>jk02</code>: Expanded <code>BAPRCE</code> and <code>BAOFFP</code> fields in <code>BBPRCE</code> to 9.4 packed for pricing accuracy.</li>
-<li><code>jk03</code>: Added <code>BFTSEQ</code> in <code>BICUFR</code> for sequence tracking and included <code>GSCNTR1</code> for container codes.</li>
-<li><code>jk05</code>: Renamed <code>BDDDEL</code> to <code>BDDEL</code> in <code>BBORDD</code> for consistency.</li>
-<li><code>jk06</code>: Added <code>BAPOOR</code> in <code>BICUAG</code> for purchase order tracking (live June 2024).</li>
-<li>
-<p><code>jb07</code>/<code>jb08</code>: Expanded <code>BKFSPC</code> in <code>BBCFSD</code> from 3.1 to 5.2 packed for fuel surcharge precision and removed <code>EMPMAS</code>/<code>EMPHISZ</code>.</p>
+<p>Maintenance mode (<code>*in78 = *on</code>) enables options 1 (Create), 2 (Update), and 3 (Copy). Inquiry mode enables option 5 (Display).</p>
 </li>
 <li>
 <p><strong>Validation</strong>:</p>
 </li>
-<li>Validates input parameters (e.g., <code>p$co</code>, <code>stcust</code>, <code>stship</code>) against files like <code>glcont</code>, <code>arcusz</code>, or <code>shiptz</code>.</li>
+<li>Company (<code>c$co</code>) must exist in <code>bicont</code> or an error ('ERR0010') is displayed.</li>
+<li>Customer (<code>c$cust</code>, <code>w$tcst</code>) must exist in <code>arcust</code> or an error ('ERR0010') is displayed.</li>
+<li>For Create (<code>d1opt = 1</code>), the ship-to (<code>d1ship</code>) must not exist (<code>ERR0101</code>) and must be non-zero (<code>ERR0103</code>).</li>
+<li>For Update (<code>d1opt = 2</code>), the ship-to must exist (<code>ERR0102</code>).</li>
 <li>
-<p>Ensures historical data is retrieved only for valid keys (e.g., company, customer, ship-to).</p>
+<p>For Copy, the target ship-to (<code>w$tshp</code>) must be non-zero (<code>ERR0000</code>, <code>com(02)</code>) and must not exist (<code>ERR0000</code>, <code>com(03)</code>).</p>
 </li>
 <li>
-<p><strong>Display Control</strong>:</p>
+<p><strong>Subfile Management</strong>:</p>
 </li>
-<li>Uses <code>*in75</code> for specific files (<code>ARCUPR</code>, <code>BICUFR</code>, possibly <code>BICUAG</code>) to control display or processing logic (e.g., enabling/disabling fields or formats).</li>
+<li>The subfile displays up to 32 records per page (<code>pagsz1</code>).</li>
+<li>If no records are found, a "No Results" message (<code>com(01)</code>) is displayed.</li>
+<li>
+<p>Deleted records (<code>s1del = 'D'</code>) are color-coded (<code>*in77</code>).</p>
+</li>
+<li>
+<p><strong>Navigation and Input</strong>:</p>
+</li>
+<li>Users can reposition the subfile by entering company, customer, or ship-to values.</li>
+<li>Function keys:<ul>
+<li>F03: Exit the program.</li>
+<li>F04: Prompt for company or customer selection.</li>
+<li>F05: Refresh the subfile.</li>
+<li>F10: Position cursor to the control record.</li>
+<li>F12: Cancel copy window.</li>
+<li>Page Down: Load the next page of records.</li>
+</ul>
+</li>
+<li>
+<p>Direct access (<code>d1opt</code>, <code>d1ship</code>) allows quick navigation to specific records.</p>
+</li>
+<li>
+<p><strong>Copy Functionality</strong>:</p>
+</li>
+<li>Copying a ship-to record requires a valid target customer and a non-existing target ship-to number.</li>
+<li>
+<p>The <code>BI8903</code> program is called to perform the copy operation.</p>
+</li>
+<li>
+<p><strong>Error Handling</strong>:</p>
+</li>
+<li>Errors are displayed in a message subfile (<code>msgctl</code>) with codes like 'ERR0010', 'ERR0101', 'ERR0102', 'ERR0103', and 'ERR0000'.</li>
+<li>Messages are cleared after each display cycle unless errors persist.</li>
 </ol>
-<hr />
-<h3 id="tables-files-used"><strong>Tables (Files) Used</strong><a class="headerlink" href="#tables-files-used" title="Permanent link">&para;</a></h3>
-<p>The program uses the following files, as declared in the RPGLE code and aligned with the OCL (<code>BI890.ocl36.txt</code>):
-1. <strong>gb730pd</strong> (Workstation File, <code>CF</code>):
-   - Interactive display file with subfile <code>SFL1</code> for history inquiry.
-2. <strong>glcont</strong> (<code>IF</code>, <code>gglcont</code> or <code>zglcont</code>):
-   - General ledger control file, likely for company validation.
-3. <strong>shiptz</strong> (<code>IF</code>, <code>gshiptz</code> or <code>zshiptz</code>):
-   - Ship-to master file (current).
-4. <strong>shipthx</strong> (<code>IF</code>, <code>gshipthx</code> or <code>zshipthx</code>):
-   - Ship-to history file.
-5. <strong>arcup31</strong> (<code>IF</code>, <code>garcup3</code> or <code>zarcup3</code>):
-   - Customer product file (current).
-6. <strong>arcuphx</strong> (<code>IF</code>, <code>garcuphx</code> or <code>zarcuphx</code>):
-   - Customer product history file.
-7. <strong>cuadrx</strong> (<code>IF</code>, <code>gcuadrx</code> or <code>zcuadrx</code>):
-   - Customer address file (current).
-8. <strong>cuadrhx</strong> (<code>IF</code>, <code>gcuadrhx</code> or <code>zcuadrhx</code>):
-   - Customer address history file.
-9. <strong>arcusz</strong> (<code>IF</code>, <code>garcusz</code> or <code>zarcusz</code>):
-   - Customer master file (current).
-10. <strong>arcushx</strong> (<code>IF</code>, <code>garcushx</code> or <code>zarcushx</code>):
-    - Customer master history file.
-11. <strong>arcuspx</strong> (<code>IF</code>, <code>garcuspx</code> or <code>zarcuspx</code>):
-    - Customer supplemental file (current).
-12. <strong>arcusphx</strong> (<code>IF</code>, <code>garcusphx</code> or <code>zarcusphx</code>):
-    - Customer supplemental history file.
-13. <strong>bicuag</strong> (<code>IF</code>, <code>gbicuag</code> or <code>zbicuag</code>):
-    - Customer sales agreement file (current).
-14. <strong>bicuaghx</strong> (<code>IF</code>, <code>gbicuaghx</code> or <code>zbicuaghx</code>):
-    - Customer sales agreement history file.
-15. <strong>bbprce</strong> (<code>IF</code>, <code>gbbprce</code> or <code>zbbprce</code>):
-    - Rack pricing file (current).
-16. <strong>bbprcehx</strong> (<code>IF</code>, <code>gbbprcehx</code> or <code>zbbprcehx</code>):
-    - Rack pricing history file.
-17. <strong>bbndfi</strong> (<code>IF</code>, <code>gbbndfi</code> or <code>zbbndfi</code>):
-    - National diesel fuel index file (current).
-18. <strong>bbndfihx</strong> (<code>IF</code>, <code>gbbndfihx</code> or <code>zbbndfihx</code>):
-    - National diesel fuel index history file.
-19. <strong>bbcfsh</strong> (<code>IF</code>, <code>gbbcfsh</code> or <code>zbbcfsh</code>):
-    - Carrier fuel surcharge header file (current).
-20. <strong>bbcfshhx</strong> (<code>IF</code>, <code>gbbcfshhx</code> or <code>zbbcfshhx</code>):
-    - Carrier fuel surcharge header history file.
-21. <strong>bbcfsd</strong> (<code>IF</code>, <code>gbbcfsd</code> or <code>zbbcfsd</code>):
-    - Carrier fuel surcharge detail file (current).
-22. <strong>bbcfsdhx</strong> (<code>IF</code>, <code>gbbcfsdhx</code> or <code>zbbcfsdhx</code>):
-    - Carrier fuel surcharge detail history file.
-23. <strong>bicuf2</strong> (<code>IF</code>, <code>gbicuf2</code> or <code>zbicuf2</code>):
-    - Customer freight file (current).
-24. <strong>bicufrhx</strong> (<code>IF</code>, <code>gbicufrhx</code> or <code>zbicufrhx</code>):
-    - Customer freight history file.
-25. <strong>gsprod</strong> (<code>IF</code>, <code>ggsprod</code> or <code>zgsprod</code>):
-    - Product master file (current).
-26. <strong>gsprodhx</strong> (<code>IF</code>, <code>ggsprodhx</code> or <code>zgsprodhx</code>):
-    - Product master history file.
-27. <strong>gshazm</strong> (<code>IF</code>, <code>ggshazm</code> or <code>zgshazm</code>):
-    - Hazmat/shipping description file (current).
-28. <strong>gshazmhx</strong> (<code>IF</code>, <code>ggshazmhx</code> or <code>zgshazmhx</code>):
-    - Hazmat/shipping description history file.
-29. <strong>gsumcv</strong> (<code>IF</code>, <code>ggsumcv</code> or <code>zgsumcv</code>):
-    - Product unit of measure conversion file (current).
-30. <strong>gsumcvhx</strong> (<code>IF</code>, <code>ggsumcvhx</code> or <code>zgsumcvhx</code>):
-    - Product unit of measure conversion history file.
-31. <strong>gsctum</strong> (<code>IF</code>, <code>ggsctum</code> or <code>zgsctum</code>):
-    - Container unit of measure conversion file (current).
-32. <strong>gsctumhx</strong> (<code>IF</code>, <code>ggsctumhx</code> or <code>zgsctumhx</code>):
-    - Container unit of measure conversion history file.
-33. <strong>gsctwt</strong> (<code>IF</code>, <code>ggsctwt</code> or <code>zgsctwt</code>):
-    - Container weight file (current).
-34. <strong>gsctwthx</strong> (<code>IF</code>, <code>ggsctwthx</code> or <code>zgsctwthx</code>):
-    - Container weight history file.
-35. <strong>biprt2</strong> (<code>IF</code>, <code>gbiprt2</code> or <code>zbiprt2</code>):
-    - Product tax code file (current).
-36. <strong>biprtxhx</strong> (<code>IF</code>, <code>gbiprtxhx</code> or <code>zbiprtxhx</code>):
-    - Product tax code history file.
-37. <strong>gscntr1</strong> (<code>IF</code>, <code>ggscntr1</code> or <code>zgscntr1</code>):
-    - Container code file (current).
-38. <strong>gscntrhx</strong> (<code>IF</code>, <code>ggscntrhx</code> or <code>zgscntrhx</code>):
-    - Container code history file.
-39. <strong>bbordh</strong> (<code>IF</code>, <code>gbbordh</code> or <code>zbbordh</code>):
-    - Open order header file (current).
-40. <strong>bborhhsx</strong> (<code>IF</code>, <code>gbborhhsx</code> or <code>zbborhhsx</code>):
-    - Open order header history file.
-41. <strong>bbordd</strong> (<code>IF</code>, <code>gbbordd</code> or <code>zbbordd</code>):
-    - Open order detail file (current).
-42. <strong>bbordhsx</strong> (<code>IF</code>, <code>gbbordhsx</code> or <code>zbbordhsx</code>):
-    - Open order detail history file.
-43. <strong>bbordm</strong> (<code>IF</code>, <code>gbbordm</code> or <code>zbbordm</code>):
-    - Open order miscellaneous file (current).
-44. <strong>bbormhsx</strong> (<code>IF</code>, <code>gbbormhsx</code> or <code>zbbormhsx</code>):
-    - Open order miscellaneous history file.
-45. <strong>gbfmsg</strong> (<code>IF</code>, <code>ggbfmsg</code> or <code>zgbfmsg</code>):
-    - Message file for error/status messages.</p>
-<p>The OCL declares additional files (e.g., <code>shipths</code>, <code>arcuphs</code>), but only the above are explicitly used in <code>GB730P</code>. The commented-out files <code>empmas</code> and <code>emphisz</code> (per <code>jb07</code>) are no longer used.</p>
-<hr />
-<h3 id="external-programs-called"><strong>External Programs Called</strong><a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
-<p>The program likely calls the following external programs, inferred from the code structure and common RPGLE practices:
-1. <strong>QCMDEXC</strong> (Implied):
-   - Used to execute file override commands (<code>OVG</code> or <code>OVZ</code>) for redirecting file access based on <code>p$fgrp</code>.
-2. <strong>QMHSNDPM</strong> (Implied):
-   - Sends error messages to the program message queue, using <code>m@msgf</code> (<code>GSMSGF</code>).
-3. <strong>QMHRMVPM</strong> (Implied):
-   - Clears messages from the message subfile.</p>
-<p>No other external programs are explicitly referenced in the provided code, and the OCL does not indicate direct calls to <code>GB730P</code> from <code>BI890P</code>, <code>BI8903</code>, or <code>BI890</code>. However, <code>GB730P</code> may be invoked indirectly via the OCL or another program in the workflow.</p>
-<hr />
-<h3 id="summary"><strong>Summary</strong><a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
-<p>The <code>GB730P</code> program is an interactive RPGLE application for Global File Tracking History Inquiry, called via the OCL (<code>BI890.ocl36.txt</code>). It:
-- Displays historical data for 21 file types (e.g., ship-to, customer, product, order) in a subfile (<code>SFL1</code>) with tailored headers.
-- Initializes with parameters (<code>p$file</code>, <code>p$fgrp</code>, <code>p$co</code>, etc.) and applies file overrides for <code>G</code> or <code>Z</code> groups.
-- Retrieves and displays historical records using key lists (e.g., <code>stparm</code>, <code>acparm</code>) and manages messages via a message subfile.
-- Enforces rules for file selection, validation, and field expansions (e.g., <code>BKFSPC</code>, <code>BAPOOR</code>).</p>
-<p><strong>Tables Used</strong>:
-- <code>gb730pd</code> (workstation file with subfile <code>SFL1</code>)
-- <code>glcont</code> (<code>gglcont</code> or <code>zglcont</code>)
-- <code>shiptz</code>, <code>shipthx</code>, <code>arcup31</code>, <code>arcuphx</code>, <code>cuadrx</code>, <code>cuadrhx</code>, <code>arcusz</code>, <code>arcushx</code>, <code>arcuspx</code>, <code>arcusphx</code>, <code>bicuag</code>, <code>bicuaghx</code>, <code>bbprce</code>, <code>bbprcehx</code>, <code>bbndfi</code>, <code>bbndfihx</code>, <code>bbcfsh</code>, <code>bbcfshhx</code>, <code>bbcfsd</code>, <code>bbcfsdhx</code>, <code>bicuf2</code>, <code>bicufrhx</code>, <code>gsprod</code>, <code>gsprodhx</code>, <code>gshazm</code>, <code>gshazmhx</code>, <code>gsumcv</code>, <code>gsumcvhx</code>, <code>gsctum</code>, <code>gsctumhx</code>, <code>gsctwt</code>, <code>gsctwthx</code>, <code>biprt2</code>, <code>biprtxhx</code>, <code>gscntr1</code>, <code>gscntrhx</code>, <code>bbordh</code>, <code>bborhhsx</code>, <code>bbordd</code>, <code>bbordhsx</code>, <code>bbordm</code>, <code>bbormhsx</code>, <code>gbfmsg</code></p>
-<p><strong>External Programs Called</strong>:
-- <code>QCMDEXC</code> (implied, for file overrides)
-- <code>QMHSNDPM</code> (implied, for message sending)
-- <code>QMHRMVPM</code> (implied, for message clearing)</p>
-<p>Due to the truncation, the full processing logic (e.g., subfile loading, user interaction) is not visible. If you have the complete code or need analysis of specific aspects, let me know!</p>
+<h3 id="tables-files-used">Tables (Files) Used<a class="headerlink" href="#tables-files-used" title="Permanent link">&para;</a></h3>
+<p>The program uses the following database files (tables) with input-only access (<code>if</code> and <code>usropn</code>):
+1. <strong>arcust</strong>: Customer master file (contains customer data, e.g., <code>arname</code>).
+2. <strong>bicont</strong>: Contract or company master file (contains company data, e.g., <code>bcname</code>).
+3. <strong>shipto</strong>: Ship-to master file (contains ship-to data, e.g., `csship梗</p>
+<p>System: hip<code>,</code>csname<code>,</code>csctst<code>,</code>csadr1<code>,</code>csadr2<code>,</code>csadr3<code>,</code>csstat<code>,</code>cscszp<code>).
+4. **bi890pd**: Display file (workstation file with subfile</code>sfl1<code>and control formats like</code>sflctl1<code>,</code>sflcmd1<code>,</code>sflcpy1<code>,</code>msgctl<code>,</code>msgclr<code>,</code>wdwovr`).</p>
+<h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
+<p>The program calls the following external programs:
+1. <strong>QCMDEXC</strong>: System API to execute file override commands (<code>ovrdbf</code>) for <code>arcust</code>, <code>bicont</code>, and <code>shipto</code>.
+2. <strong>QMHSNDPM</strong>: System API to send error messages to the program message queue.
+3. <strong>QMHRMVPM</strong>: System API to clear messages from the program message queue.
+4. <strong>LBICONT</strong>: Called during prompting (<code>F04</code>) for company selection, passing <code>c$co</code> and <code>p$fgrp</code>.
+5. <strong>LARCUST</strong>: Called during prompting (<code>F04</code>) for customer selection, passing <code>c$co</code>, <code>c$cust</code> or <code>w$tcst</code>, and <code>p$fgrp</code>.
+6. <strong>BI8903</strong>: Called during copy processing (<code>sf1cpy</code>), passing <code>c$co</code>, <code>c$cust</code>, <code>s$ship</code>, <code>w$tcst</code>, <code>w$tshp</code>, and <code>p$fgrp</code>.</p>
+<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
+<p>The <code>BI890P</code> program is an interactive inquiry and maintenance tool for ship-to master records, using a subfile to display data and handle user interactions. It supports:
+- Inquiry and maintenance modes, with validation for company, customer, and ship-to data.
+- Subfile navigation, error handling, and color-coded displays for deleted records.
+- Copy functionality via a window, calling <code>BI8903</code> for record creation.
+- Prompting for company and customer selection via <code>LBICONT</code> and <code>LARCUST</code>.
+- File overrides based on the file group ('G' or 'Z').</p>
+<p>The program integrates with <code>arcust</code>, <code>bicont</code>, and <code>shipto</code> files, ensuring robust data access and validation. It uses system APIs for command execution and message handling, and external programs for specific tasks like prompting and copying records.</p>
+<p>If you need further details or analysis of specific subroutines or business logic, please let me know!</p>
 
 
 

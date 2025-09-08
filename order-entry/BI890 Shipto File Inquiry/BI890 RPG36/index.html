@@ -12,13 +12,13 @@
         <meta name="author" content="American Refining Group">
       
       
-        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BI890%20Shipto%20File%20Inquiry/BI907C2%20CLP/">
+        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/order-entry/BI890%20Shipto%20File%20Inquiry/BI890%20RPG36/">
       
       
-        <link rel="prev" href="../BI9078%20RPGLE/">
+        <link rel="prev" href="../BI890%20OCL/">
       
       
-        <link rel="next" href="../GB730P%20RPGLE/">
+        <link rel="next" href="../BI8903%20RPGLE/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>BI907C2 CLP - ARG AS400 IBMi Documentation</title>
+        <title>BI890 RPG36 - ARG AS400 IBMi Documentation</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#process-steps-of-the-clp-program" class="md-skip">
+        <a href="#process-steps" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              BI907C2 CLP
+              BI890 RPG36
             
           </span>
         </div>
@@ -16254,12 +16254,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../BI8902R%20%20RPG/" class="md-nav__link">
+      <a href="../BB800E%20RPGLE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    BI8902R  RPG
+    BB800E RPGLE
     
   </span>
   
@@ -16277,35 +16277,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../BI8903%20RPGLE/" class="md-nav__link">
+      <a href="../BI890%20OCL/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    BI8903 RPGLE
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../BI9078%20RPGLE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    BI9078 RPGLE
+    BI890 OCL
     
   </span>
   
@@ -16335,7 +16312,7 @@
   
   
   <span class="md-ellipsis">
-    BI907C2 CLP
+    BI890 RPG36
     
   </span>
   
@@ -16348,7 +16325,7 @@
   
   
   <span class="md-ellipsis">
-    BI907C2 CLP
+    BI890 RPG36
     
   </span>
   
@@ -16369,9 +16346,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-clp-program" class="md-nav__link">
+  <a href="#process-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the CLP Program
+      Process Steps
     </span>
   </a>
   
@@ -16429,12 +16406,81 @@
   
   
     <li class="md-nav__item">
-      <a href="../GB730P%20RPGLE/" class="md-nav__link">
+      <a href="../BI8903%20RPGLE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    GB730P RPGLE
+    BI8903 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BI890P%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BI890P RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BI907%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BI907 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BI907AC%20CLP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BI907AC CLP
     
   </span>
   
@@ -20692,9 +20738,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-clp-program" class="md-nav__link">
+  <a href="#process-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the CLP Program
+      Process Steps
     </span>
   </a>
   
@@ -20755,52 +20801,214 @@
   
 
 
-  <h1>BI907C2 CLP</h1>
+  <h1>BI890 RPG36</h1>
 
-<p>The CLP (Control Language Program) <code>BI907C2.clp</code> is a minimal program within the Brandford Order Entry / Invoices system, designed solely to clear a temporary work file (<code>QTEMP/BI907W</code>). It is called from the main OCL program <code>BI890.ocl36.txt</code>, likely as a cleanup utility within the ship-to master maintenance workflow involving programs like <code>BI890</code>, <code>BI890P</code>, <code>BI8903</code>, <code>GB730P</code>, <code>BB800E</code>, <code>BI907AC</code>, <code>BI907</code>, and <code>BI9078</code>. Below, I’ll explain the process steps, business rules, tables used, and external programs called, based on the provided code and context from related programs.</p>
-<hr />
-<h3 id="process-steps-of-the-clp-program"><strong>Process Steps of the CLP Program</strong><a class="headerlink" href="#process-steps-of-the-clp-program" title="Permanent link">&para;</a></h3>
-<p>The <code>BI907C2</code> program is a straightforward CLP with a single function: to clear a temporary work file. Here’s the step-by-step breakdown:</p>
+<p>The <code>BI890.rpg36.txt</code> is an RPG/400 (RPG III) program named <code>BI890</code>, designed for the Brandford Order Entry / Invoices system on an IBM AS/400 (iSeries) platform. It serves as a "Ship to Master File Maintenance Screen" program, providing an interactive interface for maintaining and inquiring about ship-to master records, including customer, address, product, and accessorial/marks data. The program uses a display file with multiple screen formats to handle user interactions. Below, I will explain the process steps, business rules, tables used, and external programs called, based on the provided RPG source code.</p>
+<h3 id="process-steps">Process Steps<a class="headerlink" href="#process-steps" title="Permanent link">&para;</a></h3>
+<p>The program follows a structured flow to manage ship-to master records, organized into subroutines and screen formats. The steps are inferred from the provided code, focusing on the input/output specifications, arrays, and subroutines like <code>FILARA</code> and <code>GETSUP</code>.</p>
 <ol>
-<li><strong>Clear Work File</strong>:</li>
+<li><strong>Initialization</strong>:</li>
+<li><strong>Parameters</strong>: The program is called via the OCL program <code>BI890.ocl36.txt</code> with parameters (e.g., <code>'?9?'</code> for library identifier, <code>'INQ'</code> for inquiry mode), though not explicitly defined in the RPG code.</li>
+<li><strong>File Setup</strong>: Opens input files (<code>SHIPTO</code>, <code>ARCUST</code>, <code>ARCUPR</code>, <code>GSPROD</code>, <code>GSTABL</code>, <code>BICONT</code>) and the display file (<code>SCREEN</code>) with workstation support.</li>
+<li><strong>Arrays and Data Structures</strong>:<ul>
+<li><code>COM</code>: 14 elements, 40 characters each, for messages.</li>
+<li><code>S4HD</code>: 2 elements, 31 characters each, for screen 4 headers.</li>
+<li><code>NOT</code>: 2 elements, 20 characters each, for notes status descriptions.</li>
+<li><code>CSPR</code>, <code>SCPR</code>: 24 elements, 4 characters each, for ship-to product codes.</li>
+<li><code>PRCD</code>: 16 elements, 4 characters each, for product codes from <code>GSTABL</code>.</li>
+<li><code>PRDS</code>: 16 elements, 30 characters each, for product descriptions.</li>
+<li><code>CNTY</code>: 16 elements, 1 character each, for container type (JB04).</li>
+<li><code>GLCD</code>: 16 elements, 1 character each, for gallons to bill (net/gross).</li>
+<li><code>STNO</code>: 16 elements, 20 characters each, for stock numbers.</li>
+<li><code>PFRC</code>: 16 elements, 1 character each, for freight codes.</li>
+<li><code>PSFR</code>: 16 elements, 1 character each, for separate freight flags.</li>
+<li><code>PCAF</code>: 16 elements, 1 character each, for calculate freight flags.</li>
+</ul>
+</li>
 <li>
-<p>Executes the <code>CLRPFM</code> command to clear all records from the physical file <code>QTEMP/BI907W</code>. This ensures the work file is empty for subsequent use by other programs (e.g., <code>BI907</code> via <code>BI907AC</code>).</p>
+<p><strong>Screen Formats</strong>:</p>
+<ul>
+<li><code>BI890S01</code>: Input screen for company (<code>CO</code>), customer (<code>CUST</code>), and ship-to (<code>SHIP</code>).</li>
+<li><code>BI890S02</code>: Maintenance screen for ship-to details (name, address, product codes, etc.).</li>
+<li><code>BI890S04</code>: Product pricing screen (displays <code>PRCD</code>, <code>PRDS</code>, <code>GLCD</code>, etc.).</li>
+<li><code>BI890S05</code>: Accessorial/marks screen (order marks, invoice marks, dispatch info, etc.).</li>
+</ul>
+</li>
+<li>
+<p><strong>Open Database and Display Files</strong>:</p>
+</li>
+<li>Opens <code>SHIPTO</code> (2048 bytes, keyed by <code>CSKEY</code>), <code>ARCUST</code> (384 bytes), <code>ARCUPR</code> (80 bytes, keyed by company, customer, ship-to, container type), <code>GSPROD</code> (512 bytes, keyed by product code), <code>GSTABL</code> (256 bytes), and <code>BICONT</code> (256 bytes) for input.</li>
+<li>
+<p>Opens <code>SCREEN</code> as a workstation file with support for roll keys (<code>KINFSR ROLLSR</code>) and information data structure (<code>KINFDS INFDS</code>).</p>
+</li>
+<li>
+<p><strong>Screen Processing (<code>BI890S01</code>)</strong>:</p>
+</li>
+<li>Displays the initial input screen (<code>BI890S01</code>) to capture:<ul>
+<li><code>CO</code> (company, 2 digits).</li>
+<li><code>CUST</code> (customer, 6 digits).</li>
+<li><code>SHIP</code> (ship-to, 3 digits).</li>
+<li><code>COCUST</code> (company/customer key, 8 digits).</li>
+<li><code>SCKEY</code> (screen key, 11 digits).</li>
+</ul>
+</li>
+<li>Validates input fields (e.g., <code>CO</code>, <code>CUST</code>, <code>SHIP</code>) against <code>BICONT</code>, <code>ARCUST</code>, and <code>SHIPTO</code>.</li>
+<li>
+<p>Displays error messages (e.g., "INVALID CUSTOMER NUMBER", "SHIP TO NOT FOUND") if validation fails.</p>
+</li>
+<li>
+<p><strong>Ship-to Record Retrieval</strong>:</p>
+</li>
+<li>Chains to <code>SHIPTO</code> using <code>CSKEY</code> (company, customer, ship-to) to retrieve ship-to details.</li>
+<li>Populates fields like <code>CSNAME</code>, <code>CSADR1-4</code>, <code>CSZIP5</code>, <code>CSMILS</code>, <code>CSSTAT</code>, <code>CSALTO</code>, <code>CSPR01-24</code> (product codes), <code>CSSBKP</code>, <code>CSDLOC</code>, <code>CSBCUS</code>, <code>CSBCSH</code>, <code>CSBMCU</code>, <code>CSRRCO</code>, <code>CSCOON</code>, <code>CSCTY</code>, <code>CSEXPO</code>, <code>CSFOB</code>, <code>CSCTST</code>, <code>CSCSZP</code>, <code>CSLONG</code>, <code>CSLATT</code>, etc.</li>
+<li>
+<p>If the record is deleted (<code>CSDEL = 'D'</code>), displays "THIS SHIP TO WAS PREVIOUSLY DELETED" and allows reactivation ("PREVIOUS SHIP TO WAS REACTIVATED").</p>
+</li>
+<li>
+<p><strong>Fill Product Arrays (<code>FILARA</code> Subroutine)</strong>:</p>
+</li>
+<li><strong>All Products</strong> (if <code>SCPRYN ≠ 'Y'</code>):<ul>
+<li>Reads <code>GSPROD</code> records for the company (<code>TPCONO = CO</code>) where <code>TPSELL = 'Y'</code>.</li>
+<li>Populates <code>PRCD</code> (product code), <code>PRDS</code> (description), and chains to <code>ARCUPR</code> to retrieve <code>GLCD</code> (gallons to bill), <code>STNO</code> (stock number), <code>PFRC</code> (freight code), <code>PSFR</code> (separate freight), and <code>PCAF</code> (calculate freight).</li>
+<li>Limits to 16 products (<code>X</code> up to 17, breaking at 17).</li>
+</ul>
+</li>
+<li><strong>Selected Products</strong> (if <code>SCPRYN = 'Y'</code>):<ul>
+<li>Uses <code>SCPR</code> (screen product codes, 24 elements) from <code>BI890S02</code>.</li>
+<li>Chains to <code>GSPROD</code> for each <code>SCPR</code> value to retrieve <code>TPDESC</code> (description).</li>
+<li>Chains to <code>ARCUPR</code> to retrieve <code>GLCD</code>, <code>STNO</code>, <code>PFRC</code>, <code>PSFR</code>, <code>PCAF</code>.</li>
+<li>Limits to 15 products (<code>X</code> up to 15).</li>
+</ul>
+</li>
+<li>Sets <code>*IN84</code> if products are found (<code>X &gt; 0</code>).</li>
+<li>
+<p>Stores container type (<code>CNTY</code>) as blank (JB04).</p>
+</li>
+<li>
+<p><strong>Accessorial/Marks Processing (<code>GETSUP</code> Subroutine)</strong>:</p>
+</li>
+<li>Moves <code>SHIPTO</code> fields to screen fields for display on <code>BI890S05</code>:<ul>
+<li><code>CSOMK1-4</code> (order marks), <code>CSIMK1-2</code> (invoice marks), <code>CSDSP1-4</code> (dispatch info), <code>CSBMK1-4</code> (bill of lading marks), <code>CSFRNM</code> (freight bill name), <code>CSFRA1-3</code> (freight bill address), <code>CSNOTE</code> (note status), <code>CSCSID</code> (customer ship-to ID).</li>
+</ul>
+</li>
+<li>
+<p>Previously stored in <code>BBSHSP</code> (now obsolete, DC01).</p>
+</li>
+<li>
+<p><strong>Screen Maintenance (<code>BI890S02</code>)</strong>:</p>
+</li>
+<li>Displays ship-to details (<code>CSNAME</code>, <code>CSADR1-4</code>, <code>CSCTST</code>, <code>CSSTAT</code>, <code>CSCSZP</code>, <code>CSMILS</code>, <code>CSEXPO</code>, <code>CSFOB</code>, <code>CSCOON</code>, <code>CSSBKP</code>, <code>CSDLOC</code>, <code>CSBCUS</code>, <code>CSBCSH</code>, <code>CSBMCU</code>, <code>CSRRCO</code>, <code>CSCTY</code>, <code>CSLONG</code>, <code>CSLATT</code>, <code>CSITLO</code>, <code>CSITTK</code>, <code>CSDTLO</code>, <code>CSDTTK</code>, <code>CSROUT</code>, <code>CSRDAY</code>, <code>CSRCMX</code>, <code>CSSVFE</code>).</li>
+<li>Allows updates to these fields in maintenance mode.</li>
+<li>
+<p>Displays messages (<code>MSG3</code>, <code>MSG4</code>) for errors or status.</p>
+</li>
+<li>
+<p><strong>Product Pricing Screen (<code>BI890S04</code>)</strong>:</p>
+</li>
+<li>Displays product codes (<code>PRCD</code>), descriptions (<code>PRDS</code>), gallons to bill (<code>GLCD</code>, 'N' for net, 'G' for gross), stock numbers (<code>STNO</code>), freight codes (<code>PFRC</code>), separate freight (<code>PSFR</code>), and calculate freight (<code>PCAF</code>).</li>
+<li>Displays customer (<code>CUST</code>), ship-to (<code>SHIP</code>), and name (<code>NAME</code>).</li>
+<li>
+<p>Shows header (<code>S4HEAD</code>) with billing instructions.</p>
+</li>
+<li>
+<p><strong>Accessorial/Marks Screen (<code>BI890S05</code>)</strong>:</p>
+</li>
+<li>Displays order marks (<code>OMK1-4</code>), invoice marks (<code>IMK1-2</code>), dispatch info (<code>DSP1-4</code>), bill of lading marks (<code>BMK1-4</code>), freight bill details (<code>FRNM</code>, <code>FRA1-3</code>), note status (<code>NOTE</code>), and customer ship-to ID (<code>CSID</code>).</li>
+<li>
+<p>Displays error message (<code>MSG1</code>) if needed.</p>
+</li>
+<li>
+<p><strong>External Program Calls</strong>:</p>
+<ul>
+<li>Calls <code>BB800E</code> (DC02) for ship-to accessorial/marks inquiry.</li>
+<li>Calls <code>BI907AC</code> (JB05) to view <code>ARCUPR</code> records instead of using <code>BI890S04</code>.</li>
+<li>Calls <code>BI9002</code> for customer ship-to address file maintenance (JB01).</li>
+</ul>
 </li>
 <li>
 <p><strong>Program Termination</strong>:</p>
+<ul>
+<li>Closes all files and ends when the user exits (e.g., F3 key, <code>KG</code> indicator).</li>
+</ul>
 </li>
-<li>Ends the program with <code>ENDPGM</code>.</li>
 </ol>
-<hr />
-<h3 id="business-rules"><strong>Business Rules</strong><a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
-<p>The program enforces the following business rules, based on the code and context:
-1. <strong>Work File Cleanup</strong>:
-   - Clears the temporary work file <code>QTEMP/BI907W</code> to ensure it contains no residual data from previous sessions, maintaining data isolation and preventing conflicts in subsequent processing by programs like <code>BI907</code>.
-2. <strong>No Error Handling</strong>:
-   - Does not include explicit error handling (e.g., <code>MONMSG</code> for <code>CPF3142</code> as in <code>BI907AC</code>). If the file does not exist, the <code>CLRPFM</code> command will fail, potentially causing the program to terminate abnormally.
-3. <strong>Session-Specific Data</strong>:
-   - Uses <code>QTEMP</code>, a job-specific library, to ensure the work file is isolated to the current user session and automatically deleted when the job ends.</p>
-<hr />
-<h3 id="tables-files-used"><strong>Tables (Files) Used</strong><a class="headerlink" href="#tables-files-used" title="Permanent link">&para;</a></h3>
-<p>The program directly interacts with one file:
-1. <strong>BI907W</strong> (Physical File, <code>QTEMP/BI907W</code>):
-   - A temporary work file used by <code>BI907</code> (via <code>BI907AC</code>) for processing customer/ship-to product and freight terms data.
-   - Cleared using <code>CLRPFM</code> to remove all records.</p>
-<p>No other files are referenced in the CLP. The OCL (<code>BI890.ocl36.txt</code>) declares additional files (e.g., <code>arcupr</code>, <code>gsprod</code>, <code>gstabl</code>, <code>arcust</code>, <code>shipto</code>, <code>bicon</code>, <code>cuadr</code>, <code>bbshsa1</code>, <code>trrtcd</code>, <code>shipths</code>, <code>arcuphs</code>), but these are not used by <code>BI907C2</code>.</p>
-<hr />
-<h3 id="external-programs-called"><strong>External Programs Called</strong><a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
-<p>The program does not call any external programs. It only executes the <code>CLRPFM</code> command, which is a native IBM i system command.</p>
-<hr />
-<h3 id="summary"><strong>Summary</strong><a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
-<p>The <code>BI907C2</code> CLP program is a simple utility called from the OCL (<code>BI890.ocl36.txt</code>) to clear the temporary work file <code>QTEMP/BI907W</code>. It:
-- Executes a single <code>CLRPFM</code> command to ensure the work file is empty for use by <code>BI907</code> (via <code>BI907AC</code>).
-- Enforces rules for work file cleanup and session-specific data isolation.
-- Lacks explicit error handling, assuming the file exists or relying on job-level error handling.</p>
-<p><strong>Tables Used</strong>:
-- <code>BI907W</code> (<code>QTEMP/BI907W</code>, temporary work file)</p>
-<p><strong>External Programs Called</strong>:
-- None</p>
-<p>If you need further analysis of its integration with the system (e.g., why it’s called separately from <code>BI907AC</code>, which also clears <code>BI907W</code>), or if you have additional code or context, let me know!</p>
+<h3 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Operation Modes</strong>:</li>
+<li>Supports inquiry and maintenance modes (based on <code>INQ</code> or <code>MNT</code> parameter from <code>BI890P</code> via OCL).</li>
+<li>Inquiry mode (<code>*IN70</code>) protects fields from updates.</li>
+<li>
+<p>Maintenance mode allows updates to <code>SHIPTO</code> fields (e.g., <code>CSNAME</code>, <code>CSADR1-4</code>, <code>CSPR01-24</code>).</p>
+</li>
+<li>
+<p><strong>Validation</strong>:</p>
+</li>
+<li>Validates company (<code>CO</code>) against <code>BICONT</code>. If invalid, displays "INVALID CUSTOMER NUMBER" (message 9).</li>
+<li>Validates customer (<code>CUST</code>) against <code>ARCUST</code>. If invalid, displays "INVALID CUSTOMER NUMBER".</li>
+<li>Validates ship-to (<code>SHIP</code>) against <code>SHIPTO</code>. If not found, displays "SHIP TO NOT FOUND" (message 2).</li>
+<li>Prevents use of ship-to number 999 ("SHIPTO # 999 MAY NOT BE USED", message 13).</li>
+<li>Checks for deleted ship-to records (<code>CSDEL = 'D'</code>) and allows reactivation ("PREVIOUS SHIP TO WAS REACTIVATED", message 10).</li>
+<li>
+<p>Ensures file positioning does not exceed file limits ("END OF FILE REACHED", message 12; "BEGINNING OF FILE REACHED", message 14).</p>
+</li>
+<li>
+<p><strong>Product Handling</strong>:</p>
+</li>
+<li>Displays all sellable products (<code>TPSELL = 'Y'</code>) from <code>GSPROD</code> or selected products from <code>SCPR</code> (up to 24).</li>
+<li>Retrieves pricing data (<code>GLCD</code>, <code>STNO</code>, <code>PFRC</code>, <code>PSFR</code>, <code>PCAF</code>) from <code>ARCUPR</code> for each product.</li>
+<li>
+<p>Supports container type (<code>CNTY</code>) in <code>ARCUPR</code> key (JB04).</p>
+</li>
+<li>
+<p><strong>Accessorial/Marks</strong>:</p>
+</li>
+<li>Stores and displays order marks, invoice marks, dispatch info, bill of lading marks, and freight bill details (DC01, moved from <code>BBSHSP</code> to <code>SHIPTO</code>).</li>
+<li>
+<p>Supports note status (<code>CSNOTE</code>, e.g., "RECORD IS DONE", "RECORD IS IN EXCEL").</p>
+</li>
+<li>
+<p><strong>Navigation</strong>:</p>
+</li>
+<li>Supports roll keys (<code>*IN55</code>) for scrolling through records.</li>
+<li>Uses function keys (e.g., F3 for exit, inferred from <code>KG</code> indicator).</li>
+<li>
+<p>Allows direct access to ship-to records via <code>CO</code>, <code>CUST</code>, <code>SHIP</code>.</p>
+</li>
+<li>
+<p><strong>Error Handling</strong>:</p>
+</li>
+<li>Displays messages (<code>MSG1</code>, <code>MSG2</code>, <code>MSG3</code>, <code>MSG4</code>) on screens for validation errors or status updates.</li>
+<li>Uses <code>COM</code> array for predefined messages.</li>
+</ol>
+<h3 id="tables-files-used">Tables (Files) Used<a class="headerlink" href="#tables-files-used" title="Permanent link">&para;</a></h3>
+<p>The program uses the following database files (tables):
+1. <strong>SHIPTO</strong>: Ship-to master file (2048 bytes, keyed by <code>CSKEY</code> [company, customer, ship-to], input, supports add/update).
+   - Fields: <code>CSDEL</code>, <code>CSCO</code>, <code>CSCUST</code>, <code>CSSHIP</code>, <code>CSNAME</code>, <code>CSADR1-4</code>, <code>CSZIP5</code>, <code>CSMILS</code>, <code>CSSTAT</code>, <code>CSALTO</code>, <code>CSPR01-24</code>, <code>CSSBKP</code>, <code>CSDLOC</code>, <code>CSBCUS</code>, <code>CSBCSH</code>, <code>CSBMCU</code>, <code>CSRRCO</code>, <code>CSCOON</code>, <code>CSCTY</code>, <code>CSEXPO</code>, <code>CSFOB</code>, <code>CSCTST</code>, <code>CSCSZP</code>, <code>CSLONG</code>, <code>CSLATT</code>, <code>CSOMK1-4</code>, <code>CSIMK1-2</code>, <code>CSDSP1-4</code>, <code>CSBMK1-4</code>, <code>CSFRNM</code>, <code>CSFRA1-3</code>, <code>CSCSID</code>, <code>CSFCCD</code>, <code>CSNOTE</code>, <code>CSITLO</code>, <code>CSITTK</code>, <code>CSDTLO</code>, <code>CSDTTK</code>, <code>CSROUT</code>, <code>CSRDAY</code>, <code>CSRCMX</code>, <code>CSSVFE</code>.
+2. <strong>ARCUST</strong>: Customer master file (384 bytes, keyed, input).
+   - Fields: <code>ARDEL</code> (delete flag).
+3. <strong>ARCUPR</strong>: Customer pricing file (80 bytes, keyed by company, customer, ship-to, container type, input).
+   - Fields: <code>CPGLCD</code>, <code>CPCSTK</code>, <code>CPFRCD</code>, <code>CPSFRT</code>, <code>CPCAFR</code>.
+4. <strong>GSPROD</strong>: Product master file (512 bytes, keyed by product code, input).
+   - Fields: <code>TPCONO</code>, <code>TPSELL</code>, <code>TPPROD</code>, <code>TPDESC</code>.
+5. <strong>GSTABL</strong>: General system table (256 bytes, keyed, input).
+   - Fields: Product codes (<code>TBCODE</code> at positions 12-13).
+6. <strong>BICONT</strong>: Contract/company master file (256 bytes, keyed, input).
+   - Used for company validation.</p>
+<h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
+<p>The program calls the following external programs:
+1. <strong>BB800E</strong>: Displays ship-to accessorial/marks inquiry (DC02, replacing <code>BI8901</code>).
+2. <strong>BI907AC</strong>: Views <code>ARCUPR</code> records for pricing data (JB05, replacing <code>BI890S04</code>).
+3. <strong>BI9002</strong>: Maintains customer ship-to addresses (JB01).</p>
+<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
+<p>The <code>BI890</code> program is an interactive tool for maintaining and inquiring about ship-to master records, supporting:
+- Input and validation of company, customer, and ship-to numbers.
+- Maintenance of ship-to details (name, address, product codes, accessorial/marks).
+- Display of product pricing (<code>ARCUPR</code>) and accessorial/marks data (<code>BI890S05</code>).
+- Integration with external programs (<code>BB800E</code>, <code>BI907AC</code>, <code>BI9002</code>) for additional functionality.
+- Robust validation (e.g., preventing ship-to 999, handling deleted records).
+- Multiple screen formats (<code>BI890S01</code>, <code>BI890S02</code>, <code>BI890S04</code>, <code>BI890S05</code>) for user interaction.</p>
+<p>The program uses six files (<code>SHIPTO</code>, <code>ARCUST</code>, <code>ARCUPR</code>, <code>GSPROD</code>, <code>GSTABL</code>, <code>BICONT</code>) and supports both inquiry and maintenance modes, with revisions (e.g., DC01, JB04, JB05, MG06) enhancing functionality like address reformatting, container type support, and railcar weight tracking.</p>
+<p>If you need further details or analysis of specific subroutines or related programs, please let me know!</p>
 
 
 
