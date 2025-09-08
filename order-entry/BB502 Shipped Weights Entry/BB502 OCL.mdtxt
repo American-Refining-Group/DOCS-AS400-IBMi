@@ -1,0 +1,151 @@
+The provided document is an Operation Control Language (OCL) program, specifically `BB502.ocl36.txt`, used for managing shipment weights entry, update, and edit processes in an IBM System/36 or AS/400 environment. OCL is a control language used to define job steps and manage file operations in these systems. Below, I’ll explain the process steps of the program, list the external programs called, and identify the tables (files) used.
+
+---
+
+### Process Steps of the RPG .OCL Program
+
+The OCL program `BB502` is designed to handle invoice batch selection, shipment weights entry/update, and batch release. It interacts with various files and calls external programs to perform specific tasks. The program is structured into sections, each handling distinct functionalities. Here’s a step-by-step breakdown of the process:
+
+1. **Initialization and Program Setup**:
+   - The program starts by calling `STRPCOCLP`, which likely initializes the environment or a program control library for the System/36.
+   - Local variables are set to capture user-specific information (e.g., `?USER?`, `?WS?`, `?9?`) and to define the context of the operation (e.g., `OFFSET-504,DATA-'I'` for invoice entry, `OFFSET-60,DATA-'*        INVOICE ENTRY        *'` for display purposes).
+   - The program checks if it’s being run from the PPMENU (`?13?/PP`). If so, it restricts orders to those specific to the packaging plant by setting `OFFSET-470,DATA-'PP    '`.
+
+2. **Invoice Batch Selection and Deletion**:
+   - The program checks the state of `SWITCH1` (position 1) to determine if a batch deletion is requested.
+   - If `SWITCH1-1` is active (indicating a delete operation):
+     - It evaluates `P20='?L'490,2'?'` to check specific conditions.
+     - If the condition is met, it deletes records from the `BBTR?20?` (transaction file) and `BBTX?20?` (transaction extension file) based on the `?9?` prefix (likely a company or system identifier).
+     - It resets the `BB502` program (and possibly `BB500`, though commented out) to clear any prior state.
+
+3. **Shipment Weights Entry/Update**:
+   - The program checks for the existence of transaction files (`BBTR?20?` and `BBTX?20?`) using `IFF DATAF1` conditions.
+   - If these files exist, it builds temporary files (`BLDFILE`) for processing:
+     - `BBTR?20?`: Creates a file with up to 999,000 records, 512 bytes per record, and specific offsets (492, 21).
+     - `BBTX?20?`: Creates a file with up to 999,000 records, 512 bytes per record, and specific offsets (2, 11).
+   - It deletes temporary files (`BBOK?20?`, `BBKE?20?`) using `GSDELETE` to ensure a clean slate for processing.
+   - The program loads `BB502` and declares multiple files for shared access (`DISP-SHR`), including:
+     - Master files (e.g., `BICONT`, `BBORDR`, `BBORDD`, `BBSHPH`, `BBSHPD`).
+     - Transaction files (e.g., `BBTRAN`, `BBTRTX`, `BBORTX`).
+     - Customer and shipping files (e.g., `ARCUST`, `SHIPTO`, `SHPADR`).
+     - General ledger and product files (e.g., `GLMAST`, `GSPROD`).
+     - Files specific to called programs (e.g., `BB5001`, `BB5009`, etc.).
+   - These files are used for reading and updating shipment weights, order details, customer information, and related data.
+
+4. **Printer Setup**:
+   - A printer named `BUGS` is defined with device type `PJ` (printer job) and priority `0`.
+   - Additional files for printing or reporting are declared (e.g., `BBOTHS1`, `BBOTDS1`, `BBOTA1`, etc.), likely for generating invoices, shipping documents, or reports.
+
+5. **Program Execution**:
+   - The `RUN` statement executes the `BB502` program, which processes the shipment weights entry/update logic, interacting with the declared files and potentially calling external programs for specific tasks (e.g., freight calculations, invoice totals).
+
+6. **Batch Release**:
+   - After processing, the program sets a local variable (`OFFSET-475,DATA-'?F'A,?9?BBTR?20?'?'`) to prepare for batch release.
+   - It loads the `BB055` program, which likely handles the release of the processed batch.
+   - The `BBIBCH` file is declared for shared access, used to store batch control information.
+   - The `RUN` statement executes `BB055` to finalize the batch release.
+   - Finally, all local variables are cleared (`LOCAL BLANK-*ALL`) to reset the environment.
+
+---
+
+### External Programs Called
+
+The OCL program references several external programs that handle specific tasks. These are identified in the comments and file declarations:
+
+1. **BB5001**: Likely handles order or pricing-related processing (uses files like `ARCUPR`, `BBPRCE`, `BBBCPR`).
+2. **BB5002**: Processes additional container or shipment details (uses `BICONT2`, `SA5SHX`, `SA5FIZD`).
+3. **BB5003**: Likely involved in specific transaction or validation logic (uses `INSLTZ`).
+4. **BB5004**: Handles bill of lading or order-related processing (uses `BBBOL`, `BBORDX`, `BBBLTX`).
+5. **BB5007**: Performs freight calculations (uses `BICUFR`, `BBORTF`, `GSCTWT`, etc.).
+6. **BB5008**: Calculates invoice totals (uses `BBTRAN8`, `GSCTUM8`).
+7. **BB5009**: Processes additional shipment or product data (uses `GSUMCV`, `GSCTUM`).
+8. **BB1014**: Likely handles location-specific logic (uses `INLOC`).
+9. **BB5018**: Manages pricing or rate-related data (uses `BBPRXR`, `BBPRXY`).
+10. **MBBQTY**: Called from `BB503N`, likely for quantity validation or updates (uses `GSPROD`).
+11. **BB055**: Handles batch release (uses `BBIBCH`).
+
+---
+
+### Tables (Files) Used
+
+The program declares numerous files, which are essentially database tables used for reading and updating data. The `?9?` prefix likely represents a system or company identifier, and `?20?` may indicate a batch or transaction number. Below is a comprehensive list of the files used:
+
+1. **BICONT**: Container master file.
+2. **BBORDR**: Order master file.
+3. **BBORDD**: Order detail file.
+4. **BBORDRH**: Order header file.
+5. **BBTRAN**: Transaction file (aliased as `BBTR?20?`).
+6. **BBSHPH**: Shipment header file.
+7. **BBSHPD**: Shipment detail file.
+8. **BBTRANX**: Transaction extension file (aliased as `BBTR?20?`).
+9. **BBTRTX**: Transaction text file (aliased as `BBTX?20?`).
+10. **BBORTX**: Order transaction file.
+11. **SHIPTO**: Ship-to address file.
+12. **ARCUST**: Customer master file.
+13. **ARCUSTX**: Customer extension file (aliased as `ARCUSX`).
+14. **ARCUSP**: Customer profile file.
+15. **INTANK**: Tank inventory file.
+16. **INTAN2**: Secondary tank inventory file.
+17. **GLMAST**: General ledger master file.
+18. **GSTABL**: General system table.
+19. **BIPRTX**: Pricing transaction file.
+20. **VSCARR**: Carrier file.
+21. **SHPADR**: Shipping address file.
+22. **BBASND**: Advanced shipping notice file.
+23. **GSCNTR1**: Counter file (used for control or sequence numbers).
+24. **BBCAID**: Carrier ID file.
+25. **GSPROD**: Product master file.
+26. **GSCTUM**: Unit of measure file (used by `BB5001`, `BB5009`, `BB5008`).
+27. **ARCUPR**: Customer pricing file (used by `BB5001`).
+28. **BBPRCE**: Pricing file (used by `BB5001`).
+29. **BBBCPR**: Customer pricing file (used by `BB5001`).
+30. **BICUAX**: Container auxiliary file (used by `BB5001`).
+31. **BICUAY**: Secondary container auxiliary file (used by `BB5001`).
+32. **GSCNTR6**: Another counter file (aliased to `GSCNTR1`, used by `BB5001`).
+33. **BICONT2**: Secondary container file (used by `BB5002`).
+34. **SA5SHX**: Shipping extension file (used by `BB5002`).
+35. **SA5FIZD**: Freight zone file (used by `BB5002`).
+36. **GSUMCV**: Unit conversion file (used by `BB5009`).
+37. **INSLTZ**: Lot zone file (used by `BB5003`, `BB5004`).
+38. **BBBOL**: Bill of lading file (used by `BB5004`).
+39. **BBORDX**: Order extension file (aliased to `BBORDR`, used by `BB5004`).
+40. **BBTRAB**: Transaction file (aliased to `BBTR?20?`, used by `BB5004`).
+41. **BBBLTX**: Bill of lading text file (used by `BB5004`).
+42. **BBBTTX**: Transaction text file (aliased to `BBTX?20?`, used by `BB5004`).
+43. **BICUFR**: Freight container file (used by `BB5007`).
+44. **BBORTF**: Freight transaction file (aliased to `BBTR?20?`, used by `BB5007`).
+45. **SHIPTF**: Freight ship-to file (aliased to `SHIPTO`, used by `BB5007`).
+46. **GSCTWT**: Weight conversion file (used by `BB5007`).
+47. **GSUMCF**: Freight unit conversion file (aliased to `GSUMCV`, used by `BB5007`).
+48. **GSCTUF**: Freight unit of measure file (aliased to `GSCTUM`, used by `BB5007`).
+49. **GSTABF**: Freight system table (aliased to `GSTABL`, used by `BB5007`).
+50. **BBFRTB**: Freight table file (used by `BB5007`).
+51. **BBTRAN8**: Transaction file for invoice totals (aliased to `BBTR?20?`, used by `BB5008`).
+52. **GSCTUM8**: Unit of measure file for invoice totals (aliased to `GSCTUM`, used by `BB5008`).
+53. **INLOC**: Location file (used by `BB1014`).
+54. **BBPRXR**: Pricing rate file (used by `BB5018`).
+55. **BBPRXY**: Secondary pricing rate file (used by `BB5018`).
+56. **BBOTHS1**: Output header file for printing.
+57. **BBOTDS1**: Output detail file for printing.
+58. **BBOTA1**: Output file (aliased to `BBOTA`).
+59. **BBORH1**: Order header file for printing (aliased to `BBORHS1`).
+60. **BBORD1**: Order detail file for printing (aliased to `BBORDS1`).
+61. **BBFPORH**: Freight purchase order header file.
+62. **BBFPORD**: Freight purchase order detail file.
+63. **BBFPORA**: Freight purchase order auxiliary file.
+64. **BBORDRB**: Order batch file.
+65. **BBORA1**: Order auxiliary file (aliased to `BBORA`).
+66. **GSHAZM**: Hazardous material file.
+67. **BBFRPR**: Freight pricing file.
+68. **BBSRNH**: Shipment return header file.
+69. **BBORF**: Order freight file.
+70. **BBFPORF**: Freight purchase order file.
+71. **BBIBCH**: Invoice batch control file (used by `BB055`).
+
+---
+
+### Summary
+
+The `BB502` OCL program manages the entry, update, and editing of shipment weights, including invoice batch selection and deletion, and batch release. It initializes the environment, checks for specific conditions (e.g., packaging plant orders), builds temporary files, processes data using multiple master and transaction files, and releases the batch via `BB055`. The program interacts with a wide range of files and calls external programs to handle specific tasks like freight calculations, invoice totals, and quantity validation.
+
+If you need further clarification on any specific step, file, or program, or if you want me to analyze related content (e.g., specific posts on X or web searches for context), let me know!
