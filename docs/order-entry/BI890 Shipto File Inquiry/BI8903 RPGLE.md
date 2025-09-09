@@ -1,142 +1,119 @@
-The RPG program `BI8903.rpgle.txt` is part of the Brandford Order Entry / Invoices system and is designed to copy ship-to records from one customer and ship-to combination to another. It is called by the `BI890P` program (as referenced in the previous context) and operates non-interactively to duplicate records across multiple files. Below, I’ll explain the process steps, business rules, tables used, and external programs called, integrating its role within the context of the OCL (`BI890.ocl36.txt`) and `BI890P` programs.
+The `BI8903.rpgle.txt` is an RPGLE (RPG IV) program named `BI8903`, designed for the Brandford Order Entry / Invoices system on an IBM AS/400 (iSeries) platform. It is responsible for copying ship-to records from one customer/ship-to combination to another, updating multiple related files. Below, I will explain the process steps, business rules, tables used, and external programs called, based on the provided RPGLE source code.
 
----
+### Process Steps
 
-### **Process Steps of the RPG Program**
-
-The `BI8903` program is a straightforward RPGLE program that performs the task of copying records from a source customer/ship-to to a target customer/ship-to across four files: `shipto`, `arcupr`, `cuadr`, and `bbshsa`. Here’s a step-by-step breakdown of the process:
+The program follows a structured flow to copy ship-to records and their associated data, organized into subroutines executed sequentially:
 
 1. **Initialization (`*inzsr` Subroutine)**:
    - **Parameters**: Receives six input parameters:
-     - `p$co` (2 digits, company number).
-     - `p$fcust` (6 digits, source customer number).
-     - `p$fshp` (3 digits, source ship-to number).
-     - `p$tcust` (6 digits, target customer number).
-     - `p$tshp` (3 digits, target ship-to number).
-     - `p$fgrp` (1 character, file group: 'G' or 'Z').
-   - **Key Fields**: Populates a composite key (`key11`) and a data structure (`ds`) with:
-     - `dsco` (company, from `p$co`).
-     - `dstcust` (target customer, from `p$tcust`).
-     - `dstshp` (target ship-to, from `p$tshp`).
+     - `p$co` (2 digits): Company number.
+     - `p$fcust` (6 digits): Source customer number (copy from).
+     - `p$fshp` (3 digits): Source ship-to number (copy from).
+     - `p$tcust` (6 digits): Target customer number (copy to).
+     - `p$tshp` (3 digits): Target ship-to number (copy to).
+     - `p$fgrp` (1 character): File group identifier ('G' or 'Z') for file overrides.
+   - **Field Setup**: Initializes key fields (`dsco`, `dstcust`, `dstshp`) with input parameters (`p$co`, `p$tcust`, `p$tshp`) for use in key lists.
    - **Key Lists**: Defines two key lists:
-     - `klFrmShipto`: For source records (`p$co`, `p$fcust`, `p$fshp`).
-     - `KlToShipto`: For target records (`p$co`, `p$tcust`, `p$tshp`).
-   - **Test Data**: Includes commented-out test values for parameters, indicating a debugging or development setup (e.g., `p$co='10'`, `p$fcust='006700'`, etc.).
+     - `klFrmShipto`: For accessing source records (`p$co`, `p$fcust`, `p$fshp`).
+     - `KlToShipto`: For checking target records (`p$co`, `p$tcust`, `p$tshp`).
+   - **Data Structures**: Defines external data structures (`wkds01`, `wkds02`, `wkds03`, `wkds04`) for `shipto`, `arcupr`, `cuadr`, and `bbshsa1` to store and manipulate record data.
+   - **Test Data**: Includes commented-out test values for parameters (e.g., `p$co = '10'`, `p$fcust = '006700'`, etc.).
+   - **Environment**: Uses the program status data structure (`psds##`) to access user, date, and time information.
 
 2. **Open Database Tables (`opntbl` Subroutine)**:
-   - **File Overrides**: Based on `p$fgrp` ('G' or 'Z'), applies file overrides (`ovg` or `ovz`) for seven files using the `QCMDEXC` system program. The overrides redirect file access to either `g*` (e.g., `gshipto`, `garcupr`) or `z*` (e.g., `zshipto`, `zarcupr`) files.
-   - **Open Files**: Opens the following files in user-controlled mode (`usropn`):
-     - Input files: `arcuprrd`, `cuadrrd`, `bbshsa1rd` (read-only, renamed record formats).
-     - Update file: `shipto` (update/add mode).
-     - Output files: `arcupr`, `cuadr`, `bbshsa` (write mode).
+   - Applies file overrides for `shipto`, `arcuprrd`, `arcupr`, `cuadrrd`, `cuadr`, `bbshsa1rd`, and `bbshsa` based on `p$fgrp` ('G' for `g*` files, 'Z' for `z*` files) using the `QCMDEXC` API.
+   - Opens input files (`arcuprrd`, `cuadrrd`, `bbshsa1rd`) and input/output files (`shipto`, `arcupr`, `cuadr`, `bbshsa`) with `usropn`.
 
 3. **Write New Ship-to Records (`WriteShipto` Subroutine)**:
    - **Copy to `shipto`**:
-     - Checks if the source record exists in `shipto` using `klFrmShipto` (`chain(n)`). If found (`*in99=*off`), stores the record in `svds` (a 2048-byte save data structure).
-     - Checks if the target record does not exist in `shipto` using `KlToShipto` (`chain`). If it doesn’t exist (`*in99=*on`):
+     - Chains to the source `shipto` record using `klFrmShipto` (`p$co`, `p$fcust`, `p$fshp`).
+     - If found (`*in99 = *off`), stores the record in `svds` (save data structure).
+     - Checks if the target ship-to exists using `KlToShipto` (`p$co`, `p$tcust`, `p$tshp`).
+     - If the target does not exist (`*in99 = *on`):
        - Clears the `shiptopf` record format.
-       - Copies fields from `svds` to `wkds01` (external data structure for `shipto`).
-       - Updates key fields: `csship` (target ship-to, `p$tshp`), `cscust` (target customer, `p$tcust`).
-       - Clears specific fields (e.g., `csadr1`, `csadr2`, `csadr3`, `csadr4`, `cszip5`, `cszip9`, `csstat`, `csmils`, `csctst`, `cscszp`, `cslong`, `cslatt`) to ensure only relevant data is copied.
+       - Moves `svds` to `wkds01` and updates `csship` (target ship-to) and `cscust` (target customer).
+       - Clears specific fields (`cscsid`, `csadr1`, `csadr2`, `csadr3`, `csadr4`, `cszip5`, `cszip9`, `csstat`, `csmils`, `csctst`, `cscszp`, `cslong`, `cslatt`).
        - Writes the new record to `shipto`.
    - **Copy to `arcupr`**:
-     - Positions to source records in `arcuprrd` using `klFrmShipto` (`setll`).
-     - Reads all matching records (`reade`) until end-of-file (`*in99=*on`).
-     - For each record:
-       - Stores in `svds` and clears `arcuprpf` format.
-       - Copies fields to `wkds02` (external data structure for `arcupr`).
-       - Updates key fields: `cpship` (`p$tshp`), `cpcust` (`p$tcust`).
+     - Sets the lower limit (`setll`) for `arcuprrd` using `klFrmShipto`.
+     - Reads all matching records (`reade`) until end of file (`*in99 = *on`).
+     - For each record found:
+       - Stores the record in `svds`.
+       - Clears the `arcuprpf` record format.
+       - Moves `svds` to `wkds02` and updates `cpship` (target ship-to) and `cpcust` (target customer).
        - Writes the new record to `arcupr`.
    - **Copy to `cuadr`**:
-     - Similar to `arcupr`, positions to source records in `cuadrrd` (`setll`), reads (`reade`), and for each record:
-       - Stores in `svds`, clears `cuadrpf`, and copies to `wkds03`.
-       - Updates key fields: `cdship` (`p$tshp`), `cdcust` (`p$tcust`).
-       - Writes to `cuadr`.
+     - Sets the lower limit for `cuadrrd` using `klFrmShipto`.
+     - Reads all matching records (`reade`) until end of file.
+     - For each record found:
+       - Stores the record in `svds`.
+       - Clears the `cuadrpf` record format.
+       - Moves `svds` to `wkds03` and updates `cdship` (target ship-to) and `cdcust` (target customer).
+       - Writes the new record to `cuadr`.
    - **Copy to `bbshsa`**:
-     - Positions to source records in `bbshsa1rd` (`setll`), reads (`reade`), and for each record:
-       - Stores in `svds`, clears `bbshsapf`, and copies to `wkds04`.
-       - Updates key fields: `baship` (`p$tshp`), `bacust` (`p$tcust`), `bahkey` (from `key11`).
-       - Writes to `bbshsa`.
+     - Sets the lower limit for `bbshsa1rd` using `klFrmShipto`.
+     - Reads all matching records (`reade`) until end of file.
+     - For each record found:
+       - Stores the record in `svds`.
+       - Clears the `bbshsapf` record format.
+       - Moves `svds` to `wkds04` and updates `baship` (target ship-to), `bacust` (target customer), and `bahkey` (key11).
+       - Writes the new record to `bbshsa`.
 
 4. **Program Termination**:
    - Closes all files (`close *all`).
-   - Sets `*inlr` to end the program and returns.
+   - Sets `*inlr = *on` and returns.
 
----
+### Business Rules
 
-### **Business Rules**
+1. **Copy Functionality**:
+   - Copies ship-to data from a source customer/ship-to (`p$fcust`, `p$fshp`) to a target customer/ship-to (`p$tcust`, `p$tshp`) within the same company (`p$co`).
+   - Copies records from `shipto`, `arcupr`, `cuadr`, and `bbshsa1` to their respective target files, updating customer and ship-to fields.
 
-The program enforces the following business rules:
-1. **Record Existence**:
-   - The source ship-to record (`p$co`, `p$fcust`, `p$fshp`) must exist in `shipto` for copying to proceed.
-   - The target ship-to record (`p$co`, `p$tcust`, `p$tshp`) must not exist in `shipto` to avoid duplication. If it exists, no write occurs for that file.
+2. **Validation**:
+   - Verifies the source ship-to exists in `shipto` using `klFrmShipto`.
+   - Ensures the target ship-to does not exist in `shipto` before writing (`*in99 = *on` for `KlToShipto`).
+   - No explicit error messages are defined in the code, but the program assumes prior validation (e.g., in `BI890P`) prevents invalid inputs.
 
-2. **Data Copying**:
-   - Copies all relevant fields from source records to target records, preserving the structure and most data except for specific fields in `shipto` (e.g., addresses, ZIP codes, status) which are cleared to ensure the new record is initialized appropriately.
-   - Updates key fields (company, customer, ship-to) to reflect the target values in all files.
+3. **Data Handling**:
+   - Clears specific fields (`cscsid`, `csadr1`, `csadr2`, `csadr3`, `csadr4`, `cszip5`, `cszip9`, `csstat`, `csmils`, `csctst`, `cscszp`, `cslong`, `cslatt`) in the new `shipto` record to ensure only essential data is copied.
+   - Copies all related records from `arcuprrd`, `cuadrrd`, and `bbshsa1rd` without modification, except for updating customer and ship-to fields.
 
-3. **File Group Handling**:
-   - Supports two file groups ('G' or 'Z'), determined by `p$fgrp`. This allows the program to work with different sets of files (`g*` or `z*`) based on the environment or configuration.
+4. **File Overrides**:
+   - Uses `p$fgrp` to determine file overrides ('G' for `g*` files, 'Z' for `z*` files).
+   - Ensures shared access is disabled (`share(*no)`) to prevent conflicts during writes.
 
-4. **Multi-File Consistency**:
-   - Ensures related records in `arcupr`, `cuadr`, and `bbshsa` are copied only if corresponding source records exist, maintaining data integrity across files.
+5. **Non-Interactive**:
+   - The program is non-interactive, with no display file or user interface (unlike `BI890P` or `BB800E`).
+   - It processes data programmatically based on input parameters.
 
-5. **Non-Interactive Operation**:
-   - The program does not interact with a display file or user input, relying entirely on parameters passed from `BI890P` to perform the copy operation.
+### Tables (Files) Used
 
----
+The program uses the following database files (tables):
+- **Input Files** (with `usropn` and `if` for read-only access, renamed record formats):
+  1. **arcuprrd**: Customer pricing read file (`arcuprpf` renamed to `arcuprpr`).
+  2. **cuadrrd**: Customer address read file (`cuadrpf` renamed to `cuadrpr`).
+  3. **bbshsa1rd**: Ship-to accessorial/marks read file (`bbshsapf` renamed to `bbshsapr`).
+- **Input/Output File** (with `usropn` and `uf a` for update/add):
+  4. **shipto**: Ship-to master file (supports both reading and writing).
+- **Output Files** (with `usropn` and `o` for write-only):
+  5. **arcupr**: Customer pricing file (writes new pricing records).
+  6. **cuadr**: Customer address file (writes new address records).
+  7. **bbshsa**: Ship-to accessorial/marks file (writes new accessorial records).
 
-### **Tables (Files) Used**
+### External Programs Called
 
-The program uses the following files, as declared in the RPGLE code and overridden in the OCL:
-1. **shipto** (Update/Add, `uf a`):
-   - Ship-to master file (`gshipto` or `zshipto` based on `p$fgrp`).
-   - Used to read source records and write new target records.
-2. **arcuprrd** (Input, `if`):
-   - Customer pricing/profile file (`garcupr` or `zarcupr`), renamed to `arcuprpr`.
-   - Read-only for source records.
-3. **arcupr** (Output, `o`):
-   - Same file as `arcuprrd` but used for writing new target records.
-4. **cuadrrd** (Input, `if`):
-   - Customer address file (`gcuadr` or `zcuadr`), renamed to `cuadrpr`.
-   - Read-only for source records.
-5. **cuadr** (Output, `o`):
-   - Same file as `cuadrrd` but used for writing new target records.
-6. **bbshsa1rd** (Input, `if`):
-   - Shipping data file (`gbbshsa1` or `zbbshsa1`), renamed to `bbshsapr`.
-   - Read-only for source records.
-7. **bbshsa** (Output, `o`):
-   - Same file as `bbshsa1rd` but used for writing new target records.
+The program calls one external program:
+1. **QCMDEXC**: System API to execute file override commands (`ovrdbf`) for `shipto`, `arcuprrd`, `arcupr`, `cuadrrd`, `cuadr`, `bbshsa1rd`, and `bbshsa`.
 
-The OCL (`BI890.ocl36.txt`) declares additional files (e.g., `arcust`, `bicont`, `gsprod`, `gstabl`, `trrtcd`, `shipths`, `arcuphs`), but only the above are used by `BI8903`.
+### Summary
 
----
+The `BI8903` program is a non-interactive utility that copies ship-to records and related data from a source customer/ship-to to a target customer/ship-to within the same company. It:
+- Copies records from `shipto`, `arcuprrd`, `cuadrrd`, and `bbshsa1rd` to `shipto`, `arcupr`, `cuadr`, and `bbshsa`, updating customer and ship-to fields.
+- Clears specific `shipto` fields to ensure clean data.
+- Uses file overrides based on `p$fgrp` ('G' or 'Z') and ensures no shared access.
+- Relies on prior validation (e.g., from `BI890P`) to ensure valid inputs.
+- Operates without a user interface, focusing on backend data processing.
 
-### **External Programs Called**
+The program integrates with seven files and uses the `QCMDEXC` API for file overrides, ensuring efficient data copying for ship-to management in the Brandford Order Entry / Invoices system.
 
-The program calls the following external program:
-1. **QCMDEXC**:
-   - System program used in the `opntbl` subroutine to execute file override commands (`ovg` or `ovz`) for redirecting file access based on `p$fgrp`.
-
-No other external programs are called directly by `BI8903`. The OCL references `BI9002` and `BB800E`, but they are not invoked by this program.
-
----
-
-### **Summary**
-
-The `BI8903` program is a non-interactive RPGLE program that copies ship-to records from a source customer/ship-to to a target customer/ship-to across four files (`shipto`, `arcupr`, `cuadr`, `bbshsa`). It:
-- Initializes with parameters from `BI890P`, sets up key lists, and applies file overrides.
-- Copies records by reading source data, updating keys, and writing to target files, ensuring the target ship-to does not already exist.
-- Enforces business rules for record existence and data integrity.
-- Integrates with the OCL (`BI890.ocl36.txt`) and `BI890P` by using shared files and parameters.
-
-**Tables Used**:
-- `shipto` (`gshipto` or `zshipto`)
-- `arcuprrd`/`arcupr` (`garcupr` or `zarcupr`)
-- `cuadrrd`/`cuadr` (`gcuadr` or `zcuadr`)
-- `bbshsa1rd`/`bbshsa` (`gbbshsa1` or `zbbshsa1`)
-
-**External Programs Called**:
-- `QCMDEXC`
-
-If you need further analysis of specific subroutines, business rules, or interactions with `BI890P` or the OCL, let me know!
+If you need further details or have additional context (e.g., related programs like `BI9002`), please let me know!
