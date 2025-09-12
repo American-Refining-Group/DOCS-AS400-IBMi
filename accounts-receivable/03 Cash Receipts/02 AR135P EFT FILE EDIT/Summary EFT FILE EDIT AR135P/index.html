@@ -12,13 +12,13 @@
         <meta name="author" content="American Refining Group">
       
       
-        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/3.1%20Cash%20Receipts%20Entry%20AR050P/AR050P%20RPGLE/">
+        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/02%20AR135P%20EFT%20FILE%20EDIT/Summary%20EFT%20FILE%20EDIT%20AR135P/">
       
       
-        <link rel="prev" href="../AR050P%20OCL/">
+        <link rel="prev" href="../AR135P%20RPGLE/">
       
       
-        <link rel="next" href="../AR100%20OCL/">
+        <link rel="next" href="../../05%20Cash%20Receipts%20Entry%20AR050P/AR050%20OCL/">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>AR050P RPGLE - ARG AS400 IBMi Documentation</title>
+        <title>Summary EFT FILE EDIT AR135P - ARG AS400 IBMi Documentation</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#process-steps-of-the-ar050p-rpgle-program" class="md-skip">
+        <a href="#use-cases-implemented-by-the-ar135p-program-call-stack" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AR050P RPGLE
+              Summary EFT FILE EDIT AR135P
             
           </span>
         </div>
@@ -6786,7 +6786,7 @@
   
   
   <span class="md-ellipsis">
-    3.1 Cash Receipts Entry AR050P
+    02 AR135P EFT FILE EDIT
     
   </span>
   
@@ -6797,7 +6797,7 @@
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_3_2">
             <span class="md-nav__icon md-icon"></span>
-            3.1 Cash Receipts Entry AR050P
+            02 AR135P EFT FILE EDIT
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -6808,12 +6808,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../AR050%20OCL/" class="md-nav__link">
+      <a href="../AR135%20OCL/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    AR050 OCL
+    AR135 OCL
     
   </span>
   
@@ -6831,12 +6831,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../AR050%20RPGLE/" class="md-nav__link">
+      <a href="../AR135%20RPGLE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    AR050 RPGLE
+    AR135 RPGLE
     
   </span>
   
@@ -6854,12 +6854,81 @@
   
   
     <li class="md-nav__item">
-      <a href="../AR050P%20OCL/" class="md-nav__link">
+      <a href="../AR135A%20OCL%20RPG36/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    AR050P OCL
+    AR135A OCL RPG36
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AR135B%20OCL%20RPG36/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AR135B OCL RPG36
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AR135P%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AR135P OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AR135P%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AR135P RPGLE
     
   </span>
   
@@ -6889,7 +6958,7 @@
   
   
   <span class="md-ellipsis">
-    AR050P RPGLE
+    Summary EFT FILE EDIT AR135P
     
   </span>
   
@@ -6902,7 +6971,7 @@
   
   
   <span class="md-ellipsis">
-    AR050P RPGLE
+    Summary EFT FILE EDIT AR135P
     
   </span>
   
@@ -6923,15 +6992,70 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-ar050p-rpgle-program" class="md-nav__link">
+  <a href="#use-cases-implemented-by-the-ar135p-program-call-stack" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the AR050P RPGLE Program
+      Use Cases Implemented by the AR135P Program Call Stack
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
+  <a href="#function-requirement-document-eft-draft-automation-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Requirement Document: EFT Draft Automation Function
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eft-draft-automation-function-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      EFT Draft Automation Function Requirements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="EFT Draft Automation Function Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inputs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Outputs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Steps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#business-rules" class="md-nav__link">
     <span class="md-ellipsis">
       Business Rules
@@ -6939,31 +7063,36 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#tables-files-used" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#files-used" class="md-nav__link">
     <span class="md-ellipsis">
-      Tables (Files) Used
+      Files Used
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#external-programs-called" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#external-dependencies" class="md-nav__link">
     <span class="md-ellipsis">
-      External Programs Called
+      External Dependencies
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#eft-program-summary-table" class="md-nav__link">
     <span class="md-ellipsis">
-      Summary
+      EFT Program Summary Table
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -6976,6 +7105,54 @@
 
               
             
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_3" id="__nav_3_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    05 Cash Receipts Entry AR050P
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            05 Cash Receipts Entry AR050P
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
               
                 
   
@@ -6983,7 +7160,99 @@
   
   
     <li class="md-nav__item">
-      <a href="../AR100%20OCL/" class="md-nav__link">
+      <a href="../../05%20Cash%20Receipts%20Entry%20AR050P/AR050%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AR050 OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05%20Cash%20Receipts%20Entry%20AR050P/AR050%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AR050 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05%20Cash%20Receipts%20Entry%20AR050P/AR050P%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AR050P OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05%20Cash%20Receipts%20Entry%20AR050P/AR050P%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AR050P RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05%20Cash%20Receipts%20Entry%20AR050P/AR100%20OCL/" class="md-nav__link">
         
   
   
@@ -7006,7 +7275,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../AR100%20RPGLE/" class="md-nav__link">
+      <a href="../../05%20Cash%20Receipts%20Entry%20AR050P/AR100%20RPGLE/" class="md-nav__link">
         
   
   
@@ -7029,7 +7298,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../AR105%20OCL/" class="md-nav__link">
+      <a href="../../05%20Cash%20Receipts%20Entry%20AR050P/AR105%20OCL/" class="md-nav__link">
         
   
   
@@ -7052,7 +7321,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../AR105%20RPG36/" class="md-nav__link">
+      <a href="../../05%20Cash%20Receipts%20Entry%20AR050P/AR105%20RPG36/" class="md-nav__link">
         
   
   
@@ -7075,7 +7344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../AR110%20OCL/" class="md-nav__link">
+      <a href="../../05%20Cash%20Receipts%20Entry%20AR050P/AR110%20OCL/" class="md-nav__link">
         
   
   
@@ -7098,7 +7367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../AR110%20RPG36/" class="md-nav__link">
+      <a href="../../05%20Cash%20Receipts%20Entry%20AR050P/AR110%20RPG36/" class="md-nav__link">
         
   
   
@@ -7121,7 +7390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Summary%20AR050%20Cash%20Receipts/" class="md-nav__link">
+      <a href="../../05%20Cash%20Receipts%20Entry%20AR050P/Summary%20AR050%20Cash%20Receipts/" class="md-nav__link">
         
   
   
@@ -22709,15 +22978,70 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-ar050p-rpgle-program" class="md-nav__link">
+  <a href="#use-cases-implemented-by-the-ar135p-program-call-stack" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the AR050P RPGLE Program
+      Use Cases Implemented by the AR135P Program Call Stack
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
+  <a href="#function-requirement-document-eft-draft-automation-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Requirement Document: EFT Draft Automation Function
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eft-draft-automation-function-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      EFT Draft Automation Function Requirements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="EFT Draft Automation Function Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inputs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Outputs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Steps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#business-rules" class="md-nav__link">
     <span class="md-ellipsis">
       Business Rules
@@ -22725,31 +23049,36 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#tables-files-used" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#files-used" class="md-nav__link">
     <span class="md-ellipsis">
-      Tables (Files) Used
+      Files Used
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#external-programs-called" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#external-dependencies" class="md-nav__link">
     <span class="md-ellipsis">
-      External Programs Called
+      External Dependencies
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#eft-program-summary-table" class="md-nav__link">
     <span class="md-ellipsis">
-      Summary
+      EFT Program Summary Table
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -22772,258 +23101,208 @@
   
 
 
-  <h1>AR050P RPGLE</h1>
-
-<p>The provided document is an RPGLE program named <code>AR050P.rpgle.txt</code>, which is part of a cash receipts entry prompt system for an IBM System/36 or AS/400 environment. This program, converted from RPG II to RPGLE (as indicated by the TARGET/400 conversion comments), is called by the <code>AR050P.ocl36</code> OCL script previously discussed. Below, I’ll explain the process steps, business rules, tables (files) used, and external programs called.</p>
-<h3 id="process-steps-of-the-ar050p-rpgle-program">Process Steps of the AR050P RPGLE Program<a class="headerlink" href="#process-steps-of-the-ar050p-rpgle-program" title="Permanent link">&para;</a></h3>
-<p>The <code>AR050P</code> program is designed to handle the entry and validation of cash receipts data, including General Ledger (GL) account assignments for debit, credit, and discount accounts. It interacts with a workstation display file and several disk files to manage user input and validate GL accounts. Here’s a step-by-step breakdown of the process:</p>
+<h3 id="use-cases-implemented-by-the-ar135p-program-call-stack">Use Cases Implemented by the AR135P Program Call Stack<a class="headerlink" href="#use-cases-implemented-by-the-ar135p-program-call-stack" title="Permanent link">&para;</a></h3>
+<p>The call stack consists of several programs (<code>AR135P</code>, <code>AR135</code>, <code>AR135B</code>, <code>AR135A</code>, and <code>AR135TC</code>) that collectively implement the Accounts Receivable (AR) Electronic Funds Transfer (EFT) draft automation process. Based on the provided OCL and RPG source files, the primary use case is:</p>
 <ol>
-<li><strong>Program Initialization</strong>:</li>
-<li><strong>Header Specifications</strong>: The program uses <code>DFTACTGRP(*NO)</code> to run in a named activation group and <code>fixnbr(*zoned:*inputpacked)</code> to handle numeric data formats. The default program name is set to <code>AR050P</code>.</li>
-<li>
-<p><strong>Initialization Subroutine (<code>*inzsr</code>)</strong>:</p>
-<ul>
-<li>Initializes <code>glco</code> (GL company number) and <code>glacct</code> (GL account number) to zero.</li>
+<li><strong>EFT Draft Automation for Accounts Receivable</strong>:</li>
+<li><strong>Description</strong>: This use case automates the processing of EFT transactions for AR, allowing users to enter and validate cash receipt transactions, update transaction records with relevant dates, and generate a pre-upload report for bank submission (e.g., to PNC). It includes input validation, transaction processing, and reporting to ensure accurate and compliant EFT draft processing.</li>
+<li><strong>Components</strong>:<ul>
+<li><code>AR135P</code>: Captures and validates initial parameters (company number and bank upload date).</li>
+<li><code>AR135</code>: Provides an interactive interface for entering and updating EFT transaction details.</li>
+<li><code>AR135B</code>: Updates transaction records with select and update dates.</li>
+<li><code>AR135A</code>: Generates a detailed report of EFT transactions for verification before bank upload.</li>
+<li><code>AR135TC</code>: Validates the existence of the EFT transaction file.</li>
 </ul>
 </li>
-<li>
-<p><strong>Workstation File Processing</strong>:</p>
-</li>
-<li>The program reads the workstation file <code>ar050pd</code> (display file) to handle user input.</li>
-<li><strong>Logic for <code>qsctl</code> (control field)</strong>:<ul>
-<li>If <code>qsctl</code> is blank:</li>
-<li>Sets indicator <code>*in09</code> to <code>1</code> (indicating first-time processing).</li>
-<li>Sets indicator <code>*in01</code> to <code>0</code>.</li>
-<li>Sets <code>qsctl</code> to <code>R</code> (read mode).</li>
-<li>Otherwise:</li>
-<li>Sets <code>*in09</code> to <code>0</code>.</li>
-<li>Sets <code>*in01</code> to <code>1</code>.</li>
-<li>Reads the <code>ar050pfm</code> format from the display file.</li>
-<li>If the last record is read (<code>lr</code> indicator), the program terminates (<code>return</code>).</li>
-</ul>
-</li>
-<li>
-<p>Clears indicator <code>*in21</code> (used for screen redisplay).</p>
-</li>
-<li>
-<p><strong>Main Processing Loop (<code>kg</code> Do Loop)</strong>:</p>
-</li>
-<li>Sets indicator <code>*inu1</code> (likely a control indicator for user interaction).</li>
-<li>Attempts to chain (retrieve) a record from the <code>crgldf</code> file using key <code>'00000'</code>.</li>
-<li>Writes or updates the <code>crgldf</code> file (<code>gldflt</code> exception output).</li>
-<li>Sets <code>*inlr</code> (last record indicator) and exits to the <code>end</code> tag.</li>
-<li>
-<p>If the chain fails, proceeds to further processing.</p>
-</li>
-<li>
-<p><strong>Conditional Subroutine Execution</strong>:</p>
-</li>
-<li>If <code>*in01</code> is on (subsequent screen read), executes the <code>s1edt</code> subroutine (screen edit).</li>
-<li>
-<p>If <code>*in09</code> is on (first-time processing), executes the <code>onetim</code> subroutine (initial setup).</p>
-</li>
-<li>
-<p><strong>Screen Edit Subroutine (<code>s1edt</code>)</strong>:</p>
-</li>
-<li><strong>Input Validation</strong>:<ul>
-<li>Clears <code>*in50</code> (error indicator) and <code>msgout</code> (error message field).</li>
-<li>Validates the <code>select</code> field (user selection, expected to be 1 or 2):</li>
-<li>If <code>select</code> is not 1 or 2, sets <code>*in21</code> and <code>*in50</code>, displays error message <code>msg(1)</code> ("SELECTION INVALID"), and jumps to <code>endedt</code>.</li>
-</ul>
-</li>
-<li><strong>Default Company Values</strong>:<ul>
-<li>Copies <code>drco</code> (debit company) to <code>crco</code> (credit company) and <code>dsco</code> (discount company).</li>
-<li>Chains to <code>arcont</code> using <code>drco</code> to retrieve default GL accounts:</li>
-<li>If <code>drgl</code> (debit GL account) is zero, sets it to <code>accsgl</code> (cash GL account from <code>arcont</code>).</li>
-<li>If <code>crgl</code> (credit GL account) is zero and <code>crco</code> equals <code>drco</code>, sets <code>crgl</code> to <code>acargl</code> (AR GL account from <code>arcont</code>).</li>
-<li>If <code>dsgl</code> (discount GL account) is zero and <code>dsco</code> equals <code>drco</code>, sets <code>dsgl</code> to <code>acdsgl</code> (discount GL account from <code>arcont</code>).</li>
-</ul>
-</li>
-<li>Executes the <code>subrgl</code> subroutine to validate GL accounts.</li>
-<li>If <code>*in50</code> is on (error during GL validation), jumps to <code>endedt</code>.</li>
-<li><strong>Screen Redisplay Check</strong>:<ul>
-<li>Compares saved GL accounts (<code>svdrgl</code>, <code>svcrgl</code>, <code>svdsgl</code>) with current values (<code>drgl</code>, <code>crgl</code>, <code>dsgl</code>).</li>
-<li>If any differ (<code>*in99</code> off), updates <code>crgldf</code> with new values and jumps to <code>endedt</code>.</li>
-<li>Updates saved values (<code>svdrgl</code>, <code>svcrgl</code>, <code>svdsgl</code>) with current GL accounts.</li>
-</ul>
-</li>
-<li>
-<p>Sets <code>*in21</code> to trigger screen redisplay.</p>
-</li>
-<li>
-<p><strong>One-Time Setup Subroutine (<code>onetim</code>)</strong>:</p>
-</li>
-<li>Sets <code>select</code> to 1 and <code>z5</code> (a counter or temporary field) to zero.</li>
-<li>Sets <code>*in21</code> for screen display.</li>
-<li>Attempts to chain to <code>crgldf</code> with key <code>'00000'</code>:<ul>
-<li>If successful (<code>*in90</code> off), loads existing values from <code>crgldf</code> into <code>drco</code>, <code>drgl</code>, <code>crco</code>, <code>crgl</code>, <code>dsco</code>, <code>dsgl</code>, and their saved counterparts.</li>
-<li>If unsuccessful, chains to <code>arcont</code> with key <code>'01'</code> to load default values:</li>
-<li>Sets <code>drgl</code> to <code>accsgl</code> if zero.</li>
-<li>Sets <code>crgl</code> to <code>acargl</code> if zero.</li>
-<li>Sets <code>dsgl</code> to <code>acdsgl</code> if zero.</li>
-<li>Sets <code>drco</code>, <code>crco</code>, <code>dsco</code> to <code>01</code> if zero.</li>
-</ul>
-</li>
-<li>
-<p>Executes <code>subrgl</code> to validate GL accounts.</p>
-</li>
-<li>
-<p><strong>GL Account Validation Subroutine (<code>subrgl</code>)</strong>:</p>
-</li>
-<li>Validates debit, credit, and discount GL accounts against the <code>glmast</code> file:<ul>
-<li>For <code>drgl</code>:</li>
-<li>Constructs <code>glkey</code> using <code>drco</code> and <code>drgl</code> with <code>gltype = 'C'</code>.</li>
-<li>Chains to <code>glmast</code> using <code>glkey</code>.</li>
-<li>Checks if the account is not found (<code>*in38</code> on) or marked as deleted (<code>gldel = 'D'</code>) or inactive (<code>gldel = 'I'</code>).</li>
-<li>If valid, sets <code>drdesc</code> to <code>gldesc</code> (account description).</li>
-<li>If invalid, sets <code>*in21</code> and <code>*in50</code>, displays <code>msg(2)</code> ("INVALID DR G/L ACCOUNT"), and jumps to <code>endgl</code>.</li>
-<li>For <code>crgl</code>:</li>
-<li>Similar process using <code>crco</code> and <code>crgl</code>, with error message <code>msg(3)</code> ("INVALID CR G/L ACCOUNT") and indicator <code>*in39</code>.</li>
-<li>For <code>dsgl</code>:</li>
-<li>Similar process using <code>dsco</code> and <code>dsgl</code>, with error message <code>msg(4)</code> ("INVALID DISCOUNT ACCT") and indicator <code>*in43</code>.</li>
-</ul>
-</li>
-<li>
-<p>If all validations pass, the subroutine completes without errors.</p>
-</li>
-<li>
-<p><strong>Output to Files</strong>:</p>
-</li>
-<li><strong>Display File (<code>ar050pfm</code>)</strong>:<ul>
-<li>If <code>*in21</code> is on, writes the <code>ar050pfm</code> format to the screen, displaying fields like <code>select</code>, <code>drco</code>, <code>drgl</code>, <code>drdesc</code>, <code>crco</code>, <code>crgl</code>, <code>crdesc</code>, <code>dsco</code>, <code>dsgl</code>, <code>dsdesc</code>, and <code>msgout</code> (error message).</li>
-</ul>
-</li>
-<li>
-<p><strong>Disk File (<code>crgldf</code>)</strong>:</p>
-<ul>
-<li>If <code>*in90</code> is on (no existing record), adds a new record to <code>crgldf</code> with fields <code>z5</code>, <code>drco</code>, <code>drgl</code>, <code>crco</code>, <code>crgl</code>, <code>dsco</code>, <code>dsgl</code>.</li>
-<li>If <code>*in90</code> is off (existing record), updates the record with the same fields.</li>
-</ul>
-</li>
-<li>
-<p><strong>Program Termination</strong>:</p>
-</li>
-<li>If <code>*in21</code> is off, sets <code>*inLR</code> to terminate the program.</li>
-<li>The program loops back to read the next user input unless terminated.</li>
 </ol>
-<h3 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
-<p>The program enforces the following business rules for cash receipts entry:</p>
+<p>This is the primary use case, as the programs are tightly integrated to support the EFT process from parameter input to final reporting. No additional distinct use cases are evident, as the programs focus on a single cohesive workflow.</p>
+<hr />
+<h3 id="function-requirement-document-eft-draft-automation-function">Function Requirement Document: EFT Draft Automation Function<a class="headerlink" href="#function-requirement-document-eft-draft-automation-function" title="Permanent link">&para;</a></h3>
+<p><xaiArtifact artifact_id="114f337f-1e2d-4665-8fa4-3cc80eb2ae20" artifact_version_id="94e4fc4e-2643-4d9c-bbdb-1607ccb0b37c" title="EFT_Draft_Automation_Requirements.md" contentType="text/markdown"></p>
+<h1 id="eft-draft-automation-function-requirements">EFT Draft Automation Function Requirements<a class="headerlink" href="#eft-draft-automation-function-requirements" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>The EFT Draft Automation function processes Accounts Receivable (AR) Electronic Funds Transfer (EFT) transactions for customer payments, validating inputs, updating transaction records, and generating a pre-upload report for bank submission. It replaces interactive screen inputs with programmatic inputs to streamline the process.</p>
+<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Company Number (KYCO)</strong>: 2-digit numeric, identifies the company.</li>
+<li><strong>Bank Upload Date (KYUPDT)</strong>: 6-digit numeric (MMDDYY), date for EFT submission.</li>
+<li><strong>Test/Production Flag (TSTPRD)</strong>: 1-character, indicates environment (e.g., 'P' for production).</li>
+<li><strong>Transaction Data</strong>:</li>
+<li>Sequence Number (ATSEQ#): 5-digit numeric, unique transaction identifier.</li>
+<li>Customer Number (ATCUST): 6-digit numeric, identifies the customer.</li>
+<li>Invoice Number (ATINV#): 7-digit numeric, identifies the invoice (blank for misc cash).</li>
+<li>Amount (ATAMT): 10-digit packed decimal (2 decimals), transaction amount.</li>
+<li>Discount (ATDISC): 7-digit packed decimal (2 decimals), discount amount.</li>
+<li>Type (ATTYPE): 1-character, 'P' for cash receipt or misc cash.</li>
+<li>Transaction Date (ATDATE): 6-digit numeric (MMDDYY), date of transaction.</li>
+<li>Due Date (ATDUDT): 6-digit numeric (MMDDYY), invoice due date.</li>
+<li>Terms (ATTERM): 2-digit numeric, payment terms code.</li>
+<li>Credit G/L Account (ATGLCR): 8-digit numeric, G/L account for credit.</li>
+<li>Debit G/L Account (ATGLDR): 8-digit numeric, G/L account for debit.</li>
+<li>Discount Company (ATCODI): 2-digit numeric, company for discount.</li>
+<li>Discount G/L Account (ATGLDI): 8-digit numeric, G/L account for discount.</li>
+<li>Credit Company (ATCOCR): 2-digit numeric, intercompany credit.</li>
+<li>Debit Company (ATCODR): 2-digit numeric, intercompany debit.</li>
+<li>Notification of Difference (ATNOD): 1-character, 'Y' or blank.</li>
+<li><strong>Select Date (KYSEDT)</strong>: 6-digit numeric (MMDDYY), date transactions are selected for EFT.</li>
+</ul>
+<h2 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Updated Transaction File (CRTRAN)</strong>: Updated with transaction details and dates (KYUPDT, KYSEDT).</li>
+<li><strong>EFT Pre-Upload Report (LIST3)</strong>: Printed report with headers, transaction details, and totals (invoice amount, discount, EFT amount).</li>
+<li><strong>Status Code</strong>: Indicates success or error with error messages (e.g., "INVALID COMPANY #").</li>
+</ul>
+<h2 id="process-steps">Process Steps<a class="headerlink" href="#process-steps" title="Permanent link">&para;</a></h2>
 <ol>
-<li><strong>Selection Validation</strong>:</li>
+<li><strong>Validate Inputs</strong>:</li>
+<li>Verify <code>KYCO</code> exists in <code>ARCONT</code> (company master).</li>
+<li>Ensure <code>KYUPDT</code> is non-zero and valid (MMDDYY).</li>
+<li>Check EFT transaction file (<code>GE + TSTPRD + E + KYUPDT</code>) exists via <code>AR135TC</code>.</li>
+<li>Validate <code>ATCUST</code> exists in <code>ARCUST</code> and <code>AREFT = 'Y'</code> (EFT participant).</li>
+<li>Ensure <code>ATINV#</code> is non-blank for non-misc cash (<code>ATTYPE = 'P'</code>).</li>
+<li>Verify <code>ATAMT &gt; 0</code>, <code>ATDISC = 0</code> for misc cash.</li>
+<li>Validate <code>ATGLCR</code>, <code>ATGLDR</code>, <code>ATGLDI</code> exist in <code>GLMAST</code>.</li>
+<li>Confirm <code>ATCOCR</code>, <code>ATCODR</code>, <code>ATCODI</code> are valid companies in <code>ARCONT</code>.</li>
+<li>Check <code>ATDATE</code> and <code>ATDUDT</code> are valid (MMDDYY, accounts for leap years using <code>Y2KCEN</code>, <code>Y2KCMP</code>).</li>
+<li>Ensure <code>ATNOD</code> is 'Y' or blank.</li>
 <li>
-<p>The <code>select</code> field must be either 1 or 2. Any other value triggers an error ("SELECTION INVALID") and redisplays the screen.</p>
+<p>Verify <code>ATSEQ#</code> is unique in <code>CRTRAN</code>.</p>
 </li>
 <li>
-<p><strong>Default GL Account Assignment</strong>:</p>
+<p><strong>Process Transactions</strong>:</p>
 </li>
-<li>If <code>drgl</code>, <code>crgl</code>, or <code>dsgl</code> are zero, the program retrieves default values from the <code>arcont</code> file:<ul>
-<li><code>drgl</code> defaults to <code>accsgl</code> (cash GL account).</li>
-<li><code>crgl</code> defaults to <code>acargl</code> (AR GL account) if <code>crco</code> matches <code>drco</code>.</li>
-<li><code>dsgl</code> defaults to <code>acdsgl</code> (discount GL account) if <code>dsco</code> matches <code>drco</code>.</li>
-</ul>
+<li>Write validated transaction data to <code>CRTRAN</code>, including <code>ATDEL</code> (delete flag, blank unless marked 'D').</li>
+<li>Update <code>ARDETL</code> with payment amounts (<code>ADPAY</code>, <code>ADPART</code>) and terms (<code>ADTERM</code>).</li>
+<li>
+<p>Update <code>CRTRAN</code> with <code>KYUPDT</code> and <code>KYSEDT</code> for selected transactions.</p>
 </li>
 <li>
-<p>Company numbers (<code>drco</code>, <code>crco</code>, <code>dsco</code>) default to <code>01</code> if zero during first-time processing.</p>
+<p><strong>Calculate Totals</strong>:</p>
 </li>
+<li>For each transaction: <code>EFTAMT = ATAMT - ATDISC</code>.</li>
 <li>
-<p><strong>GL Account Validation</strong>:</p>
-</li>
-<li>All GL accounts (<code>drgl</code>, <code>crgl</code>, <code>dsgl</code>) must exist in the <code>glmast</code> file and not be marked as deleted (<code>gldel = 'D'</code>) or inactive (<code>gldel = 'I'</code>).</li>
-<li>
-<p>If any account is invalid, an error message is displayed ("INVALID DR/CR/DISCOUNT G/L ACCOUNT"), and the screen is redisplayed for correction.</p>
-</li>
-<li>
-<p><strong>First-Time vs. Subsequent Processing</strong>:</p>
-</li>
-<li>On first-time execution (<code>*in09</code> on), the program loads default values from <code>arcont</code> or existing values from <code>crgldf</code>.</li>
-<li>
-<p>On subsequent executions (<code>*in01</code> on), it validates user-entered values and updates <code>crgldf</code> if GL accounts change.</p>
-</li>
-<li>
-<p><strong>Screen Redisplay</strong>:</p>
-</li>
-<li>
-<p>The screen is redisplayed if:</p>
+<p>Accumulate totals:</p>
 <ul>
-<li>An invalid selection or GL account is entered.</li>
-<li>GL accounts change from their saved values (<code>svdrgl</code>, <code>svcrgl</code>, <code>svdsgl</code>).</li>
+<li><code>LRIAMT += ATAMT</code> (total invoice amount).</li>
+<li><code>LRDAMT += ATDISC</code> (total discount).</li>
+<li><code>LREAMT += EFTAMT</code> (total EFT amount).</li>
 </ul>
 </li>
 <li>
-<p><strong>Data Persistence</strong>:</p>
-</li>
-<li>Validated GL account data is saved to the <code>crgldf</code> file, either as a new record or an update.</li>
-<li>
-<p>Account descriptions (<code>drdesc</code>, <code>crdesc</code>, <code>dsdesc</code>) are retrieved from <code>glmast</code> for display.</p>
+<p><strong>Generate Report</strong>:</p>
 </li>
 <li>
-<p><strong>Inactive GL Accounts</strong> (per JB01 comment, 08/24/2016):</p>
+<p>Output to <code>LIST3</code>:</p>
+<ul>
+<li><strong>Header</strong>: Company name (<code>ACNAME</code> from <code>ARCONT</code>), report title ("ELECTRONIC FUNDS WORKFILE PRE-UPLOAD TO PNC EDIT REPORT"), contact info, run date/time (<code>SYSDTE</code>, <code>SYSTME</code>), bank upload date (<code>KYUPDT</code>).</li>
+<li><strong>Detail Lines</strong>: For each <code>CRTRAN</code> record (where <code>ATDEL ≠ 'D'</code> and <code>AREFT = 'Y'</code>), print <code>ATSEQ#</code>, <code>ATCUST</code>, <code>ARNAME</code> (from <code>ARCUST</code>), <code>KYSEDT</code>, <code>ATINV#</code>, <code>ATAMT</code>, <code>ATDISC</code>, <code>EFTAMT</code>.</li>
+<li><strong>Totals</strong>: Print <code>LRIAMT</code>, <code>LRDAMT</code>, <code>LREAMT</code>.</li>
+</ul>
 </li>
-<li>Inactive GL accounts (<code>gldel = 'I'</code>) are treated the same as deleted accounts (<code>gldel = 'D'</code>), triggering an error and preventing their use.</li>
+<li>
+<p><strong>Return Status</strong>:</p>
+</li>
+<li>Return success or error with messages (e.g., "INVALID CUSTOMER NUMBER", "FILE WITH DATE SELECTED DOES NOT EXIST").</li>
 </ol>
-<h3 id="tables-files-used">Tables (Files) Used<a class="headerlink" href="#tables-files-used" title="Permanent link">&para;</a></h3>
-<p>The program interacts with the following files:
-1. <strong>ar050pd</strong>:
-   - Type: Workstation (display) file.
-   - Format: <code>ar050pfm</code>.
-   - Usage: Input/output for user interaction, displaying fields like <code>select</code>, <code>drco</code>, <code>drgl</code>, <code>drdesc</code>, <code>crco</code>, <code>crgl</code>, <code>crdesc</code>, <code>dsco</code>, <code>dsgl</code>, <code>dsdesc</code>, and <code>msgout</code>.
-   - Handler: Uses <code>PROFOUNDUI(HANDLER)</code> for modern UI integration.</p>
-<ol>
-<li><strong>arcont</strong>:</li>
-<li>Type: Input file (<code>if</code>), disk-based.</li>
-<li>Record Length: 256 bytes.</li>
-<li>Key: 2-byte company number (keyloc(2)).</li>
-<li>Fields Used:<ul>
-<li><code>acargl</code> (positions 38-45): Accounts Receivable GL account number.</li>
-<li><code>acdsgl</code> (positions 54-61): Discount GL account number.</li>
-<li><code>accsgl</code> (positions 62-69): Cash GL account number.</li>
+<h2 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Validation</strong>:</li>
+<li>Company (<code>KYCO</code>), customer (<code>ATCUST</code>), and G/L accounts must exist in respective files (<code>ARCONT</code>, <code>ARCUST</code>, <code>GLMAST</code>).</li>
+<li>Bank upload date (<code>KYUPDT</code>) and transaction file must be valid.</li>
+<li>Invoice number (<code>ATINV#</code>) required for non-misc cash; misc cash cannot have discounts.</li>
+<li>Dates (<code>ATDATE</code>, <code>ATDUDT</code>, <code>KYUPDT</code>, <code>KYSEDT</code>) must be valid MMDDYY, with Y2K compliance.</li>
+<li><code>ATNOD</code> restricted to 'Y' or blank.</li>
+<li>
+<p>Sequence numbers (<code>ATSEQ#</code>) must be unique in <code>CRTRAN</code>.</p>
+</li>
+<li>
+<p><strong>EFT Eligibility</strong>:</p>
+</li>
+<li>Only customers with <code>AREFT = 'Y'</code> in <code>ARCUST</code> are processed.</li>
+<li>
+<p>Transactions marked deleted (<code>ATDEL = 'D'</code>) are excluded from reporting.</p>
+</li>
+<li>
+<p><strong>Calculations</strong>:</p>
+</li>
+<li>EFT amount: <code>EFTAMT = ATAMT - ATDISC</code>.</li>
+<li>
+<p>Totals: Sum <code>ATAMT</code>, <code>ATDISC</code>, and <code>EFTAMT</code> across transactions.</p>
+</li>
+<li>
+<p><strong>Environment Flexibility</strong>:</p>
+</li>
+<li>Supports multiple environments via <code>TSTPRD</code> (e.g., production/test file labels).</li>
+<li>
+<p>File labels use dynamic prefixes (e.g., <code>?9?E?L'110,6'?</code>).</p>
+</li>
+<li>
+<p><strong>Data Integrity</strong>:</p>
+</li>
+<li>Updates <code>CRTRAN</code> and <code>ARDETL</code> only after validation.</li>
+<li>
+<p>Shared file access (<code>DISP-SHR</code>) ensures concurrent processing.</p>
+</li>
+<li>
+<p><strong>Reporting</strong>:</p>
+</li>
+<li>Report includes customer details, transaction data, and totals for bank verification.</li>
+<li>Excludes deleted transactions and non-EFT customers.</li>
 </ul>
-</li>
-<li>
-<p>Usage: Provides default GL account numbers for cash receipts.</p>
-</li>
-<li>
-<p><strong>glmast</strong>:</p>
-</li>
-<li>Type: Input file (<code>if</code>), disk-based.</li>
-<li>Record Length: 256 bytes.</li>
-<li>Key: 11-byte key (company number + account number + type, keyloc(2)).</li>
-<li>Fields Used:<ul>
-<li><code>gldel</code> (position 1): Deletion/inactive flag (<code>'D'</code> for deleted, <code>'I'</code> for inactive).</li>
-<li><code>gldesc</code> (positions 13-37): GL account description.</li>
+<h2 id="files-used">Files Used<a class="headerlink" href="#files-used" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>ARCONT</strong>: Validates company number, provides company name (<code>ACNAME</code>), G/L accounts.</li>
+<li><strong>GSCONT</strong>: Provides default company number (<code>GXCONO</code>).</li>
+<li><strong>CRTRAN</strong>: Stores EFT transactions; updated with dates and details.</li>
+<li><strong>CRTRANR</strong>: Reference transaction file for reads/comparisons.</li>
+<li><strong>ARCUST</strong>: Validates customers, provides name (<code>ARNAME</code>), EFT flag (<code>AREFT</code>).</li>
+<li><strong>ARCUSTX</strong>: Customer index for name/address lookup.</li>
+<li><strong>GLMAST</strong>: Validates G/L accounts (<code>ATGLCR</code>, <code>ATGLDR</code>, <code>ATGLDI</code>).</li>
+<li><strong>ARDETL</strong>: Updates payment details (<code>ADPAY</code>, <code>ADPART</code>, <code>ADTERM</code>).</li>
+<li><strong>LIST3</strong>: Output printer file for EFT report.</li>
 </ul>
-</li>
-<li>
-<p>Usage: Validates GL accounts and retrieves descriptions.</p>
-</li>
-<li>
-<p><strong>crgldf</strong>:</p>
-</li>
-<li>Type: Update file (<code>uf a</code>), disk-based, allows additions.</li>
-<li>Record Length: 48 bytes.</li>
-<li>Key: 5-byte key (keyloc(2)).</li>
-<li>Fields Used:<ul>
-<li><code>cgdrco</code> (positions 7-8): Debit company number.</li>
-<li><code>cgdrgl</code> (positions 9-16): Debit GL account number.</li>
-<li><code>cgcrco</code> (positions 17-18): Credit company number.</li>
-<li><code>cgcrgl</code> (positions 19-26): Credit GL account number.</li>
-<li><code>cgdsco</code> (positions 27-28): Discount company number.</li>
-<li><code>cgdsgl</code> (positions 29-36): Discount GL account number.</li>
+<h2 id="external-dependencies">External Dependencies<a class="headerlink" href="#external-dependencies" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>AR135TC</strong>: Validates EFT transaction file existence, returns status ('N' for not found).</li>
 </ul>
-</li>
-<li>Usage: Stores validated GL account assignments for cash receipts.</li>
-</ol>
-<h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
-<p>The <code>AR050P</code> RPGLE program does not explicitly call any external programs. It is a standalone program that handles user input, validates data, and updates files within its own logic. It is invoked by the <code>AR050P.ocl36</code> script, which may call other programs (<code>AR050</code>, <code>AR100</code>, <code>AR105</code>, <code>AR110</code>, <code>GSGENIEC</code>, <code>SCPROCP</code>), but <code>AR050P</code> itself does not initiate calls to other programs.</p>
-<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
-<p>The <code>AR050P</code> RPGLE program is a cash receipts entry prompt that:
-- Facilitates user input via a workstation display file (<code>ar050pd</code>).
-- Validates user-entered or default GL accounts (debit, credit, discount) against the <code>glmast</code> file, ensuring they are not deleted or inactive.
-- Retrieves default GL accounts from <code>arcont</code> for first-time processing or when fields are zero.
-- Saves validated data to <code>crgldf</code> and updates the display with account descriptions or error messages.
-- Enforces business rules such as valid selection values, GL account validation, and default company assignments.
-- Handles first-time and subsequent processing differently, with screen redisplay for errors or changes.</p>
-<p>The program is tightly integrated with the OCL script, which manages the broader cash receipts workflow, while <code>AR050P</code> focuses on user interaction and GL account validation.</p>
+<p></xaiArtifact></p>
+<h2 id="eft-program-summary-table">EFT Program Summary Table<a class="headerlink" href="#eft-program-summary-table" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Program Name</th>
+<th>Purpose</th>
+<th>Tables/Files Used</th>
+<th>Outputs/Side Effects</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AR135P</strong></td>
+<td>Validates initial EFT parameters (company and bank upload date) via interactive screen.</td>
+<td><code>ARCONT</code>, <code>GSCONT</code>, <code>AR135PD</code> (workstation)</td>
+<td>Displays validation errors on <code>AR135PD</code>; no direct table updates; calls <code>AR135TC</code> for file validation.</td>
+</tr>
+<tr>
+<td><strong>AR135</strong></td>
+<td>Provides an interactive interface for entering and updating EFT transaction details.</td>
+<td><code>AR135FM</code> (workstation), <code>CRTRAN</code>, <code>CRTRANR</code>, <code>ARCUST</code>, <code>ARCUSTX</code>, <code>ARCONT</code>, <code>GLMAST</code>, <code>ARDETL</code></td>
+<td>Updates <code>CRTRAN</code> with new/updated transactions; updates <code>ARDETL</code> with payment details (<code>ADPAY</code>, <code>ADPART</code>); displays transaction data and errors on <code>AR135FM</code>.</td>
+</tr>
+<tr>
+<td><strong>AR135B</strong></td>
+<td>Updates EFT transaction records with select and update dates.</td>
+<td><code>CRTRAN</code></td>
+<td>Updates <code>CRTRAN</code> with <code>KYUPDT</code> (positions 228-233) and <code>KYSEDT</code> (positions 234-239).</td>
+</tr>
+<tr>
+<td><strong>AR135A</strong></td>
+<td>Generates a pre-upload EFT report for bank submission verification.</td>
+<td><code>CRTRAN</code>, <code>ARCUST</code>, <code>ARCONT</code>, <code>LIST3</code> (printer)</td>
+<td>Outputs EFT report to <code>LIST3</code> with headers, transaction details, and totals (<code>LRIAMT</code>, <code>LRDAMT</code>, <code>LREAMT</code>); no table updates.</td>
+</tr>
+</tbody>
+</table>
 
 
 

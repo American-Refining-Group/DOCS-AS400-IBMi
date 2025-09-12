@@ -12,13 +12,13 @@
         <meta name="author" content="American Refining Group">
       
       
-        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/3.1%20Cash%20Receipts%20Entry%20AR050P/AR100%20OCL/">
+        <link rel="canonical" href="https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/02%20AR135P%20EFT%20FILE%20EDIT/AR135B%20OCL%20RPG36/">
       
       
-        <link rel="prev" href="../AR050P%20RPGLE/">
+        <link rel="prev" href="../AR135A%20OCL%20RPG36/">
       
       
-        <link rel="next" href="../AR100%20RPGLE/">
+        <link rel="next" href="../AR135P%20OCL/">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>AR100 OCL - ARG AS400 IBMi Documentation</title>
+        <title>AR135B OCL RPG36 - ARG AS400 IBMi Documentation</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#process-steps-of-the-ar100-ocl-program" class="md-skip">
+        <a href="#process-steps-of-the-ar135b-ocl-program" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AR100 OCL
+              AR135B OCL RPG36
             
           </span>
         </div>
@@ -6786,7 +6786,7 @@
   
   
   <span class="md-ellipsis">
-    3.1 Cash Receipts Entry AR050P
+    02 AR135P EFT FILE EDIT
     
   </span>
   
@@ -6797,7 +6797,7 @@
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_3_2">
             <span class="md-nav__icon md-icon"></span>
-            3.1 Cash Receipts Entry AR050P
+            02 AR135P EFT FILE EDIT
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -6808,12 +6808,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../AR050%20OCL/" class="md-nav__link">
+      <a href="../AR135%20OCL/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    AR050 OCL
+    AR135 OCL
     
   </span>
   
@@ -6831,12 +6831,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../AR050%20RPGLE/" class="md-nav__link">
+      <a href="../AR135%20RPGLE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    AR050 RPGLE
+    AR135 RPGLE
     
   </span>
   
@@ -6854,35 +6854,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../AR050P%20OCL/" class="md-nav__link">
+      <a href="../AR135A%20OCL%20RPG36/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    AR050P OCL
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../AR050P%20RPGLE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    AR050P RPGLE
+    AR135A OCL RPG36
     
   </span>
   
@@ -6912,7 +6889,7 @@
   
   
   <span class="md-ellipsis">
-    AR100 OCL
+    AR135B OCL RPG36
     
   </span>
   
@@ -6925,7 +6902,7 @@
   
   
   <span class="md-ellipsis">
-    AR100 OCL
+    AR135B OCL RPG36
     
   </span>
   
@@ -6946,9 +6923,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-ar100-ocl-program" class="md-nav__link">
+  <a href="#process-steps-of-the-ar135b-ocl-program" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the AR100 OCL Program
+      Process Steps of the AR135B OCL Program
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#process-steps-of-the-ar135b-rpg-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Steps of the AR135B RPG Program
     </span>
   </a>
   
@@ -6964,9 +6950,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tables-files-used" class="md-nav__link">
+  <a href="#tablesfiles-used" class="md-nav__link">
     <span class="md-ellipsis">
-      Tables (Files) Used
+      Tables/Files Used
     </span>
   </a>
   
@@ -6974,33 +6960,6 @@
       
         <li class="md-nav__item">
   <a href="#external-programs-called" class="md-nav__link">
-    <span class="md-ellipsis">
-      External Programs Called
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#business-rules_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Business Rules
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tables-files-used_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tables (Files) Used
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#external-programs-called_1" class="md-nav__link">
     <span class="md-ellipsis">
       External Programs Called
     </span>
@@ -7033,7 +6992,239 @@
   
   
     <li class="md-nav__item">
-      <a href="../AR100%20RPGLE/" class="md-nav__link">
+      <a href="../AR135P%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AR135P OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AR135P%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AR135P RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Summary%20EFT%20FILE%20EDIT%20AR135P/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Summary EFT FILE EDIT AR135P
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_3" id="__nav_3_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    05 Cash Receipts Entry AR050P
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            05 Cash Receipts Entry AR050P
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05%20Cash%20Receipts%20Entry%20AR050P/AR050%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AR050 OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05%20Cash%20Receipts%20Entry%20AR050P/AR050%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AR050 RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05%20Cash%20Receipts%20Entry%20AR050P/AR050P%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AR050P OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05%20Cash%20Receipts%20Entry%20AR050P/AR050P%20RPGLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AR050P RPGLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05%20Cash%20Receipts%20Entry%20AR050P/AR100%20OCL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AR100 OCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05%20Cash%20Receipts%20Entry%20AR050P/AR100%20RPGLE/" class="md-nav__link">
         
   
   
@@ -7056,7 +7247,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../AR105%20OCL/" class="md-nav__link">
+      <a href="../../05%20Cash%20Receipts%20Entry%20AR050P/AR105%20OCL/" class="md-nav__link">
         
   
   
@@ -7079,7 +7270,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../AR105%20RPG36/" class="md-nav__link">
+      <a href="../../05%20Cash%20Receipts%20Entry%20AR050P/AR105%20RPG36/" class="md-nav__link">
         
   
   
@@ -7102,7 +7293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../AR110%20OCL/" class="md-nav__link">
+      <a href="../../05%20Cash%20Receipts%20Entry%20AR050P/AR110%20OCL/" class="md-nav__link">
         
   
   
@@ -7125,7 +7316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../AR110%20RPG36/" class="md-nav__link">
+      <a href="../../05%20Cash%20Receipts%20Entry%20AR050P/AR110%20RPG36/" class="md-nav__link">
         
   
   
@@ -7148,7 +7339,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Summary%20AR050%20Cash%20Receipts/" class="md-nav__link">
+      <a href="../../05%20Cash%20Receipts%20Entry%20AR050P/Summary%20AR050%20Cash%20Receipts/" class="md-nav__link">
         
   
   
@@ -22736,9 +22927,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-steps-of-the-ar100-ocl-program" class="md-nav__link">
+  <a href="#process-steps-of-the-ar135b-ocl-program" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Steps of the AR100 OCL Program
+      Process Steps of the AR135B OCL Program
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#process-steps-of-the-ar135b-rpg-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Steps of the AR135B RPG Program
     </span>
   </a>
   
@@ -22754,9 +22954,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tables-files-used" class="md-nav__link">
+  <a href="#tablesfiles-used" class="md-nav__link">
     <span class="md-ellipsis">
-      Tables (Files) Used
+      Tables/Files Used
     </span>
   </a>
   
@@ -22764,33 +22964,6 @@
       
         <li class="md-nav__item">
   <a href="#external-programs-called" class="md-nav__link">
-    <span class="md-ellipsis">
-      External Programs Called
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#business-rules_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Business Rules
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tables-files-used_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tables (Files) Used
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#external-programs-called_1" class="md-nav__link">
     <span class="md-ellipsis">
       External Programs Called
     </span>
@@ -22826,316 +22999,209 @@
   
 
 
-  <h1>AR100 OCL</h1>
+  <h1>AR135B OCL RPG36</h1>
 
-<h3 id="process-steps-of-the-ar100-ocl-program">Process Steps of the AR100 OCL Program<a class="headerlink" href="#process-steps-of-the-ar100-ocl-program" title="Permanent link">&para;</a></h3>
-<p>The <code>AR100.ocl36</code> script is an OCL (Operation Control Language) procedure designed for the IBM System/36 environment to facilitate individual cash receipts entry, allowing users to enter and process single transactions (e.g., a specific payment or check) outside of batch or payment statement modes. It is conditionally invoked from the main OCL script (<code>AR050P.ocl36</code>)—specifically, when the user selection at memory location <code>100,1</code> is <code>2</code>. This script prepares the environment by invoking procedures, ensuring file availability, loading the <code>AR100</code> program, and defining necessary files for execution. Here's a step-by-step breakdown:</p>
+<p>The provided documents include an OCL program (<code>AR135B.ocl36.txt</code>) and an RPG program (<code>AR135B.rpg36.txt</code>) that are part of the Accounts Receivable (AR) Electronic Funds Transfer (EFT) draft automation process. The OCL program loads and runs the RPG program, which processes EFT transaction data to produce a report or update transaction records. Below, I will explain the process steps, business rules, tables used, and external programs called for both the OCL and RPG programs.</p>
+<hr />
+<h3 id="process-steps-of-the-ar135b-ocl-program">Process Steps of the AR135B OCL Program<a class="headerlink" href="#process-steps-of-the-ar135b-ocl-program" title="Permanent link">&para;</a></h3>
+<p>The OCL program (<code>AR135B.ocl36.txt</code>) is a simple script that sets up and executes the <code>AR135B</code> RPG program. Here are the steps:</p>
 <ol>
-<li><strong>Procedure Invocation</strong>:</li>
+<li><strong>Comment Block</strong>:
+   <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>**
+** EFT CUSTOMER(S) ACCCOUNTS RECEIVABLE DUE REPORT
+** PRINTS THE EFT REPORT (ELECTRONIC FUNDS TRANSFER FOR EACH EFT CUSTOMER)
+**
+</code></pre></div></td></tr></table></div></li>
 <li>
-<p><code>// SCPROCP ,,,,,,,,?9?</code>: Calls the <code>SCPROCP</code> procedure (a standard System/36 setup routine, likely for session or process initialization, such as allocating resources or setting up the local data area). It passes the parameter <code>?9?</code> (a substitution variable, typically representing the workstation or session identifier, e.g., library prefix like <code>LIB</code> or user-specific value). This step ensures the environment is ready for transaction processing and references the individual entry transaction file <code>?9?CRIE?WS?</code> (where <code>?WS?</code> is replaced by <code>GG</code> for Atrium compatibility).</p>
-</li>
-<li>
-<p><strong>Year 2000 Compliance</strong>:</p>
-</li>
-<li>
-<p><code>// GSY2K</code>: Executes the <code>GSY2K</code> utility, a standard System/36 routine to handle Year 2000 date compliance. This ensures any date fields in the transaction processing are interpreted correctly (e.g., converting 2-digit years to 4-digit format to avoid millennium bugs).</p>
-</li>
-<li>
-<p><strong>Switch Initialization</strong>:</p>
-</li>
-<li>
-<p><code>// SWITCH 1XXXXXXX</code>: Sets the switch register (an 8-bit control flag used for conditional logic in System/36 programs). The first bit is set to <code>1</code> (enabling a specific mode, such as allowing updates or a particular processing path), while the remaining bits (<code>XXXXXXX</code>) are left undefined (retaining previous values). This prepares the environment for the <code>AR100</code> program's execution.</p>
+<p>This describes the purpose: generating a report for EFT customers’ Accounts Receivable due amounts, likely listing transactions or summaries for EFT processing.</p>
 </li>
 <li>
-<p><strong>File Build Operation</strong>:</p>
+<p><strong>Load Program <code>AR135B</code></strong>:
+   <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>// LOAD AR135B
+</code></pre></div></td></tr></table></div></p>
 </li>
 <li>
-<p><code>// IFF DATAF1-?9?CRIEGG BLDFILE ?9?CRIEGG,A,RECORDS,5000,256,,P,2,5</code>:</p>
-<ul>
-<li>Checks if the file <code>?9?CRIEGG</code> (individual entry transaction file, with <code>GG</code> suffix for Atrium) exists using <code>DATAF1</code> (a System/36 file existence check).</li>
-<li>If it exists, rebuilds the file using <code>BLDFILE</code>:</li>
-<li><code>A</code>: Add mode (allows appending records).</li>
-<li><code>RECORDS,5000</code>: Allocates space for up to 5,000 records.</li>
-<li><code>256</code>: Each record is 256 bytes long.</li>
-<li><code>,,P</code>: Packed decimal format for numerics (the two commas are placeholders for optional parameters like blocking factor and record length type).</li>
-<li><code>2,5</code>: Primary key starts at position 2 with length 5 (likely a transaction or customer key).</li>
-<li>This ensures the transaction file is available and properly structured for storing individual cash receipts data.</li>
-</ul>
+<p>Loads the <code>AR135B</code> RPG program into memory for execution.</p>
 </li>
 <li>
-<p><strong>Program Load and File Definitions</strong>:</p>
+<p><strong>Define File <code>CRTRAN</code></strong>:
+   <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>// FILE NAME-CRTRAN,LABEL-?9?E?L&#39;110,6&#39;?,DISP-SHR
+</code></pre></div></td></tr></table></div></p>
 </li>
-<li><code>// LOAD AR100</code>: Loads the <code>AR100</code> RPG program, which handles the core logic for individual entry (e.g., customer lookup, transaction input, GL validation, and posting).</li>
-<li>Defines the following files for the program, all in shared mode (<code>DISP-SHR</code>) to allow concurrent access:<ul>
-<li><code>// FILE NAME-CRTRAN,LABEL-?9?CRIEGG,DISP-SHR,EXTEND-100</code>: Transaction file alias <code>CRTRAN</code>, labeled as <code>?9?CRIEGG</code>, extended by 100 records for additional capacity.</li>
-<li><code>// FILE NAME-CRTRANR,LABEL-?9?CRIEGG,DISP-SHR</code>: Read-only alias <code>CRTRANR</code> for the same transaction file.</li>
-<li><code>// FILE NAME-ARCUST,LABEL-?9?ARCUST,DISP-SHR</code>: Customer master file.</li>
-<li><code>// FILE NAME-ARCUSTX,LABEL-?9?ARCUSX,DISP-SHR</code>: Alternate index for customer master.</li>
-<li><code>// FILE NAME-GLMAST,LABEL-?9?GLMAST,DISP-SHR</code>: General Ledger master file.</li>
-<li><code>// FILE NAME-ARCONT,LABEL-?9?ARCONT,DISP-SHR</code>: Accounts Receivable control file.</li>
-<li><code>// FILE NAME-ARDETL,LABEL-?9?ARDETL,DISP-SHR</code>: AR detail file (e.g., for invoice lookups).</li>
-</ul>
+<li>Specifies the <code>CRTRAN</code> file with a dynamic label (<code>?9?E?L'110,6'?</code>, e.g., <code>PRODE123456</code> if <code>?9?</code> is <code>PROD</code> and <code>?L'110,6'?</code> is <code>123456</code>).</li>
+<li><code>DISP-SHR</code> indicates shared access, allowing concurrent use by other programs or jobs.</li>
+<li>
+<p><code>CRTRAN</code> is the EFT transaction workfile containing transaction details.</p>
 </li>
 <li>
-<p><code>// RUN</code>: Executes the <code>AR100</code> program with the defined files, allowing it to process individual cash receipts entries interactively.</p>
+<p><strong>Run the Program</strong>:
+   <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>// RUN
+</code></pre></div></td></tr></table></div></p>
 </li>
-<li>
-<p><strong>Switch Reset</strong>:</p>
-</li>
-<li><code>// SWITCH 0XXXXXXX</code>: Resets the first bit of the switch register to <code>0</code> (disabling the mode set earlier) after the program runs. The remaining bits remain undefined. This cleans up the environment, ensuring no lingering flags affect subsequent processing.</li>
+<li>Executes the loaded <code>AR135B</code> RPG program, which processes the <code>CRTRAN</code> file to generate the EFT report or update records.</li>
 </ol>
+<hr />
+<h3 id="process-steps-of-the-ar135b-rpg-program">Process Steps of the AR135B RPG Program<a class="headerlink" href="#process-steps-of-the-ar135b-rpg-program" title="Permanent link">&para;</a></h3>
+<p>The <code>AR135B</code> RPG program is a System/36-style fixed-format RPG program designed to process EFT transactions and update the <code>CRTRAN</code> file with date fields. It operates on the <code>CRTRAN</code> file and uses data from the User Data Structure (UDS) for control parameters. Here’s a step-by-step breakdown of the RPG program’s logic:</p>
+<ol>
+<li><strong>File and Data Definitions</strong>:</li>
+<li><strong>Files</strong>:<ul>
+<li><code>CRTRAN</code> is defined as an update file (<code>UP</code>) with a record length of 256 bytes, keyed on position 2 (likely company and customer or sequence).</li>
+</ul>
+</li>
+<li><strong>Input Specifications</strong>:<ul>
+<li>Defines fields in <code>CRTRAN</code> such as <code>ATDEL</code> (delete flag), <code>ATCO</code> (company), <code>ATCUST</code> (customer), <code>ATINV#</code> (invoice), <code>ATAMT</code> (amount), <code>ATDISC</code> (discount), <code>ATTYPE</code> (type), <code>ATDATE</code> (date), <code>ATGLCR</code> (credit G/L), <code>ATGLDR</code> (debit G/L), <code>ATDESC</code> (description), <code>ATDUDT</code> (due date), <code>ATTERM</code> (terms), <code>ATCODI</code> (discount company), <code>ATGLDI</code> (discount G/L), <code>ATCOCR</code> (credit company), <code>ATCODR</code> (debit company), <code>ATNOD</code> (notification of difference), and additional date fields (<code>ADTXCN</code>, <code>ADTXYY</code>, <code>ADTXMM</code>, <code>ADTXDD</code>, <code>ADDUD8</code>, <code>DISCY</code>, <code>DISMD</code>).</li>
+<li><code>KYSEDT</code> (positions 234-239) is a key field for the select date.</li>
+</ul>
+</li>
+<li>
+<p><strong>UDS</strong>:</p>
+<ul>
+<li>Defines control fields: <code>KYCO</code> (company), <code>STATUS</code>, <code>KYUPDT</code> (update date), <code>Y2KCEN</code> (Y2K century), <code>Y2KCMP</code> (Y2K comparison).</li>
+</ul>
+</li>
+<li>
+<p><strong>Main Processing Logic</strong>:</p>
+</li>
+<li>The program operates under a condition (<code>*IN01</code> indicator, likely set by the OCL or system state).</li>
+<li><strong>Conditional Update of Dates</strong>:
+     <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>C   01                DO
+C           KYUPDT    IFNE *ZEROS
+C                     Z-ADDKYUPDT    UPDTSV  60
+C                     END
+C           KYSEDT    IFNE *ZEROS
+C                     Z-ADDKYSEDT    SEDTSV  60
+C                     END
+</code></pre></div></td></tr></table></div><ul>
+<li>Checks if <code>KYUPDT</code> (update date) is non-zero; if so, moves it to <code>UPDTSV</code> (a 6-digit save field).</li>
+<li>Checks if <code>KYSEDT</code> (select date) is non-zero; if so, moves it to <code>SEDTSV</code> (another 6-digit save field).</li>
+</ul>
+</li>
+<li>
+<p><strong>Output Record</strong>:
+     <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>C                     EXCPT
+</code></pre></div></td></tr></table></div></p>
+<ul>
+<li>Writes or updates a record to <code>CRTRAN</code> using the <code>E</code> (exception) output specification.</li>
+</ul>
+</li>
+<li>
+<p><strong>Output Specifications</strong>:
+   <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>OCRTRAN  E
+O                         UPDTSV   233
+O                         SEDTSV   239
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>Updates the <code>CRTRAN</code> file, writing <code>UPDTSV</code> to positions 228-233 and <code>SEDTSV</code> to positions 234-239.</li>
+<li>
+<p>These fields likely represent updated transaction or select dates for EFT processing.</p>
+</li>
+<li>
+<p><strong>Program Termination</strong>:</p>
+</li>
+<li>The program ends after processing the <code>CRTRAN</code> record, returning control to the calling OCL program.</li>
+</ol>
+<p>The program is simple and focused: it reads control data from UDS, updates date fields in <code>CRTRAN</code>, and writes the modified record. It does not interact with a workstation or produce a report directly, despite the OCL comment suggesting a report. The report may be generated by a subsequent program or process (e.g., <code>AR135A</code>).</p>
+<hr />
 <h3 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h3>
-<p>The <code>AR100.ocl36</code> script enforces the following business rules for individual cash receipts entry in the AR system:</p>
+<p>The OCL and RPG programs enforce the following business rules, inferred from their structure and context:</p>
 <ol>
-<li><strong>Conditional Invocation</strong>:</li>
+<li><strong>OCL Program (AR135B.ocl36.txt)</strong>:</li>
+<li><strong>Dynamic File Labeling</strong>: Uses <code>?9?</code> (e.g., <code>PROD</code>) and <code>?L'110,6'?</code> (e.g., <code>123456</code>) for the <code>CRTRAN</code> file label, ensuring flexibility across environments (e.g., production, test).</li>
+<li><strong>Shared Access</strong>: Opens <code>CRTRAN</code> in shared mode (<code>DISP-SHR</code>), allowing concurrent access by other jobs or programs, critical for multi-user EFT processing.</li>
 <li>
-<p>This script is only called from the main OCL (<code>AR050P.ocl36</code>) when the user selects option <code>2</code> (individual entry mode). Option <code>1</code> would invoke the payment statement mode (<code>AR050</code>). This allows users to choose between batch/statement processing and single-transaction entry.</p>
+<p><strong>Report Context</strong>: The comment indicates the program supports an EFT report, but the RPG logic suggests <code>AR135B</code> updates transaction records, likely preparing data for a report generated elsewhere.</p>
 </li>
 <li>
-<p><strong>Environment Adaptation for Atrium</strong>:</p>
+<p><strong>RPG Program (AR135B.rpg36.txt)</strong>:</p>
 </li>
-<li>
-<p>Per the JB01 update (11/28/23), the <code>?WS?</code> placeholder in file names (e.g., <code>?9?CRIE?WS?</code>) is replaced with <code>GG</code> to ensure compatibility with the Atrium environment. This prevents file naming conflicts or access issues in the target system.</p>
+<li><strong>Date Updates</strong>:<ul>
+<li>Updates <code>CRTRAN</code> with <code>KYUPDT</code> (update date) and <code>KYSEDT</code> (select date) from UDS, only if non-zero.</li>
+<li>These dates are critical for EFT processing, possibly marking when transactions were processed or selected for transfer.</li>
+</ul>
 </li>
-<li>
-<p><strong>File Management and Integrity</strong>:</p>
+<li><strong>Conditional Processing</strong>:<ul>
+<li>Only executes if <code>*IN01</code> is on, suggesting control by the OCL caller or system state.</li>
+<li>Checks for non-zero dates to avoid overwriting valid data with blanks.</li>
+</ul>
 </li>
-<li>The transaction file (<code>?9?CRIEGG</code>) must be rebuilt if it exists, ensuring a clean structure with fixed record size (256 bytes) and key (positions 2-6). This supports up to 5,000 transactions with an additional extension of 100 records during runtime, preventing overflow in high-volume sessions.</li>
-<li>
-<p>All files are shared (<code>DISP-SHR</code>), enforcing concurrent access rules for multi-user environments—multiple users can read/write without locking, but the system handles contention via System/36's inherent queuing.</p>
+<li><strong>Data Integrity</strong>:<ul>
+<li>Updates specific fields (<code>UPDTSV</code>, <code>SEDTSV</code>) in <code>CRTRAN</code> without modifying other transaction data (e.g., amount, customer, G/L accounts).</li>
+<li>Ensures accurate date tracking for EFT transactions.</li>
+</ul>
 </li>
-<li>
-<p><strong>Compliance and Setup</strong>:</p>
+<li><strong>EFT Context</strong>:<ul>
+<li>Part of EFT draft automation, likely preparing transaction records for downstream processing (e.g., bank file generation or reporting in <code>AR135A</code>).</li>
+</ul>
 </li>
-<li><code>GSY2K</code> must run before any processing to ensure date fields (e.g., transaction dates) are Y2K-compliant, avoiding errors in date calculations or validations.</li>
-<li>
-<p>Switch settings (<code>1XXXXXXX</code> before load, <code>0XXXXXXX</code> after) control program behavior: Bit 1 enables update/add capabilities during <code>AR100</code> execution and disables them afterward to prevent unintended changes in follow-on processes.</p>
-</li>
-<li>
-<p><strong>Transaction Isolation</strong>:</p>
-</li>
-<li>
-<p>Individual entry uses a dedicated transaction file (<code>CRIEGG</code>), isolating single transactions from batch files (e.g., <code>CRPSGG</code> or <code>CRCKGG</code> in other modes). This rule ensures data separation, reducing errors in posting or reporting.</p>
-</li>
-<li>
-<p><strong>Resource Allocation</strong>:</p>
-</li>
-<li><code>SCPROCP</code> initializes session-specific resources (e.g., local data area, user switches), ensuring the workstation (<code>?9?</code>) has exclusive access to its transaction file during entry.</li>
 </ol>
-<h3 id="tables-files-used">Tables (Files) Used<a class="headerlink" href="#tables-files-used" title="Permanent link">&para;</a></h3>
-<p>The script interacts with or defines the following files (tables), all prefixed with <code>?9?</code> (session/library identifier):
-1. <strong>?9?CRIEGG</strong> (aliased as <code>CRTRAN</code> and <code>CRTRANR</code>):
-   - Type: Transaction work file for individual cash receipts.
-   - Record Length: 256 bytes, up to 5,000 records (extendable by 100).
-   - Key: Positions 2-6 (length 5, likely customer or transaction ID).
-   - Usage: Stores entered transactions; supports add/update in shared mode.</p>
-<ol>
-<li><strong>?9?ARCUST</strong> (aliased as <code>ARCUST</code>):</li>
-<li>Type: Customer master file.</li>
-<li>
-<p>Usage: Lookup customer details during entry.</p>
-</li>
-<li>
-<p><strong>?9?ARCUSX</strong> (aliased as <code>ARCUSTX</code>):</p>
-</li>
-<li>Type: Alternate index for customer master.</li>
-<li>
-<p>Usage: Efficient searching and retrieval of customer records.</p>
-</li>
-<li>
-<p><strong>?9?GLMAST</strong> (aliased as <code>GLMAST</code>):</p>
-</li>
-<li>Type: General Ledger master file.</li>
-<li>
-<p>Usage: Validates GL accounts for transaction posting.</p>
-</li>
-<li>
-<p><strong>?9?ARCONT</strong> (aliased as <code>ARCONT</code>):</p>
-</li>
-<li>Type: AR control file.</li>
-<li>
-<p>Usage: Provides defaults (e.g., GL accounts, company codes) and updates control totals.</p>
-</li>
-<li>
-<p><strong>?9?ARDETL</strong> (aliased as <code>ARDETL</code>):</p>
-</li>
-<li>Type: AR detail file.</li>
-<li>Usage: Retrieves invoice or detail records to apply payments.</li>
-</ol>
-<h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
-<p>The script explicitly calls or loads the following:
-1. <strong>SCPROCP</strong>:
-   - A built-in System/36 procedure for session/process setup (e.g., initializing the local data area or allocating workstation resources). Invoked with parameter <code>?9?</code>.</p>
-<ol>
-<li><strong>GSY2K</strong>:</li>
-<li>
-<p>A standard System/36 utility program for Y2K date compliance.</p>
-</li>
-<li>
-<p><strong>AR100</strong>:</p>
-</li>
-<li>The main RPG program for individual cash receipts entry logic (e.g., screen prompts, validations, posting). Loaded and run with the defined files.</li>
-</ol>
-<p>No other external programs are called; the script focuses on environment preparation and execution of <code>AR100</code>.### Process Steps of the AR100 OCL Program</p>
-<p>The <code>AR100.ocl36</code> script is an OCL (Operation Control Language) procedure designed for the IBM System/36 environment, handling individual cash receipts entry as part of an accounts receivable (AR) system. It is conditionally invoked from the main OCL script (<code>AR050P.ocl36</code>) when the user selection at memory location <code>100,1</code> is <code>2</code> (as per the main script's logic: <code>// IF ?L'100,1'?/2 AR100 ,,,,,,,,?9?</code>). This script prepares the environment for individual transaction entry, creates necessary work files, loads the <code>AR100</code> program, and executes it. The process is tailored for the Atrium environment by replacing workstation identifiers (<code>?WS?</code>) with <code>GG</code> (per the JB01 comment dated 11/28/23). Here's a step-by-step breakdown:</p>
-<ol>
-<li><strong>Procedure Call</strong>:</li>
-<li>
-<p><code>// SCPROCP ,,,,,,,,?9?</code>: Invokes a procedure named <code>SCPROCP</code>, passing the parameter <code>?9?</code> (likely a workstation or session identifier, such as a library prefix). This step performs preliminary setup, such as initializing the session or loading common AR files (e.g., <code>?9?CRIE?WS?</code> as the individual entry transaction file). <code>SCPROCP</code> is a custom or system procedure for processing setup in the AR module.</p>
-</li>
-<li>
-<p><strong>Year 2000 Compliance</strong>:</p>
-</li>
-<li>
-<p><code>// GSY2K</code>: Executes a Year 2000 (Y2K) compliance utility. This ensures date fields in the system are handled correctly (e.g., using 4-digit years to avoid millennium bugs), which is standard in legacy System/36 environments for date-sensitive AR transactions.</p>
-</li>
-<li>
-<p><strong>Switch Initialization</strong>:</p>
-</li>
-<li>
-<p><code>// SWITCH 1XXXXXXX</code>: Sets the first bit of an 8-bit switch register to 1 (enabling a specific processing mode, such as individual entry), while leaving the other bits undefined (<code>X</code>). This controls conditional logic within the loaded program or subsequent procedures.</p>
-</li>
-<li>
-<p><strong>File Build Operation</strong>:</p>
-</li>
-<li>
-<p><code>// IFF DATAF1-?9?CRIEGG BLDFILE ?9?CRIEGG,A,RECORDS,5000,256,,P,2,5</code>: Conditionally checks if the file <code>?9?CRIEGG</code> (individual entry transaction work file, suffixed with <code>GG</code> for Atrium compatibility) exists using <code>DATAF1</code> (a system data flag). If it exists, the <code>BLDFILE</code> command rebuilds or recreates it with the following parameters:</p>
+<hr />
+<h3 id="tablesfiles-used">Tables/Files Used<a class="headerlink" href="#tablesfiles-used" title="Permanent link">&para;</a></h3>
+<p>The programs use the following file:</p>
+<table>
+<thead>
+<tr>
+<th>File Name</th>
+<th>Type</th>
+<th>Record Length</th>
+<th>Key Location</th>
+<th>Usage/Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CRTRAN</strong></td>
+<td>Update File (UP)</td>
+<td>256</td>
+<td>2</td>
+<td>EFT transaction workfile; stores transaction details (company, customer, invoice, amount, discount, type, dates, G/L accounts, description). Updated with <code>UPDTSV</code> (update date) and <code>SEDTSV</code> (select date).</td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li><code>A</code>: Add mode (allows appending records).</li>
-<li><code>RECORDS,5000</code>: Allocates space for up to 5000 records.</li>
-<li><code>256</code>: Each record is 256 bytes long.</li>
-<li><code>,,P</code>: Packed decimal format for numerics (third parameter is likely a placeholder or default).</li>
-<li><code>2,5</code>: Primary key starts at position 2 with a length of 5 bytes.
-   This ensures the work file is ready for temporary storage of individual cash receipt transactions.</li>
+<li><strong>OCL Context</strong>: The file is labeled dynamically (<code>?9?E?L'110,6'?</code>, e.g., <code>PRODE123456</code>) and opened in shared mode (<code>DISP-SHR</code>).</li>
+<li><strong>RPG Context</strong>: The file is defined with fields for transaction data, including dates (<code>ATDATE</code>, <code>ATDUDT</code>, <code>ADDUD8</code>), G/L accounts, and flags (<code>ATDEL</code>, <code>ATNOD</code>).</li>
 </ul>
+<p>No other files are referenced in either program.</p>
+<hr />
+<h3 id="external-programs-called">External Programs Called<a class="headerlink" href="#external-programs-called" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>OCL Program (AR135B.ocl36.txt)</strong>:</li>
+<li>Calls the RPG program <code>AR135B</code> via <code>LOAD</code> and <code>RUN</code>.</li>
+<li>
+<p>No other external programs or procedures are invoked.</p>
 </li>
 <li>
-<p><strong>Program Load and File Definitions</strong>:</p>
+<p><strong>RPG Program (AR135B.rpg36.txt)</strong>:</p>
 </li>
-<li><code>// LOAD AR100</code>: Loads the <code>AR100</code> program, which handles the core logic for individual cash receipts entry (e.g., entering single payments without batch processing).</li>
-<li>Defines multiple files for the program, all in shared mode (<code>DISP-SHR</code>) to allow concurrent access:<ul>
-<li><code>// FILE NAME-CRTRAN,LABEL-?9?CRIEGG,DISP-SHR,EXTEND-100</code>: Maps <code>CRTRAN</code> to the work file <code>?9?CRIEGG</code>, with an extension of 100 additional records for overflow handling.</li>
-<li><code>// FILE NAME-CRTRANR,LABEL-?9?CRIEGG,DISP-SHR</code>: Maps <code>CRTRANR</code> (likely a read-only alias) to the same work file.</li>
-<li><code>// FILE NAME-ARCUST,LABEL-?9?ARCUST,DISP-SHR</code>: Customer master file.</li>
-<li><code>// FILE NAME-ARCUSTX,LABEL-?9?ARCUSX,DISP-SHR</code>: Alternate index for customer master.</li>
-<li><code>// FILE NAME-GLMAST,LABEL-?9?GLMAST,DISP-SHR</code>: General Ledger master file.</li>
-<li><code>// FILE NAME-ARCONT,LABEL-?9?ARCONT,DISP-SHR</code>: AR control file.</li>
-<li><code>// FILE NAME-ARDETL,LABEL-?9?ARDETL,DISP-SHR</code>: AR detail file (e.g., for invoices).</li>
+<li>Does not explicitly call any external programs or procedures (no <code>CALL</code> operations).</li>
+<li>Uses internal exception output (<code>EXCPT</code>) to update <code>CRTRAN</code>.</li>
+<li>Relies on the calling OCL program for setup and control.</li>
 </ul>
-</li>
-<li>
-<p><code>// RUN</code>: Executes the <code>AR100</code> program with the defined files, allowing it to process individual entries interactively.</p>
-</li>
-<li>
-<p><strong>Switch Reset</strong>:</p>
-</li>
-<li><code>// SWITCH 0XXXXXXX</code>: Resets the first bit of the switch register to 0 after program execution, likely to disable the individual entry mode and restore the system to a default state for subsequent processing.</li>
-</ol>
-<h3 id="business-rules_1">Business Rules<a class="headerlink" href="#business-rules_1" title="Permanent link">&para;</a></h3>
-<p>The <code>AR100.ocl36</code> script enforces the following business rules for individual cash receipts entry:</p>
-<ol>
-<li><strong>Conditional Invocation</strong>:</li>
-<li>
-<p>This script is only called from the main OCL (<code>AR050P.ocl36</code>) if the user selects option <code>2</code> (individual entry mode). This distinguishes it from batch or payment statement modes (e.g., option <code>1</code> calls <code>AR050</code>).</p>
-</li>
-<li>
-<p><strong>Workstation and Environment Adaptation</strong>:</p>
-</li>
-<li>Uses the <code>?9?</code> parameter for library/session-specific file naming to support multi-user environments.</li>
-<li>
-<p>Replaces <code>?WS?</code> with <code>GG</code> (per JB01, 11/28/23) to ensure compatibility with the Atrium system, preventing file conflicts in a shared or virtualized setup.</p>
-</li>
-<li>
-<p><strong>File Management and Integrity</strong>:</p>
-</li>
-<li>The work file (<code>?9?CRIEGG</code>) is rebuilt only if it already exists (<code>IFF DATAF1-</code>), ensuring it is clean and properly structured for the session. This prevents data corruption from prior runs.</li>
-<li>Allocates fixed resources: 5000 records of 256 bytes each, with a 5-byte primary key starting at position 2, suitable for transaction data (e.g., customer keys, amounts).</li>
-<li>
-<p><code>EXTEND-100</code> on <code>CRTRAN</code> provides buffer space for unexpected transaction volume, but the fixed allocation promotes efficient resource use in a legacy system.</p>
-</li>
-<li>
-<p><strong>Shared Access and Concurrency</strong>:</p>
-</li>
-<li>
-<p>All files use <code>DISP-SHR</code> (disposition shared), allowing multiple users/sessions to access master files (e.g., <code>ARCUST</code>, <code>GLMAST</code>) simultaneously without locking, which is essential for a multi-user AR system.</p>
-</li>
-<li>
-<p><strong>Y2K Compliance</strong>:</p>
-</li>
-<li>
-<p>Mandatory execution of <code>GSY2K</code> ensures all date-related fields in cash receipts (e.g., payment dates) are processed correctly, avoiding errors in post-2000 operations.</p>
-</li>
-<li>
-<p><strong>Switch Control</strong>:</p>
-</li>
-<li>
-<p>The switch is set to <code>1XXXXXXX</code> before loading to enable individual entry logic in <code>AR100</code> and reset to <code>0XXXXXXX</code> afterward, ensuring mode-specific behavior without affecting other processes.</p>
-</li>
-<li>
-<p><strong>Resource Efficiency</strong>:</p>
-</li>
-<li>No unnecessary file creations; focuses on temporary work files for individual entries, minimizing disk usage compared to batch processing.</li>
-</ol>
-<h3 id="tables-files-used_1">Tables (Files) Used<a class="headerlink" href="#tables-files-used_1" title="Permanent link">&para;</a></h3>
-<p>The script interacts with or defines the following files (tables), prefixed with <code>?9?</code> for session-specific libraries:
-1. <strong>?9?CRIEGG</strong> (aliased as <code>CRTRAN</code> and <code>CRTRANR</code>):
-   - Type: Temporary work file for individual entry transactions.
-   - Record Length: 256 bytes, up to 5000 records (extendable by 100).
-   - Key: 5-byte primary key starting at position 2.
-   - Usage: Stores individual cash receipt data during entry; shared for read/write.</p>
-<ol>
-<li><strong>?9?ARCUST</strong> (aliased as <code>ARCUST</code>):</li>
-<li>Type: Customer master file.</li>
-<li>
-<p>Usage: Provides customer details for validation during entry; shared access.</p>
-</li>
-<li>
-<p><strong>?9?ARCUSX</strong> (aliased as <code>ARCUSTX</code>):</p>
-</li>
-<li>Type: Alternate index file for customer master.</li>
-<li>
-<p>Usage: Enables efficient customer lookups; shared access.</p>
-</li>
-<li>
-<p><strong>?9?GLMAST</strong> (aliased as <code>GLMAST</code>):</p>
-</li>
-<li>Type: General Ledger master file.</li>
-<li>
-<p>Usage: Validates GL accounts for receipts; shared access.</p>
-</li>
-<li>
-<p><strong>?9?ARCONT</strong> (aliased as <code>ARCONT</code>):</p>
-</li>
-<li>Type: AR control file.</li>
-<li>
-<p>Usage: Stores AR system controls (e.g., defaults); shared access.</p>
-</li>
-<li>
-<p><strong>?9?ARDETL</strong> (aliased as <code>ARDETL</code>):</p>
-</li>
-<li>Type: AR detail file.</li>
-<li>Usage: Accesses invoice/transaction details for applying payments; shared access.</li>
-</ol>
-<h3 id="external-programs-called_1">External Programs Called<a class="headerlink" href="#external-programs-called_1" title="Permanent link">&para;</a></h3>
-<p>The script explicitly calls or loads the following:
-1. <strong>SCPROCP</strong>:
-   - Invoked as a procedure with parameter <code>?9?</code>.
-   - Purpose: Preliminary processing setup, likely initializing AR session data or files (e.g., the individual entry transaction file <code>?9?CRIE?WS?</code>).</p>
-<ol>
-<li><strong>GSY2K</strong>:</li>
-<li>A utility program/procedure for Y2K date compliance.</li>
-<li>
-<p>Purpose: Ensures date handling in the AR system is millennium-safe.</p>
-</li>
-<li>
-<p><strong>AR100</strong>:</p>
-</li>
-<li>Loaded and executed via <code>// LOAD AR100</code> and <code>// RUN</code>.</li>
-<li>Purpose: The main RPG program for interactive individual cash receipts entry, using the defined files to process single transactions (e.g., customer selection, amount entry, GL posting).</li>
-</ol>
+<hr />
 <h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
-<p>The <code>AR100.ocl36</code> script supports individual cash receipts entry by setting up a Y2K-compliant environment, building a dedicated work file, and loading the <code>AR100</code> program with shared access to AR and GL master files. It is conditionally triggered for non-batch processing, emphasizing efficiency and concurrency in a multi-user System/36 setup adapted for Atrium. The script's rules focus on data integrity, resource allocation, and mode-specific control via switches, integrating seamlessly with the broader cash receipts workflow from the main OCL.</p>
+<p><strong>OCL Program (<code>AR135B.ocl36.txt</code>)</strong>:
+- <strong>Process Steps</strong>: Loads <code>AR135B</code>, opens <code>CRTRAN</code> with a dynamic label in shared mode, and runs the program.
+- <strong>Business Rules</strong>: Ensures flexible file access across environments and supports concurrent processing. Prepares for an EFT report, though the RPG logic focuses on data updates.
+- <strong>Files Used</strong>: <code>CRTRAN</code>.
+- <strong>External Programs</strong>: Calls <code>AR135B</code>.</p>
+<p><strong>RPG Program (<code>AR135B.rpg36.txt</code>)</strong>:
+- <strong>Process Steps</strong>: Reads control data from UDS, checks and moves non-zero <code>KYUPDT</code> and <code>KYSEDT</code> to save fields, updates <code>CRTRAN</code> with these dates, and writes the record.
+- <strong>Business Rules</strong>: Updates transaction dates for EFT processing, ensuring non-zero values are applied to maintain data integrity. Operates conditionally based on <code>*IN01</code>.
+- <strong>Files Used</strong>: <code>CRTRAN</code>.
+- <strong>External Programs</strong>: None.</p>
+<p>The <code>AR135B</code> programs are a small but critical part of the EFT process, updating transaction dates in <code>CRTRAN</code> to prepare for reporting or further processing (likely by <code>AR135A</code>). The OCL sets up the environment, while the RPG performs targeted updates. If you need details on <code>AR135A</code> or the report output, additional source files would be required.</p>
 
 
 
