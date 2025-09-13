@@ -118,16 +118,153 @@ The `ProcessIndividualCashReceipts` function processes a single cash receipt tra
 </xaiArtifact>
 
 ## Call Stack Program Listing and Purpose
+### Conditional flows based on mode:
+  - **Payment Statement Path**: AR050P.ocl36 → AR050P.rpgle (if GL needed) → AR050.ocl36 → AR050.rpgle → AR105.ocl36 → AR105.rpg36 → AR110.ocl36 → AR110.rpg36.
+  - **Individual Entry Path**: AR050P.ocl36 → AR100.ocl36 → AR100.rpgle → AR110.ocl36 → AR110.rpg36.
+  - **Implied Calls**: AR0501 (by AR050.rpgle for invoice display), AR1101 (by AR110.rpg36 for posting), AR111 (by AR105.ocl36, disabled).
 
-| Program Name       | Main Purpose                                                                 | Brief Description          |
-|--------------------|------------------------------------------------------------------------------|----------------------------|
-| AR050P.ocl36.txt  | Orchestrates the cash receipts prompt process, initializes environment, checks batch status, builds GL distribution files, and conditionally calls payment statement (AR050) or individual entry (AR100) programs. | Cash receipts prompt       |
-| AR050P.rpgle.txt  | Handles cash receipts entry prompt for GL account validation (debit, credit, discount), defaults from AR control, and updates GL distribution file with user input. | GL account validation      |
-| AR050.ocl36.txt   | Sets up payment statement entry environment by building indexes and work files for customers, invoices, and checks, then loads and runs AR050 for batch payment processing. | Payment statement setup    |
-| AR050.rpgle.txt   | Manages interactive payment statement entry, customer/invoice selection, payment code assignment (P/pay, H/hold), amount application, check processing, and validation with error reporting. | Batch payment entry        |
-| AR100.ocl36.txt   | Prepares individual cash receipts entry by initializing switches, building transaction work file, and loading AR100 with shared access to customer, GL, and AR files. | Individual entry setup     |
-| AR100.rpgle.txt   | Provides interactive screen for single cash receipt entry, validates customer/invoice/GL accounts, handles add/update modes, and generates transactions with error messages. | Single receipt entry       |
-| AR110.ocl36.txt   | Edits individual entries by deleting invalid records, sorting transactions, building check work file, and running AR110 for validation and NOD report generation. | Individual entry edit      |
-| AR110.rpg36.txt   | Validates sorted individual transactions against master files (customer, invoice, GL), flags errors, calculates totals, and generates edit and NOD reports for discrepancies. | Transaction validation      |
-| AR105.ocl36.txt   | Edits payment statement entries by validating payments via AR105, sorting and validating payments/adjustments via AR110/AR111, and producing reports with cleanup. | Payment statement edit     |
-| AR105.rpg36.txt   | Processes payment statements from work files, validates checks/invoices, generates payment/unapplied cash/finance charge transactions, and writes to output file for further validation. | Payment processing         |
+| Program Name       | Main Purpose                                                                 | Tables (Files) Used                                                                 | Outputs (Files or Side Effects)                                   |
+|--------------------|------------------------------------------------------------------------------|------------------------------------------------------------------------------------|------------------------------------------------------------------|
+| AR050P.ocl36       | Orchestrates cash receipts mode selection and environment setup.              | ?9?CRSTGG, ?9?GLD1GG                                                               | Calls AR050P.rpgle, AR050.ocl36, or AR100.ocl36; deletes temporary files. |
+| AR050P.rpgle       | Validates GL accounts for cash receipts and updates distribution file.        | ?9?GLD1GG, ?9?GLMAST, ?9?ARCONT                                                    | Updates ?9?GLD1GG; displays errors for correction.                |
+| AR050.ocl36        | Sets up environment for batch payment statement entry.                        | ?9?SA5SHX, ?9?SA5FIND, ?9?CRCKGG, ?9?CRWKGG, ?9?ARCUST, ?9?ARDETL, ?9?ARCONT      | Builds/rebuilds ?9?SA5SHX, ?9?SA5FIND, ?9?CRWKGG, ?9?CRCKGG; calls AR050.rpgle. |
+| AR050.rpgle        | Manages interactive batch payment entry and validation.                       | ?9?SA5SHX, ?9?SA5FIND, ?9?CRWKGG, ?9?CRCKGG, ?9?ARCUST, ?9?ARDETL, ?9?ARCONT      | Writes to ?9?CRWKGG, ?9?CRCKGG; displays errors; calls AR0501 (if F11 pressed). |
+| AR100.ocl36        | Prepares environment for individual cash receipts entry.                      | ?9?CRIEGG, ?9?ARDETL, ?9?ARCUST, ?9?GLMAST, ?9?ARCONT                              | Builds ?9?CRIEGG; calls AR100.rpgle; deletes temporary files.     |
+| AR100.rpgle        | Handles interactive entry of single cash receipts with validation.            | ?9?ar100d, ?9?CRIEGG, ?9?ARDETL, ?9?ARCUST, ?9?GLMAST, ?9?ARCONT                  | Writes to ?9?CRIEGG; displays errors and totals on screen.        |
+| AR105.ocl36        | Edits payment statement entries by validating and sorting transactions.       | ?9?CRWKGG, ?9?CRCKGG, ?9?CRPSGG, ?9?CR10GG, ?9?AR11GG, ?9?ARCONT, ?9?ARCUST, ?9?ARDETL, ?9?GLMAST, ?9?GSTABL, ?9?SA5FIND, ?9?SA5FINM, ?9?SA5SHX, ?9?XGSTABL | Deletes/rebuilds temporary files; calls AR105.rpg36, AR110.ocl36, AR111. |
+| AR105.rpg36        | Validates payment statements and generates transaction records.               | ?9?CRCHKS, ?9?CRWORK, ?9?ARCONT, ?9?ARDETL, ?9?CRTRAN, ?9?ARCUST                  | Writes to ?9?CRPSGG (CRTRAN); error flags for invalid data.       |
+| AR110.ocl36        | Edits individual cash receipt entries by sorting and validating transactions. | ?9?CRIEGG, ?9?CR10GG, ?9?CRICGG, ?9?ARDETL, ?9?ARCUST, ?9?GLMAST, ?9?ARCONT, ?9?GSTABL, ?9?SA5FIND, ?9?SA5FINM, ?9?SA5SHX, ?9?XGSTABL, ?9?GSPROD | Deletes/rebuilds ?9?CR10GG, ?9?CRICGG; calls AR110.rpg36, AR1101 (implied). |
+| AR110.rpg36        | Validates sorted individual transactions and generates reports.               | ?9?CR110S, ?9?CRTRAN, ?9?ARDETL, ?9?ARCUST, ?9?GLMAST, ?9?ARCONT, ?9?GSTABL, ?9?CRCHKS, PRINT, NODLIST | Updates ?9?CRIEGG (CRTRAN); generates edit (PRINT) and NOD (NODLIST) reports. |
+
+
+
+
+# Function Requirement Document: Process Payment Statements
+
+## Overview
+The `ProcessPaymentStatements` function processes batch payment statements (multiple invoices per check) in the AR system, validating checks and invoices, generating transaction records, and producing edit reports and Notices of Difference (NODs) for discrepancies. It replaces the interactive screen processing of `AR050.rpgle`, `AR105.rpg36`, and `AR110.rpg36` with programmatic input handling, maintaining Atrium compatibility (`GG` suffixes). Adjustment transactions (`type = 'J'`) are disabled per `AR050.rpgle` notes (March 2024).
+
+## Inputs
+- **Check Records** (array of):
+  - **Company Number** (`crco`: 2-digit numeric): Company identifier.
+  - **Customer Number** (`crcust`: 6-digit numeric): Customer identifier.
+  - **Check Number** (`crckno`: 6-char): Unique check identifier.
+  - **Check Amount** (`crckam`: 9,2 decimal): Total check amount (> 0).
+  - **Discount Amount** (`crdsam`: 7,2 decimal): Total discount taken.
+  - **Payment Date** (`crpydt`: 6-digit numeric, MMDDYY): Check date.
+  - **Applied Amount** (`crappl`: 9,2 decimal): Amount applied to invoices.
+  - **Gross Amount** (`crgrss`: 9,2 decimal): Gross check amount.
+  - **Foreign Currency Amount** (`crfcam`: 9,2 decimal): Finance charge amount (if any).
+- **Invoice Records** (array per check):
+  - **Company Number** (`awco`: 2-digit numeric): Matches `crco`.
+  - **Customer Number** (`awcust`: 6-digit numeric): Matches `crcust`.
+  - **Invoice Number** (`awinv#`: 7-digit numeric): Invoice to apply payment to.
+  - **Due Date** (`awdudt`: 6-digit numeric, MMDDYY): Invoice due date.
+  - **Amount Applied** (`awampd`: 9,2 decimal): Payment amount for invoice (> 0).
+  - **Discount Amount** (`awdsam`: 7,2 decimal): Discount for invoice.
+  - **Payment Code** (`awpaid`: 1-char, 'P'): Must be 'P' (adjustments disabled).
+  - **Check Date** (`awpddt`: 6-digit numeric, MMDDYY): Matches `crpydt`.
+  - **Check Number** (`awckno`: 6-char): Matches `crckno`.
+  - **Override GL** (`awglno`: 8-digit numeric, optional): Credit GL override.
+  - **Notification of Difference** (`awnod`: 1-char, 'Y' or blank): Discrepancy flag.
+- **Default GL Accounts** (from `ARCONT` or input):
+  - **AR GL** (`acargl`: 8-digit numeric): Default credit GL.
+  - **Cash GL** (`accsgl`: 8-digit numeric): Default debit GL.
+  - **Discount GL** (`acdsgl`: 8-digit numeric): Default discount GL.
+  - **Finance GL** (`acfngl`: 8-digit numeric): Finance charge GL.
+
+## Outputs
+- **Transaction Records**: Written to `?9?CRPSGG` (256-byte records) for payments, unapplied cash, and finance charges.
+- **Sorted Payment Records**: Written to `?9?CR10GG` (256-byte records) after sorting.
+- **Edit Report**: Lists transactions, totals (amount, discount, cash received, miscellaneous, unapplied), and errors.
+- **NOD Report**: Generated for transactions with `awnod = 'Y'`, detailing discrepancies, customer data, and approval requirements.
+- **Return Code**: Success (0), Validation Error (1), or System Error (2).
+- **Error Messages**: Array of validation errors (e.g., "Invalid Customer Number", "Invalid Invoice").
+
+## Process Steps
+1. **Validate Check and Invoice Inputs**:
+   - **Check Validation**:
+     - Ensure `crco` exists in `ARCONT`; return "Invalid Company Number" if not.
+     - Ensure `crcust` exists in `ARCUST`, not deleted (`ARDEL <> 'D'`); return "Invalid Customer Number" if not.
+     - Verify `crckno` is unique, `crckam > 0`, `crpydt` is valid (MMDDYY, Y2K-compliant); return errors if invalid.
+   - **Invoice Validation**:
+     - Ensure `awco = crco`, `awcust = crcust`, `awckno = crckno`, `awpddt = crpydt`, `awpaid = 'P'`.
+     - Verify `awinv#` exists in `ARDETL`, not deleted (`ADDEL <> 'D'`); return "Invalid Invoice To Pay".
+     - Ensure `awampd > 0`, `awdudt` is valid; return "Invalid Amount" or "Invalid Transaction Date".
+     - Validate `awglno` (if provided) in `GLMAST`, not deleted (`GLDEL <> 'D'`) or inactive (`GLDEL <> 'I'`); return "Invalid Credit G/L Account". Use `acargl` (AR GL) if blank.
+     - Ensure `awnod` is `'Y'` or blank; return "Notif. of Diff. must be Blank or 'Y'".
+     - Verify `crappl = SUM(awampd)` across invoices for the check.
+
+2. **Generate Transaction Records (`AR105`)**:
+   - For each check in `CRCHKS`:
+     - Write payment transactions to `?9?CRPSGG` (`ARPAY`):
+       - Fields: `'A'` (active), `seq` (increment by 10), `awco`, `awcust`, `awinv#`, `awampd`, `awdsam`, `'P'`, `awpddt`, `awglno` or `acargl` (credit GL), `accsgl` (debit GL), `awckno`, `awdudt`, `adterm` (terms), `adsls` (salesman), `acdsgl` (discount GL), `awpdd8`, `awdud8`, `awnod`.
+     - If unapplied amount (`L2UNAP = crckam - SUM(awampd) > 0`), write unapplied cash (`ARUNAP`):
+       - Fields: `'A'`, `seq`, `crco`, `crcust`, `'9999999'` (dummy invoice), `L2UNAP`, `0`, `'P'`, `crpydt`, `acargl`, `accsgl`, `crckno`, `crpydt`, `term`, `sls`, `0`, `crpyd8`, `crpyd8`, `' '`.
+     - If `crfcam > 0`, write finance charge (`UPDFC`):
+       - Fields: `'A'`, `seq`, `crco`, `crcust`, `0`, `crfcam`, `0`, `'P'`, `crpydt`, `acfngl`, `accsgl`, `'FIN CHG'`, `' '`, `crcust`, `crpydt`, `term`, `sls`, `0`, `crpyd8`, `crpyd8`, `' '`.
+     - Mark invalid records with `'E'` in position 54.
+
+3. **Sort Payment Transactions**:
+   - Sort `?9?CRPSGG` into `?9?CR10GG` by company/customer/invoice (positions 7-21), including only non-deleted (`atdel <> 'D'`) and payment-type (`attype = 'P'`) records.
+
+4. **Validate Sorted Payments (`AR110`)**:
+   - Read `?9?CR10GG`, re-validate against `ARCUST`, `ARDETL`, `GLMAST`, `ARCONT`, `GSTABL`, `CRCHKS`.
+   - Update `?9?CRPSGG` with error flag (`'E'`) or clear (`' '`) based on validation.
+   - Calculate totals:
+     - `TOTAMT = SUM(awampd)`: Total payment amount.
+     - `TOTDIS = SUM(awdsam)`: Total discount.
+     - `TOTCAS = SUM(awampd + awdsam)`: Total cash received per invoice (per MG02, 06/13/2022).
+     - `TOTMIS = SUM(awampd)`: For dummy invoices (`'9999999'`).
+     - `TOTARC = SUM(awampd - awdsam)`: AR impact.
+     - `NETCHG = TOTAMT - TOTDIS`: Net AR change.
+
+5. **Generate Reports**:
+   - **Edit Report** (`PRINT`): Lists transactions (`awco`, `awcust`, `awinv#`, `awampd`, `awdsam`, `awpddt`, GLs, `awckno`, etc.), totals, and errors.
+   - **NOD Report** (`NODLIST`, if `awnod = 'Y'`): Includes customer details (`ARNAME`, `ARADR1`–`ARADR4`), salesman (`SLNAME`), invoice (`awinv#`), check (`crckno`), check amount (`crckam`), discrepancy amount (`ARBAL = awampd - invoice balance`), "SHORTPAY"/"OVERPAY" status, approval instructions (sales manager, VP, president for >$2,500), and permanent credit file notice.
+
+6. **Cleanup**:
+   - Delete temporary files (`?9?CR10GG`) after processing.
+   - Return success code (0) or error code (1) with error messages.
+
+## Business Rules
+- **Data Validation**:
+  - Company, customer, and invoice must exist and not be deleted.
+  - Check amount (`crckam`) must be positive; payment date (`crpydt`) and due date (`awdudt`) must be valid and Y2K-compliant.
+  - Amount applied (`awampd`) must be positive; discount (`awdsam`) requires valid invoice.
+  - GL accounts (`awglno`, `acargl`, `accsgl`, `acdsgl`, `acfngl`) must be valid, not deleted or inactive (per JB01, 08/24/2016).
+  - `awnod` must be `'Y'` or blank.
+- **Transaction Types**:
+  - Only payment transactions (`awpaid = 'P'`) are processed; adjustments (`'J'`) are disabled.
+  - Unapplied cash uses dummy invoice (`'9999999'`); finance charges use `acfngl` and description `'FIN CHG'`.
+- **NOD Handling**:
+  - Generated for `awnod = 'Y'` with discrepancy amount (`ARBAL`).
+  - Adjustments over $2,500 require president approval; NODs are permanent credit file records.
+- **Calculations**:
+  - `L2UNAP = crckam - SUM(awampd)`: Unapplied cash per check.
+  - `TOTAMT = SUM(awampd)`, `TOTDIS = SUM(awdsam)`, `TOTCAS = SUM(awampd + awdsam)`, `TOTMIS = SUM(awampd for dummy invoices)`, `TOTARC = SUM(awampd - awdsam)`, `NETCHG = TOTAMT - TOTDIS`.
+- **Atrium Compatibility**: Uses `GG` suffixes (`CRWKGG`, `CRCKGG`, `CRPSGG`, `CR10GG`) per JB01 (11/28/23).
+- **Multi-User Support**: Shared file access (`DISP-SHR`, `DISP-SHRMM`) for concurrent processing.
+
+## Dependencies
+- **Files**:
+  - `?9?CRWKGG` (invoice work file, 96 bytes).
+  - `?9?CRCKGG` (check work file, 96 bytes).
+  - `?9?CRPSGG` (transaction file, 256 bytes).
+  - `?9?CR10GG` (sorted payments, 256 bytes).
+  - `?9?ARCUST` (customer master, 384 bytes).
+  - `?9?ARDETL` (AR detail, 128 bytes).
+  - `?9?GLMAST` (GL master, 256 bytes).
+  - `?9?ARCONT` (AR control, 256 bytes).
+  - `?9?GSTABL` (system table, 256 bytes).
+  - `PRINT`, `NODLIST` (printer files, 164 bytes).
+- **Utilities**: `GSY2K` (Y2K compliance), `#GSORT` (sorting).
+
+## Notes
+- Replaces interactive screens (`AR050FM`, `AR110`) with programmatic inputs.
+- Assumes `AR1101` handles post-validation tasks (e.g., posting), not included in this function.
+- Adjustment processing (`AR111`) is disabled per `AR050` notes.
+
+---
+
+This document concisely captures the business requirements and calculations for the **Process Payment Statements** use case, aligning with the program stack's functionality while adapting to a programmatic input model. Let me know if further clarification is needed!
