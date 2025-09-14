@@ -1,0 +1,29 @@
+Below is a table that lists the provided programs (`AR050P.ocl36`, `AR050P.rpgle`, `AR050.ocl36`, `AR050.rpgle`, `AR100.ocl36`, `AR100.rpgle`, `AR105.ocl36`, `AR105.rpg36`, `AR110.ocl36`, `AR110.rpg36`) as rows and the tables (files) used across these programs as columns. At each intersection, a brief description indicates how the program modifies, creates, or writes to the table, or if it only reads it. The table focuses on the unique files identified across the programs, reflecting their usage in the IBM System/36 accounts receivable (AR) cash receipts workflow with Atrium compatibility (`GG` suffixes).
+
+| Program Name       | ?9?CRSTGG | ?9?GLD1GG | ?9?SA5SHX | ?9?SA5FIND | ?9?CRCKGG | ?9?CRWKGG | ?9?ARCUST | ?9?ARDETL | ?9?ARCONT | ?9?GLMAST | ?9?CRPSGG | ?9?CRIEGG | ?9?CR10GG | ?9?AR11GG | ?9?CRICGG | ?9?GSTABL | ?9?SA5FINM | ?9?GSPROD | ?9?ar100d | PRINT | NODLIST |
+|--------------------|-----------|-----------|-----------|------------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|------------|-----------|-----------|-------|---------|
+| **AR050P.ocl36**   | Checks existence, calls SCPROCP if records present | Checks existence, updates via AR050P.rpgle if records present | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - |
+| **AR050P.rpgle**   | - | Updates GL account assignments (debit, credit, discount) | - | - | - | - | Reads for customer validation | - | Reads for default GL accounts | Reads for GL validation | - | - | - | - | - | - | - | - | - | - | - |
+| **AR050.ocl36**    | - | - | Deletes/rebuilds customer index | Deletes/rebuilds invoice index | Deletes/rebuilds check work file | Deletes/rebuilds invoice work file | Reads (shared) for customer data | Reads (shared) for invoice data | Reads (shared) for company data | - | - | - | - | - | - | - | - | - | - | - | - |
+| **AR050.rpgle**    | - | - | Reads customer index for selection | Reads invoice index for selection | Writes check data (e.g., CRCKAM, CRCKNO) | Writes invoice data (e.g., AWAMPD, AWCKNO) | Reads for customer validation | Reads for invoice validation | Reads for company defaults | - | - | - | - | - | - | - | - | - | - | - | - |
+| **AR100.ocl36**    | - | - | - | - | - | - | Reads (shared) for customer data | Reads (shared) for invoice data | Reads (shared) for company data | Reads (shared) for GL validation | - | Deletes/rebuilds transaction file | - | - | - | - | - | - | - | - | - |
+| **AR100.rpgle**    | - | - | - | - | - | - | Reads for customer validation | Reads for invoice validation | Reads for company defaults | Reads for GL validation | - | Writes transaction records (e.g., ATAMT, ATCKNO) | - | - | - | - | - | - | Reads/writes for screen data | Writes edit report | - |
+| **AR105.ocl36**    | - | - | Reads (shared) for sales data | Reads (shared) for sales data | Reads check data (shared) | Reads invoice data | Reads (shared) for customer data | Reads (shared) for invoice data | Reads (shared) for company data | Reads (shared) for GL validation | Deletes/rebuilds transaction file | - | Deletes/sorts into payment file | Deletes/sorts into adjustment file | - | Reads (shared) for configuration | Reads (shared) for sales data | Reads (shared) for AR1101 | - | Writes edit report | Writes NOD report |
+| **AR105.rpg36**    | - | - | - | - | Reads check data (e.g., CRCKAM) | Reads invoice data (e.g., AWAMPD) | Reads for customer validation | Reads for invoice validation | Reads for company defaults, GL accounts | - | Writes payment/unapplied cash/finance charge records | - | - | - | - | - | - | - | - | - | - |
+| **AR110.ocl36**    | - | - | Reads (shared) for sales data | Reads (shared) for sales data | - | - | Reads (shared) for customer data | Reads (shared) for invoice data | Reads (shared) for company data | Reads (shared) for GL validation | - | Deletes/reads transaction file | Deletes/sorts into payment file | - | Deletes/rebuilds check file | Reads (shared) for configuration | Reads (shared) for sales data | Reads (shared) for AR1101 | - | Writes edit report | Writes NOD report |
+| **AR110.rpg36**    | - | - | - | - | - | - | Reads for customer validation | Reads for invoice validation | Reads for company defaults | Reads for GL validation | - | Updates with error flags ('E'/' ') | Reads sorted transactions | - | Reads check data (e.g., CRCKAM) | Reads for configuration | - | - | - | Writes edit report | Writes NOD report |
+
+### Notes
+- **File Usage**:
+  - **Reads**: Files accessed for validation or data retrieval (e.g., `ARCUST`, `ARDETL`, `GLMAST`, `ARCONT`, `GSTABL`) are typically shared (`DISP-SHR`, `DISP-SHRMM`).
+  - **Writes/Creates**: Transaction and work files (`CRPSGG`, `CRIEGG`, `CR10GG`, `AR11GG`, `CRWKGG`, `CRCKGG`, `CRICGG`) are created or updated with new records.
+  - **Deletes/Rebuilds**: Temporary files are deleted and rebuilt to ensure clean data (e.g., `CRPSGG`, `CRIEGG`, `CR10GG`).
+  - **Sorts**: `AR105.ocl36` and `AR110.ocl36` use `#GSORT` to sort transactions into `CR10GG` (payments) or `AR11GG` (adjustments, disabled).
+- **Outputs**:
+  - **Reports**: `PRINT` (edit reports) and `NODLIST` (Notices of Difference) are generated by `AR100.rpgle`, `AR105.ocl36`, and `AR110.rpg36`.
+  - **Side Effects**: Error flags (`'E'`) are set in transaction files; screen displays occur in interactive programs (`AR050.rpgle`, `AR100.rpgle`).
+- **Atrium Compatibility**: All programs use `GG` suffixes (e.g., `CRPSGG`, `CRIEGG`) per JB01 (11/28/23).
+- **Missing AR111**: Not provided but implied in `AR105.ocl36` for adjustment validation (disabled).
+- **AR1101**: Implied in `AR110.ocl36` for post-validation tasks (e.g., posting), uses `GSPROD` and `NODPRINT`.
+
+This table concisely captures how each program interacts with the relevant files, focusing on creation, modification, or read-only access within the cash receipts workflow.
