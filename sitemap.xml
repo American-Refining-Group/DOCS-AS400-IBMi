@@ -861,46 +861,6 @@
          <lastmod>2025-09-15</lastmod>
     </url>
     <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/06%20Cash%20Receipts%20Post%20AR200/AR200%20OCL/</loc>
-         <lastmod>2025-09-15</lastmod>
-    </url>
-    <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/06%20Cash%20Receipts%20Post%20AR200/AR200%20RPG36/</loc>
-         <lastmod>2025-09-15</lastmod>
-    </url>
-    <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/06%20Cash%20Receipts%20Post%20AR200/AR200P%20OCL/</loc>
-         <lastmod>2025-09-15</lastmod>
-    </url>
-    <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/06%20Cash%20Receipts%20Post%20AR200/AR200P%20RPGLE/</loc>
-         <lastmod>2025-09-15</lastmod>
-    </url>
-    <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/06%20Cash%20Receipts%20Post%20AR200/AR2011%20OCL/</loc>
-         <lastmod>2025-09-15</lastmod>
-    </url>
-    <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/06%20Cash%20Receipts%20Post%20AR200/AR2011%20RPG36/</loc>
-         <lastmod>2025-09-15</lastmod>
-    </url>
-    <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/06%20Cash%20Receipts%20Post%20AR200/AR210%20RPG36/</loc>
-         <lastmod>2025-09-15</lastmod>
-    </url>
-    <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/06%20Cash%20Receipts%20Post%20AR200/AR211%20RPG36/</loc>
-         <lastmod>2025-09-15</lastmod>
-    </url>
-    <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/06%20Cash%20Receipts%20Post%20AR200/Summary%20AR200%20Cash%20Receipt%20Post/</loc>
-         <lastmod>2025-09-15</lastmod>
-    </url>
-    <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/06%20Cash%20Receipts%20Post%20AR200/Summary%20Data%20Flow/</loc>
-         <lastmod>2025-09-15</lastmod>
-    </url>
-    <url>
          <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/06%20Create%20Cash%20Receipts%20Batch%20AR157P/AR157%20OCL/</loc>
          <lastmod>2025-09-15</lastmod>
     </url>
@@ -929,51 +889,91 @@
          <lastmod>2025-09-15</lastmod>
     </url>
     <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/08%20Cash%20Receipts%20Entry%20AR050P/AR050%20OCL/</loc>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/07%20Cash%20Receipts%20Entry%20AR050P/AR050%20OCL/</loc>
          <lastmod>2025-09-15</lastmod>
     </url>
     <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/08%20Cash%20Receipts%20Entry%20AR050P/AR050%20RPGLE/</loc>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/07%20Cash%20Receipts%20Entry%20AR050P/AR050%20RPGLE/</loc>
          <lastmod>2025-09-15</lastmod>
     </url>
     <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/08%20Cash%20Receipts%20Entry%20AR050P/AR050P%20OCL/</loc>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/07%20Cash%20Receipts%20Entry%20AR050P/AR050P%20OCL/</loc>
          <lastmod>2025-09-15</lastmod>
     </url>
     <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/08%20Cash%20Receipts%20Entry%20AR050P/AR050P%20RPGLE/</loc>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/07%20Cash%20Receipts%20Entry%20AR050P/AR050P%20RPGLE/</loc>
          <lastmod>2025-09-15</lastmod>
     </url>
     <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/08%20Cash%20Receipts%20Entry%20AR050P/AR100%20OCL/</loc>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/07%20Cash%20Receipts%20Entry%20AR050P/AR100%20OCL/</loc>
          <lastmod>2025-09-15</lastmod>
     </url>
     <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/08%20Cash%20Receipts%20Entry%20AR050P/AR100%20RPGLE/</loc>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/07%20Cash%20Receipts%20Entry%20AR050P/AR100%20RPGLE/</loc>
          <lastmod>2025-09-15</lastmod>
     </url>
     <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/08%20Cash%20Receipts%20Entry%20AR050P/AR105%20OCL/</loc>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/07%20Cash%20Receipts%20Entry%20AR050P/AR105%20OCL/</loc>
          <lastmod>2025-09-15</lastmod>
     </url>
     <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/08%20Cash%20Receipts%20Entry%20AR050P/AR105%20RPG36/</loc>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/07%20Cash%20Receipts%20Entry%20AR050P/AR105%20RPG36/</loc>
          <lastmod>2025-09-15</lastmod>
     </url>
     <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/08%20Cash%20Receipts%20Entry%20AR050P/AR110%20OCL/</loc>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/07%20Cash%20Receipts%20Entry%20AR050P/AR110%20OCL/</loc>
          <lastmod>2025-09-15</lastmod>
     </url>
     <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/08%20Cash%20Receipts%20Entry%20AR050P/AR110%20RPG36/</loc>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/07%20Cash%20Receipts%20Entry%20AR050P/AR110%20RPG36/</loc>
          <lastmod>2025-09-15</lastmod>
     </url>
     <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/08%20Cash%20Receipts%20Entry%20AR050P/Summary%20AR050%20Cash%20Receipts/</loc>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/07%20Cash%20Receipts%20Entry%20AR050P/Summary%20AR050%20Cash%20Receipts/</loc>
          <lastmod>2025-09-15</lastmod>
     </url>
     <url>
-         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/08%20Cash%20Receipts%20Entry%20AR050P/Summary%20Data%20Flow/</loc>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/07%20Cash%20Receipts%20Entry%20AR050P/Summary%20Data%20Flow/</loc>
+         <lastmod>2025-09-15</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/08%20Cash%20Receipts%20Post%20AR200/AR200%20OCL/</loc>
+         <lastmod>2025-09-15</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/08%20Cash%20Receipts%20Post%20AR200/AR200%20RPG36/</loc>
+         <lastmod>2025-09-15</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/08%20Cash%20Receipts%20Post%20AR200/AR200P%20OCL/</loc>
+         <lastmod>2025-09-15</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/08%20Cash%20Receipts%20Post%20AR200/AR200P%20RPGLE/</loc>
+         <lastmod>2025-09-15</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/08%20Cash%20Receipts%20Post%20AR200/AR2011%20OCL/</loc>
+         <lastmod>2025-09-15</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/08%20Cash%20Receipts%20Post%20AR200/AR2011%20RPG36/</loc>
+         <lastmod>2025-09-15</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/08%20Cash%20Receipts%20Post%20AR200/AR210%20RPG36/</loc>
+         <lastmod>2025-09-15</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/08%20Cash%20Receipts%20Post%20AR200/AR211%20RPG36/</loc>
+         <lastmod>2025-09-15</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/08%20Cash%20Receipts%20Post%20AR200/Summary%20AR200%20Cash%20Receipt%20Post/</loc>
+         <lastmod>2025-09-15</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/American-Refining-Group/DOCS-AS400-IBMi/accounts-receivable/03%20Cash%20Receipts/08%20Cash%20Receipts%20Post%20AR200/Summary%20Data%20Flow/</loc>
          <lastmod>2025-09-15</lastmod>
     </url>
     <url>
