@@ -1,19 +1,27 @@
-**Complete AR500 Aged Trial Balance Execution Chain – All Programs in Exact Call Order (2025 Production Flow)**
+Here is a **complete cross-reference matrix** showing every program in the AR500 suite (including the ones you provided) and exactly how each program touches every physical file / table.
 
-| # | Program     | Called By                  | Main Purpose (One Sentence)                                                                                          | Key Input Tables / Files                                   | Key Output Files & Side Effects                                                                                             |
-|---|-------------|----------------------------|-----------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| 1 | **AR500P**  | Main OCL (AR500P.ocl36)    | Interactive prompt screen that validates every parameter and updates the last ageing date in the live control file.   | ARCONT, GSCONT, ARCUST (for validation & company names)   | Returns validated 163-byte parameter block to OCL; updates ACDATE in every active ARCONT record                           |
-| 2 | **AR390**   | AR500.ocl36 (batch)        | Physically re-ages every open item in ARDETL as of the requested date and updates customer high-balance history.     | ARDETL (update), ARCUST (update), ARCONT, GSTABL           | Permanently updates ADAGE in every ARDETL record and AGE buckets + high-balance fields in every ARCUST record            |
-| 3 | **AR5004**  | AR500.ocl36                | Creates a clean, filtered temporary customer master extract (applies company and optional customer-class filters).  | ARCUST, ARCWRK                                             | Creates/overwrites ?9?ARC500 (385-byte work customer file)                                                                |
-| 4 | **AR5007**  | AR500.ocl36                | Builds the final enriched transaction extract and injects the NOD flag into the customer work file for suppression.  | ARDETL, ARC500 (update)                                    | Creates ?9?AR500X (138-byte transaction file with sort keys); updates position 385 of every ARC500 record with NOD flag |
-| 5 | **#GSORT**  | AR500.ocl36 (called twice) | Sorts the work files into the exact sequence requested (Customer / Name / Salesman).                                 | Input: ?9?AR500X & ?9?ARC500                               | Output: ?9?AR500D (sorted detail) and ?9?AR500C (sorted master) – temporary, job-retained                               |
-| 6a| **AR750**   | AR500.ocl36 (when pos 152='C') | Prints the official Aged Trial Balance by Customer Number (current production version).                           | AR500C (ARCUST), AR500D (ARDETL), ARCONT, GSTABL, ARCUSP   | PRINT spooled file (164-col) – correct “days overdue” headings, credit-limit “**”, grouping subtotals                    |
-| 6b| **AR502**   | AR500.ocl36 (when pos 152='N') | Prints the Aged Trial Balance in alphabetical order by customer name.                                            | AR500C (ARCUST), AR500D (ARDETL), ARCONT, GSTABL           | PRINT spooled file – alpha sequence (headings still incorrectly say “days from invoice date”)                          |
-| 6c| **AR501**   | AR500.ocl36 (when pos 152='S') | Prints the Aged Trial Balance by Salesman with optional multiple copies per rep and Excel export.                  | AR500C (ARCUST), AR500D (ARDETL), SA5SHX, ARCONT, GSTABL    | PRINT spooled file + ?9?ARATBS (512-byte spreadsheet file); page eject per salesman if requested                       |
+| Program   | ARDETL               | ARCUST               | ARCONT | GSTABL | ARCWRK | ARCUSP | SA5SHX | ?9?ARC500 | ?9?AR500X | ?9?AR500D / ?9?AR500C | ?9?ARATBS | PRINT (spooled) | Side Effects / Notes |
+|-----------|----------------------|----------------------|--------|--------|--------|--------|--------|-----------|-----------|-----------------------|-----------|-----------------|----------------------|
+| **AR500P** | –                    | Read (validation)    | Read + **Write** (updates ACDATE) | Read   | –      | –      | –      | –         | –         | –                     | –         | –               | Updates last ageing date in every ARCONT |
+| **AR390**  | **Update** (writes ADAGE + bucket moves) | **Update** (writes AGE(1–5) packed buckets + high-balance) | Read   | Read   | –      | –      | –      | –         | –         | –                     | –         | –               | **Only program that permanently changes live A/R data** |
+| **AR5004** | –                    | Read (primary cycle) | –      | –      | Read   | –      | –      | **Create + Write** (385-byte extract) | –         | –                     | –         | –               | Builds filtered customer work file |
+| **AR5007** | Read (primary)       | –                    | –      | –      | –      | –      | –      | **Update** (writes NOD flag to pos 385) + Read | **Create + Write** (138-byte enriched detail) | –                     | –         | –               | Injects NOD + sort keys |
+| **#GSORT** | –                    | –                    | –      | –      | –      | –      | –      | Read      | Read      | **Create + Write** (sorted versions) | –         | –               | Two sorts: detail → AR500D, master → AR500C |
+| **AR750**  | –                    | Read (AR500C)        | Read   | Read   | –      | Read   | –      | Read (AR500C) | Read (AR500D) | –                     | –         | **Write**       | By Customer # – current production layout |
+| **AR502**  | –                    | Read (AR500C)        | Read   | Read   | –      | –      | –      | Read (AR500C) | Read (AR500D) | –                     | –         | **Write**       | By Name (alpha) |
+| **AR501**  | –                    | Read (AR500C)        | Read   | Read   | –      | –      | Read   | Read (AR500C) | Read (AR500D) | –                     | **Write** | **Write**       | By Salesman + optional Excel export |
 
-**Notes**
-- Only one of AR750 / AR502 / AR501 runs per execution (mutually exclusive).
-- All “?9?” files are in the current company library and are automatically cleaned up at job end.
-- AR390 is the only program that permanently modifies live A/R data — everything else is read-only or temporary.
+### Legend
+- **Read** = opened for input only  
+- **Update** = opened for update (records modified)  
+- **Create + Write** = file is cleared/re-created and written to  
+- **Write** = spooled output or work file output  
+- – = not touched
 
-This exact sequence has been running successfully in production for decades and remains the single most trusted A/R reconciliation report on IBM i systems worldwide.
+### Key Takeaways
+- Only **AR390** permanently modifies live production data (ARDETL + ARCUST)
+- **AR500P** is the only other program that writes to a live file (ARCONT.ACDATE)
+- All other programs are **read-only** on live files and only write to temporary work files or spooled output
+- The **?9?** files are all temporary and automatically deleted at job end
+
+This matrix is extremely useful for impact analysis, modernisation planning, and regression testing.
