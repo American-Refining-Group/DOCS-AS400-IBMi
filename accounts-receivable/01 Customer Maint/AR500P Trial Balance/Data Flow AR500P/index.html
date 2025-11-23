@@ -75,6 +75,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#legend" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -5080,6 +5085,19 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Data Flow AR500P
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -5091,6 +5109,41 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#legend" class="md-nav__link">
+    <span class="md-ellipsis">
+      Legend
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -24361,6 +24414,32 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#legend" class="md-nav__link">
+    <span class="md-ellipsis">
+      Legend
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -24380,90 +24459,173 @@
 
   <h1>Data Flow AR500P</h1>
 
-<p><strong>Complete AR500 Aged Trial Balance Execution Chain – All Programs in Exact Call Order (2025 Production Flow)</strong></p>
+<p>Here is a <strong>complete cross-reference matrix</strong> showing every program in the AR500 suite (including the ones you provided) and exactly how each program touches every physical file / table.</p>
 <table>
 <thead>
 <tr>
-<th>#</th>
 <th>Program</th>
-<th>Called By</th>
-<th>Main Purpose (One Sentence)</th>
-<th>Key Input Tables / Files</th>
-<th>Key Output Files &amp; Side Effects</th>
+<th>ARDETL</th>
+<th>ARCUST</th>
+<th>ARCONT</th>
+<th>GSTABL</th>
+<th>ARCWRK</th>
+<th>ARCUSP</th>
+<th>SA5SHX</th>
+<th>?9?ARC500</th>
+<th>?9?AR500X</th>
+<th>?9?AR500D / ?9?AR500C</th>
+<th>?9?ARATBS</th>
+<th>PRINT (spooled)</th>
+<th>Side Effects / Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1</td>
 <td><strong>AR500P</strong></td>
-<td>Main OCL (AR500P.ocl36)</td>
-<td>Interactive prompt screen that validates every parameter and updates the last ageing date in the live control file.</td>
-<td>ARCONT, GSCONT, ARCUST (for validation &amp; company names)</td>
-<td>Returns validated 163-byte parameter block to OCL; updates ACDATE in every active ARCONT record</td>
+<td>–</td>
+<td>Read (validation)</td>
+<td>Read + <strong>Write</strong> (updates ACDATE)</td>
+<td>Read</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>Updates last ageing date in every ARCONT</td>
 </tr>
 <tr>
-<td>2</td>
 <td><strong>AR390</strong></td>
-<td>AR500.ocl36 (batch)</td>
-<td>Physically re-ages every open item in ARDETL as of the requested date and updates customer high-balance history.</td>
-<td>ARDETL (update), ARCUST (update), ARCONT, GSTABL</td>
-<td>Permanently updates ADAGE in every ARDETL record and AGE buckets + high-balance fields in every ARCUST record</td>
+<td><strong>Update</strong> (writes ADAGE + bucket moves)</td>
+<td><strong>Update</strong> (writes AGE(1–5) packed buckets + high-balance)</td>
+<td>Read</td>
+<td>Read</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td><strong>Only program that permanently changes live A/R data</strong></td>
 </tr>
 <tr>
-<td>3</td>
 <td><strong>AR5004</strong></td>
-<td>AR500.ocl36</td>
-<td>Creates a clean, filtered temporary customer master extract (applies company and optional customer-class filters).</td>
-<td>ARCUST, ARCWRK</td>
-<td>Creates/overwrites ?9?ARC500 (385-byte work customer file)</td>
+<td>–</td>
+<td>Read (primary cycle)</td>
+<td>–</td>
+<td>–</td>
+<td>Read</td>
+<td>–</td>
+<td>–</td>
+<td><strong>Create + Write</strong> (385-byte extract)</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>Builds filtered customer work file</td>
 </tr>
 <tr>
-<td>4</td>
 <td><strong>AR5007</strong></td>
-<td>AR500.ocl36</td>
-<td>Builds the final enriched transaction extract and injects the NOD flag into the customer work file for suppression.</td>
-<td>ARDETL, ARC500 (update)</td>
-<td>Creates ?9?AR500X (138-byte transaction file with sort keys); updates position 385 of every ARC500 record with NOD flag</td>
+<td>Read (primary)</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td><strong>Update</strong> (writes NOD flag to pos 385) + Read</td>
+<td><strong>Create + Write</strong> (138-byte enriched detail)</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>Injects NOD + sort keys</td>
 </tr>
 <tr>
-<td>5</td>
 <td><strong>#GSORT</strong></td>
-<td>AR500.ocl36 (called twice)</td>
-<td>Sorts the work files into the exact sequence requested (Customer / Name / Salesman).</td>
-<td>Input: ?9?AR500X &amp; ?9?ARC500</td>
-<td>Output: ?9?AR500D (sorted detail) and ?9?AR500C (sorted master) – temporary, job-retained</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>Read</td>
+<td>Read</td>
+<td><strong>Create + Write</strong> (sorted versions)</td>
+<td>–</td>
+<td>–</td>
+<td>Two sorts: detail → AR500D, master → AR500C</td>
 </tr>
 <tr>
-<td>6a</td>
 <td><strong>AR750</strong></td>
-<td>AR500.ocl36 (when pos 152='C')</td>
-<td>Prints the official Aged Trial Balance by Customer Number (current production version).</td>
-<td>AR500C (ARCUST), AR500D (ARDETL), ARCONT, GSTABL, ARCUSP</td>
-<td>PRINT spooled file (164-col) – correct “days overdue” headings, credit-limit “**”, grouping subtotals</td>
+<td>–</td>
+<td>Read (AR500C)</td>
+<td>Read</td>
+<td>Read</td>
+<td>–</td>
+<td>Read</td>
+<td>–</td>
+<td>Read (AR500C)</td>
+<td>Read (AR500D)</td>
+<td>–</td>
+<td>–</td>
+<td><strong>Write</strong></td>
+<td>By Customer # – current production layout</td>
 </tr>
 <tr>
-<td>6b</td>
 <td><strong>AR502</strong></td>
-<td>AR500.ocl36 (when pos 152='N')</td>
-<td>Prints the Aged Trial Balance in alphabetical order by customer name.</td>
-<td>AR500C (ARCUST), AR500D (ARDETL), ARCONT, GSTABL</td>
-<td>PRINT spooled file – alpha sequence (headings still incorrectly say “days from invoice date”)</td>
+<td>–</td>
+<td>Read (AR500C)</td>
+<td>Read</td>
+<td>Read</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>Read (AR500C)</td>
+<td>Read (AR500D)</td>
+<td>–</td>
+<td>–</td>
+<td><strong>Write</strong></td>
+<td>By Name (alpha)</td>
 </tr>
 <tr>
-<td>6c</td>
 <td><strong>AR501</strong></td>
-<td>AR500.ocl36 (when pos 152='S')</td>
-<td>Prints the Aged Trial Balance by Salesman with optional multiple copies per rep and Excel export.</td>
-<td>AR500C (ARCUST), AR500D (ARDETL), SA5SHX, ARCONT, GSTABL</td>
-<td>PRINT spooled file + ?9?ARATBS (512-byte spreadsheet file); page eject per salesman if requested</td>
+<td>–</td>
+<td>Read (AR500C)</td>
+<td>Read</td>
+<td>Read</td>
+<td>–</td>
+<td>–</td>
+<td>Read</td>
+<td>Read (AR500C)</td>
+<td>Read (AR500D)</td>
+<td>–</td>
+<td><strong>Write</strong></td>
+<td><strong>Write</strong></td>
+<td>By Salesman + optional Excel export</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Notes</strong>
-- Only one of AR750 / AR502 / AR501 runs per execution (mutually exclusive).
-- All “?9?” files are in the current company library and are automatically cleaned up at job end.
-- AR390 is the only program that permanently modifies live A/R data — everything else is read-only or temporary.</p>
-<p>This exact sequence has been running successfully in production for decades and remains the single most trusted A/R reconciliation report on IBM i systems worldwide.</p>
+<h3 id="legend">Legend<a class="headerlink" href="#legend" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Read</strong> = opened for input only  </li>
+<li><strong>Update</strong> = opened for update (records modified)  </li>
+<li><strong>Create + Write</strong> = file is cleared/re-created and written to  </li>
+<li><strong>Write</strong> = spooled output or work file output  </li>
+<li>– = not touched</li>
+</ul>
+<h3 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Only <strong>AR390</strong> permanently modifies live production data (ARDETL + ARCUST)</li>
+<li><strong>AR500P</strong> is the only other program that writes to a live file (ARCONT.ACDATE)</li>
+<li>All other programs are <strong>read-only</strong> on live files and only write to temporary work files or spooled output</li>
+<li>The <strong>?9?</strong> files are all temporary and automatically deleted at job end</li>
+</ul>
+<p>This matrix is extremely useful for impact analysis, modernisation planning, and regression testing.</p>
 
 
 
