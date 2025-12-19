@@ -26,4 +26,52 @@ Below is a table that lists the programs from the provided call stack (`AR200.oc
   - **Route**: Reports are sent to output queues (e.g., `ARPOST`, `TESTOUTQ`).
 - **Assumptions**: `AR200P.ocl36.txt` and `AR200P.rpgle.txt` do not modify files directly but facilitate initialization. `AR211` does not update `ARCONT` (per 8/06/14 change). File labels use `?9?` prefix (e.g., `GG` for Atrium).
 
-If you need further details or adjustments (e.g., specific field updates or additional files), please let me know!
+```mermaid
+---
+title: Cash Receipts Programs
+---
+graph TD
+    AR300P["`AR300P ARMENU12 <br> **Soft Deletes records in ARDETL**`"]
+    AR745["AR745 Automated <br>EFT file creation<br><br>ARR17"] 
+    AR135["AR135 Manual EFT <br> Create or update<br><br>ARMENU 7"]
+    AR136["AR136 EFT Report <br> Reads EMMDDYY<br><br>ARMENU 8"] 
+    AR137["AR137 PNC Upload <br>ARMENU 11<br><br>*Updates EMMDDYY by flagging deleted records ATDEL = 'D'*"]
+    AR156["AR156 EFT Email Notification <br>ARMENU 9"]
+    AR157["AR157 Automated Cash Receipts Entry <br>*copies non-deleted*<br><br>ARMENU 10<br>"]
+    AR050IDV[AR050 ARMENU1 <br>OPTION = INDVIDUAL <br>]
+    AR050PAY[AR050 ARMENU1 <br>OPTION = PAY STATMENT<br>]    
+    AR200[AR200 Cash Receipts Posting ARMENU2 <br>*Updates ARDETL invoice due amounts and payments*]
+
+    ARDETL[(ARDETL)]
+    EMMDDYY[(EMMDDYY)]
+    CRIEGG[(CRIEGG)]
+    AREFTD[(AREFTD)]
+    AREFTS[(AREFTS)]
+
+    ARCUST[(ARCUST)]
+    TEMGEN[(TEMGEN)]
+    ARHIST[(ARHIST)]
+    SA5DSC[(SA5DSC)]
+
+   
+AR300P
+ARDETL-->AR745
+ARDETL-->AR135
+AR745-->EMMDDYY
+AR135-->EMMDDYY
+EMMDDYY-->AR136
+EMMDDYY-->AR137
+AR137--->AREFTD
+AR137--->AREFTS
+EMMDDYY-->AR156
+AR156-->AREFTD
+AR156-->AREFTS
+
+AR157-.->AR050IDV
+AR050IDV-->CRIEGG
+AR050PAY-->CRPSGG
+CRIEGG-->AR200
+CRPSGG-->AR200
+
+EMMDDYY-->AR157-.->CRIEGG
+```
