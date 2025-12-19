@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200">
+  <rect width="400" height="200" fill="#f0f0f0" stroke="#333" stroke-width="2"/>
+  <text x="200" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333">Example Diagram</text>
+  
+  <!-- Start -->
+  <rect x="50" y="70" width="80" height="40" rx="5" fill="#4CAF50" stroke="#2E7D32" stroke-width="2"/>
+  <text x="90" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Start</text>
+  
+  <!-- Process -->
+  <rect x="180" y="70" width="80" height="40" rx="5" fill="#2196F3" stroke="#1565C0" stroke-width="2"/>
+  <text x="220" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Process</text>
+  
+  <!-- End -->
+  <rect x="310" y="70" width="80" height="40" rx="5" fill="#F44336" stroke="#C62828" stroke-width="2"/>
+  <text x="350" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">End</text>
+  
+  <!-- Arrows -->
+  <path d="M 130 90 L 180 90" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 260 90 L 310 90" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#333"/>
+    </marker>
+  </defs>
+  
+  <!-- Caption -->
+  <text x="200" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#666">This is an example SVG diagram</text>
+</svg>
+
