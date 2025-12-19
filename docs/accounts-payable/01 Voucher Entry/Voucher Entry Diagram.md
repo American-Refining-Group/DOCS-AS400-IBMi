@@ -1,3 +1,4 @@
+```mermaid
 ---
 title:
    AP Voucher Entry, Payment, and VOID Data Flow
@@ -7,7 +8,7 @@ flowchart  TD
 Entry[Voucher Entry Programs]
 PJ[Post Purchase Journal AP200]
 Payment[Payment Cycle]
-VOID[VOID <br> - opposite Signage <br> - Prepaid]
+VOID[VOID <br> - reverse signage <br> - set as prepaid]
 APTRANH[(APTRANH)]
 APTRAND[(APTRAND)]
 TEMGEN1[(TEMGEN=PJ)]
@@ -34,3 +35,4 @@ Payment-->APHSTD
 
 APHSTH-->VOID-->Entry
 APHSTD-->VOID
+```
