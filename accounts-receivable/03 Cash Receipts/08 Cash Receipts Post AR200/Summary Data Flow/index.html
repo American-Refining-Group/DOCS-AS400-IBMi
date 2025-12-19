@@ -25071,7 +25071,53 @@
 <li><strong>Route</strong>: Reports are sent to output queues (e.g., <code>ARPOST</code>, <code>TESTOUTQ</code>).</li>
 <li><strong>Assumptions</strong>: <code>AR200P.ocl36.txt</code> and <code>AR200P.rpgle.txt</code> do not modify files directly but facilitate initialization. <code>AR211</code> does not update <code>ARCONT</code> (per 8/06/14 change). File labels use <code>?9?</code> prefix (e.g., <code>GG</code> for Atrium).</li>
 </ul>
-<p>If you need further details or adjustments (e.g., specific field updates or additional files), please let me know!</p>
+<pre class="mermaid"><code>---
+title: Cash Receipts Programs
+---
+graph TD
+    AR300P["`AR300P ARMENU12 &lt;br&gt; **Soft Deletes records in ARDETL**`"]
+    AR745["AR745 Automated &lt;br&gt;EFT file creation&lt;br&gt;&lt;br&gt;ARR17"] 
+    AR135["AR135 Manual EFT &lt;br&gt; Create or update&lt;br&gt;&lt;br&gt;ARMENU 7"]
+    AR136["AR136 EFT Report &lt;br&gt; Reads EMMDDYY&lt;br&gt;&lt;br&gt;ARMENU 8"] 
+    AR137["AR137 PNC Upload &lt;br&gt;ARMENU 11&lt;br&gt;&lt;br&gt;*Updates EMMDDYY by flagging deleted records ATDEL = 'D'*"]
+    AR156["AR156 EFT Email Notification &lt;br&gt;ARMENU 9"]
+    AR157["AR157 Automated Cash Receipts Entry &lt;br&gt;*copies non-deleted*&lt;br&gt;&lt;br&gt;ARMENU 10&lt;br&gt;"]
+    AR050IDV[AR050 ARMENU1 &lt;br&gt;OPTION = INDVIDUAL &lt;br&gt;]
+    AR050PAY[AR050 ARMENU1 &lt;br&gt;OPTION = PAY STATMENT&lt;br&gt;]    
+    AR200[AR200 Cash Receipts Posting ARMENU2 &lt;br&gt;*Updates ARDETL invoice due amounts and payments*]
+
+    ARDETL[(ARDETL)]
+    EMMDDYY[(EMMDDYY)]
+    CRIEGG[(CRIEGG)]
+    AREFTD[(AREFTD)]
+    AREFTS[(AREFTS)]
+
+    ARCUST[(ARCUST)]
+    TEMGEN[(TEMGEN)]
+    ARHIST[(ARHIST)]
+    SA5DSC[(SA5DSC)]
+
+
+AR300P
+ARDETL--&gt;AR745
+ARDETL--&gt;AR135
+AR745--&gt;EMMDDYY
+AR135--&gt;EMMDDYY
+EMMDDYY--&gt;AR136
+EMMDDYY--&gt;AR137
+AR137---&gt;AREFTD
+AR137---&gt;AREFTS
+EMMDDYY--&gt;AR156
+AR156--&gt;AREFTD
+AR156--&gt;AREFTS
+
+AR157-.-&gt;AR050IDV
+AR050IDV--&gt;CRIEGG
+AR050PAY--&gt;CRPSGG
+CRIEGG--&gt;AR200
+CRPSGG--&gt;AR200
+
+EMMDDYY--&gt;AR157-.-&gt;CRIEGG</code></pre>
 
 
 
