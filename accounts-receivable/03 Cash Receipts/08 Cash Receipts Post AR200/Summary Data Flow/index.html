@@ -25435,12 +25435,12 @@ title: Cash Receipts Programs
 ---
 graph TD
     AR300P["`AR300P ARMENU12 &lt;br&gt; **Soft Deletes records in ARDETL**`"]
-    AR745["AR745 Automated &lt;br&gt;EFT file creation&lt;br&gt;&lt;br&gt;ARR17"] 
-    AR135["AR135 Manual EFT &lt;br&gt; Create or update&lt;br&gt;&lt;br&gt;ARMENU 7"]
-    AR136["AR136 EFT Report &lt;br&gt; Reads EMMDDYY&lt;br&gt;&lt;br&gt;ARMENU 8"] 
-    AR137["AR137 PNC Upload &lt;br&gt;ARMENU 11&lt;br&gt;&lt;br&gt;*Updates EMMDDYY by flagging deleted records ATDEL = 'D'*"]
-    AR156["AR156 EFT Email Notification &lt;br&gt;ARMENU 9"]
-    AR157["AR157 Automated Cash Receipts Entry &lt;br&gt;*copies non-deleted*&lt;br&gt;&lt;br&gt;ARMENU 10&lt;br&gt;"]
+    AR745["AR745P Automated &lt;br&gt;EFT file creation&lt;br&gt;&lt;br&gt;ARR17"] 
+    AR135["AR135P Manual EFT &lt;br&gt; Create or update&lt;br&gt;&lt;br&gt;ARMENU 7"]
+    AR136["AR136P EFT Post Report &lt;br&gt; Reads EMMDDYY&lt;br&gt;&lt;br&gt;ARMENU 8"] 
+    AR137["AR137P Send EFT Notice to Customers &lt;br&gt;ARMENU 11&lt;br&gt;&lt;br&gt;"]
+    AR156["AR156 Create PNC Upload File &lt;br&gt;ARMENU 9"]
+    AR157["AR157 Create Cash Receipts from EFT &lt;br&gt;*copies non-deleted*&lt;br&gt;&lt;br&gt;ARMENU 10&lt;br&gt;"]
     AR050IDV[AR050 ARMENU1 &lt;br&gt;OPTION = INDVIDUAL &lt;br&gt;]
     AR050PAY[AR050 ARMENU1 &lt;br&gt;OPTION = PAY STATMENT&lt;br&gt;]    
     AR200[AR200 Cash Receipts Posting ARMENU2 &lt;br&gt;*Updates ARDETL invoice due amounts and payments*]
@@ -25455,7 +25455,7 @@ graph TD
     TEMGEN[(TEMGEN)]
     ARHIST[(ARHIST)]
     SA5DSC[(SA5DSC)]
-
+R1[/"EFT Post Report"\]
 
 AR300P
 ARDETL--&gt;AR745
@@ -25476,7 +25476,15 @@ AR050PAY--&gt;CRPSGG
 CRIEGG--&gt;AR200
 CRPSGG--&gt;AR200
 
-EMMDDYY--&gt;AR157-.-&gt;CRIEGG</code></pre>
+EMMDDYY--&gt;AR157-.-&gt;CRIEGG
+
+AR200--&gt;ARHIST
+AR200--&gt;TEMGEN
+AR200--&gt;ARCUST
+AR200--&gt;SA5DSC
+AR200--&gt;ARDALY
+AR136--&gt;R1
+ARDALY[(ARDALY &lt;br&gt;**Obsolete**&lt;br&gt;)]</code></pre>
 
 
 
