@@ -32,12 +32,12 @@ title: Cash Receipts Programs
 ---
 graph TD
     AR300P["`AR300P ARMENU12 <br> **Soft Deletes records in ARDETL**`"]
-    AR745["AR745 Automated <br>EFT file creation<br><br>ARR17"] 
-    AR135["AR135 Manual EFT <br> Create or update<br><br>ARMENU 7"]
-    AR136["AR136 EFT Report <br> Reads EMMDDYY<br><br>ARMENU 8"] 
-    AR137["AR137 PNC Upload <br>ARMENU 11<br><br>*Updates EMMDDYY by flagging deleted records ATDEL = 'D'*"]
-    AR156["AR156 EFT Email Notification <br>ARMENU 9"]
-    AR157["AR157 Automated Cash Receipts Entry <br>*copies non-deleted*<br><br>ARMENU 10<br>"]
+    AR745["AR745P Automated <br>EFT file creation<br><br>ARR17"] 
+    AR135["AR135P Manual EFT <br> Create or update<br><br>ARMENU 7"]
+    AR136["AR136P EFT Post Report <br> Reads EMMDDYY<br><br>ARMENU 8"] 
+    AR137["AR137P Send EFT Notice to Customers <br>ARMENU 11<br><br>"]
+    AR156["AR156 Create PNC Upload File <br>ARMENU 9"]
+    AR157["AR157 Create Cash Receipts from EFT <br>*copies non-deleted*<br><br>ARMENU 10<br>"]
     AR050IDV[AR050 ARMENU1 <br>OPTION = INDVIDUAL <br>]
     AR050PAY[AR050 ARMENU1 <br>OPTION = PAY STATMENT<br>]    
     AR200[AR200 Cash Receipts Posting ARMENU2 <br>*Updates ARDETL invoice due amounts and payments*]
@@ -52,7 +52,7 @@ graph TD
     TEMGEN[(TEMGEN)]
     ARHIST[(ARHIST)]
     SA5DSC[(SA5DSC)]
-
+R1[/"EFT Post Report"\]
    
 AR300P
 ARDETL-->AR745
@@ -74,4 +74,12 @@ CRIEGG-->AR200
 CRPSGG-->AR200
 
 EMMDDYY-->AR157-.->CRIEGG
+
+AR200-->ARHIST
+AR200-->TEMGEN
+AR200-->ARCUST
+AR200-->SA5DSC
+AR200-->ARDALY
+AR136-->R1
+ARDALY[(ARDALY <br>**Obsolete**<br>)]
 ```
